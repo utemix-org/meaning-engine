@@ -1,0 +1,46 @@
+{
+  "name": "meaning-engine",
+  "version": "0.1.0",
+  "description": "Universal semantic graph engine for building knowledge systems",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./engine": "./src/engine/index.js",
+    "./core": "./src/core/index.js",
+    "./highlight": "./src/highlight/highlightModel.js"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "semantic",
+    "graph",
+    "engine",
+    "ontology",
+    "knowledge-graph",
+    "llm",
+    "reflection"
+  ],
+  "author": "utemix-lab",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utemix-lab/meaning-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/utemix-lab/meaning-engine/issues"
+  },
+  "homepage": "https://github.com/utemix-lab/meaning-engine#readme",
+  "devDependencies": {
+    "vitest": "^1.6.1"
+  },
+  "files": [
+    "src",
+    "specification",
+    "README.md",
+    "LICENSE"
+  ]
+}
