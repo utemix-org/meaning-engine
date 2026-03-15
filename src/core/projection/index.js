@@ -4,4 +4,4 @@ export { resolveFocus } from './resolveFocus.js';
 export { computeVisibleSubgraph } from './computeVisibleSubgraph.js';
 export { deriveSemanticRoles } from './deriveSemanticRoles.js';
 export { buildViewModel } from './buildViewModel.js';
-export { SemanticRole, defaultParams, emptyFocus } from './types';
+export { SemanticRole, defaultParams, emptyFocus } from './types.js';

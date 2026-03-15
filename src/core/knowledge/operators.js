@@ -11,7 +11,7 @@
  *   proposed → canonical | rejected  (direct approval still valid)
  */
 
-import { StatementStatus, EpistemicEventType } from './types';
+import { StatementStatus, EpistemicEventType } from './types.js';
 
 let _counter = 0;
 

@@ -13,7 +13,7 @@
  * Determinism invariant: same log always produces the same result.
  */
 
-import { StatementStatus, EpistemicEventType } from './types';
+import { StatementStatus, EpistemicEventType } from './types.js';
 
 const VERIFIABLE = new Set([StatementStatus.PROPOSED]);
 const APPROVABLE = new Set([StatementStatus.PROPOSED, StatementStatus.VERIFIED]);

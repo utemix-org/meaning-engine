@@ -1,2 +1,2 @@
 export { applyTransition } from './applyTransition.js';
-export { TransitionType, select, drillDown, drillUp, reset } from './types';
+export { TransitionType, select, drillDown, drillUp, reset } from './types.js';

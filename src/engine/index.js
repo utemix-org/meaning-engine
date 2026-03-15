@@ -50,7 +50,7 @@ import { SpecificationReader } from "./SpecificationReader.js";
 import { CatalogRegistry } from "./CatalogRegistry.js";
 import { OperatorEngine } from "./OperatorEngine.js";
 
-export const ENGINE_VERSION = "0.1.0";
+export const ENGINE_VERSION = "0.7.0";
 
 /**
  * ═══════════════════════════════════════════════════════════════════════════

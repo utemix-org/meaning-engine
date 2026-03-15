@@ -25,11 +25,11 @@
  *   Engine Phase 2 — Projection Engine
  *
  * Related specs:
- *   - docs/spec/PROJECTION_SPEC.md
- *   - FORMAL_CORE.md (INV-3, INV-7)
+ *   - PROJECTION_SPEC: https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
+ *   - INVARIANTS: https://www.notion.so/6b545241013f4995a8ce74cdcac93491
  */
 
-import { defaultParams, emptyFocus } from './types';
+import { defaultParams, emptyFocus } from './types.js';
 import { validateInputs } from './validateInputs.js';
 import { resolveFocus } from './resolveFocus.js';
 import { computeVisibleSubgraph } from './computeVisibleSubgraph.js';

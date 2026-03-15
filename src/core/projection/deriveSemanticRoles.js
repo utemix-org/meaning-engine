@@ -33,10 +33,10 @@
  *   Engine Phase 2 — Projection Engine
  *
  * Related specs:
- *   - docs/spec/PROJECTION_SPEC.md (Step 4)
+ *   - PROJECTION_SPEC (Step 4): https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
  */
 
-import { SemanticRole } from './types';
+import { SemanticRole } from './types.js';
 
 /**
  * @param {import('../GraphModel.js').GraphModel} graph

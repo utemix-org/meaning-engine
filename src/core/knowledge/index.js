@@ -9,7 +9,7 @@
 export {
   StatementStatus,
   EpistemicEventType,
-} from './types';
+} from './types.js';
 
 export {
   propose,

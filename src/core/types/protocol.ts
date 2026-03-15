@@ -5,7 +5,7 @@
  * 1. How any node can be "opened" as a unit of work (Focus Node Protocol)
  * 2. How external subgraphs connect to nodes (Attachment Protocol)
  *
- * See docs/FOCUS_NODE_PROTOCOL.md, docs/ATTACHMENT_PROTOCOL.md
+ * Protocol documentation is maintained in Notion.
  */
 
 // ── Focus Node Protocol ─────────────────────────────────────────────────

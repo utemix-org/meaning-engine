@@ -42,7 +42,7 @@
  *   Engine Phase 4d — Character Context
  *
  * Related specs:
- *   - docs/spec/PROJECTION_SPEC.md (Step 3)
+ *   - PROJECTION_SPEC (Step 3): https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
  */
 
 /**

@@ -102,7 +102,7 @@ export const IDENTITY_RECOMMENDED_FIELDS = Object.freeze([
  * Версия схемы платформы.
  * @readonly
  */
-export const SCHEMA_VERSION = "0.6.0";
+export const SCHEMA_VERSION = "0.7.0";
 
 /**
  * Метаданные схемы.

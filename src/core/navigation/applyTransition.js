@@ -23,11 +23,11 @@
  *   Engine Phase 3 — Navigation Model
  *
  * Related specs:
- *   - docs/spec/NAVIGATION_SPEC.md
- *   - docs/spec/PROJECTION_SPEC.md
+ *   - NAVIGATION_SPEC: https://www.notion.so/b997b23c7bb94390be3351504e64d1fd
+ *   - PROJECTION_SPEC: https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
  */
 
-import { TransitionType } from './types';
+import { TransitionType } from './types.js';
 
 /**
  * @param {import('../projection/types.js').Focus} focus
