@@ -18,6 +18,8 @@ import { fileURLToPath } from 'url';
 import {
   supportsInspect,
   supportsTrace,
+  supportsCompare,
+  supportsBridgeCandidates,
   findRivalTraces,
   rankBridgeCandidates,
 } from '../supports.js';
@@ -174,7 +176,7 @@ describe('Operator Supports & Rival Paths', () => {
     expect(c1.map((c) => c.candidateConceptId)).toEqual(c2.map((c) => c.candidateConceptId));
   });
 
-  test('8) no crash on current seed (116/267) — all functions return valid data', () => {
+  test('8) no crash on current seed — all functions return valid data', () => {
     expect(supportsInspect(docGraph).ok).toBe(true);
     expect(supportsTrace(docGraph).ok).toBe(true);
 
@@ -196,5 +198,124 @@ describe('Operator Supports & Rival Paths', () => {
     console.log(`  SYSTEM_OVERVIEW↔concept:focus: ${rivalResult.paths.length} paths, rival=${rivalResult.isRival}`);
     console.log(`  evidence→code_artifact candidates: ${candidates.length}`);
     console.log(`  spec→evidence RIVAL candidates: ${rivalCandidates.length}`);
+  });
+});
+
+// ═══════════════════════════════════════════
+// supportsCompare & supportsBridgeCandidates
+// ═══════════════════════════════════════════
+
+describe('supportsCompare', () => {
+  test('9) returns ok:false on unique shortest path (no ambiguity)', () => {
+    const result = supportsCompare(docGraph, SYSTEM_OVERVIEW, CONCEPT_PROJECTION);
+    expect(result.ok).toBe(false);
+    expect(result.missing).toContain('ambiguity_not_detected');
+    expect(result.detail.paths).toBe(1);
+  });
+
+  test('10) returns ok:true on synthetic rival graph', () => {
+    const result = supportsCompare(SYNTHETIC_RIVAL, 'start', 'end');
+    expect(result.ok).toBe(true);
+    expect(result.detail.paths).toBe(2);
+    expect(result.detail.hops).toBe(2);
+  });
+
+  test('11) returns ok:true on doc-world rival pair (SPEC → EVIDENCE)', () => {
+    const result = supportsCompare(docGraph, PROJECTION_SPEC, EVIDENCE_3A);
+    expect(result.ok).toBe(true);
+    expect(result.detail.paths).toBeGreaterThanOrEqual(2);
+  });
+
+  test('12) returns ok:false on trivial graph (< 3 nodes)', () => {
+    const tiny = {
+      nodes: [{ id: 'a', type: 'x' }, { id: 'b', type: 'y' }],
+      edges: [{ source: 'a', target: 'b', type: 'z' }],
+    };
+    const result = supportsCompare(tiny, 'a', 'b');
+    expect(result.ok).toBe(false);
+    expect(result.missing.some((m) => m.includes('nodes'))).toBe(true);
+  });
+
+  test('13) deterministic output', () => {
+    const r1 = supportsCompare(docGraph, PROJECTION_SPEC, EVIDENCE_3A);
+    const r2 = supportsCompare(docGraph, PROJECTION_SPEC, EVIDENCE_3A);
+    expect(r1.ok).toBe(r2.ok);
+    expect(r1.detail.paths).toBe(r2.detail.paths);
+  });
+});
+
+describe('supportsBridgeCandidates', () => {
+  test('14) returns ok:false when path exists (no gap)', () => {
+    const result = supportsBridgeCandidates(docGraph, SYSTEM_OVERVIEW, CONCEPT_PROJECTION);
+    expect(result.ok).toBe(false);
+    expect(result.missing).toContain('no_gap: path exists between nodes');
+  });
+
+  test('15) returns ok:false for unknown node', () => {
+    const result = supportsBridgeCandidates(docGraph, 'nonexistent-xyz', CONCEPT_PROJECTION);
+    expect(result.ok).toBe(false);
+    expect(result.missing.some((m) => m.includes('unknown_node'))).toBe(true);
+  });
+
+  test('16) returns ok:true on gap with candidates (synthetic)', () => {
+    const gapGraph = {
+      nodes: [
+        { id: 'from', type: 'spec', title: 'Spec' },
+        { id: 'to', type: 'evidence', title: 'Evidence' },
+        { id: 'mid', type: 'concept', title: 'Bridge' },
+      ],
+      edges: [
+        { source: 'from', target: 'mid', type: 'constrains' },
+      ],
+    };
+    const result = supportsBridgeCandidates(gapGraph, 'from', 'to');
+    expect(result.ok).toBe(true);
+    expect(result.detail.candidateCount).toBeGreaterThanOrEqual(1);
+  });
+
+  test('17) returns ok:false on gap without candidates', () => {
+    const isolatedGraph = {
+      nodes: [
+        { id: 'alpha', type: 'unknown_type_x', title: 'Alpha' },
+        { id: 'beta', type: 'unknown_type_y', title: 'Beta' },
+      ],
+      edges: [],
+    };
+    const result = supportsBridgeCandidates(isolatedGraph, 'alpha', 'beta');
+    expect(result.ok).toBe(false);
+    expect(result.missing).toContain('no_candidate_bridges');
+  });
+
+  test('18) deterministic output', () => {
+    const gapGraph = {
+      nodes: [
+        { id: 'from', type: 'spec', title: 'Spec' },
+        { id: 'to', type: 'evidence', title: 'Evidence' },
+      ],
+      edges: [],
+    };
+    const r1 = supportsBridgeCandidates(gapGraph, 'from', 'to');
+    const r2 = supportsBridgeCandidates(gapGraph, 'from', 'to');
+    expect(r1.ok).toBe(r2.ok);
+    expect(r1.detail?.candidateCount).toBe(r2.detail?.candidateCount);
+  });
+});
+
+describe('Regression: full support symmetry', () => {
+  test('19) all four supports() run without crash on doc-world', () => {
+    expect(supportsInspect(docGraph).ok).toBe(true);
+    expect(supportsTrace(docGraph).ok).toBe(true);
+
+    const cmp = supportsCompare(docGraph, PROJECTION_SPEC, EVIDENCE_3A);
+    expect(cmp.ok).toBe(true);
+
+    const bc = supportsBridgeCandidates(docGraph, CONCEPT_FOCUS, CODE_ARTIFACT_PROTOCOL);
+    expect(typeof bc.ok).toBe('boolean');
+
+    console.log(`\n[Support symmetry] doc-world:`);
+    console.log(`  supportsInspect: ok`);
+    console.log(`  supportsTrace: ok`);
+    console.log(`  supportsCompare(SPEC→EVIDENCE): ok=${cmp.ok}, paths=${cmp.detail?.paths}`);
+    console.log(`  supportsBridgeCandidates(concept:focus→protocol): ok=${bc.ok}`);
   });
 });

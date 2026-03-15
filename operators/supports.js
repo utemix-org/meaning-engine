@@ -2,8 +2,10 @@
  * Operator Support Checks & Rival Detection
  *
  * Pure, deterministic functions:
- *   - supportsInspect(graph, context?) — can Inspect operate on this graph?
- *   - supportsTrace(graph, context?)   — can Trace operate on this graph?
+ *   - supportsInspect(graph, context?)          — can Inspect operate?
+ *   - supportsTrace(graph, context?)            — can Trace operate?
+ *   - supportsCompare(graph, fromId, toId, ctx) — can Compare operate?
+ *   - supportsBridgeCandidates(graph, fromId, toId, ctx) — can BridgeCandidates operate?
  *   - findRivalTraces(graph, fromId, toId, options?) — all shortest paths
  *   - rankBridgeCandidates(gap, graph) — ranked candidate bridges for a gap
  *
@@ -273,4 +275,60 @@ export function rankBridgeCandidates(gap, graph) {
 
   candidates.sort((a, b) => b.score - a.score);
   return candidates;
+}
+
+/**
+ * Check if Compare can operate meaningfully on (graph, fromId, toId).
+ * Compare requires structural ambiguity: >= 2 rival shortest paths.
+ */
+export function supportsCompare(graph, fromId, toId, context = {}) {
+  const missing = [];
+
+  if (!graph.nodes || graph.nodes.length < 3) {
+    missing.push(`nodes: need >= 3 for meaningful comparison, got ${graph.nodes?.length ?? 0}`);
+  }
+  if (!graph.edges || graph.edges.length < 2) {
+    missing.push(`edges: need >= 2 for alternative paths, got ${graph.edges?.length ?? 0}`);
+  }
+  if (missing.length > 0) return { ok: false, missing };
+
+  const rivals = findRivalTraces(graph, fromId, toId, context);
+  if (rivals.paths.length < 2) {
+    missing.push('ambiguity_not_detected');
+    return { ok: false, missing, detail: { paths: rivals.paths.length, reason: rivals.reason } };
+  }
+
+  return { ok: true, detail: { paths: rivals.paths.length, hops: rivals.hops } };
+}
+
+/**
+ * Check if BridgeCandidates can operate meaningfully on (graph, fromId, toId).
+ * Requires: a GAP (no direct path) AND >= 1 candidate bridge concept.
+ */
+export function supportsBridgeCandidates(graph, fromId, toId, context = {}) {
+  const missing = [];
+
+  const nodeSet = new Set(graph.nodes?.map((n) => n.id) ?? []);
+  if (!nodeSet.has(fromId)) {
+    missing.push(`unknown_node: ${fromId}`);
+    return { ok: false, missing };
+  }
+  if (!nodeSet.has(toId)) {
+    missing.push(`unknown_node: ${toId}`);
+    return { ok: false, missing };
+  }
+
+  const rivals = findRivalTraces(graph, fromId, toId, context);
+  if (rivals.paths.length > 0) {
+    missing.push('no_gap: path exists between nodes');
+    return { ok: false, missing, detail: { paths: rivals.paths.length } };
+  }
+
+  const candidates = rankBridgeCandidates({ fromId, toId }, graph);
+  if (candidates.length < 1) {
+    missing.push('no_candidate_bridges');
+    return { ok: false, missing };
+  }
+
+  return { ok: true, detail: { candidateCount: candidates.length } };
 }
