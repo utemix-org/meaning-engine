@@ -1,0 +1,1976 @@
+[
+  {
+    "source": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept",
+    "note": "SYSTEM_OVERVIEW defines master formula V=P(G,F,C,S,Pr)"
+  },
+  {
+    "source": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "target": "concept:knowledge-log",
+    "type": "defines",
+    "layer": "concept",
+    "note": "SYSTEM_OVERVIEW defines Log as source of truth"
+  },
+  {
+    "source": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "target": "concept:focus",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Focus as operational center of observation"
+  },
+  {
+    "source": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "target": "concept:context",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Context = {domain?, workbench?, character?}"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept",
+    "note": "PROJECTION_SPEC is the canonical contract for projection"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:view-model",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Projection outputs ViewModel"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:graph-model",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Projection takes GraphModel as input"
+  },
+  {
+    "source": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "target": "concept:navigation",
+    "type": "defines",
+    "layer": "concept",
+    "note": "NAVIGATION_SPEC defines F'=T(F,a,G)"
+  },
+  {
+    "source": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "target": "concept:focus",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Navigation operates on Focus"
+  },
+  {
+    "source": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "target": "concept:knowledge-log",
+    "type": "defines",
+    "layer": "concept",
+    "note": "KNOWLEDGE_LOG_SPEC defines Log/Evaluate/Statements"
+  },
+  {
+    "source": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "target": "concept:statement",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Statement as knowledge atom (S,P,O)"
+  },
+  {
+    "source": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "target": "concept:graph-model",
+    "type": "defines",
+    "layer": "concept",
+    "note": "G = BuildGraph(Evaluate(Log))"
+  },
+  {
+    "source": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "target": "concept:surface",
+    "type": "defines",
+    "layer": "concept",
+    "note": "RENDER_SURFACES_SPEC defines surfaces/panels"
+  },
+  {
+    "source": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "target": "concept:view-model",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Surfaces consume ViewModel only"
+  },
+  {
+    "source": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "target": "concept:workbench-policy",
+    "type": "defines",
+    "layer": "concept",
+    "note": "WorkbenchPolicy defined as render-layer post-filter"
+  },
+  {
+    "source": "https://www.notion.so/8515a39d1f6b4b3b81a32f484d3710f1",
+    "target": "concept:focus",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/8515a39d1f6b4b3b81a32f484d3710f1",
+    "target": "concept:context",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/8515a39d1f6b4b3b81a32f484d3710f1",
+    "target": "concept:domain",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/8515a39d1f6b4b3b81a32f484d3710f1",
+    "target": "concept:workbench",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/8515a39d1f6b4b3b81a32f484d3710f1",
+    "target": "concept:character",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/f7603a2c56454f22a8346fbe5408e8e4",
+    "target": "concept:workbench",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Distinguishes workbench from practice"
+  },
+  {
+    "source": "https://www.notion.so/f7603a2c56454f22a8346fbe5408e8e4",
+    "target": "concept:practice",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Practice = activity pattern"
+  },
+  {
+    "source": "https://www.notion.so/f7603a2c56454f22a8346fbe5408e8e4",
+    "target": "concept:domain",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Domain = semantic scope vs practice = activity"
+  },
+  {
+    "source": "https://www.notion.so/7f6dd6875a7b443db4c20eb8eb782619",
+    "target": "concept:focus",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Focus as atom of attention (dual to Statement as atom of knowledge)"
+  },
+  {
+    "source": "https://www.notion.so/7f6dd6875a7b443db4c20eb8eb782619",
+    "target": "concept:statement",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Statement=atom of knowledge, Focus=atom of attention"
+  },
+  {
+    "source": "https://www.notion.so/7f6dd6875a7b443db4c20eb8eb782619",
+    "target": "concept:focus-continuity",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Focus visibility/preservation invariant"
+  },
+  {
+    "source": "https://www.notion.so/4aed885f3386419bb2c46172c92b17d8",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept",
+    "note": "FORMAL_CORE defines P(Graph,Focus,Rules)->ViewModel"
+  },
+  {
+    "source": "https://www.notion.so/4aed885f3386419bb2c46172c92b17d8",
+    "target": "concept:navigation",
+    "type": "defines",
+    "layer": "concept",
+    "note": "FORMAL_CORE defines navigation transitions"
+  },
+  {
+    "source": "https://www.notion.so/4aed885f3386419bb2c46172c92b17d8",
+    "target": "concept:graph-model",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Node/Edge/Schema/Graph definitions"
+  },
+  {
+    "source": "https://www.notion.so/10a219d7ac9d4a588b27ed6fa5a20678",
+    "target": "concept:workbench",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Workbench as operator over observation"
+  },
+  {
+    "source": "https://www.notion.so/43b53daa461c4216b2d2bf28d752da9d",
+    "target": "concept:workbench",
+    "type": "applies_to",
+    "layer": "concept",
+    "note": "World as shell/interface over engine"
+  },
+  {
+    "source": "https://www.notion.so/43b53daa461c4216b2d2bf28d752da9d",
+    "target": "concept:domain",
+    "type": "applies_to",
+    "layer": "concept",
+    "note": "World collects ontologies + primitives"
+  },
+  {
+    "source": "https://www.notion.so/956ec6b52a8b4259aa2b9bf1e583598f",
+    "target": "concept:context",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Context engine model: 5 proven laws"
+  },
+  {
+    "source": "https://www.notion.so/956ec6b52a8b4259aa2b9bf1e583598f",
+    "target": "concept:surface",
+    "type": "defines",
+    "layer": "concept",
+    "note": "Surface as observation type S∈{Scope,Story,System,Service}"
+  },
+  {
+    "source": "https://www.notion.so/956ec6b52a8b4259aa2b9bf1e583598f",
+    "target": "concept:workbench",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Workbench composability law"
+  },
+  {
+    "source": "concept:context",
+    "target": "concept:domain",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Context contains domain as semantic axis"
+  },
+  {
+    "source": "concept:context",
+    "target": "concept:workbench",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Context contains workbench as operational axis"
+  },
+  {
+    "source": "concept:context",
+    "target": "concept:character",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Context contains character as organizer"
+  },
+  {
+    "source": "concept:workbench",
+    "target": "concept:domain",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Workbench operates over domains"
+  },
+  {
+    "source": "concept:workbench",
+    "target": "concept:workbench-policy",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Policy is operational configuration of workbench"
+  },
+  {
+    "source": "concept:workbench",
+    "target": "concept:practice",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Practice is activity identity of workbench"
+  },
+  {
+    "source": "concept:practice",
+    "target": "concept:practice-id",
+    "type": "refines",
+    "layer": "concept",
+    "note": "practiceId is declarative attribute"
+  },
+  {
+    "source": "concept:projection",
+    "target": "concept:view-model",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Projection produces ViewModel"
+  },
+  {
+    "source": "concept:projection",
+    "target": "concept:focus",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Projection takes Focus as input"
+  },
+  {
+    "source": "concept:projection",
+    "target": "concept:graph-model",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Projection takes GraphModel as input"
+  },
+  {
+    "source": "concept:navigation",
+    "target": "concept:focus",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Navigation changes Focus"
+  },
+  {
+    "source": "concept:knowledge-log",
+    "target": "concept:statement",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Log contains epistemic events about statements"
+  },
+  {
+    "source": "concept:knowledge-log",
+    "target": "concept:graph-model",
+    "type": "refines",
+    "layer": "concept",
+    "note": "G=BuildGraph(Evaluate(Log))"
+  },
+  {
+    "source": "concept:focus-continuity",
+    "target": "concept:focus",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Continuity applies to focus state"
+  },
+  {
+    "source": "concept:focus-continuity",
+    "target": "concept:workbench",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Continuity triggered by workbench switch"
+  },
+  {
+    "source": "invariant:projection-determinism",
+    "target": "concept:projection",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Same inputs → same output"
+  },
+  {
+    "source": "invariant:canonical-only-graph-build",
+    "target": "concept:graph-model",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Only canonical statements enter graph"
+  },
+  {
+    "source": "invariant:canonical-only-graph-build",
+    "target": "concept:knowledge-log",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Log determines what becomes canonical"
+  },
+  {
+    "source": "invariant:focus-preservation",
+    "target": "concept:focus",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Focus node and 1-hop always visible"
+  },
+  {
+    "source": "invariant:focus-preservation",
+    "target": "concept:workbench-policy",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Policy cannot hide focus"
+  },
+  {
+    "source": "invariant:context-does-not-mutate-graph",
+    "target": "concept:context",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "C changes observation, not G"
+  },
+  {
+    "source": "invariant:context-does-not-mutate-graph",
+    "target": "concept:graph-model",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Graph immutable under context changes"
+  },
+  {
+    "source": "invariant:navigation-determinism",
+    "target": "concept:navigation",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Same F+a+G → same F'"
+  },
+  {
+    "source": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "target": "invariant:projection-determinism",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "target": "invariant:canonical-only-graph-build",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "target": "invariant:context-does-not-mutate-graph",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "target": "invariant:navigation-determinism",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "target": "invariant:focus-preservation",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/141dbde88ff640efa9d52efdff325b9e",
+    "target": "concept:graph-model",
+    "type": "defines",
+    "layer": "concept",
+    "note": "A1: everything expressible in graph"
+  },
+  {
+    "source": "https://www.notion.so/141dbde88ff640efa9d52efdff325b9e",
+    "target": "concept:focus",
+    "type": "defines",
+    "layer": "concept",
+    "note": "A2: Focus as operational center"
+  },
+  {
+    "source": "https://www.notion.so/141dbde88ff640efa9d52efdff325b9e",
+    "target": "invariant:context-does-not-mutate-graph",
+    "type": "defines",
+    "layer": "concept",
+    "note": "A3: Projection does not change graph"
+  },
+  {
+    "source": "https://www.notion.so/5a92743c08cc4c8b9c0e288716bbed83",
+    "target": "invariant:projection-determinism",
+    "type": "implements",
+    "layer": "concept",
+    "note": "PROVEN lists projection formula as proven"
+  },
+  {
+    "source": "https://www.notion.so/5a92743c08cc4c8b9c0e288716bbed83",
+    "target": "invariant:navigation-determinism",
+    "type": "implements",
+    "layer": "concept",
+    "note": "PROVEN lists navigation as proven"
+  },
+  {
+    "source": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "ARCHITECTURE references SYSTEM_OVERVIEW"
+  },
+  {
+    "source": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "target": "https://www.notion.so/4aed885f3386419bb2c46172c92b17d8",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "ARCHITECTURE references FORMAL_CORE"
+  },
+  {
+    "source": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "target": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "ARCHITECTURE references INVARIANTS"
+  },
+  {
+    "source": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "target": "https://www.notion.so/141dbde88ff640efa9d52efdff325b9e",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "ARCHITECTURE references AXIOMS"
+  },
+  {
+    "source": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "L0 links to L1 SYSTEM_OVERVIEW"
+  },
+  {
+    "source": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "target": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "L0 links to L2 ARCHITECTURE"
+  },
+  {
+    "source": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "L0 links to L3 PROJECTION_SPEC"
+  },
+  {
+    "source": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "target": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "L0 links to L3 NAVIGATION_SPEC"
+  },
+  {
+    "source": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "L0 links to L3 KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "https://www.notion.so/62c1616d2e804a1d9ce3020315290c31",
+    "target": "https://www.notion.so/acec3857b5174c40a88ef5aa448ad954",
+    "type": "defines",
+    "layer": "concept",
+    "note": "DOC_ARCH defines L0 as entry point"
+  },
+  {
+    "source": "https://www.notion.so/62c1616d2e804a1d9ce3020315290c31",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "defines",
+    "layer": "concept",
+    "note": "DOC_ARCH defines L1 overview level"
+  },
+  {
+    "source": "https://www.notion.so/62c1616d2e804a1d9ce3020315290c31",
+    "target": "https://www.notion.so/a4f020dae7e040e8abe5db6383383b71",
+    "type": "defines",
+    "layer": "concept",
+    "note": "DOC_ARCH defines L2 architecture level"
+  },
+  {
+    "source": "https://www.notion.so/bcd5efd4d0764de097b271363bfa3d2f",
+    "target": "concept:knowledge-log",
+    "type": "defines",
+    "layer": "concept",
+    "note": "HOW_IT_WORKS explains pipeline"
+  },
+  {
+    "source": "https://www.notion.so/bcd5efd4d0764de097b271363bfa3d2f",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept",
+    "note": "HOW_IT_WORKS explains projection step"
+  },
+  {
+    "source": "https://www.notion.so/bcd5efd4d0764de097b271363bfa3d2f",
+    "target": "concept:navigation",
+    "type": "defines",
+    "layer": "concept",
+    "note": "HOW_IT_WORKS explains navigation"
+  },
+  {
+    "source": "https://www.notion.so/a760b943aef640ed869b585be936f2d0",
+    "target": "code_artifact:protocol-ts",
+    "type": "defines",
+    "layer": "concept",
+    "note": "ENGINE_DEVELOPER_GUIDE documents protocol.ts status"
+  },
+  {
+    "source": "https://www.notion.so/a760b943aef640ed869b585be936f2d0",
+    "target": "https://www.notion.so/6b545241013f4995a8ce74cdcac93491",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Changes must respect INVARIANTS"
+  },
+  {
+    "source": "https://www.notion.so/8fef31005a2a420b841eecf29ecd02f8",
+    "target": "concept:workbench",
+    "type": "applies_to",
+    "layer": "concept",
+    "note": "WORLD_GROUNDING: fill workbenches with real content"
+  },
+  {
+    "source": "https://www.notion.so/a71e10f4dbaf46abbca8a8931ca1e9a7",
+    "target": "concept:domain",
+    "type": "applies_to",
+    "layer": "concept",
+    "note": "REFERENCE_WORLD sets concrete domain/workbench/character values"
+  },
+  {
+    "source": "https://www.notion.so/a71e10f4dbaf46abbca8a8931ca1e9a7",
+    "target": "concept:workbench",
+    "type": "applies_to",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/a71e10f4dbaf46abbca8a8931ca1e9a7",
+    "target": "concept:character",
+    "type": "applies_to",
+    "layer": "concept"
+  },
+  {
+    "source": "https://www.notion.so/3cd3105514dc44cba34bcbfd83483c5f",
+    "target": "concept:projection",
+    "type": "refines",
+    "layer": "concept",
+    "note": "FOUNDATIONS: projection algebra"
+  },
+  {
+    "source": "https://www.notion.so/3cd3105514dc44cba34bcbfd83483c5f",
+    "target": "concept:graph-model",
+    "type": "refines",
+    "layer": "concept",
+    "note": "FOUNDATIONS: graph theory"
+  },
+  {
+    "source": "invariant:projection-determinism",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Invariant constrains projection spec"
+  },
+  {
+    "source": "invariant:navigation-determinism",
+    "target": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "Invariant constrains navigation spec"
+  },
+  {
+    "source": "evidence:grounding-phase-3a-tests",
+    "target": "concept:practice-id",
+    "type": "proved_by",
+    "layer": "provenance",
+    "note": "Tests verify practiceId uniqueness and projection correlation"
+  },
+  {
+    "source": "evidence:grounding-phase-3a-tests",
+    "target": "invariant:focus-preservation",
+    "type": "proved_by",
+    "layer": "provenance",
+    "note": "Tests verify focus preserved across workbench switches"
+  },
+  {
+    "source": "evidence:grounding-phase-3b-tests",
+    "target": "concept:focus-continuity",
+    "type": "proved_by",
+    "layer": "provenance",
+    "note": "Tests verify focus continuity and fallback logic"
+  },
+  {
+    "source": "evidence:grounding-phase-3b-tests",
+    "target": "invariant:focus-preservation",
+    "type": "proved_by",
+    "layer": "provenance",
+    "note": "Tests verify resolveFocusContinuity pure function"
+  },
+  {
+    "source": "code_artifact:protocol-ts",
+    "target": "concept:focus",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "protocol.ts defines FocusRole, SceneVisibility types"
+  },
+  {
+    "source": "code_artifact:protocol-ts",
+    "target": "concept:surface",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "protocol.ts defines SurfacePolicy type"
+  },
+  {
+    "source": "https://www.notion.so/89f61e0b356a4fb19eafb8c42810c5ce",
+    "target": "code_artifact:protocol-ts",
+    "type": "drift_against",
+    "layer": "provenance",
+    "note": "DRIFT_LOG records protocol.ts as defined-not-enforced"
+  },
+  {
+    "source": "https://www.notion.so/89f61e0b356a4fb19eafb8c42810c5ce",
+    "target": "concept:workbench-policy",
+    "type": "drift_against",
+    "layer": "provenance",
+    "note": "DRIFT_LOG recorded WorkbenchPolicy as missing from canon (closed)"
+  },
+  {
+    "source": "https://www.notion.so/ee984c20696e4327989c2991df3f2ecf",
+    "target": "https://www.notion.so/428fa702e3dc486d98976f865529b060",
+    "type": "depends_on",
+    "layer": "provenance",
+    "note": "HISTORY chronicles phases"
+  },
+  {
+    "source": "https://www.notion.so/ee984c20696e4327989c2991df3f2ecf",
+    "target": "evidence:grounding-phase-3a-tests",
+    "type": "reported_by",
+    "layer": "provenance",
+    "note": "HISTORY records Phase 3A completion"
+  },
+  {
+    "source": "https://www.notion.so/ee984c20696e4327989c2991df3f2ecf",
+    "target": "evidence:grounding-phase-3b-tests",
+    "type": "reported_by",
+    "layer": "provenance",
+    "note": "HISTORY records Phase 3B task"
+  },
+  {
+    "source": "https://www.notion.so/3626600fda17499b8d6fde427c0e2c03",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "LLMS_CONTEXT references SYSTEM_OVERVIEW for details"
+  },
+  {
+    "source": "https://www.notion.so/3626600fda17499b8d6fde427c0e2c03",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept",
+    "note": "LLMS_CONTEXT presents projection as core"
+  },
+  {
+    "source": "concept:workbench-policy",
+    "target": "concept:surface",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Policy applied at render/surface layer"
+  },
+  {
+    "source": "concept:view-model",
+    "target": "concept:surface",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Surfaces consume ViewModel"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:test-coverage",
+    "type": "constrains",
+    "layer": "concept",
+    "note": "PROJECTION_SPEC constrains test-coverage expectations"
+  },
+  {
+    "source": "concept:test-coverage",
+    "target": "evidence:grounding-phase-3a-tests",
+    "type": "applies_to",
+    "layer": "provenance",
+    "note": "Test-coverage applies to grounding test evidence"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:acceptance-criteria",
+    "type": "defines",
+    "layer": "concept",
+    "note": "PROJECTION_SPEC defines acceptance criteria for projection correctness"
+  },
+  {
+    "source": "concept:acceptance-criteria",
+    "target": "evidence:grounding-phase-3a-tests",
+    "type": "applies_to",
+    "layer": "provenance",
+    "note": "Acceptance criteria validated by grounding tests"
+  },
+  {
+    "source": "concept:acceptance-criteria",
+    "target": "concept:test-coverage",
+    "type": "depends_on",
+    "layer": "concept",
+    "note": "Acceptance criteria depend on test coverage to be verified"
+  },
+  {
+    "source": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "target": "concept:verification-method",
+    "type": "defines",
+    "layer": "concept",
+    "note": "PROJECTION_SPEC defines verification methods for invariant proofs"
+  },
+  {
+    "source": "concept:verification-method",
+    "target": "evidence:grounding-phase-3a-tests",
+    "type": "applies_to",
+    "layer": "provenance",
+    "note": "Verification method applied via grounding test evidence"
+  },
+  {
+    "source": "concept:verification-method",
+    "target": "concept:test-coverage",
+    "type": "refines",
+    "layer": "concept",
+    "note": "Verification method refines test-coverage semantics"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/ChangeProtocol.js",
+    "target": "code:file:packages/engine/src/core/CanonicalGraphSchema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/ChangeProtocol.js",
+    "target": "code:file:packages/engine/src/core/StructuralInvariants.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/ChangeProtocol.js",
+    "target": "code:file:packages/engine/src/core/GraphSnapshot.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/DevProjection.js",
+    "target": "code:file:packages/engine/src/core/Projection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/DevProjection.js",
+    "target": "code:file:packages/engine/src/highlight/highlightModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/GraphModel.js",
+    "target": "code:file:packages/engine/src/highlight/highlightModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/GraphRAGProjection.js",
+    "target": "code:file:packages/engine/src/core/Projection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/GraphRAGProjection.js",
+    "target": "code:file:packages/engine/src/core/Identity.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/GraphSnapshot.js",
+    "target": "code:file:packages/engine/src/core/CanonicalGraphSchema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/Projection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/DevProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/OWLProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/GraphRAGProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/ReflectiveProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/index.js",
+    "target": "code:file:packages/engine/src/core/OwnershipGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/buildGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/endToEnd.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/evaluate.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/evaluate.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/evaluate.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/knowledgeInvariants.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/knowledgeInvariants.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/knowledgeInvariants.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/knowledgeInvariants.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/knowledgeInvariants.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/reviewWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/__tests__/verificationWorkflow.test.js",
+    "target": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/ReflectiveProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/GraphRAGProjection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/ChangeProtocol.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/GraphSnapshot.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/CanonicalGraphSchema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "target": "code:file:packages/engine/src/core/navigation/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/index.js",
+    "target": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/index.js",
+    "target": "code:file:packages/engine/src/core/navigation/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/types.ts",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/__tests__/applyTransition.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/__tests__/applyTransition.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/__tests__/applyTransition.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/__tests__/applyTransition.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/__tests__/applyTransition.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/OWLProjection.js",
+    "target": "code:file:packages/engine/src/core/Projection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/OWLProjection.js",
+    "target": "code:file:packages/engine/src/core/Identity.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/PerformanceAudit.js",
+    "target": "code:file:packages/engine/src/core/CanonicalGraphSchema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/buildViewModel.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/deriveSemanticRoles.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/validateInputs.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/computeVisibleSubgraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/deriveSemanticRoles.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/buildViewModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/index.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/validateInputs.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/computeVisibleSubgraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/deriveSemanticRoles.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "code:file:packages/engine/src/core/projection/buildViewModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/characterContext.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/characterContext.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/characterContext.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/domainProjection.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/domainProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/domainProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/domainProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/computeVisibleSubgraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/domainProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/enrichmentRobustness.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/enrichmentRobustness.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/enrichmentRobustness.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/enrichmentRobustness.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/enrichmentRobustness.test.js",
+    "target": "code:file:packages/engine/src/core/navigation/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/validateInputs.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/computeVisibleSubgraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/deriveSemanticRoles.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/workbenchProjection.test.js",
+    "target": "code:file:packages/engine/src/core/GraphModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/workbenchProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/__tests__/workbenchProjection.test.js",
+    "target": "code:file:packages/engine/src/core/projection/types.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/ReflectiveProjection.js",
+    "target": "code:file:packages/engine/src/core/Projection.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/StructuralInvariants.js",
+    "target": "code:file:packages/engine/src/core/CanonicalGraphSchema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/CatalogLoader.js",
+    "target": "code:file:packages/engine/src/engine/WorldInterface.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+    "target": "code:file:packages/engine/src/engine/WorldInterface.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/Schema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/WorldAdapter.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/SpecificationReader.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/OperatorEngine.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/WorldInterface.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/index.js",
+    "target": "code:file:packages/engine/src/engine/CatalogLoader.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/OperatorEngine.js",
+    "target": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/WorldAdapter.js",
+    "target": "code:file:packages/engine/src/engine/Schema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/WorldAdapter.js",
+    "target": "code:file:packages/engine/src/engine/WorldInterface.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/CatalogLoader.test.js",
+    "target": "code:file:packages/engine/src/engine/CatalogLoader.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/CatalogRegistry.test.js",
+    "target": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/MeaningEngine.test.js",
+    "target": "code:file:packages/engine/src/engine/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/OperatorEngine.test.js",
+    "target": "code:file:packages/engine/src/engine/OperatorEngine.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/OperatorEngine.test.js",
+    "target": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/Schema.test.js",
+    "target": "code:file:packages/engine/src/engine/Schema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/SpecificationReader.test.js",
+    "target": "code:file:packages/engine/src/engine/SpecificationReader.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/WorldAdapter.test.js",
+    "target": "code:file:packages/engine/src/engine/WorldAdapter.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/engine/__tests__/WorldAdapter.test.js",
+    "target": "code:file:packages/engine/src/engine/Schema.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/index.js",
+    "target": "code:file:packages/engine/src/engine/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/App.tsx",
+    "target": "code:file:packages/render/src/stores/graphStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/App.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/App.tsx",
+    "target": "code:file:packages/render/src/stores/knowledgeStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/App.tsx",
+    "target": "code:file:packages/render/src/scene/GraphScene.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/main.tsx",
+    "target": "code:file:packages/render/src/App.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/scene/GraphScene.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/scene/GraphScene.tsx",
+    "target": "code:file:packages/render/src/stores/focusStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/scene/GraphScene.tsx",
+    "target": "code:file:packages/render/src/visualConfig.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/focusStore.ts",
+    "target": "code:file:packages/render/src/stores/graphStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/index.ts",
+    "target": "code:file:packages/render/src/stores/graphStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/index.ts",
+    "target": "code:file:packages/render/src/stores/focusStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/knowledgeStore.ts",
+    "target": "code:file:packages/render/src/stores/graphStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "target": "code:file:packages/render/src/stores/graphStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "target": "code:file:packages/render/src/stores/focusStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/BreadcrumbsBar.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/BreadcrumbsBar.tsx",
+    "target": "code:file:packages/render/src/stores/focusStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/FocusPanel.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/index.ts",
+    "target": "code:file:packages/render/src/surfaces/FocusPanel.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/index.ts",
+    "target": "code:file:packages/render/src/surfaces/NeighborsPanel.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/index.ts",
+    "target": "code:file:packages/render/src/surfaces/BreadcrumbsBar.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/index.ts",
+    "target": "code:file:packages/render/src/surfaces/MetaPanel.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/index.ts",
+    "target": "code:file:packages/render/src/surfaces/SystemPanel.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/MetaPanel.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/NeighborsPanel.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/NeighborsPanel.tsx",
+    "target": "code:file:packages/render/src/stores/focusStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/ReviewQueue.tsx",
+    "target": "code:file:packages/render/src/stores/knowledgeStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/SystemPanel.tsx",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/SystemPanel.tsx",
+    "target": "code:file:packages/render/src/stores/knowledgeStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/SystemPanel.tsx",
+    "target": "code:file:packages/render/src/surfaces/ReviewQueue.tsx",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/render/src/__tests__/groundingPhase3b.test.js",
+    "target": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/projectGraph.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/computeVisibleSubgraph.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/computeVisibleSubgraph.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/deriveSemanticRoles.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/deriveSemanticRoles.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/buildViewModel.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/buildViewModel.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/resolveFocus.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/validateInputs.js",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/validateInputs.js implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/types.ts",
+    "target": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/types.ts implements PROJECTION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "target": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/navigation/applyTransition.js implements NAVIGATION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/types.ts",
+    "target": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/navigation/types.ts implements NAVIGATION_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/evaluate.js implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/operators.js",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/operators.js implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/buildGraph.js implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/types.ts",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/types.ts implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/FocusPanel.tsx",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/surfaces/FocusPanel.tsx implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/NeighborsPanel.tsx",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/surfaces/NeighborsPanel.tsx implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/SystemPanel.tsx",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/surfaces/SystemPanel.tsx implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/MetaPanel.tsx",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/surfaces/MetaPanel.tsx implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/surfaces/ReviewQueue.tsx",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/surfaces/ReviewQueue.tsx implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "target": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/stores/viewModelStore.ts implements RENDER_SURFACES_SPEC"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "invariant:projection-determinism",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/projectGraph.js implements Projection Determinism"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+    "target": "invariant:canonical-only-graph-build",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/buildGraph.js implements Canonical-Only Graph Build"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/knowledge/evaluate.js",
+    "target": "invariant:canonical-only-graph-build",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/knowledge/evaluate.js implements Canonical-Only Graph Build"
+  },
+  {
+    "source": "code:file:packages/render/src/stores/viewModelStore.ts",
+    "target": "invariant:focus-preservation",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/render/src/stores/viewModelStore.ts implements Focus Preservation Rule"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+    "target": "invariant:focus-preservation",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/resolveFocus.js implements Focus Preservation Rule"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/projection/projectGraph.js",
+    "target": "invariant:context-does-not-mutate-graph",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/projection/projectGraph.js implements Context Does Not Mutate Graph"
+  },
+  {
+    "source": "code:file:packages/engine/src/core/navigation/applyTransition.js",
+    "target": "invariant:navigation-determinism",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "packages/engine/src/core/navigation/applyTransition.js implements Navigation Determinism"
+  },
+  {
+    "source": "evidence:grounding-phase-3a-tests",
+    "target": "code:file:packages/render/src/__tests__/groundingPhase3a.test.js",
+    "type": "depends_on",
+    "layer": "provenance",
+    "note": "Evidence test file"
+  },
+  {
+    "source": "evidence:grounding-phase-3b-tests",
+    "target": "code:file:packages/render/src/__tests__/groundingPhase3b.test.js",
+    "type": "depends_on",
+    "layer": "provenance",
+    "note": "Evidence test file"
+  }
+]

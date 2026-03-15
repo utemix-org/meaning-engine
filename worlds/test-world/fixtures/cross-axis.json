@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "version": "1.0",
+    "fixture": "cross-axis",
+    "description": "Cross-axis graph. Nodes belong to multiple ontological axes simultaneously. Vertical (hierarchy) and horizontal (cross-cutting) relations coexist. Tests that projection and navigation survive orthogonal structure."
+  },
+  "schema": {
+    "nodeTypes": ["root", "hub", "person", "instrument", "concept", "method", "genre", "project"],
+    "edgeTypes": ["structural", "contains", "uses", "knows", "applies", "belongs_to", "produces", "compatible_with"]
+  },
+  "nodes": [
+    { "id": "root", "label": "Root", "type": "root" },
+
+    { "id": "axis-people", "label": "People", "type": "hub", "desc": "Vertical axis: human actors" },
+    { "id": "axis-tools", "label": "Tools", "type": "hub", "desc": "Vertical axis: instruments" },
+    { "id": "axis-knowledge", "label": "Knowledge", "type": "hub", "desc": "Vertical axis: concepts and methods" },
+    { "id": "axis-output", "label": "Output", "type": "hub", "desc": "Vertical axis: projects and results" },
+
+    { "id": "eve", "label": "Eve", "type": "person",
+      "desc": "Sound designer and theorist",
+      "narrative": "Eve works across synthesis theory and production practice. She is both a user of instruments and a contributor to method."
+    },
+    { "id": "frank", "label": "Frank", "type": "person", "desc": "Producer" },
+
+    { "id": "wavetable-x", "label": "Wavetable X", "type": "instrument",
+      "desc": "Wavetable synthesizer",
+      "formula": "output = lerp(wt[i], wt[i+1], pos) * env",
+      "machine": "{ synthesis: 'wavetable', tables: 256 }"
+    },
+    { "id": "fm-y", "label": "FM-Y", "type": "instrument", "desc": "FM synthesizer" },
+    { "id": "reverb-z", "label": "Reverb Z", "type": "instrument", "desc": "Algorithmic reverb" },
+
+    { "id": "spectral-analysis", "label": "Spectral Analysis", "type": "method",
+      "desc": "Frequency-domain signal analysis",
+      "formal": "X(f) = ∫ x(t) e^{-j2πft} dt"
+    },
+    { "id": "additive", "label": "Additive Synthesis", "type": "method", "desc": "Sum of partials" },
+    { "id": "psychoacoustics", "label": "Psychoacoustics", "type": "concept",
+      "desc": "Perception of sound",
+      "narrative": "The study of how humans perceive and interpret acoustic phenomena."
+    },
+
+    { "id": "ambient", "label": "Ambient", "type": "genre" },
+    { "id": "experimental", "label": "Experimental", "type": "genre" },
+
+    { "id": "proj-alpha", "label": "Project Alpha", "type": "project",
+      "desc": "Collaborative ambient piece"
+    },
+    { "id": "proj-beta", "label": "Project Beta", "type": "project",
+      "desc": "Experimental spectral composition"
+    }
+  ],
+  "edges": [
+    { "id": "s1", "source": "root", "target": "axis-people", "type": "structural" },
+    { "id": "s2", "source": "root", "target": "axis-tools", "type": "structural" },
+    { "id": "s3", "source": "root", "target": "axis-knowledge", "type": "structural" },
+    { "id": "s4", "source": "root", "target": "axis-output", "type": "structural" },
+
+    { "id": "c1", "source": "axis-people", "target": "eve", "type": "contains" },
+    { "id": "c2", "source": "axis-people", "target": "frank", "type": "contains" },
+    { "id": "c3", "source": "axis-tools", "target": "wavetable-x", "type": "contains" },
+    { "id": "c4", "source": "axis-tools", "target": "fm-y", "type": "contains" },
+    { "id": "c5", "source": "axis-tools", "target": "reverb-z", "type": "contains" },
+    { "id": "c6", "source": "axis-knowledge", "target": "spectral-analysis", "type": "contains" },
+    { "id": "c7", "source": "axis-knowledge", "target": "additive", "type": "contains" },
+    { "id": "c8", "source": "axis-knowledge", "target": "psychoacoustics", "type": "contains" },
+    { "id": "c9", "source": "axis-output", "target": "proj-alpha", "type": "contains" },
+    { "id": "c10", "source": "axis-output", "target": "proj-beta", "type": "contains" },
+
+    { "id": "x1", "source": "eve", "target": "wavetable-x", "type": "uses" },
+    { "id": "x2", "source": "eve", "target": "fm-y", "type": "uses" },
+    { "id": "x3", "source": "eve", "target": "spectral-analysis", "type": "knows" },
+    { "id": "x4", "source": "eve", "target": "additive", "type": "knows" },
+    { "id": "x5", "source": "eve", "target": "psychoacoustics", "type": "knows" },
+    { "id": "x6", "source": "eve", "target": "proj-alpha", "type": "produces" },
+    { "id": "x7", "source": "eve", "target": "proj-beta", "type": "produces" },
+
+    { "id": "x8", "source": "frank", "target": "reverb-z", "type": "uses" },
+    { "id": "x9", "source": "frank", "target": "fm-y", "type": "uses" },
+    { "id": "x10", "source": "frank", "target": "proj-alpha", "type": "produces" },
+
+    { "id": "x11", "source": "wavetable-x", "target": "additive", "type": "applies" },
+    { "id": "x12", "source": "fm-y", "target": "spectral-analysis", "type": "applies" },
+    { "id": "x13", "source": "wavetable-x", "target": "reverb-z", "type": "compatible_with" },
+    { "id": "x14", "source": "fm-y", "target": "reverb-z", "type": "compatible_with" },
+
+    { "id": "x15", "source": "proj-alpha", "target": "ambient", "type": "belongs_to" },
+    { "id": "x16", "source": "proj-beta", "target": "experimental", "type": "belongs_to" },
+    { "id": "x17", "source": "proj-beta", "target": "ambient", "type": "belongs_to" },
+
+    { "id": "x18", "source": "spectral-analysis", "target": "psychoacoustics", "type": "applies" },
+    { "id": "x19", "source": "proj-alpha", "target": "wavetable-x", "type": "uses" },
+    { "id": "x20", "source": "proj-beta", "target": "fm-y", "type": "uses" },
+    { "id": "x21", "source": "proj-beta", "target": "reverb-z", "type": "uses" }
+  ]
+}

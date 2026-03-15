@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Minimal test world for engine invariant tests"
+  },
+  "schema": {
+    "nodeTypes": ["root", "hub", "concept", "person"],
+    "edgeTypes": ["structural", "knows", "contains"]
+  },
+  "nodes": [
+    { "id": "root", "label": "Root", "type": "root" },
+    { "id": "hub-people", "label": "People", "type": "hub" },
+    { "id": "hub-ideas", "label": "Ideas", "type": "hub" },
+    { "id": "alice", "label": "Alice", "type": "person" },
+    { "id": "bob", "label": "Bob", "type": "person" },
+    { "id": "carol", "label": "Carol", "type": "person" },
+    { "id": "logic", "label": "Logic", "type": "concept" },
+    { "id": "music", "label": "Music", "type": "concept" },
+    { "id": "math", "label": "Mathematics", "type": "concept" },
+    { "id": "harmony", "label": "Harmony", "type": "concept" }
+  ],
+  "edges": [
+    { "id": "e1", "source": "root", "target": "hub-people", "type": "structural" },
+    { "id": "e2", "source": "root", "target": "hub-ideas", "type": "structural" },
+    { "id": "e3", "source": "hub-people", "target": "alice", "type": "contains" },
+    { "id": "e4", "source": "hub-people", "target": "bob", "type": "contains" },
+    { "id": "e5", "source": "hub-people", "target": "carol", "type": "contains" },
+    { "id": "e6", "source": "hub-ideas", "target": "logic", "type": "contains" },
+    { "id": "e7", "source": "hub-ideas", "target": "music", "type": "contains" },
+    { "id": "e8", "source": "hub-ideas", "target": "math", "type": "contains" },
+    { "id": "e9", "source": "hub-ideas", "target": "harmony", "type": "contains" },
+    { "id": "e10", "source": "alice", "target": "logic", "type": "knows" },
+    { "id": "e11", "source": "alice", "target": "math", "type": "knows" },
+    { "id": "e12", "source": "bob", "target": "music", "type": "knows" },
+    { "id": "e13", "source": "bob", "target": "harmony", "type": "knows" },
+    { "id": "e14", "source": "carol", "target": "logic", "type": "knows" },
+    { "id": "e15", "source": "carol", "target": "music", "type": "knows" },
+    { "id": "e16", "source": "math", "target": "harmony", "type": "knows" }
+  ]
+}

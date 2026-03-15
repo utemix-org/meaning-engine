@@ -1,0 +1,103 @@
+[
+  {
+    "scenario": "spec → evidence",
+    "from": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "to": "evidence:grounding-phase-3a-tests",
+    "result": {
+      "ok": true,
+      "path": [
+        {
+          "nodeId": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+          "nodeType": "spec",
+          "nodeTitle": "PROJECTION_SPEC",
+          "viaEdgeType": null
+        },
+        {
+          "nodeId": "concept:test-coverage",
+          "nodeType": "concept",
+          "nodeTitle": "Test Coverage",
+          "viaEdgeType": "constrains"
+        },
+        {
+          "nodeId": "evidence:grounding-phase-3a-tests",
+          "nodeType": "evidence",
+          "nodeTitle": "Grounding Phase 3A Tests (groundingPhase3a.test.js)",
+          "viaEdgeType": "applies_to"
+        }
+      ],
+      "hops": 2
+    }
+  },
+  {
+    "scenario": "evidence → code_artifact",
+    "from": "evidence:grounding-phase-3a-tests",
+    "to": "code_artifact:protocol-ts",
+    "result": {
+      "ok": false,
+      "reason": "no_path",
+      "gap": {
+        "fromId": "evidence:grounding-phase-3a-tests",
+        "toId": "code_artifact:protocol-ts",
+        "boundary": {
+          "fromReachableCount": 112,
+          "toReachableCount": 103,
+          "overlap": 103
+        }
+      },
+      "candidates": [
+        {
+          "candidateConceptId": "concept:code-spec-alignment",
+          "candidateEdges": [
+            {
+              "source": "evidence:grounding-phase-3a-tests",
+              "target": "concept:code-spec-alignment",
+              "type": "proved_by"
+            },
+            {
+              "source": "concept:code-spec-alignment",
+              "target": "code_artifact:protocol-ts",
+              "type": "applies_to"
+            }
+          ],
+          "note": "evidence↔code_artifact gap: evidence proves alignment, which applies_to artifact"
+        }
+      ]
+    }
+  },
+  {
+    "scenario": "concept:context → SYSTEM_OVERVIEW",
+    "from": "concept:context",
+    "to": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "result": {
+      "ok": false,
+      "reason": "no_path",
+      "gap": {
+        "fromId": "concept:context",
+        "toId": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+        "boundary": {
+          "fromReachableCount": 112,
+          "toReachableCount": 112,
+          "overlap": 112
+        }
+      },
+      "candidates": [
+        {
+          "candidateConceptId": "concept:context-anchor",
+          "candidateEdges": [
+            {
+              "source": "concept:context",
+              "target": "concept:context-anchor",
+              "type": "refines"
+            },
+            {
+              "source": "concept:context-anchor",
+              "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+              "type": "applies_to"
+            }
+          ],
+          "note": "concept↔page gap: add context-anchor as bridge between abstract concept and page"
+        }
+      ]
+    }
+  }
+]

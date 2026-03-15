@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "version": "1.0",
+    "fixture": "rich",
+    "description": "Rich graph. Full and partial metadata layers. Multiple relation types. Nodes in multiple semantic contexts. Tests metadata pipeline and relation diversity."
+  },
+  "schema": {
+    "nodeTypes": ["root", "hub", "person", "concept", "instrument", "workspace"],
+    "edgeTypes": ["structural", "contains", "knows", "uses", "creates", "influences"]
+  },
+  "nodes": [
+    {
+      "id": "root", "label": "Root", "type": "root",
+      "desc": "Entry point of the world graph",
+      "formal": "root ∈ G : ∀n ∈ G, reachable(root, n)"
+    },
+    {
+      "id": "hub-people", "label": "People", "type": "hub",
+      "desc": "Human actors in the system"
+    },
+    {
+      "id": "hub-tools", "label": "Tools", "type": "hub",
+      "desc": "Instruments and workspaces"
+    },
+    {
+      "id": "hub-ideas", "label": "Ideas", "type": "hub",
+      "desc": "Concepts and knowledge domains"
+    },
+    {
+      "id": "alice", "label": "Alice", "type": "person",
+      "desc": "Composer and sound designer",
+      "narrative": "Alice explores the intersection of formal logic and harmonic structures. She builds sound design workflows that combine analytical and intuitive approaches.",
+      "formal": "person(alice) : uses(synth) ∧ knows(logic) ∧ creates(harmonic_patch)"
+    },
+    {
+      "id": "bob", "label": "Bob", "type": "person",
+      "desc": "Producer and experimentalist",
+      "narrative": "Bob works at the edge of synthesis and live performance. His approach is exploratory rather than systematic.",
+      "machine": "{ role: 'producer', methods: ['granular', 'live_processing'], collab_affinity: 0.8 }"
+    },
+    {
+      "id": "carol", "label": "Carol", "type": "person",
+      "desc": "Researcher and theorist"
+    },
+    {
+      "id": "synth-alpha", "label": "Synth Alpha", "type": "instrument",
+      "desc": "Virtual analog synthesizer",
+      "narrative": "A workhorse synth known for its warm oscillators and versatile modulation matrix.",
+      "formal": "instrument(synth_alpha) : synthesis_type(virtual_analog)",
+      "formula": "output = osc(f) * env(A,D,S,R) * filter(cutoff, resonance)",
+      "machine": "{ synthesis: 'virtual_analog', polyphony: 16, oscillators: 3 }"
+    },
+    {
+      "id": "sampler-beta", "label": "Sampler Beta", "type": "instrument",
+      "desc": "Granular sampler with spectral engine"
+    },
+    {
+      "id": "ws-studio", "label": "Studio", "type": "workspace",
+      "desc": "Main production workspace",
+      "narrative": "The studio is where instruments, people, and ideas converge into concrete outputs."
+    },
+    {
+      "id": "logic-formal", "label": "Formal Logic", "type": "concept",
+      "desc": "Systems of formal reasoning",
+      "formal": "concept(formal_logic) ⊂ mathematics"
+    },
+    {
+      "id": "harmony", "label": "Harmony", "type": "concept",
+      "desc": "Theory of simultaneous sound",
+      "narrative": "Harmony is both a mathematical structure and an aesthetic experience. It bridges formal theory and sensory perception."
+    },
+    {
+      "id": "granular", "label": "Granular Synthesis", "type": "concept",
+      "desc": "Microsound-based synthesis method",
+      "formula": "grain(t) = window(t) * source(t + offset)",
+      "machine": "{ grain_size_ms: [1, 500], density: [1, 1000] }"
+    }
+  ],
+  "edges": [
+    { "id": "e1", "source": "root", "target": "hub-people", "type": "structural" },
+    { "id": "e2", "source": "root", "target": "hub-tools", "type": "structural" },
+    { "id": "e3", "source": "root", "target": "hub-ideas", "type": "structural" },
+
+    { "id": "e4", "source": "hub-people", "target": "alice", "type": "contains" },
+    { "id": "e5", "source": "hub-people", "target": "bob", "type": "contains" },
+    { "id": "e6", "source": "hub-people", "target": "carol", "type": "contains" },
+
+    { "id": "e7", "source": "hub-tools", "target": "synth-alpha", "type": "contains" },
+    { "id": "e8", "source": "hub-tools", "target": "sampler-beta", "type": "contains" },
+    { "id": "e9", "source": "hub-tools", "target": "ws-studio", "type": "contains" },
+
+    { "id": "e10", "source": "hub-ideas", "target": "logic-formal", "type": "contains" },
+    { "id": "e11", "source": "hub-ideas", "target": "harmony", "type": "contains" },
+    { "id": "e12", "source": "hub-ideas", "target": "granular", "type": "contains" },
+
+    { "id": "e13", "source": "alice", "target": "synth-alpha", "type": "uses" },
+    { "id": "e14", "source": "alice", "target": "logic-formal", "type": "knows" },
+    { "id": "e15", "source": "alice", "target": "harmony", "type": "knows" },
+    { "id": "e16", "source": "alice", "target": "ws-studio", "type": "uses" },
+
+    { "id": "e17", "source": "bob", "target": "sampler-beta", "type": "uses" },
+    { "id": "e18", "source": "bob", "target": "granular", "type": "knows" },
+    { "id": "e19", "source": "bob", "target": "ws-studio", "type": "uses" },
+
+    { "id": "e20", "source": "carol", "target": "logic-formal", "type": "knows" },
+    { "id": "e21", "source": "carol", "target": "harmony", "type": "knows" },
+
+    { "id": "e22", "source": "synth-alpha", "target": "harmony", "type": "influences" },
+    { "id": "e23", "source": "sampler-beta", "target": "granular", "type": "influences" },
+    { "id": "e24", "source": "granular", "target": "harmony", "type": "influences" },
+
+    { "id": "e25", "source": "alice", "target": "bob", "type": "creates" },
+    { "id": "e26", "source": "ws-studio", "target": "synth-alpha", "type": "contains" },
+    { "id": "e27", "source": "ws-studio", "target": "sampler-beta", "type": "contains" }
+  ]
+}

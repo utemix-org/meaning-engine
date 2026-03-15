@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Test fixture for domain projection — P(G, F, D)"
+  },
+  "nodes": [
+    { "id": "root", "label": "Root", "type": "root" },
+    { "id": "domains", "label": "Domains", "type": "hub" },
+    { "id": "characters", "label": "Characters", "type": "hub" },
+
+    { "id": "domain-science", "label": "Science", "type": "domain" },
+    { "id": "domain-art", "label": "Art", "type": "domain" },
+
+    { "id": "char-alice", "label": "Alice", "type": "character" },
+    { "id": "char-bob", "label": "Bob", "type": "character" },
+
+    { "id": "wb-lab", "label": "Lab", "type": "workbench" },
+    { "id": "wb-studio", "label": "Studio", "type": "workbench" },
+    { "id": "wb-hybrid", "label": "Hybrid", "type": "workbench" },
+
+    { "id": "physics", "label": "Physics", "type": "concept" },
+    { "id": "chemistry", "label": "Chemistry", "type": "concept" },
+    { "id": "painting", "label": "Painting", "type": "concept" },
+    { "id": "sculpture", "label": "Sculpture", "type": "concept" },
+    { "id": "optics", "label": "Optics", "type": "concept" }
+  ],
+  "edges": [
+    { "id": "e1", "source": "root", "target": "domains", "type": "contains" },
+    { "id": "e2", "source": "root", "target": "characters", "type": "contains" },
+
+    { "id": "e3", "source": "domains", "target": "domain-science", "type": "contains" },
+    { "id": "e4", "source": "domains", "target": "domain-art", "type": "contains" },
+
+    { "id": "e5", "source": "characters", "target": "char-alice", "type": "contains" },
+    { "id": "e6", "source": "characters", "target": "char-bob", "type": "contains" },
+
+    { "id": "e10", "source": "char-alice", "target": "domain-science", "type": "relates" },
+    { "id": "e11", "source": "char-bob", "target": "domain-art", "type": "relates" },
+
+    { "id": "e12", "source": "char-alice", "target": "wb-lab", "type": "relates" },
+    { "id": "e13", "source": "char-bob", "target": "wb-studio", "type": "relates" },
+    { "id": "e14", "source": "char-alice", "target": "wb-hybrid", "type": "relates" },
+    { "id": "e15", "source": "char-bob", "target": "wb-hybrid", "type": "relates" },
+
+    { "id": "e20", "source": "wb-lab", "target": "physics", "type": "contains" },
+    { "id": "e21", "source": "wb-lab", "target": "chemistry", "type": "contains" },
+    { "id": "e22", "source": "wb-studio", "target": "painting", "type": "contains" },
+    { "id": "e23", "source": "wb-studio", "target": "sculpture", "type": "contains" },
+    { "id": "e24", "source": "wb-hybrid", "target": "optics", "type": "contains" },
+
+    { "id": "e30", "source": "optics", "target": "physics", "type": "relates" },
+    { "id": "e31", "source": "optics", "target": "painting", "type": "relates" }
+  ]
+}

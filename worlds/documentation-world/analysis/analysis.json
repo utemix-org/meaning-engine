@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "nodeCount": 141,
+    "edgeCount": 307,
+    "nodeTypes": [
+      "page",
+      "spec",
+      "concept",
+      "invariant",
+      "evidence",
+      "code_artifact"
+    ],
+    "edgeTypes": [
+      "defines",
+      "depends_on",
+      "refines",
+      "applies_to",
+      "constrains",
+      "implements",
+      "proved_by",
+      "drift_against",
+      "reported_by"
+    ],
+    "generatedAt": "2026-03-14T10:02:10.843Z"
+  },
+  "centrality": [
+    {
+      "id": "invariant:focus-preservation",
+      "type": "invariant",
+      "title": "Focus Preservation Rule",
+      "degree": 7,
+      "inDeg": 5,
+      "outDeg": 2,
+      "betweenness": 1677.85,
+      "score": 1684.9,
+      "topEdges": [
+        "→Focus [constrains]",
+        "→WorkbenchPolicy [constrains]",
+        "←INVARIANTS [defines]",
+        "←Grounding Phase 3A Tests (groundingPhase3a.test.js) [proved_by]",
+        "←Grounding Phase 3B Tests (groundingPhase3b.test.js) [proved_by]"
+      ]
+    },
+    {
+      "id": "code:file:packages/engine/src/core/GraphModel.js",
+      "type": "code_artifact",
+      "title": "GraphModel.js",
+      "degree": 10,
+      "inDeg": 9,
+      "outDeg": 1,
+      "betweenness": 1534.2,
+      "score": 1544.2,
+      "topEdges": [
+        "→highlightModel.js [depends_on]",
+        "←index.js [depends_on]",
+        "←buildGraph.js [depends_on]",
+        "←LLMReflectionEngine.js [depends_on]",
+        "←applyTransition.test.js [depends_on]"
+      ]
+    },
+    {
+      "id": "code:file:packages/render/src/stores/viewModelStore.ts",
+      "type": "code_artifact",
+      "title": "viewModelStore.ts",
+      "degree": 12,
+      "inDeg": 8,
+      "outDeg": 4,
+      "betweenness": 1208.47,
+      "score": 1220.5,
+      "topEdges": [
+        "→graphStore.ts [depends_on]",
+        "→focusStore.ts [depends_on]",
+        "→RENDER_SURFACES_SPEC [implements]",
+        "→Focus Preservation Rule [implements]",
+        "←App.tsx [depends_on]"
+      ]
+    },
+    {
+      "id": "code:file:packages/engine/src/core/projection/projectGraph.js",
+      "type": "code_artifact",
+      "title": "projectGraph.js",
+      "degree": 21,
+      "inDeg": 12,
+      "outDeg": 9,
+      "betweenness": 1083.47,
+      "score": 1104.5,
+      "topEdges": [
+        "→types.ts [depends_on]",
+        "→validateInputs.js [depends_on]",
+        "→resolveFocus.js [depends_on]",
+        "→computeVisibleSubgraph.js [depends_on]",
+        "→deriveSemanticRoles.js [depends_on]"
+      ]
+    },
+    {
+      "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+      "type": "spec",
+      "title": "PROJECTION_SPEC",
+      "degree": 15,
+      "inDeg": 9,
+      "outDeg": 6,
+      "betweenness": 920.25,
+      "score": 935.3,
+      "topEdges": [
+        "→Projection [defines]",
+        "→ViewModel [defines]",
+        "→GraphModel [depends_on]",
+        "→Test Coverage [constrains]",
+        "→Acceptance Criteria [defines]"
+      ]
+    },
+    {
+      "id": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+      "type": "code_artifact",
+      "title": "resolveFocus.js",
+      "degree": 6,
+      "inDeg": 4,
+      "outDeg": 2,
+      "betweenness": 856.56,
+      "score": 862.6,
+      "topEdges": [
+        "→PROJECTION_SPEC [implements]",
+        "→Focus Preservation Rule [implements]",
+        "←index.js [depends_on]",
+        "←projectGraph.js [depends_on]",
+        "←domainProjection.test.js [depends_on]"
+      ]
+    },
+    {
+      "id": "concept:focus",
+      "type": "concept",
+      "title": "Focus",
+      "degree": 10,
+      "inDeg": 10,
+      "outDeg": 0,
+      "betweenness": 693.48,
+      "score": 703.5,
+      "topEdges": [
+        "←SYSTEM_OVERVIEW [defines]",
+        "←NAVIGATION_SPEC [defines]",
+        "←CONCEPTS [defines]",
+        "←FOCUS_AS_ATOM_OF_ATTENTION [refines]",
+        "←Projection [depends_on]"
+      ]
+    },
+    {
+      "id": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+      "type": "code_artifact",
+      "title": "LLMReflectionEngine.js",
+      "degree": 6,
+      "inDeg": 0,
+      "outDeg": 6,
+      "betweenness": 679.51,
+      "score": 685.5,
+      "topEdges": [
+        "→ReflectiveProjection.js [depends_on]",
+        "→GraphRAGProjection.js [depends_on]",
+        "→ChangeProtocol.js [depends_on]",
+        "→GraphSnapshot.js [depends_on]",
+        "→CanonicalGraphSchema.js [depends_on]"
+      ]
+    },
+    {
+      "id": "concept:workbench",
+      "type": "concept",
+      "title": "Workbench",
+      "degree": 12,
+      "inDeg": 9,
+      "outDeg": 3,
+      "betweenness": 616.77,
+      "score": 628.8,
+      "topEdges": [
+        "→Domain [depends_on]",
+        "→WorkbenchPolicy [refines]",
+        "→Practice [refines]",
+        "←CONCEPTS [defines]",
+        "←WORKBENCH_VS_PRACTICE [refines]"
+      ]
+    },
+    {
+      "id": "concept:context",
+      "type": "concept",
+      "title": "Context",
+      "degree": 7,
+      "inDeg": 4,
+      "outDeg": 3,
+      "betweenness": 553.1,
+      "score": 560.1,
+      "topEdges": [
+        "→Domain [refines]",
+        "→Workbench [refines]",
+        "→Character [refines]",
+        "←SYSTEM_OVERVIEW [defines]",
+        "←CONCEPTS [defines]"
+      ]
+    }
+  ],
+  "bridges": [
+    {
+      "nodeA": {
+        "id": "code:file:packages/render/src/stores/viewModelStore.ts",
+        "type": "code_artifact",
+        "title": "viewModelStore.ts"
+      },
+      "nodeB": {
+        "id": "invariant:focus-preservation",
+        "type": "invariant",
+        "title": "Focus Preservation Rule"
+      },
+      "betweenness": 1107.3,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/projection/resolveFocus.js",
+        "type": "code_artifact",
+        "title": "resolveFocus.js"
+      },
+      "nodeB": {
+        "id": "invariant:focus-preservation",
+        "type": "invariant",
+        "title": "Focus Preservation Rule"
+      },
+      "betweenness": 876.36,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/GraphModel.js",
+        "type": "code_artifact",
+        "title": "GraphModel.js"
+      },
+      "nodeB": {
+        "id": "code:file:packages/engine/src/core/LLMReflectionEngine.js",
+        "type": "code_artifact",
+        "title": "LLMReflectionEngine.js"
+      },
+      "betweenness": 746.98,
+      "crossType": false
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/GraphModel.js",
+        "type": "code_artifact",
+        "title": "GraphModel.js"
+      },
+      "nodeB": {
+        "id": "code:file:packages/engine/src/core/index.js",
+        "type": "code_artifact",
+        "title": "index.js"
+      },
+      "betweenness": 624.79,
+      "crossType": false
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/projection/projectGraph.js",
+        "type": "code_artifact",
+        "title": "projectGraph.js"
+      },
+      "nodeB": {
+        "id": "invariant:context-does-not-mutate-graph",
+        "type": "invariant",
+        "title": "Context Does Not Mutate Graph"
+      },
+      "betweenness": 497.22,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "concept:context",
+        "type": "concept",
+        "title": "Context"
+      },
+      "nodeB": {
+        "id": "invariant:context-does-not-mutate-graph",
+        "type": "invariant",
+        "title": "Context Does Not Mutate Graph"
+      },
+      "betweenness": 481.68,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/GraphModel.js",
+        "type": "code_artifact",
+        "title": "GraphModel.js"
+      },
+      "nodeB": {
+        "id": "code:file:packages/engine/src/core/knowledge/buildGraph.js",
+        "type": "code_artifact",
+        "title": "buildGraph.js"
+      },
+      "betweenness": 439.28,
+      "crossType": false
+    },
+    {
+      "nodeA": {
+        "id": "code:file:packages/engine/src/core/GraphModel.js",
+        "type": "code_artifact",
+        "title": "GraphModel.js"
+      },
+      "nodeB": {
+        "id": "code:file:packages/engine/src/core/projection/__tests__/projectGraph.test.js",
+        "type": "code_artifact",
+        "title": "projectGraph.test.js"
+      },
+      "betweenness": 394.28,
+      "crossType": false
+    },
+    {
+      "nodeA": {
+        "id": "concept:focus",
+        "type": "concept",
+        "title": "Focus"
+      },
+      "nodeB": {
+        "id": "invariant:focus-preservation",
+        "type": "invariant",
+        "title": "Focus Preservation Rule"
+      },
+      "betweenness": 374.24,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "concept:view-model",
+        "type": "concept",
+        "title": "ViewModel"
+      },
+      "nodeB": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "betweenness": 348.02,
+      "crossType": true
+    }
+  ],
+  "cycles": [],
+  "anomalies": [
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/core/knowledge/index.js",
+        "type": "code_artifact",
+        "title": "index.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/CatalogLoader.js",
+        "type": "code_artifact",
+        "title": "CatalogLoader.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/CatalogRegistry.js",
+        "type": "code_artifact",
+        "title": "CatalogRegistry.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/index.js",
+        "type": "code_artifact",
+        "title": "index.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/OperatorEngine.js",
+        "type": "code_artifact",
+        "title": "OperatorEngine.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/Schema.js",
+        "type": "code_artifact",
+        "title": "Schema.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/SpecificationReader.js",
+        "type": "code_artifact",
+        "title": "SpecificationReader.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/WorldAdapter.js",
+        "type": "code_artifact",
+        "title": "WorldAdapter.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/WorldInterface.js",
+        "type": "code_artifact",
+        "title": "WorldInterface.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    },
+    {
+      "from": {
+        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "type": "spec",
+        "title": "PROJECTION_SPEC"
+      },
+      "to": {
+        "id": "code:file:packages/engine/src/engine/__tests__/CatalogLoader.test.js",
+        "type": "code_artifact",
+        "title": "CatalogLoader.test.js"
+      },
+      "distance": null,
+      "pair": "spec↔code_artifact"
+    }
+  ],
+  "missingConcepts": []
+}
