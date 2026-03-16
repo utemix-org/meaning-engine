@@ -1,9 +1,10 @@
 {
   "name": "meaning-engine",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A semantic graph engine that treats knowledge as a computable, projectable, navigable structure",
   "type": "module",
   "main": "src/index.js",
+  "types": "src/core/types/index.d.ts",
   "exports": {
     ".": "./src/index.js",
     "./engine": "./src/engine/index.js",
@@ -12,8 +13,15 @@
     "./navigation": "./src/core/navigation/index.js",
     "./highlight": "./src/highlight/highlightModel.js"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
-    "src/",
+    "src/**/*.js",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "!src/**/__tests__/",
+    "!src/**/*.test.js",
     "operators/*.js",
     "worlds/tiny-world/",
     "worlds/authored-mini-world/seed.nodes.json",

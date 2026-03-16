@@ -1,5 +1,10 @@
 # Meaning Engine
 
+[![CI](https://github.com/utemix-org/meaning-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/utemix-org/meaning-engine/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/meaning-engine.svg)](https://www.npmjs.com/package/meaning-engine)
+[![license](https://img.shields.io/npm/l/meaning-engine.svg)](https://github.com/utemix-org/meaning-engine/blob/main/LICENSE)
+[![node](https://img.shields.io/node/v/meaning-engine.svg)](https://nodejs.org)
+
 A semantic graph engine that treats knowledge as a computable, projectable, navigable structure.
 
 **Core formula:** `V = P(G, F, C, S, Pr)` — ViewModel is a pure projection of the graph, given focus, context, schema, and parameters.
@@ -10,7 +15,7 @@ A semantic graph engine that treats knowledge as a computable, projectable, navi
 git clone https://github.com/utemix-org/meaning-engine.git
 cd meaning-engine
 npm install
-npm test    # 651 tests, all green
+npm test    # 662 tests, all green
 ```
 
 ## Canonical Demo
@@ -115,7 +120,7 @@ worlds/                  Reference worlds
 ## Tests
 
 ```bash
-npm test              # 651 tests across 33 suites
+npm test              # 662 tests across 34 suites
 npm run test:watch    # watch mode
 npm run test:coverage # with coverage report
 ```
