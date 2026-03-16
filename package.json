@@ -1,7 +1,6 @@
 {
   "name": "meaning-engine",
-  "version": "0.7.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "A semantic graph engine that treats knowledge as a computable, projectable, navigable structure",
   "type": "module",
   "main": "src/index.js",
@@ -13,13 +12,34 @@
     "./navigation": "./src/core/navigation/index.js",
     "./highlight": "./src/highlight/highlightModel.js"
   },
+  "files": [
+    "src/",
+    "operators/*.js",
+    "worlds/tiny-world/",
+    "worlds/authored-mini-world/seed.nodes.json",
+    "worlds/authored-mini-world/seed.edges.json",
+    "worlds/authored-mini-world/loader.js",
+    "worlds/authored-mini-world/README.md",
+    "worlds/documentation-world/seed.nodes.json",
+    "worlds/documentation-world/seed.edges.json",
+    "worlds/documentation-world/loader.js",
+    "worlds/documentation-world/README.md",
+    "docs/",
+    "ARCHITECTURE.md",
+    "CHANGELOG.md",
+    "EPISTEMIC_LOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "demo:analysis": "node worlds/documentation-world/analysis/runAnalysis.js",
     "demo:trace": "node operators/runTrace.js",
-    "demo:compare": "node operators/runCompare.js"
+    "demo:compare": "node operators/runCompare.js",
+    "demo:report": "node operators/runReasoningReport.js --baseline",
+    "demo:smoke": "node operators/runWorldSmokeWorkflow.js"
   },
   "keywords": [
     "semantic-graph",
