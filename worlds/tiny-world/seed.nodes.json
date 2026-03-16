@@ -1,0 +1,8 @@
+[
+  { "id": "spec:cooking-basics",    "type": "spec",      "title": "Cooking Basics",       "status": "active" },
+  { "id": "concept:heat-transfer",  "type": "concept",   "title": "Heat Transfer",        "status": "active" },
+  { "id": "concept:maillard",       "type": "concept",   "title": "Maillard Reaction",    "status": "active" },
+  { "id": "invariant:temp-control", "type": "invariant",  "title": "Temperature Control",  "status": "active" },
+  { "id": "evidence:sear-test",     "type": "evidence",  "title": "Searing Experiment",   "status": "active" },
+  { "id": "concept:seasoning",      "type": "concept",   "title": "Seasoning",            "status": "active" }
+]

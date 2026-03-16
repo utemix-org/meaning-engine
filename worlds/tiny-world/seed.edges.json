@@ -1,0 +1,7 @@
+[
+  { "source": "spec:cooking-basics",    "target": "concept:heat-transfer",  "type": "defines" },
+  { "source": "spec:cooking-basics",    "target": "concept:maillard",       "type": "defines" },
+  { "source": "concept:heat-transfer",  "target": "invariant:temp-control", "type": "constrains" },
+  { "source": "concept:maillard",       "target": "invariant:temp-control", "type": "constrains" },
+  { "source": "invariant:temp-control", "target": "evidence:sear-test",     "type": "proved_by" }
+]
