@@ -1,0 +1,78 @@
+[
+  {
+    "world": "documentation-world",
+    "scenarios": {
+      "pathExists": {
+        "label": "SYSTEM_OVERVIEW → concept:projection",
+        "fromId": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+        "toId": "concept:projection",
+        "ok": true,
+        "hops": 1
+      },
+      "directedBoundary": {
+        "label": "NAVIGATION_SPEC ↔ applyTransition.js",
+        "A": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+        "B": "code:file:src/core/navigation/applyTransition.js",
+        "traceAB": "no_path",
+        "traceBA": "path",
+        "ok": true,
+        "hopsBA": 1
+      },
+      "rivalExplanations": {
+        "label": "PROJECTION_SPEC → evaluate.js",
+        "fromId": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "toId": "code:file:src/core/knowledge/evaluate.js",
+        "ok": true,
+        "rivalCount": 13,
+        "clusterCount": 3
+      },
+      "gapBridge": {
+        "label": "evidence:grounding-phase-3a-tests → src/validate.js",
+        "fromId": "evidence:grounding-phase-3a-tests",
+        "toId": "code:file:src/validate.js",
+        "traceResult": "no_path",
+        "ok": true,
+        "supportsBridge": true,
+        "candidateCount": 1
+      }
+    }
+  },
+  {
+    "world": "authored-mini-world",
+    "scenarios": {
+      "pathExists": {
+        "label": "Type Theory Overview → Coq Proof",
+        "fromId": "spec:type-theory-overview",
+        "toId": "evidence:coq-proof",
+        "ok": true,
+        "hops": 3
+      },
+      "directedBoundary": {
+        "label": "Type Theory Overview ↔ typeChecker.js",
+        "A": "spec:type-theory-overview",
+        "B": "code_artifact:type-checker",
+        "traceAB": "no_path",
+        "traceBA": "path",
+        "ok": true,
+        "hopsBA": 1
+      },
+      "rivalExplanations": {
+        "label": "Type Theory Overview → inferenceEngine.js",
+        "fromId": "spec:type-theory-overview",
+        "toId": "code_artifact:inference-engine",
+        "ok": true,
+        "rivalCount": 2,
+        "clusterCount": 2
+      },
+      "gapBridge": {
+        "label": "Type Theory Overview → Rust Borrow Checker Test",
+        "fromId": "spec:type-theory-overview",
+        "toId": "evidence:rust-borrow-checker-test",
+        "traceResult": "no_path",
+        "ok": true,
+        "supportsBridge": true,
+        "candidateCount": 3
+      }
+    }
+  }
+]
