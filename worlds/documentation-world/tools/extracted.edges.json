@@ -883,6 +883,20 @@
     "note": "src/core/knowledge/types.js implements KNOWLEDGE_LOG_SPEC"
   },
   {
+    "source": "code:file:src/engine/OperatorEngine.js",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/OperatorEngine.js implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
+    "source": "code:file:src/engine/CatalogRegistry.js",
+    "target": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/CatalogRegistry.js implements KNOWLEDGE_LOG_SPEC"
+  },
+  {
     "source": "code:file:src/core/projection/projectGraph.js",
     "target": "invariant:projection-determinism",
     "type": "implements",
@@ -923,5 +937,54 @@
     "type": "implements",
     "layer": "provenance",
     "note": "src/core/navigation/applyTransition.js implements Navigation Determinism"
+  },
+  {
+    "source": "code:file:src/engine/WorldAdapter.js",
+    "target": "https://www.notion.so/43b53daa461c4216b2d2bf28d752da9d",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/WorldAdapter.js implements WORLD_AS_INTERFACE"
+  },
+  {
+    "source": "code:file:src/engine/WorldInterface.js",
+    "target": "https://www.notion.so/43b53daa461c4216b2d2bf28d752da9d",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/WorldInterface.js implements WORLD_AS_INTERFACE"
+  },
+  {
+    "source": "code:file:src/engine/SpecificationReader.js",
+    "target": "https://www.notion.so/a760b943aef640ed869b585be936f2d0",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/SpecificationReader.js implements ENGINE_DEVELOPER_GUIDE"
+  },
+  {
+    "source": "code:file:src/engine/CatalogLoader.js",
+    "target": "https://www.notion.so/a760b943aef640ed869b585be936f2d0",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/CatalogLoader.js implements ENGINE_DEVELOPER_GUIDE"
+  },
+  {
+    "source": "code:file:src/engine/Schema.js",
+    "target": "concept:graph-model",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/Schema.js implements Graph Model"
+  },
+  {
+    "source": "code:file:src/engine/index.js",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/engine/index.js implements SYSTEM_OVERVIEW"
+  },
+  {
+    "source": "code:file:src/index.js",
+    "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "type": "implements",
+    "layer": "provenance",
+    "note": "src/index.js implements SYSTEM_OVERVIEW"
   }
 ]

@@ -24,7 +24,9 @@
       "src/core/knowledge/evaluate.js",
       "src/core/knowledge/operators.js",
       "src/core/knowledge/buildGraph.js",
-      "src/core/knowledge/types.js"
+      "src/core/knowledge/types.js",
+      "src/engine/OperatorEngine.js",
+      "src/engine/CatalogRegistry.js"
     ]
   },
   "invariant:projection-determinism": {
@@ -56,6 +58,33 @@
     "title": "Navigation Determinism",
     "implements": [
       "src/core/navigation/applyTransition.js"
+    ]
+  },
+  "https://www.notion.so/43b53daa461c4216b2d2bf28d752da9d": {
+    "title": "WORLD_AS_INTERFACE",
+    "implements": [
+      "src/engine/WorldAdapter.js",
+      "src/engine/WorldInterface.js"
+    ]
+  },
+  "https://www.notion.so/a760b943aef640ed869b585be936f2d0": {
+    "title": "ENGINE_DEVELOPER_GUIDE",
+    "implements": [
+      "src/engine/SpecificationReader.js",
+      "src/engine/CatalogLoader.js"
+    ]
+  },
+  "concept:graph-model": {
+    "title": "Graph Model",
+    "implements": [
+      "src/engine/Schema.js"
+    ]
+  },
+  "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82": {
+    "title": "SYSTEM_OVERVIEW",
+    "implements": [
+      "src/engine/index.js",
+      "src/index.js"
     ]
   }
 }

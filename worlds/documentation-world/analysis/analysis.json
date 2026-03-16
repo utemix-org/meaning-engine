@@ -1,7 +1,7 @@
 {
   "meta": {
     "nodeCount": 116,
-    "edgeCount": 267,
+    "edgeCount": 276,
     "nodeTypes": [
       "page",
       "spec",
@@ -21,7 +21,7 @@
       "drift_against",
       "reported_by"
     ],
-    "generatedAt": "2026-03-15T18:18:01.954Z"
+    "generatedAt": "2026-03-16T09:27:27.585Z"
   },
   "centrality": [
     {
@@ -31,8 +31,8 @@
       "degree": 10,
       "inDeg": 9,
       "outDeg": 1,
-      "betweenness": 1267.55,
-      "score": 1277.6,
+      "betweenness": 1539.2,
+      "score": 1549.2,
       "topEdges": [
         "→highlightModel.js [depends_on]",
         "←index.js [depends_on]",
@@ -48,8 +48,8 @@
       "degree": 21,
       "inDeg": 12,
       "outDeg": 9,
-      "betweenness": 931.69,
-      "score": 952.7,
+      "betweenness": 971.67,
+      "score": 992.7,
       "topEdges": [
         "→types.js [depends_on]",
         "→validateInputs.js [depends_on]",
@@ -65,8 +65,8 @@
       "degree": 15,
       "inDeg": 9,
       "outDeg": 6,
-      "betweenness": 713.04,
-      "score": 728,
+      "betweenness": 924.92,
+      "score": 939.9,
       "topEdges": [
         "→Projection [defines]",
         "→ViewModel [defines]",
@@ -76,14 +76,48 @@
       ]
     },
     {
+      "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+      "type": "spec",
+      "title": "KNOWLEDGE_LOG_SPEC",
+      "degree": 10,
+      "inDeg": 7,
+      "outDeg": 3,
+      "betweenness": 877.19,
+      "score": 887.2,
+      "topEdges": [
+        "→Knowledge Log [defines]",
+        "→Statement [defines]",
+        "→GraphModel [defines]",
+        "←L0_ONE_SCREEN_CORE [depends_on]",
+        "←evaluate.js [implements]"
+      ]
+    },
+    {
+      "id": "code:file:src/core/knowledge/buildGraph.js",
+      "type": "code_artifact",
+      "title": "buildGraph.js",
+      "degree": 8,
+      "inDeg": 5,
+      "outDeg": 3,
+      "betweenness": 779.68,
+      "score": 787.7,
+      "topEdges": [
+        "→GraphModel.js [depends_on]",
+        "→KNOWLEDGE_LOG_SPEC [implements]",
+        "→Canonical-Only Graph Build [implements]",
+        "←buildGraph.test.js [depends_on]",
+        "←endToEnd.test.js [depends_on]"
+      ]
+    },
+    {
       "id": "code:file:src/core/LLMReflectionEngine.js",
       "type": "code_artifact",
       "title": "LLMReflectionEngine.js",
       "degree": 6,
       "inDeg": 0,
       "outDeg": 6,
-      "betweenness": 565.51,
-      "score": 571.5,
+      "betweenness": 666.84,
+      "score": 672.8,
       "topEdges": [
         "→ReflectiveProjection.js [depends_on]",
         "→GraphRAGProjection.js [depends_on]",
@@ -93,65 +127,14 @@
       ]
     },
     {
-      "id": "concept:context",
-      "type": "concept",
-      "title": "Context",
-      "degree": 7,
-      "inDeg": 4,
-      "outDeg": 3,
-      "betweenness": 550.17,
-      "score": 557.2,
-      "topEdges": [
-        "→Domain [refines]",
-        "→Workbench [refines]",
-        "→Character [refines]",
-        "←SYSTEM_OVERVIEW [defines]",
-        "←CONCEPTS [defines]"
-      ]
-    },
-    {
-      "id": "invariant:context-does-not-mutate-graph",
-      "type": "invariant",
-      "title": "Context Does Not Mutate Graph",
-      "degree": 5,
-      "inDeg": 3,
-      "outDeg": 2,
-      "betweenness": 525.61,
-      "score": 530.6,
-      "topEdges": [
-        "→Context [constrains]",
-        "→GraphModel [constrains]",
-        "←INVARIANTS [defines]",
-        "←AXIOMS [defines]",
-        "←projectGraph.js [implements]"
-      ]
-    },
-    {
-      "id": "invariant:focus-preservation",
-      "type": "invariant",
-      "title": "Focus Preservation Rule",
-      "degree": 6,
-      "inDeg": 4,
-      "outDeg": 2,
-      "betweenness": 504.65,
-      "score": 510.7,
-      "topEdges": [
-        "→Focus [constrains]",
-        "→WorkbenchPolicy [constrains]",
-        "←INVARIANTS [defines]",
-        "←Grounding Phase 3A Tests (groundingPhase3a.test.js) [proved_by]",
-        "←Grounding Phase 3B Tests (groundingPhase3b.test.js) [proved_by]"
-      ]
-    },
-    {
       "id": "concept:workbench",
       "type": "concept",
       "title": "Workbench",
       "degree": 12,
       "inDeg": 9,
       "outDeg": 3,
-      "betweenness": 478.38,
-      "score": 490.4,
+      "betweenness": 576.43,
+      "score": 588.4,
       "topEdges": [
         "→Domain [depends_on]",
         "→WorkbenchPolicy [refines]",
@@ -161,37 +144,54 @@
       ]
     },
     {
+      "id": "concept:graph-model",
+      "type": "concept",
+      "title": "GraphModel",
+      "degree": 10,
+      "inDeg": 10,
+      "outDeg": 0,
+      "betweenness": 573.21,
+      "score": 583.2,
+      "topEdges": [
+        "←PROJECTION_SPEC [depends_on]",
+        "←KNOWLEDGE_LOG_SPEC [defines]",
+        "←FORMAL_CORE [defines]",
+        "←Projection [depends_on]",
+        "←Knowledge Log [refines]"
+      ]
+    },
+    {
+      "id": "concept:context",
+      "type": "concept",
+      "title": "Context",
+      "degree": 7,
+      "inDeg": 4,
+      "outDeg": 3,
+      "betweenness": 568.44,
+      "score": 575.4,
+      "topEdges": [
+        "→Domain [refines]",
+        "→Workbench [refines]",
+        "→Character [refines]",
+        "←SYSTEM_OVERVIEW [defines]",
+        "←CONCEPTS [defines]"
+      ]
+    },
+    {
       "id": "concept:focus",
       "type": "concept",
       "title": "Focus",
       "degree": 10,
       "inDeg": 10,
       "outDeg": 0,
-      "betweenness": 473.78,
-      "score": 483.8,
+      "betweenness": 564.73,
+      "score": 574.7,
       "topEdges": [
         "←SYSTEM_OVERVIEW [defines]",
         "←NAVIGATION_SPEC [defines]",
         "←CONCEPTS [defines]",
         "←FOCUS_AS_ATOM_OF_ATTENTION [refines]",
         "←Projection [depends_on]"
-      ]
-    },
-    {
-      "id": "code:file:src/core/index.js",
-      "type": "code_artifact",
-      "title": "index.js",
-      "degree": 7,
-      "inDeg": 0,
-      "outDeg": 7,
-      "betweenness": 448.47,
-      "score": 455.5,
-      "topEdges": [
-        "→GraphModel.js [depends_on]",
-        "→Projection.js [depends_on]",
-        "→DevProjection.js [depends_on]",
-        "→OWLProjection.js [depends_on]",
-        "→GraphRAGProjection.js [depends_on]"
       ]
     }
   ],
@@ -203,11 +203,25 @@
         "title": "GraphModel.js"
       },
       "nodeB": {
+        "id": "code:file:src/core/knowledge/buildGraph.js",
+        "type": "code_artifact",
+        "title": "buildGraph.js"
+      },
+      "betweenness": 742.97,
+      "crossType": false
+    },
+    {
+      "nodeA": {
+        "id": "code:file:src/core/GraphModel.js",
+        "type": "code_artifact",
+        "title": "GraphModel.js"
+      },
+      "nodeB": {
         "id": "code:file:src/core/LLMReflectionEngine.js",
         "type": "code_artifact",
         "title": "LLMReflectionEngine.js"
       },
-      "betweenness": 614.98,
+      "betweenness": 732.31,
       "crossType": false
     },
     {
@@ -221,7 +235,7 @@
         "type": "code_artifact",
         "title": "index.js"
       },
-      "betweenness": 513.79,
+      "betweenness": 612.45,
       "crossType": false
     },
     {
@@ -235,7 +249,21 @@
         "type": "invariant",
         "title": "Context Does Not Mutate Graph"
       },
-      "betweenness": 498.35,
+      "betweenness": 509.5,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "code:file:src/core/knowledge/buildGraph.js",
+        "type": "code_artifact",
+        "title": "buildGraph.js"
+      },
+      "nodeB": {
+        "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+        "type": "spec",
+        "title": "KNOWLEDGE_LOG_SPEC"
+      },
+      "betweenness": 494.46,
       "crossType": true
     },
     {
@@ -249,22 +277,8 @@
         "type": "invariant",
         "title": "Context Does Not Mutate Graph"
       },
-      "betweenness": 479.93,
+      "betweenness": 460.15,
       "crossType": true
-    },
-    {
-      "nodeA": {
-        "id": "code:file:src/core/GraphModel.js",
-        "type": "code_artifact",
-        "title": "GraphModel.js"
-      },
-      "nodeB": {
-        "id": "code:file:src/core/knowledge/buildGraph.js",
-        "type": "code_artifact",
-        "title": "buildGraph.js"
-      },
-      "betweenness": 439.32,
-      "crossType": false
     },
     {
       "nodeA": {
@@ -277,64 +291,50 @@
         "type": "invariant",
         "title": "Focus Preservation Rule"
       },
-      "betweenness": 336.79,
+      "betweenness": 344.78,
       "crossType": true
     },
     {
       "nodeA": {
-        "id": "concept:context",
+        "id": "code:file:src/engine/CatalogRegistry.js",
+        "type": "code_artifact",
+        "title": "CatalogRegistry.js"
+      },
+      "nodeB": {
+        "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
+        "type": "spec",
+        "title": "KNOWLEDGE_LOG_SPEC"
+      },
+      "betweenness": 344.23,
+      "crossType": true
+    },
+    {
+      "nodeA": {
+        "id": "code:file:src/engine/Schema.js",
+        "type": "code_artifact",
+        "title": "Schema.js"
+      },
+      "nodeB": {
+        "id": "concept:graph-model",
         "type": "concept",
-        "title": "Context"
+        "title": "GraphModel"
       },
-      "nodeB": {
-        "id": "concept:workbench",
-        "type": "concept",
-        "title": "Workbench"
-      },
-      "betweenness": 267.39,
-      "crossType": false
+      "betweenness": 313.42,
+      "crossType": true
     },
     {
       "nodeA": {
-        "id": "code:file:src/core/GraphModel.js",
+        "id": "code:file:src/engine/index.js",
         "type": "code_artifact",
-        "title": "GraphModel.js"
+        "title": "index.js"
       },
       "nodeB": {
-        "id": "code:file:src/core/projection/__tests__/projectGraph.test.js",
-        "type": "code_artifact",
-        "title": "projectGraph.test.js"
+        "id": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+        "type": "page",
+        "title": "SYSTEM_OVERVIEW"
       },
-      "betweenness": 252.79,
-      "crossType": false
-    },
-    {
-      "nodeA": {
-        "id": "code:file:src/core/CanonicalGraphSchema.js",
-        "type": "code_artifact",
-        "title": "CanonicalGraphSchema.js"
-      },
-      "nodeB": {
-        "id": "code:file:src/core/LLMReflectionEngine.js",
-        "type": "code_artifact",
-        "title": "LLMReflectionEngine.js"
-      },
-      "betweenness": 230,
-      "crossType": false
-    },
-    {
-      "nodeA": {
-        "id": "code:file:src/core/GraphModel.js",
-        "type": "code_artifact",
-        "title": "GraphModel.js"
-      },
-      "nodeB": {
-        "id": "code:file:src/core/projection/__tests__/domainProjection.test.js",
-        "type": "code_artifact",
-        "title": "domainProjection.test.js"
-      },
-      "betweenness": 204.41,
-      "crossType": false
+      "betweenness": 289.38,
+      "crossType": true
     }
   ],
   "cycles": [],
@@ -360,9 +360,9 @@
         "title": "PROJECTION_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/CatalogLoader.js",
+        "id": "code:file:src/engine/__tests__/WorldInterface.test.js",
         "type": "code_artifact",
-        "title": "CatalogLoader.js"
+        "title": "WorldInterface.test.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
@@ -374,21 +374,21 @@
         "title": "PROJECTION_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/CatalogRegistry.js",
+        "id": "code:file:src/validate.js",
         "type": "code_artifact",
-        "title": "CatalogRegistry.js"
+        "title": "validate.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "NAVIGATION_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/index.js",
+        "id": "code:file:src/core/knowledge/index.js",
         "type": "code_artifact",
         "title": "index.js"
       },
@@ -397,84 +397,84 @@
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "NAVIGATION_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/OperatorEngine.js",
+        "id": "code:file:src/engine/__tests__/WorldInterface.test.js",
         "type": "code_artifact",
-        "title": "OperatorEngine.js"
+        "title": "WorldInterface.test.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "NAVIGATION_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/Schema.js",
+        "id": "code:file:src/validate.js",
         "type": "code_artifact",
-        "title": "Schema.js"
+        "title": "validate.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "KNOWLEDGE_LOG_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/SpecificationReader.js",
+        "id": "code:file:src/core/knowledge/index.js",
         "type": "code_artifact",
-        "title": "SpecificationReader.js"
+        "title": "index.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "KNOWLEDGE_LOG_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/WorldAdapter.js",
+        "id": "code:file:src/engine/__tests__/WorldInterface.test.js",
         "type": "code_artifact",
-        "title": "WorldAdapter.js"
+        "title": "WorldInterface.test.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/d186fc3cca724175bcd404b5e04c6306",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "KNOWLEDGE_LOG_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/WorldInterface.js",
+        "id": "code:file:src/validate.js",
         "type": "code_artifact",
-        "title": "WorldInterface.js"
+        "title": "validate.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"
     },
     {
       "from": {
-        "id": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "id": "https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791",
         "type": "spec",
-        "title": "PROJECTION_SPEC"
+        "title": "RENDER_SURFACES_SPEC"
       },
       "to": {
-        "id": "code:file:src/engine/__tests__/CatalogLoader.test.js",
+        "id": "code:file:src/core/knowledge/index.js",
         "type": "code_artifact",
-        "title": "CatalogLoader.test.js"
+        "title": "index.js"
       },
       "distance": null,
       "pair": "spec↔code_artifact"

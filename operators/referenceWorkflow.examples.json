@@ -33,9 +33,9 @@
         "fromId": "concept:context",
         "toId": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
         "boundary": {
-          "fromReachableCount": 94,
-          "toReachableCount": 94,
-          "overlap": 94
+          "fromReachableCount": 110,
+          "toReachableCount": 110,
+          "overlap": 110
         }
       },
       "candidates": [
@@ -255,7 +255,7 @@
   {
     "scenario": "S4: BridgeCandidates → structural bridges",
     "from": "evidence:grounding-phase-3a-tests",
-    "to": "code:file:src/engine/WorldAdapter.js",
+    "to": "code:file:src/validate.js",
     "supportsBridgeCandidates": {
       "ok": true,
       "detail": {
@@ -273,7 +273,7 @@
           },
           {
             "source": "concept:code-spec-alignment",
-            "target": "code:file:src/engine/WorldAdapter.js",
+            "target": "code:file:src/validate.js",
             "type": "applies_to"
           }
         ],

@@ -33,7 +33,7 @@ const CONCEPT_PROJECTION = 'concept:projection';
 const CONCEPT_CONTEXT = 'concept:context';
 const PROJECTION_SPEC = 'https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380';
 const EVIDENCE_3A = 'evidence:grounding-phase-3a-tests';
-const ISOLATED_ENGINE_FILE = 'code:file:src/engine/WorldAdapter.js';
+const ISOLATED_ENGINE_FILE = 'code:file:src/validate.js';
 
 beforeAll(() => {
   const rawNodes = JSON.parse(readFileSync(resolve(worldDir, 'seed.nodes.json'), 'utf-8'));

@@ -37,7 +37,7 @@ const CONCEPT_PROJECTION = 'concept:projection';
 const CONCEPT_CONTEXT = 'concept:context';
 const PROJECTION_SPEC = 'https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380';
 const EVIDENCE_3A = 'evidence:grounding-phase-3a-tests';
-const ISOLATED_ENGINE_FILE = 'code:file:src/engine/WorldAdapter.js';
+const ISOLATED_ENGINE_FILE = 'code:file:src/validate.js';
 
 const results = [];
 
@@ -105,7 +105,7 @@ results.push({
 console.log('\n═══ S4: BridgeCandidates → structural bridges ═══');
 const s4sc = supportsBridgeCandidates(graph, EVIDENCE_3A, ISOLATED_ENGINE_FILE);
 console.log(`  from: evidence:grounding-phase-3a-tests`);
-console.log(`  to:   code:file:src/engine/WorldAdapter.js (isolated node)`);
+console.log(`  to:   code:file:src/validate.js (isolated node)`);
 console.log(`  supportsBridgeCandidates: ${s4sc.ok} (candidates: ${s4sc.detail?.candidateCount})`);
 
 let s4candidates = [];
