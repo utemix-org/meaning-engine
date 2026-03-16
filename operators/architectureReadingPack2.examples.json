@@ -1,0 +1,65 @@
+[
+  {
+    "case": "Case 1: Directed boundary but explanation exists",
+    "question": "Связана ли NAVIGATION_SPEC с evaluate.js напрямую?",
+    "from": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "to": "code:file:src/core/knowledge/evaluate.js",
+    "traceResult": {
+      "ok": false,
+      "reason": "no_path"
+    },
+    "compareResult": {
+      "ok": true,
+      "pathCount": 3,
+      "humanNotes": [
+        "3 rival paths with 2 shared nodes.",
+        "Path 2 is code-heavy (3 code artifacts).",
+        "Path 1 is concept-heavy (2 concept edges).",
+        "Path 1 unique nodes: acec3857b5174c40a88ef5aa448ad954, d186fc3cca724175bcd404b5e04c6306.",
+        "Path 2 unique nodes: applyTransition.js."
+      ]
+    },
+    "interpretation": "No directed path from NAVIGATION_SPEC to evaluate.js — this is a layer boundary between navigation and knowledge. Compare finds 3 undirected rival routes, confirming the boundary is a dependency-direction constraint, not isolation."
+  },
+  {
+    "case": "Case 2: True isolation (GAP) + bridge candidates",
+    "question": "Есть ли какая-то связь evidence → validate.js?",
+    "from": "evidence:grounding-phase-3a-tests",
+    "to": "code:file:src/validate.js",
+    "traceResult": {
+      "ok": false,
+      "reason": "no_path"
+    },
+    "bridgeCandidates": {
+      "supported": true,
+      "candidateCount": 1,
+      "candidates": [
+        {
+          "id": "concept:code-spec-alignment",
+          "heuristic": "type-pair-mapping",
+          "score": 1
+        }
+      ]
+    },
+    "interpretation": "validate.js is the only truly isolated node in doc-world (no undirected connectivity). This is a real GAP, not an architectural boundary. BridgeCandidates proposes concept:code-spec-alignment as a potential bridge concept."
+  },
+  {
+    "case": "Case 3: Boundary depends on direction",
+    "question": "Граница NAVIGATION_SPEC ↔ applyTransition.js — это изоляция или направление?",
+    "nodeA": "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd",
+    "nodeB": "code:file:src/core/navigation/applyTransition.js",
+    "traceAtoB": {
+      "ok": false,
+      "reason": "no_path"
+    },
+    "traceBtoA": {
+      "ok": true,
+      "hops": 1,
+      "path": [
+        "code:file:src/core/navigation/applyTransition.js",
+        "https://www.notion.so/b997b23c7bb94390be3351504e64d1fd"
+      ]
+    },
+    "interpretation": "NAVIGATION_SPEC → applyTransition.js: no directed path (spec does not depend on code). applyTransition.js → NAVIGATION_SPEC: 1 hop via implements edge. The boundary encodes responsibility direction: \"code implements spec\", not \"spec depends on code\". This is a dependency-direction constraint, not isolation."
+  }
+]
