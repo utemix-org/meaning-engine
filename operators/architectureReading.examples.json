@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Q1: How does PROJECTION_SPEC reach core implementation?",
+    "operators": [
+      "Trace"
+    ],
+    "from": "code:file:src/core/projection/projectGraph.js",
+    "to": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "result": {
+      "ok": true,
+      "hops": 1,
+      "path": [
+        "code:file:src/core/projection/projectGraph.js",
+        "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380"
+      ]
+    },
+    "interpretation": "projectGraph.js implements PROJECTION_SPEC directly via a 1-hop implements edge. The spec is fully traceable from its primary implementation artifact."
+  },
+  {
+    "question": "Q2: Where is the boundary between world-facing and core layers?",
+    "operators": [
+      "Trace",
+      "Compare"
+    ],
+    "from": "code:file:src/engine/WorldAdapter.js",
+    "to": "code:file:src/core/GraphModel.js",
+    "traceResult": {
+      "ok": false,
+      "reason": "no_path"
+    },
+    "compareResult": {
+      "ok": true,
+      "pathCount": 2,
+      "humanNotes": [
+        "2 rival paths with 4 shared nodes.",
+        "Path 1 unique nodes: index.js.",
+        "Path 2 unique nodes: highlightModel.js."
+      ]
+    },
+    "interpretation": "No directed path from WorldAdapter.js to GraphModel.js — engine adapter layer does not directly depend on core model. Undirected Compare reveals 2 rival paths through different intermediaries (index.js vs highlightModel.js), confirming the boundary is mediated by barrel/re-export modules."
+  },
+  {
+    "question": "Q3: Are there rival explanatory paths for a cross-layer architectural claim?",
+    "operators": [
+      "Compare"
+    ],
+    "from": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "to": "code:file:src/core/knowledge/evaluate.js",
+    "compareResult": {
+      "ok": true,
+      "pathCount": 13,
+      "sharedNodes": [
+        "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+        "code:file:src/core/knowledge/evaluate.js"
+      ],
+      "humanNotes": [
+        "13 rival paths with 2 shared nodes.",
+        "Path 4 is code-heavy (3 code artifacts).",
+        "Path 1 is concept-heavy (2 concept edges).",
+        "Only path(s) 3 pass through an invariant node.",
+        "Path 2 unique nodes: acec3857b5174c40a88ef5aa448ad954."
+      ]
+    },
+    "interpretation": "13 rival paths connect PROJECTION_SPEC to evaluate.js across the projection→knowledge layer boundary. Path diversity shows structural ambiguity: concept-mediated paths (via GraphModel, L0_ONE_SCREEN_CORE), code-dependency paths (via test files), and one invariant-passing path (through Canonical-Only Graph Build). This is expected cross-layer coupling, not a defect."
+  }
+]
