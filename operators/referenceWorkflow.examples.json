@@ -1,0 +1,286 @@
+[
+  {
+    "scenario": "S1: Trace → path discovery",
+    "from": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "to": "concept:projection",
+    "result": {
+      "ok": true,
+      "path": [
+        {
+          "nodeId": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+          "nodeType": "page",
+          "nodeTitle": "SYSTEM_OVERVIEW",
+          "viaEdgeType": null
+        },
+        {
+          "nodeId": "concept:projection",
+          "nodeType": "concept",
+          "nodeTitle": "Projection",
+          "viaEdgeType": "defines"
+        }
+      ],
+      "hops": 1
+    }
+  },
+  {
+    "scenario": "S2: Trace → GAP + candidate bridges",
+    "from": "concept:context",
+    "to": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+    "result": {
+      "ok": false,
+      "reason": "no_path",
+      "gap": {
+        "fromId": "concept:context",
+        "toId": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+        "boundary": {
+          "fromReachableCount": 94,
+          "toReachableCount": 94,
+          "overlap": 94
+        }
+      },
+      "candidates": [
+        {
+          "candidateConceptId": "concept:context-anchor",
+          "candidateEdges": [
+            {
+              "source": "concept:context",
+              "target": "concept:context-anchor",
+              "type": "refines"
+            },
+            {
+              "source": "concept:context-anchor",
+              "target": "https://www.notion.so/e688cc28b25c40fabf27b2ab2577ab82",
+              "type": "applies_to"
+            }
+          ],
+          "note": "concept↔page gap: add context-anchor as bridge between abstract concept and page"
+        }
+      ]
+    }
+  },
+  {
+    "scenario": "S3: Compare → rival explanatory paths",
+    "from": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "to": "evidence:grounding-phase-3a-tests",
+    "supportsCompare": {
+      "ok": true,
+      "detail": {
+        "paths": 3,
+        "hops": 2
+      }
+    },
+    "result": {
+      "ok": true,
+      "fromId": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+      "toId": "evidence:grounding-phase-3a-tests",
+      "hops": 2,
+      "pathCount": 3,
+      "clusterCount": 1,
+      "paths": [
+        {
+          "hops": 2,
+          "nodeIds": [
+            "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+            "concept:test-coverage",
+            "evidence:grounding-phase-3a-tests"
+          ],
+          "nodeTitles": [
+            "PROJECTION_SPEC",
+            "Test Coverage",
+            "Grounding Phase 3A Tests (groundingPhase3a.test.js)"
+          ],
+          "nodeTypeHistogram": {
+            "spec": 1,
+            "concept": 1,
+            "evidence": 1
+          },
+          "edgeTypeHistogram": {
+            "constrains": 1,
+            "applies_to": 1
+          },
+          "conceptVsProvenanceEdgeCounts": {
+            "concept": 1,
+            "provenance": 1
+          },
+          "hasInvariant": false,
+          "codeArtifactCount": 0,
+          "evidenceCount": 1,
+          "implementsCount": 0
+        },
+        {
+          "hops": 2,
+          "nodeIds": [
+            "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+            "concept:acceptance-criteria",
+            "evidence:grounding-phase-3a-tests"
+          ],
+          "nodeTitles": [
+            "PROJECTION_SPEC",
+            "Acceptance Criteria",
+            "Grounding Phase 3A Tests (groundingPhase3a.test.js)"
+          ],
+          "nodeTypeHistogram": {
+            "spec": 1,
+            "concept": 1,
+            "evidence": 1
+          },
+          "edgeTypeHistogram": {
+            "defines": 1,
+            "applies_to": 1
+          },
+          "conceptVsProvenanceEdgeCounts": {
+            "concept": 1,
+            "provenance": 1
+          },
+          "hasInvariant": false,
+          "codeArtifactCount": 0,
+          "evidenceCount": 1,
+          "implementsCount": 0
+        },
+        {
+          "hops": 2,
+          "nodeIds": [
+            "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+            "concept:verification-method",
+            "evidence:grounding-phase-3a-tests"
+          ],
+          "nodeTitles": [
+            "PROJECTION_SPEC",
+            "Verification Method",
+            "Grounding Phase 3A Tests (groundingPhase3a.test.js)"
+          ],
+          "nodeTypeHistogram": {
+            "spec": 1,
+            "concept": 1,
+            "evidence": 1
+          },
+          "edgeTypeHistogram": {
+            "defines": 1,
+            "applies_to": 1
+          },
+          "conceptVsProvenanceEdgeCounts": {
+            "concept": 1,
+            "provenance": 1
+          },
+          "hasInvariant": false,
+          "codeArtifactCount": 0,
+          "evidenceCount": 1,
+          "implementsCount": 0
+        }
+      ],
+      "clusters": [
+        {
+          "clusterId": 0,
+          "fingerprint": "1:0:0:1:1",
+          "count": 3,
+          "prototypePath": [
+            "PROJECTION_SPEC",
+            "Test Coverage",
+            "Grounding Phase 3A Tests (groundingPhase3a.test.js)"
+          ],
+          "labels": [
+            "concept-heavy",
+            "evidence-bearing"
+          ],
+          "featureRanges": {
+            "codeArtifactCount": {
+              "min": 0,
+              "max": 0
+            },
+            "evidenceCount": {
+              "min": 1,
+              "max": 1
+            },
+            "hasInvariant": false,
+            "conceptEdges": 1,
+            "provenanceEdges": 1
+          }
+        }
+      ],
+      "diff": {
+        "sharedNodes": [
+          "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+          "evidence:grounding-phase-3a-tests"
+        ],
+        "uniqueNodesByPath": [
+          [
+            "concept:test-coverage"
+          ],
+          [
+            "concept:acceptance-criteria"
+          ],
+          [
+            "concept:verification-method"
+          ]
+        ],
+        "sharedEdgeTypes": [
+          "applies_to"
+        ],
+        "uniqueEdgeTypesByPath": [
+          [
+            "constrains"
+          ],
+          [],
+          []
+        ],
+        "featureDeltaByPath": [
+          {
+            "codeArtifactCount": 0,
+            "evidenceCount": 1,
+            "implementsCount": 0,
+            "hasInvariant": false
+          },
+          {
+            "codeArtifactCount": 0,
+            "evidenceCount": 1,
+            "implementsCount": 0,
+            "hasInvariant": false
+          },
+          {
+            "codeArtifactCount": 0,
+            "evidenceCount": 1,
+            "implementsCount": 0,
+            "hasInvariant": false
+          }
+        ],
+        "humanNotes": [
+          "3 rival paths with 2 shared nodes.",
+          "Path 1 unique nodes: test-coverage.",
+          "Path 2 unique nodes: acceptance-criteria.",
+          "Path 3 unique nodes: verification-method."
+        ]
+      }
+    }
+  },
+  {
+    "scenario": "S4: BridgeCandidates → structural bridges",
+    "from": "evidence:grounding-phase-3a-tests",
+    "to": "code:file:src/engine/WorldAdapter.js",
+    "supportsBridgeCandidates": {
+      "ok": true,
+      "detail": {
+        "candidateCount": 1
+      }
+    },
+    "candidates": [
+      {
+        "candidateConceptId": "concept:code-spec-alignment",
+        "candidateEdges": [
+          {
+            "source": "evidence:grounding-phase-3a-tests",
+            "target": "concept:code-spec-alignment",
+            "type": "proved_by"
+          },
+          {
+            "source": "concept:code-spec-alignment",
+            "target": "code:file:src/engine/WorldAdapter.js",
+            "type": "applies_to"
+          }
+        ],
+        "note": "evidence↔code_artifact gap: evidence proves alignment, which applies_to artifact",
+        "heuristic": "type-pair-mapping",
+        "score": 1
+      }
+    ]
+  }
+]
