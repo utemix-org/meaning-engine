@@ -1,0 +1,38 @@
+[
+  { "source": "spec:type-theory-overview", "target": "concept:type-safety", "type": "defines", "layer": "concept" },
+  { "source": "spec:type-theory-overview", "target": "concept:polymorphism", "type": "defines", "layer": "concept" },
+  { "source": "spec:type-theory-overview", "target": "concept:soundness", "type": "defines", "layer": "concept" },
+
+  { "source": "spec:lambda-calculus", "target": "concept:type-erasure", "type": "defines", "layer": "concept" },
+  { "source": "spec:lambda-calculus", "target": "concept:curry-howard", "type": "defines", "layer": "concept" },
+
+  { "source": "spec:hindley-milner", "target": "concept:polymorphism", "type": "refines", "layer": "concept" },
+  { "source": "spec:hindley-milner", "target": "concept:unification", "type": "defines", "layer": "concept" },
+  { "source": "spec:hindley-milner", "target": "concept:completeness", "type": "defines", "layer": "concept" },
+
+  { "source": "spec:dependent-types", "target": "concept:soundness", "type": "refines", "layer": "concept" },
+  { "source": "spec:dependent-types", "target": "concept:curry-howard", "type": "refines", "layer": "concept" },
+
+  { "source": "concept:type-safety", "target": "invariant:progress-preservation", "type": "constrains", "layer": "invariant" },
+  { "source": "concept:soundness", "target": "invariant:progress-preservation", "type": "constrains", "layer": "invariant" },
+  { "source": "concept:completeness", "target": "invariant:principal-type", "type": "constrains", "layer": "invariant" },
+
+  { "source": "invariant:progress-preservation", "target": "evidence:coq-proof", "type": "proved_by", "layer": "provenance" },
+  { "source": "invariant:principal-type", "target": "evidence:ml-compiler-test", "type": "proved_by", "layer": "provenance" },
+
+  { "source": "code_artifact:type-checker", "target": "spec:type-theory-overview", "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:inference-engine", "target": "spec:hindley-milner", "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:unifier", "target": "concept:unification", "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:lambda-parser", "target": "spec:lambda-calculus", "type": "implements", "layer": "provenance" },
+
+  { "source": "code_artifact:type-checker-test", "target": "code_artifact:type-checker", "type": "depends_on", "layer": "code" },
+  { "source": "code_artifact:type-checker-test", "target": "code_artifact:inference-engine", "type": "depends_on", "layer": "code" },
+  { "source": "code_artifact:inference-test", "target": "code_artifact:inference-engine", "type": "depends_on", "layer": "code" },
+  { "source": "code_artifact:inference-test", "target": "code_artifact:unifier", "type": "depends_on", "layer": "code" },
+
+  { "source": "evidence:typescript-inference-test", "target": "concept:polymorphism", "type": "proved_by", "layer": "provenance" },
+  { "source": "evidence:ml-compiler-test", "target": "concept:unification", "type": "proved_by", "layer": "provenance" },
+
+  { "source": "spec:linear-types", "target": "concept:affine-types", "type": "defines", "layer": "concept" },
+  { "source": "concept:affine-types", "target": "evidence:rust-borrow-checker-test", "type": "constrains", "layer": "invariant" }
+]

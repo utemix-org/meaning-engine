@@ -1,0 +1,152 @@
+[
+  {
+    "id": "spec:type-theory-overview",
+    "type": "spec",
+    "title": "Type Theory Overview",
+    "status": "active"
+  },
+  {
+    "id": "spec:lambda-calculus",
+    "type": "spec",
+    "title": "Lambda Calculus Specification",
+    "status": "active"
+  },
+  {
+    "id": "spec:hindley-milner",
+    "type": "spec",
+    "title": "Hindley-Milner Type Inference",
+    "status": "active"
+  },
+  {
+    "id": "spec:dependent-types",
+    "type": "spec",
+    "title": "Dependent Types Specification",
+    "status": "active"
+  },
+  {
+    "id": "concept:type-safety",
+    "type": "concept",
+    "title": "Type Safety",
+    "status": "active"
+  },
+  {
+    "id": "concept:polymorphism",
+    "type": "concept",
+    "title": "Polymorphism",
+    "status": "active"
+  },
+  {
+    "id": "concept:type-erasure",
+    "type": "concept",
+    "title": "Type Erasure",
+    "status": "active"
+  },
+  {
+    "id": "concept:soundness",
+    "type": "concept",
+    "title": "Soundness",
+    "status": "active"
+  },
+  {
+    "id": "concept:completeness",
+    "type": "concept",
+    "title": "Completeness",
+    "status": "active"
+  },
+  {
+    "id": "concept:unification",
+    "type": "concept",
+    "title": "Unification Algorithm",
+    "status": "active"
+  },
+  {
+    "id": "invariant:progress-preservation",
+    "type": "invariant",
+    "title": "Progress & Preservation Theorem",
+    "status": "active"
+  },
+  {
+    "id": "invariant:principal-type",
+    "type": "invariant",
+    "title": "Principal Type Property",
+    "status": "active"
+  },
+  {
+    "id": "evidence:ml-compiler-test",
+    "type": "evidence",
+    "title": "ML Compiler Test Suite",
+    "status": "active"
+  },
+  {
+    "id": "evidence:coq-proof",
+    "type": "evidence",
+    "title": "Coq Mechanized Proof",
+    "status": "active"
+  },
+  {
+    "id": "evidence:typescript-inference-test",
+    "type": "evidence",
+    "title": "TypeScript Inference Test",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:type-checker",
+    "type": "code_artifact",
+    "title": "typeChecker.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:inference-engine",
+    "type": "code_artifact",
+    "title": "inferenceEngine.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:unifier",
+    "type": "code_artifact",
+    "title": "unifier.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:lambda-parser",
+    "type": "code_artifact",
+    "title": "lambdaParser.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:type-checker-test",
+    "type": "code_artifact",
+    "title": "typeChecker.test.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:inference-test",
+    "type": "code_artifact",
+    "title": "inferenceEngine.test.js",
+    "status": "active"
+  },
+  {
+    "id": "concept:curry-howard",
+    "type": "concept",
+    "title": "Curry-Howard Correspondence",
+    "status": "active"
+  },
+  {
+    "id": "spec:linear-types",
+    "type": "spec",
+    "title": "Linear Types Specification",
+    "status": "active"
+  },
+  {
+    "id": "concept:affine-types",
+    "type": "concept",
+    "title": "Affine Types",
+    "status": "active"
+  },
+  {
+    "id": "evidence:rust-borrow-checker-test",
+    "type": "evidence",
+    "title": "Rust Borrow Checker Test",
+    "status": "active"
+  }
+]
