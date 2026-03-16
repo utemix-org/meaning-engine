@@ -1,0 +1,38 @@
+[
+  {
+    "archetype": "A: concept-mediated vs code-dependency route",
+    "pair": "PROJECTION_SPEC → evaluate.js",
+    "from": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "to": "code:file:src/core/knowledge/evaluate.js",
+    "rivalCount": 13,
+    "clusterCount": 3,
+    "conceptMediatedPaths": 3,
+    "codeDependencyPaths": 10,
+    "observation": "Concept-mediated paths traverse spec→concept→spec (architectural lineage). Code-dependency paths traverse spec→code→test→code (import graph). Both are valid explanations, but they reveal different architectural aspects."
+  },
+  {
+    "archetype": "B: core barrel vs peripheral adapter route",
+    "pair": "WorldAdapter.js → GraphModel.js",
+    "from": "code:file:src/engine/WorldAdapter.js",
+    "to": "code:file:src/core/GraphModel.js",
+    "rivalCount": 2,
+    "clusterCount": 1,
+    "observation": "Both paths are purely structural (all code_artifact). They diverge through different barrel modules (index.js vs highlightModel.js). This archetype reveals internal module wiring rather than architectural intent."
+  },
+  {
+    "archetype": "C: constraint-preserving vs constraint-free route",
+    "pair": "PROJECTION_SPEC → evaluate.js (also visible in NAVIGATION_SPEC → evaluate.js)",
+    "from": "https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380",
+    "to": "code:file:src/core/knowledge/evaluate.js",
+    "rivalCount": 13,
+    "invariantPaths": 1,
+    "constraintFreePaths": 12,
+    "invariantPathExample": [
+      "PROJECTION_SPEC",
+      "GraphModel",
+      "Canonical-Only Graph Build",
+      "evaluate.js"
+    ],
+    "observation": "Among 13 rival paths, exactly 1 passes through an invariant node (Canonical-Only Graph Build). This path is formally stronger because it traverses a proven engine law. Other paths are valid but lack formal constraint backing."
+  }
+]
