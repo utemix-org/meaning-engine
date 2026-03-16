@@ -1786,5 +1786,101 @@
     "type": "implements",
     "layer": "provenance",
     "note": "src/index.js implements SYSTEM_OVERVIEW"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/StructuralInvariants.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/GraphSnapshot.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/PerformanceAudit.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/ChangeProtocol.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/LLMReflectionEngine.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/navigation/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/projection/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/knowledge/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/index.js",
+    "target": "code:file:src/core/Identity.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/knowledge/index.js",
+    "target": "code:file:src/core/knowledge/types.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/knowledge/index.js",
+    "target": "code:file:src/core/knowledge/operators.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/knowledge/index.js",
+    "target": "code:file:src/core/knowledge/evaluate.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/core/knowledge/index.js",
+    "target": "code:file:src/core/knowledge/buildGraph.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/engine/__tests__/WorldInterface.test.js",
+    "target": "code:file:src/engine/WorldInterface.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/index.js",
+    "target": "code:file:src/core/index.js",
+    "type": "depends_on",
+    "layer": "provenance"
+  },
+  {
+    "source": "code:file:src/index.js",
+    "target": "code:file:src/highlight/highlightModel.js",
+    "type": "depends_on",
+    "layer": "provenance"
   }
 ]

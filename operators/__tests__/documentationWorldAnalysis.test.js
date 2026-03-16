@@ -20,7 +20,7 @@ describe('Documentation World — Analysis Operators', () => {
     expect(typeof result).toBe('object');
     expect(result.meta).toBeDefined();
     expect(result.meta.nodeCount).toBe(116);
-    expect(result.meta.edgeCount).toBe(276);
+    expect(result.meta.edgeCount).toBe(292);
   });
 
   test('output contains all required sections: centrality, bridges, cycles, anomalies', () => {

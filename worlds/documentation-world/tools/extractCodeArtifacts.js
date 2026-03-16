@@ -45,7 +45,7 @@ function walkDir(dir) {
 function parseImports(filePath) {
   const content = readFileSync(filePath, 'utf-8');
   const imports = [];
-  const importRegex = /(?:import|export)\s+.*?\s+from\s+['"]([^'"]+)['"]/g;
+  const importRegex = /(?:import|export)\s+[\s\S]*?\s+from\s+['"]([^'"]+)['"]/g;
   let match;
   while ((match = importRegex.exec(content)) !== null) {
     const specifier = match[1];
