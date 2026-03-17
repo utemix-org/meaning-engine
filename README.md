@@ -5,9 +5,7 @@
 [![license](https://img.shields.io/npm/l/meaning-engine.svg)](https://github.com/utemix-org/meaning-engine/blob/main/LICENSE)
 [![node](https://img.shields.io/node/v/meaning-engine.svg)](https://nodejs.org)
 
-A semantic graph engine that treats knowledge as a computable, projectable, navigable structure.
-
-**Core formula:** `V = P(G, F, C, S, Pr)` — ViewModel is a pure projection of the graph, given focus, context, schema, and parameters.
+A deterministic engine for graph-based engineering knowledge, with reproducible diagnostic operators and evidence-grounded report artifacts.
 
 ## Quick Start
 
@@ -55,6 +53,17 @@ See also:
 - `node operators/runDualWorldSmokeWorkflow.js` — raw dual-world baseline
 - `node operators/runReasoningReport.js --world authored-mini-world --scenario rival_explanations` — filtered view
 
+## Public Promise
+
+This project publicly promises only the following:
+
+- A documented [world input contract](./docs/WORLD_INPUT_FORMAT.md) (JSON seed files)
+- A declared [public API surface](./docs/API_SURFACE_POLICY.md) with SemVer discipline
+- Deterministic diagnostic operators over graph-structured worlds
+- Reproducible CLI workflows and report artifacts with explicit evidence grounding
+
+Meaning Engine does not promise general "thinking", full self-reflection, or universal internal understanding of arbitrary systems.
+
 ## The Idea
 
 Meaning Engine models knowledge as a **typed semantic graph** where:
@@ -66,6 +75,22 @@ Meaning Engine models knowledge as a **typed semantic graph** where:
 - **Operators** derive structural insights: trace paths, detect gaps, compare rival explanations
 
 The engine is **world-agnostic**: you bring your own graph, the engine provides the computational substrate.
+
+## Stability
+
+| Layer | Status |
+|-------|--------|
+| World input format (`seed.nodes.json` / `seed.edges.json`) | **stable** |
+| Operators (`trace`, `compare`, `supports`) | **stable** |
+| Projection pipeline (`projectGraph`) | **stable** |
+| Navigation (`applyTransition`) | **stable** |
+| Knowledge substrate (`propose` → `evaluate` → `buildGraph`) | **stable** |
+| Engine facade (`MeaningEngine`, `WorldAdapter`, `Schema`) | **stable** |
+| CLI workflows (`runReasoningReport`, `runWorldSmokeWorkflow`) | **stable** |
+| LLMReflectionEngine, OWLProjection, GraphRAGProjection | **experimental** |
+| Internal observer / cabin workflows | **experimental** |
+
+See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the full breakdown of what is covered by SemVer.
 
 ## Worlds
 
@@ -120,10 +145,14 @@ worlds/                  Reference worlds
 ## Tests
 
 ```bash
-npm test              # 662 tests across 34 suites
+npm test              # all tests
 npm run test:watch    # watch mode
 npm run test:coverage # with coverage report
 ```
+
+## Contributing
+
+See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the public/experimental/internal classification.
 
 ## License
 
