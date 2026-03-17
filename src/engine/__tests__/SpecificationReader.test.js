@@ -6,6 +6,7 @@
 
 import { describe, it, expect, beforeEach } from "vitest";
 import { SpecificationReader } from "../SpecificationReader.js";
+import { ENGINE_VERSION } from "../index.js";
 
 describe("SpecificationReader", () => {
   let reader;
@@ -22,7 +23,7 @@ describe("SpecificationReader", () => {
     it("load() creates reader with default spec", () => {
       const r = SpecificationReader.load();
       expect(r).toBeInstanceOf(SpecificationReader);
-      expect(r.getVersion()).toBe("0.5.0");
+      expect(r.getVersion()).toBe(ENGINE_VERSION);
     });
     
     it("fromJSON() creates reader from custom spec", () => {
@@ -48,7 +49,7 @@ describe("SpecificationReader", () => {
   
   describe("Getters", () => {
     it("getVersion() returns engine version", () => {
-      expect(reader.getVersion()).toBe("0.5.0");
+      expect(reader.getVersion()).toBe(ENGINE_VERSION);
     });
     
     it("getDescription() returns engine description", () => {
@@ -115,7 +116,7 @@ describe("SpecificationReader", () => {
     
     it("getImplementation() returns implementation path", () => {
       const impl = reader.getImplementation("MeaningEngine", "getVersion");
-      expect(impl).toContain("engine/src/index.js");
+      expect(impl).toContain("src/engine/index.js");
     });
   });
   
@@ -195,7 +196,7 @@ describe("SpecificationReader", () => {
     
     it("findImplementation() returns implementation path", () => {
       const impl = reader.findImplementation("MeaningEngine.getVersion");
-      expect(impl).toContain("engine/src/index.js");
+      expect(impl).toContain("src/engine/index.js");
     });
     
     it("findImplementation() returns null for unknown key", () => {
@@ -243,7 +244,7 @@ describe("SpecificationReader", () => {
   
   describe("Query", () => {
     it("query() returns value by path", () => {
-      expect(reader.query("version")).toBe("0.5.0");
+      expect(reader.query("version")).toBe(ENGINE_VERSION);
     });
     
     it("query() returns nested value", () => {

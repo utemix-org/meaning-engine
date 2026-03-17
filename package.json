@@ -43,6 +43,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "check:versions": "node scripts/check-versions.js",
+    "check:types": "npx tsc --project tsconfig.check.json",
     "demo:analysis": "node worlds/documentation-world/analysis/runAnalysis.js",
     "demo:trace": "node operators/runTrace.js",
     "demo:compare": "node operators/runCompare.js",
@@ -69,6 +71,7 @@
   "homepage": "https://github.com/utemix-org/meaning-engine#readme",
   "devDependencies": {
     "@vitest/coverage-v8": "^1.6.1",
+    "typescript": "^5.9.3",
     "vitest": "^1.6.1"
   }
 }

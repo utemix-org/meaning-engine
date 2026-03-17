@@ -1,109 +1,122 @@
 /**
- * ═══════════════════════════════════════════════════════════════════════════
- * GRAPH TYPES
- * ═══════════════════════════════════════════════════════════════════════════
- * 
- * P3.5: TypeScript для Core
- * 
- * Типы для GraphModel — абстрактной модели графа.
- * 
- * ═══════════════════════════════════════════════════════════════════════════
+ * GRAPH TYPES — Truthful declarations matching GraphModel runtime
+ *
+ * These types describe the ACTUAL runtime behavior of GraphModel.
+ * See docs/API_SURFACE_POLICY.md for public/experimental classification.
  */
 
-import type { EntityIdentity, IdentityMeta } from "./identity";
+import type { IdentityMeta } from "./identity";
 import type { HighlightContext, HighlightState } from "./highlight";
 
 /**
- * Данные узла графа.
+ * Node data. Stored and returned by GraphModel.
  */
 export interface NodeData {
-  /** Machine identity (неизменяемый) */
+  /** Machine identity (immutable) */
   readonly id: string;
-  /** Тип узла */
+  /** Node type */
   type?: string;
-  /** Метка для отображения (legacy, использовать canonicalName) */
+  /** Display label (legacy, prefer canonicalName) */
   label?: string;
-  /** Онтологическое имя */
+  /** Ontological name */
   canonicalName?: string;
-  /** Альтернативные имена */
+  /** Alternative names */
   aliases?: string[];
-  /** Метаданные */
+  /** Metadata */
   meta?: IdentityMeta;
-  /** Дополнительные свойства */
+  /** Additional properties */
   [key: string]: unknown;
 }
 
 /**
- * Данные ребра графа.
+ * Edge data as stored internally by GraphModel.
+ * Note: constructor generates `id` from `${source}-${target}` if not provided.
  */
 export interface EdgeData {
-  /** ID исходного узла */
+  /** Edge identifier (auto-generated if not provided) */
+  id: string;
+  /** Source node ID */
   source: string;
-  /** ID целевого узла */
+  /** Target node ID */
   target: string;
-  /** Тип связи */
-  type?: string;
-  /** Дополнительные свойства */
-  [key: string]: unknown;
+  /** Relationship type (preserved internally, but dropped by toJSON) */
+  type: string | null;
 }
 
 /**
- * Данные графа (для сериализации).
+ * Input data accepted by the GraphModel constructor.
+ * Uses `links` key (not `edges`) for historical reasons.
  */
-export interface GraphData {
-  /** Узлы графа */
+export interface GraphInputData {
+  nodes?: NodeData[];
+  links?: Array<{
+    id?: string;
+    source: string;
+    target: string;
+    type?: string;
+    [key: string]: unknown;
+  }>;
+}
+
+/**
+ * Shape returned by GraphModel.toJSON().
+ * WARNING: currently drops `type` from edges (see P0.4 in audit plan).
+ */
+export interface GraphSerializedData {
   nodes: NodeData[];
-  /** Рёбра графа */
-  edges: EdgeData[];
+  links: Array<{ id: string; source: string; target: string }>;
 }
 
 /**
- * Результат вычисления scope.
- */
-export interface ScopeResult {
-  /** ID узлов в scope */
-  nodeIds: Set<string>;
-  /** ID рёбер в scope */
-  edgeIds: Set<string>;
-}
-
-/**
- * API GraphModel.
+ * GraphModel public API — matches actual runtime behavior.
  */
 export interface IGraphModel {
-  /** Получить все узлы */
+  /** All nodes */
   getNodes(): NodeData[];
-  
-  /** Получить все рёбра */
+
+  /** All edges (internal representation, includes type) */
   getEdges(): EdgeData[];
-  
-  /** Получить узел по ID */
+
+  /** Node by ID */
   getNodeById(nodeId: string): NodeData | undefined;
-  
-  /** Получить соседей узла */
-  getNeighbors(nodeId: string): NodeData[];
-  
-  /** Получить узлы по типу */
+
+  /**
+   * Neighbor IDs for a node (undirected).
+   * Returns Set<string> of node IDs, NOT node objects.
+   */
+  getNeighbors(nodeId: string): Set<string>;
+
+  /** Nodes filtered by type */
   getNodesByType(type: string): NodeData[];
-  
-  /** Вычислить highlight */
+
+  /** All known node type strings */
+  getNodeTypes(): string[];
+
+  /** Compute highlight state */
   computeHighlight(context: HighlightContext): HighlightState;
-  
-  /** Вычислить scope */
-  computeScope(hubId: string): ScopeResult;
-  
-  /** Сериализовать в JSON */
-  toJSON(): GraphData;
+
+  /**
+   * Compute scope (1-hop neighborhood).
+   * Returns Set<string> of node IDs in scope.
+   */
+  computeScope(hubId: string): Set<string>;
+
+  /** Related node IDs filtered by neighbor type */
+  getRelatedNodeIdsByType(nodeId: string, type: string): string[];
+
+  /**
+   * Serialize to JSON.
+   * WARNING: currently uses `links` (not `edges`) and drops edge `type`.
+   */
+  toJSON(): GraphSerializedData;
 }
 
 /**
- * Конструктор GraphModel.
+ * GraphModel constructor.
  */
 export interface GraphModelConstructor {
-  new (data: GraphData): IGraphModel;
-  
-  /** Создать из JSON */
-  fromJSON(json: GraphData): IGraphModel;
+  new (data?: GraphInputData): IGraphModel;
+  fromJSON(json: GraphInputData): IGraphModel;
 }
 
 /**

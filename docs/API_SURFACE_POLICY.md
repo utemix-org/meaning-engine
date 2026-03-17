@@ -2,7 +2,11 @@
 
 This document defines what is covered by SemVer, what is experimental, and what is internal.
 
+See also: [VERSIONING.md](./VERSIONING.md) for the single-version policy.
+
 ## Versioning (0.y.z)
+
+`package.json` is the single source of truth for the project version (Variant A).
 
 During `0.y.z` development, the following rules apply:
 

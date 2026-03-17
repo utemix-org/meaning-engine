@@ -57,6 +57,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check version consistency
+        run: npm run check:versions
+
+      - name: Check .d.ts types
+        run: npm run check:types
+
       - name: Verify npm pack
         run: npm pack --dry-run
 

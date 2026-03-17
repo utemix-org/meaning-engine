@@ -1,6 +1,7 @@
 {
   "engine": {
-    "version": "0.5.0",
+    "version": "0.1.2",
+    "status": "experimental",
     "description": "MeaningEngine — универсальный механизм для семантических графов",
     "contracts": {
       "WorldInterface": {
@@ -10,25 +11,25 @@
             "description": "Возвращает схему мира",
             "inputs": [],
             "outputs": ["Schema"],
-            "implementation": "engine/src/WorldInterface.js:WorldInterface.getSchema"
+            "implementation": "src/engine/WorldInterface.js:WorldInterface.getSchema"
           },
           "getGraph": {
             "description": "Возвращает граф мира",
             "inputs": [],
             "outputs": ["GraphInterface"],
-            "implementation": "engine/src/WorldInterface.js:WorldInterface.getGraph"
+            "implementation": "src/engine/WorldInterface.js:WorldInterface.getGraph"
           },
           "getSeed": {
             "description": "Возвращает начальные данные (опционально)",
             "inputs": [],
             "outputs": ["Seed", "null"],
-            "implementation": "engine/src/WorldInterface.js:WorldInterface.getSeed"
+            "implementation": "src/engine/WorldInterface.js:WorldInterface.getSeed"
           },
           "getConfig": {
             "description": "Возвращает конфигурацию мира (опционально)",
             "inputs": [],
             "outputs": ["WorldConfig", "null"],
-            "implementation": "engine/src/WorldInterface.js:WorldInterface.getConfig"
+            "implementation": "src/engine/WorldInterface.js:WorldInterface.getConfig"
           }
         }
       },
@@ -39,19 +40,19 @@
             "description": "Создаёт адаптер из JSON данных",
             "inputs": ["schemaData", "seedData"],
             "outputs": ["WorldAdapter"],
-            "implementation": "engine/src/WorldAdapter.js:WorldAdapter.fromJSON"
+            "implementation": "src/engine/WorldAdapter.js:WorldAdapter.fromJSON"
           },
           "getSchema": {
             "description": "Возвращает схему мира",
             "inputs": [],
             "outputs": ["Schema"],
-            "implementation": "engine/src/WorldAdapter.js:WorldAdapter.getSchema"
+            "implementation": "src/engine/WorldAdapter.js:WorldAdapter.getSchema"
           },
           "getGraph": {
             "description": "Возвращает граф мира",
             "inputs": [],
             "outputs": ["GraphInterface"],
-            "implementation": "engine/src/WorldAdapter.js:WorldAdapter.getGraph"
+            "implementation": "src/engine/WorldAdapter.js:WorldAdapter.getGraph"
           }
         }
       },
@@ -62,37 +63,37 @@
             "description": "Проверяет допустимость типа узла",
             "inputs": ["nodeType"],
             "outputs": ["boolean"],
-            "implementation": "engine/src/Schema.js:Schema.isValidNodeType"
+            "implementation": "src/engine/Schema.js:Schema.isValidNodeType"
           },
           "isValidEdgeType": {
             "description": "Проверяет допустимость типа ребра",
             "inputs": ["edgeType"],
             "outputs": ["boolean"],
-            "implementation": "engine/src/Schema.js:Schema.isValidEdgeType"
+            "implementation": "src/engine/Schema.js:Schema.isValidEdgeType"
           },
           "validateNode": {
             "description": "Валидирует узел против схемы",
             "inputs": ["node"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/Schema.js:Schema.validateNode"
+            "implementation": "src/engine/Schema.js:Schema.validateNode"
           },
           "validateEdge": {
             "description": "Валидирует ребро против схемы",
             "inputs": ["edge", "getNodeType"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/Schema.js:Schema.validateEdge"
+            "implementation": "src/engine/Schema.js:Schema.validateEdge"
           },
           "getNodeTypeIds": {
             "description": "Возвращает список ID типов узлов",
             "inputs": [],
             "outputs": ["string[]"],
-            "implementation": "engine/src/Schema.js:Schema.getNodeTypeIds"
+            "implementation": "src/engine/Schema.js:Schema.getNodeTypeIds"
           },
           "getEdgeTypeIds": {
             "description": "Возвращает список ID типов рёбер",
             "inputs": [],
             "outputs": ["string[]"],
-            "implementation": "engine/src/Schema.js:Schema.getEdgeTypeIds"
+            "implementation": "src/engine/Schema.js:Schema.getEdgeTypeIds"
           }
         }
       },
@@ -103,67 +104,67 @@
             "description": "Возвращает версию Engine",
             "inputs": [],
             "outputs": ["string"],
-            "implementation": "engine/src/index.js:MeaningEngine.getVersion"
+            "implementation": "src/engine/index.js:MeaningEngine.getVersion"
           },
           "getWorldName": {
             "description": "Возвращает имя подключённого мира",
             "inputs": [],
             "outputs": ["string"],
-            "implementation": "engine/src/index.js:MeaningEngine.getWorldName"
+            "implementation": "src/engine/index.js:MeaningEngine.getWorldName"
           },
           "getSchema": {
             "description": "Возвращает схему мира",
             "inputs": [],
             "outputs": ["Schema"],
-            "implementation": "engine/src/index.js:MeaningEngine.getSchema"
+            "implementation": "src/engine/index.js:MeaningEngine.getSchema"
           },
           "getGraph": {
             "description": "Возвращает граф мира",
             "inputs": [],
             "outputs": ["GraphInterface", "null"],
-            "implementation": "engine/src/index.js:MeaningEngine.getGraph"
+            "implementation": "src/engine/index.js:MeaningEngine.getGraph"
           },
           "isValidNodeType": {
             "description": "Проверяет допустимость типа узла",
             "inputs": ["nodeType"],
             "outputs": ["boolean"],
-            "implementation": "engine/src/index.js:MeaningEngine.isValidNodeType"
+            "implementation": "src/engine/index.js:MeaningEngine.isValidNodeType"
           },
           "isValidEdgeType": {
             "description": "Проверяет допустимость типа ребра",
             "inputs": ["edgeType"],
             "outputs": ["boolean"],
-            "implementation": "engine/src/index.js:MeaningEngine.isValidEdgeType"
+            "implementation": "src/engine/index.js:MeaningEngine.isValidEdgeType"
           },
           "validateNode": {
             "description": "Валидирует узел против схемы",
             "inputs": ["node"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/index.js:MeaningEngine.validateNode"
+            "implementation": "src/engine/index.js:MeaningEngine.validateNode"
           },
           "validateEdge": {
             "description": "Валидирует ребро против схемы",
             "inputs": ["edge"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/index.js:MeaningEngine.validateEdge"
+            "implementation": "src/engine/index.js:MeaningEngine.validateEdge"
           },
           "getNodeById": {
             "description": "Получить узел по ID",
             "inputs": ["id"],
             "outputs": ["node", "null"],
-            "implementation": "engine/src/index.js:MeaningEngine.getNodeById"
+            "implementation": "src/engine/index.js:MeaningEngine.getNodeById"
           },
           "getNeighbors": {
             "description": "Получить соседей узла",
             "inputs": ["nodeId"],
             "outputs": ["node[]"],
-            "implementation": "engine/src/index.js:MeaningEngine.getNeighbors"
+            "implementation": "src/engine/index.js:MeaningEngine.getNeighbors"
           },
           "getStats": {
             "description": "Статистика Engine",
             "inputs": [],
             "outputs": ["EngineStats"],
-            "implementation": "engine/src/index.js:MeaningEngine.getStats"
+            "implementation": "src/engine/index.js:MeaningEngine.getStats"
           }
         }
       },
@@ -174,7 +175,7 @@
             "description": "Валидирует схему мира",
             "inputs": ["schema"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/WorldInterface.js:SchemaValidator.validate"
+            "implementation": "src/engine/WorldInterface.js:SchemaValidator.validate"
           }
         }
       },
@@ -185,7 +186,7 @@
             "description": "Валидирует граф мира",
             "inputs": ["graph"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/WorldInterface.js:GraphValidator.validate"
+            "implementation": "src/engine/WorldInterface.js:GraphValidator.validate"
           }
         }
       },
@@ -196,7 +197,7 @@
             "description": "Валидирует мир целиком",
             "inputs": ["world"],
             "outputs": ["ValidationResult"],
-            "implementation": "engine/src/WorldInterface.js:WorldValidator.validate"
+            "implementation": "src/engine/WorldInterface.js:WorldValidator.validate"
           }
         }
       }
@@ -220,31 +221,31 @@
       }
     },
     "implementation_map": {
-      "WorldInterface.getSchema": "engine/src/WorldInterface.js:32",
-      "WorldInterface.getGraph": "engine/src/WorldInterface.js:41",
-      "WorldInterface.getSeed": "engine/src/WorldInterface.js:49",
-      "WorldInterface.getConfig": "engine/src/WorldInterface.js:57",
-      "WorldAdapter.fromJSON": "engine/src/WorldAdapter.js:105",
-      "WorldAdapter.getSchema": "engine/src/WorldAdapter.js:70",
-      "WorldAdapter.getGraph": "engine/src/WorldAdapter.js:78",
-      "Schema.isValidNodeType": "engine/src/Schema.js:isValidNodeType",
-      "Schema.isValidEdgeType": "engine/src/Schema.js:isValidEdgeType",
-      "Schema.validateNode": "engine/src/Schema.js:validateNode",
-      "Schema.validateEdge": "engine/src/Schema.js:validateEdge",
-      "MeaningEngine.getVersion": "engine/src/index.js:91",
-      "MeaningEngine.getWorldName": "engine/src/index.js:99",
-      "MeaningEngine.getSchema": "engine/src/index.js:115",
-      "MeaningEngine.getGraph": "engine/src/index.js:123",
-      "MeaningEngine.isValidNodeType": "engine/src/index.js:144",
-      "MeaningEngine.isValidEdgeType": "engine/src/index.js:153",
-      "MeaningEngine.validateNode": "engine/src/index.js:162",
-      "MeaningEngine.validateEdge": "engine/src/index.js:171",
-      "MeaningEngine.getNodeById": "engine/src/index.js:203",
-      "MeaningEngine.getNeighbors": "engine/src/index.js:212",
-      "MeaningEngine.getStats": "engine/src/index.js:224",
-      "SchemaValidator.validate": "engine/src/WorldInterface.js:72",
-      "GraphValidator.validate": "engine/src/WorldInterface.js:GraphValidator.validate",
-      "WorldValidator.validate": "engine/src/WorldInterface.js:WorldValidator.validate"
+      "WorldInterface.getSchema": "src/engine/WorldInterface.js:32",
+      "WorldInterface.getGraph": "src/engine/WorldInterface.js:41",
+      "WorldInterface.getSeed": "src/engine/WorldInterface.js:49",
+      "WorldInterface.getConfig": "src/engine/WorldInterface.js:57",
+      "WorldAdapter.fromJSON": "src/engine/WorldAdapter.js:105",
+      "WorldAdapter.getSchema": "src/engine/WorldAdapter.js:70",
+      "WorldAdapter.getGraph": "src/engine/WorldAdapter.js:78",
+      "Schema.isValidNodeType": "src/engine/Schema.js:isValidNodeType",
+      "Schema.isValidEdgeType": "src/engine/Schema.js:isValidEdgeType",
+      "Schema.validateNode": "src/engine/Schema.js:validateNode",
+      "Schema.validateEdge": "src/engine/Schema.js:validateEdge",
+      "MeaningEngine.getVersion": "src/engine/index.js:91",
+      "MeaningEngine.getWorldName": "src/engine/index.js:99",
+      "MeaningEngine.getSchema": "src/engine/index.js:115",
+      "MeaningEngine.getGraph": "src/engine/index.js:123",
+      "MeaningEngine.isValidNodeType": "src/engine/index.js:144",
+      "MeaningEngine.isValidEdgeType": "src/engine/index.js:153",
+      "MeaningEngine.validateNode": "src/engine/index.js:162",
+      "MeaningEngine.validateEdge": "src/engine/index.js:171",
+      "MeaningEngine.getNodeById": "src/engine/index.js:203",
+      "MeaningEngine.getNeighbors": "src/engine/index.js:212",
+      "MeaningEngine.getStats": "src/engine/index.js:224",
+      "SchemaValidator.validate": "src/engine/WorldInterface.js:72",
+      "GraphValidator.validate": "src/engine/WorldInterface.js:GraphValidator.validate",
+      "WorldValidator.validate": "src/engine/WorldInterface.js:WorldValidator.validate"
     }
   }
 }

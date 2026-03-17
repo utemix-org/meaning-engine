@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "target": "ES2022",
+    "skipLibCheck": false
+  },
+  "include": [
+    "src/core/types/**/*.d.ts"
+  ]
+}

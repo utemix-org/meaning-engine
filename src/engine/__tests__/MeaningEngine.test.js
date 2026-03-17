@@ -344,7 +344,7 @@ describe("MeaningEngine", () => {
       const reader = MeaningEngine.getSpecificationReader();
       expect(reader).toBeDefined();
       expect(typeof reader.getVersion).toBe("function");
-      expect(reader.getVersion()).toBe("0.5.0");
+      expect(reader.getVersion()).toBe(ENGINE_VERSION);
     });
     
     it("getSpecification() returns full specification", () => {
@@ -374,7 +374,7 @@ describe("MeaningEngine", () => {
       expect(ctx).toHaveProperty("contracts");
       expect(ctx).toHaveProperty("capabilities");
       expect(ctx).toHaveProperty("constraints");
-      expect(ctx.engine_version).toBe("0.5.0");
+      expect(ctx.engine_version).toBe(ENGINE_VERSION);
     });
   });
   

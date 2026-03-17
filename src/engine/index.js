@@ -50,7 +50,12 @@ import { SpecificationReader } from "./SpecificationReader.js";
 import { CatalogRegistry } from "./CatalogRegistry.js";
 import { OperatorEngine } from "./OperatorEngine.js";
 
-export const ENGINE_VERSION = "0.7.0";
+import { readFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const _pkgPath = resolve(dirname(fileURLToPath(import.meta.url)), "../../package.json");
+export const ENGINE_VERSION = JSON.parse(readFileSync(_pkgPath, "utf-8")).version;
 
 /**
  * ═══════════════════════════════════════════════════════════════════════════

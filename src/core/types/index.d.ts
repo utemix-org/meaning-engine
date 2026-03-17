@@ -39,8 +39,8 @@ export {
 export type {
   NodeData,
   EdgeData,
-  GraphData,
-  ScopeResult,
+  GraphInputData,
+  GraphSerializedData,
   IGraphModel,
   GraphModelConstructor
 } from "./graph";
