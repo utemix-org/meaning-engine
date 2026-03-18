@@ -17,6 +17,12 @@
 - **EPISTEMIC_LOG.md:** formula marked as explanatory framing
 - **API_SURFACE_POLICY.md:** `links` added to Deprecated section with migration guidance
 
+### Track B Foundations
+- `docs/QUESTION_FORMAT.md` — canonical question schema (id, status, issue_type, severity, prompt, evidence_refs, expected_output_shape)
+- `docs/ISSUE_TAXONOMY.md` — 10 tension classes derived from Phase 2 Audit findings, with severity mapping and code prefixes
+- `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
+- `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
+
 ### Added
 - `docs/VERSIONING.md` — single-version policy and bump procedure
 - `docs/API_SURFACE_POLICY.md` — public/experimental/internal classification
