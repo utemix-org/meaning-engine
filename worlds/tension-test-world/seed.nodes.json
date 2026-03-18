@@ -1,0 +1,103 @@
+[
+  {
+    "id": "spec:api-contract",
+    "type": "spec",
+    "title": "API Contract Specification",
+    "status": "active"
+  },
+  {
+    "id": "spec:serialization-format",
+    "type": "spec",
+    "title": "Serialization Format Spec",
+    "status": "active"
+  },
+  {
+    "id": "concept:graph-model",
+    "type": "concept",
+    "title": "Graph Model",
+    "status": "active"
+  },
+  {
+    "id": "concept:projection",
+    "type": "concept",
+    "title": "Projection Pipeline",
+    "status": "active"
+  },
+  {
+    "id": "concept:navigation",
+    "type": "concept",
+    "title": "Navigation Transitions",
+    "status": "active"
+  },
+  {
+    "id": "invariant:determinism",
+    "type": "invariant",
+    "title": "Projection Determinism",
+    "status": "active"
+  },
+  {
+    "id": "evidence:determinism-test",
+    "type": "evidence",
+    "title": "Determinism Test Suite",
+    "status": "active"
+  },
+
+  {
+    "id": "code_artifact:toJSON",
+    "type": "code_artifact",
+    "title": "GraphModel.toJSON()",
+    "status": "active",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM: spec:serialization-format documents edge preservation, but this artifact historically dropped type field"
+  },
+
+  {
+    "id": "spec:type-declarations",
+    "type": "spec",
+    "title": "TypeScript Type Declarations",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:getNeighbors",
+    "type": "code_artifact",
+    "title": "GraphModel.getNeighbors()",
+    "status": "active",
+    "tension_class": "type_contract_drift",
+    "tension_note": "TCD: spec:type-declarations declares NodeData[] return, actual runtime returns Set<string>"
+  },
+
+  {
+    "id": "concept:links",
+    "type": "concept",
+    "title": "Links (legacy term)",
+    "status": "active",
+    "tension_class": "vocabulary_ambiguity",
+    "tension_note": "VOC: same concept as concept:edges but no same_as edge exists"
+  },
+  {
+    "id": "concept:edges",
+    "type": "concept",
+    "title": "Edges (canonical term)",
+    "status": "active",
+    "tension_class": "vocabulary_ambiguity",
+    "tension_note": "VOC: same concept as concept:links but no same_as edge exists"
+  },
+
+  {
+    "id": "decision:projection-formula",
+    "type": "decision",
+    "title": "Projection Formula V = P(G,F,S,Params)",
+    "status": "active",
+    "tension_class": "unsupported_claim",
+    "tension_note": "USC: no proved_by edge to any evidence or invariant node"
+  },
+
+  {
+    "id": "concept:epistemic-log",
+    "type": "concept",
+    "title": "Epistemic Log",
+    "status": "active",
+    "tension_class": "missing_bridge",
+    "tension_note": "MBR: intentionally isolated from main cluster — no edges to any other node"
+  }
+]

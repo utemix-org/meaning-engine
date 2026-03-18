@@ -23,6 +23,12 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Demo/Test World
+- `worlds/tension-test-world/` — intentional world (14 nodes, 14 edges) materializing all 5 Tension Set v1 classes as graph relief
+- Tension edge types: `drift_against` (DRM), `contradicts` (TCD); structural absence: no `same_as` (VOC), no `proved_by` (USC), isolated node (MBR)
+- `operators/runTensionSmokeCheck.js` — structural observability smoke check (5/5 detected)
+- `questions/tension-set-v1.json` — updated with `graph_refs`, `world`, and `structural_signal` bindings to tension-test-world
+
 ### Added
 - `docs/VERSIONING.md` — single-version policy and bump procedure
 - `docs/API_SURFACE_POLICY.md` — public/experimental/internal classification

@@ -1,0 +1,105 @@
+[
+  {
+    "source": "spec:api-contract",
+    "target": "concept:graph-model",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "spec:api-contract",
+    "target": "concept:projection",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "spec:api-contract",
+    "target": "concept:navigation",
+    "type": "defines",
+    "layer": "concept"
+  },
+  {
+    "source": "concept:projection",
+    "target": "invariant:determinism",
+    "type": "constrains",
+    "layer": "concept"
+  },
+  {
+    "source": "invariant:determinism",
+    "target": "evidence:determinism-test",
+    "type": "proved_by",
+    "layer": "provenance"
+  },
+
+  {
+    "source": "spec:serialization-format",
+    "target": "code_artifact:toJSON",
+    "type": "documents",
+    "layer": "provenance",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM: spec documents full edge preservation, but toJSON historically dropped type"
+  },
+  {
+    "source": "code_artifact:toJSON",
+    "target": "spec:serialization-format",
+    "type": "drift_against",
+    "layer": "tension",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM: drift edge — code drifted from documented contract"
+  },
+
+  {
+    "source": "spec:type-declarations",
+    "target": "code_artifact:getNeighbors",
+    "type": "declares",
+    "layer": "provenance",
+    "tension_class": "type_contract_drift",
+    "tension_note": "TCD: declared return type differs from actual runtime"
+  },
+  {
+    "source": "code_artifact:getNeighbors",
+    "target": "spec:type-declarations",
+    "type": "contradicts",
+    "layer": "tension",
+    "tension_class": "type_contract_drift",
+    "tension_note": "TCD: runtime contradicts declared types"
+  },
+
+  {
+    "source": "concept:links",
+    "target": "code_artifact:toJSON",
+    "type": "used_by",
+    "layer": "provenance",
+    "tension_class": "vocabulary_ambiguity",
+    "tension_note": "VOC: legacy term used in code — no same_as edge to concept:edges"
+  },
+  {
+    "source": "concept:edges",
+    "target": "code_artifact:toJSON",
+    "type": "used_by",
+    "layer": "provenance",
+    "tension_class": "vocabulary_ambiguity",
+    "tension_note": "VOC: canonical term also used in code — no same_as edge to concept:links"
+  },
+
+  {
+    "source": "decision:projection-formula",
+    "target": "concept:projection",
+    "type": "applies_to",
+    "layer": "concept",
+    "tension_class": "unsupported_claim",
+    "tension_note": "USC: decision applies to concept but has no proved_by edge to evidence"
+  },
+
+  {
+    "source": "concept:graph-model",
+    "target": "code_artifact:toJSON",
+    "type": "implements",
+    "layer": "provenance"
+  },
+  {
+    "source": "concept:graph-model",
+    "target": "code_artifact:getNeighbors",
+    "type": "implements",
+    "layer": "provenance"
+  }
+]

@@ -8,9 +8,14 @@
     "evidence_refs": {
       "doc_refs": ["docs/WORLD_INPUT_FORMAT.md"],
       "code_refs": ["src/core/GraphModel.js:254"],
-      "graph_refs": []
+      "graph_refs": [
+        "spec:serialization-format",
+        "code_artifact:toJSON"
+      ]
     },
-    "expected_output_shape": "Boolean yes/no with: (1) toJSON() output shape from code, (2) documented edge fields from WORLD_INPUT_FORMAT.md, (3) match/mismatch verdict."
+    "expected_output_shape": "Boolean yes/no with: (1) toJSON() output shape from code, (2) documented edge fields from WORLD_INPUT_FORMAT.md, (3) match/mismatch verdict.",
+    "world": "tension-test-world",
+    "structural_signal": "Presence of drift_against edge from code_artifact:toJSON to spec:serialization-format"
   },
   {
     "id": "Q-TCD-001",
@@ -24,9 +29,14 @@
         "src/core/types/graph.d.ts:100",
         "src/core/GraphModel.js:164"
       ],
-      "graph_refs": []
+      "graph_refs": [
+        "spec:type-declarations",
+        "code_artifact:getNeighbors"
+      ]
     },
-    "expected_output_shape": "Comparison: declared return type in .d.ts vs actual return type in .js. Must be identical (both Set<string>)."
+    "expected_output_shape": "Comparison: declared return type in .d.ts vs actual return type in .js. Must be identical (both Set<string>).",
+    "world": "tension-test-world",
+    "structural_signal": "Presence of contradicts edge from code_artifact:getNeighbors to spec:type-declarations"
   },
   {
     "id": "Q-VOC-001",
@@ -43,9 +53,15 @@
         "src/core/GraphModel.js:51",
         "src/core/GraphModel.js:254"
       ],
-      "graph_refs": []
+      "graph_refs": [
+        "concept:links",
+        "concept:edges",
+        "code_artifact:toJSON"
+      ]
     },
-    "expected_output_shape": "List of all locations where edge collection key appears, with the term used at each location. Verdict: unified or split."
+    "expected_output_shape": "List of all locations where edge collection key appears, with the term used at each location. Verdict: unified or split.",
+    "world": "tension-test-world",
+    "structural_signal": "Two concept nodes (concept:links, concept:edges) both linked to code_artifact:toJSON via used_by, but no same_as edge between them"
   },
   {
     "id": "Q-USC-001",
@@ -56,23 +72,31 @@
     "evidence_refs": {
       "doc_refs": ["ARCHITECTURE.md"],
       "code_refs": [],
-      "graph_refs": []
+      "graph_refs": [
+        "decision:projection-formula",
+        "concept:projection"
+      ]
     },
-    "expected_output_shape": "Quote from ARCHITECTURE.md showing qualification level. Verdict: overclaim (presented as proven) or properly qualified (marked as explanatory framing)."
+    "expected_output_shape": "Quote from ARCHITECTURE.md showing qualification level. Verdict: overclaim (presented as proven) or properly qualified (marked as explanatory framing).",
+    "world": "tension-test-world",
+    "structural_signal": "decision:projection-formula has applies_to edge to concept:projection but no proved_by edge to any evidence or invariant node"
   },
   {
     "id": "Q-MBR-001",
     "status": "open",
     "issue_type": "missing_bridge",
     "severity": "P2",
-    "prompt": "In the documentation-world, is there a path from any `code_artifact` node to the `concept:focus` node? If not, what bridge candidates does the supports operator suggest?",
+    "prompt": "In the tension-test-world, is there a path from concept:graph-model to concept:epistemic-log? If not, what bridge candidates does the supports operator suggest?",
     "evidence_refs": {
       "doc_refs": [],
       "code_refs": ["operators/supports.js"],
       "graph_refs": [
-        "concept:focus"
+        "concept:epistemic-log",
+        "concept:graph-model"
       ]
     },
-    "expected_output_shape": "Trace result (path or no_path). If no_path: list of bridge candidate node IDs ranked by degree centrality."
+    "expected_output_shape": "Trace result (path or no_path). If no_path: list of bridge candidate node IDs ranked by degree centrality.",
+    "world": "tension-test-world",
+    "structural_signal": "concept:epistemic-log has zero edges — completely isolated from the main graph"
   }
 ]
