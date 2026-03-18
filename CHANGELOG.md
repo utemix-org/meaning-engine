@@ -23,6 +23,13 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Cabin Scoring / Calibration v2
+- `docs/CABIN_SCORING_RUBRIC.md` — 7 quality dimensions (D1–D7), grading scale (pass/weak_pass/fail/structured_wrong/parse_fail), failure pattern catalog
+- `docs/CABIN_CLAIM_POLICY.md` — measured claim policy: allowed/prohibited/conditional claims based on calibration evidence
+- `eval/cabin_grades/` — per-adapter grade files: deterministic (8/8 pass), stub (4/8, 4 structured_wrong on GR)
+- `eval/runCabinCalibrationReport.js` — multi-adapter calibration runner with comparison matrix, grade summaries, failure pattern counts; `--save` writes JSON report
+- `reports/cabin-calibration-v2.json` — serialized calibration snapshot
+
 ### Track B Model Adapter Boundary (P1.B8)
 - `src/cabin/adapters/` — provider-agnostic adapter interface: `ModelAdapter`, `ModelRequest`, `ModelResponse`, `DiagnosisEnvelope`
 - `src/cabin/adapters/stub.js` — stub adapter for pipeline testing without credentials

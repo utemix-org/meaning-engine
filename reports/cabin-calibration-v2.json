@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-03-18T19:05:43.411Z",
+  "case_count": 8,
+  "adapters": {
+    "deterministic": {
+      "match_pass": 8,
+      "match_fail": 0,
+      "by_mode": {
+        "question_driven": {
+          "pass": 4,
+          "fail": 0
+        },
+        "graph_relief_driven": {
+          "pass": 4,
+          "fail": 0
+        }
+      },
+      "grades_available": true
+    },
+    "stub": {
+      "match_pass": 4,
+      "match_fail": 4,
+      "by_mode": {
+        "question_driven": {
+          "pass": 4,
+          "fail": 0
+        },
+        "graph_relief_driven": {
+          "pass": 0,
+          "fail": 4
+        }
+      },
+      "grades_available": true
+    }
+  }
+}

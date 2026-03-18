@@ -1,0 +1,138 @@
+[
+  {
+    "case_id": "CE-QD-001",
+    "adapter": "stub",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "weak_pass",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "fail"
+    },
+    "overall": "weak_pass",
+    "failure_patterns": ["no_action"],
+    "notes": "Stub echoes question metadata. Claim is question prompt prefixed with [stub], not a real diagnosis."
+  },
+  {
+    "case_id": "CE-QD-002",
+    "adapter": "stub",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "weak_pass",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "fail"
+    },
+    "overall": "weak_pass",
+    "failure_patterns": ["no_action"],
+    "notes": "Stub echoes question metadata."
+  },
+  {
+    "case_id": "CE-QD-003",
+    "adapter": "stub",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "weak_pass",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "fail"
+    },
+    "overall": "weak_pass",
+    "failure_patterns": ["no_action"],
+    "notes": "Stub echoes question metadata."
+  },
+  {
+    "case_id": "CE-QD-004",
+    "adapter": "stub",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "weak_pass",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "fail"
+    },
+    "overall": "weak_pass",
+    "failure_patterns": ["no_action"],
+    "notes": "Stub echoes question metadata."
+  },
+  {
+    "case_id": "CE-GR-001",
+    "adapter": "stub",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "fail",
+      "boundedness": "pass",
+      "specificity": "fail",
+      "actionability": "fail"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "wrong_severity", "missing_evidence", "vague_claim"],
+    "notes": "Stub returns unknown/P2 for graph-relief — does not analyze the graph at all."
+  },
+  {
+    "case_id": "CE-GR-002",
+    "adapter": "stub",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "fail",
+      "boundedness": "pass",
+      "specificity": "fail",
+      "actionability": "fail"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "wrong_severity", "missing_evidence", "vague_claim"],
+    "notes": "Stub returns unknown/P2 for graph-relief — does not analyze the graph."
+  },
+  {
+    "case_id": "CE-GR-003",
+    "adapter": "stub",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "fail",
+      "boundedness": "pass",
+      "specificity": "fail",
+      "actionability": "fail"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "wrong_severity", "missing_evidence", "vague_claim"],
+    "notes": "Stub returns unknown/P2 for graph-relief."
+  },
+  {
+    "case_id": "CE-GR-004",
+    "adapter": "stub",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "fail",
+      "boundedness": "pass",
+      "specificity": "fail",
+      "actionability": "fail"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "missing_evidence", "vague_claim"],
+    "notes": "Stub returns unknown/P2 — severity P2 happens to match expected. Not a real pass."
+  }
+]

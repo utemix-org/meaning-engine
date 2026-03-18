@@ -1,0 +1,138 @@
+[
+  {
+    "case_id": "CE-QD-001",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic rule-based: echoes question metadata + checks node presence."
+  },
+  {
+    "case_id": "CE-QD-002",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic rule-based: echoes question metadata."
+  },
+  {
+    "case_id": "CE-QD-003",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic rule-based: echoes question metadata."
+  },
+  {
+    "case_id": "CE-QD-004",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic rule-based: echoes question metadata."
+  },
+  {
+    "case_id": "CE-GR-001",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic signal detector: finds drift_against edge."
+  },
+  {
+    "case_id": "CE-GR-002",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic signal detector: finds contradicts edge."
+  },
+  {
+    "case_id": "CE-GR-003",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic signal detector: finds decision node without proved_by."
+  },
+  {
+    "case_id": "CE-GR-004",
+    "adapter": "deterministic",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "n/a"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Deterministic signal detector: finds isolated node."
+  }
+]
