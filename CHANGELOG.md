@@ -23,6 +23,12 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Cabin Eval Harness v1
+- `docs/CABIN_EVAL.md` — eval framework spec: two modes (question-driven, graph-relief-driven), two levels (structural pass, diagnostic pass), scoring dimensions, pass/fail criteria
+- `eval/cabin_cases/README.md` — case schema (case_id, mode, world_ref, input, expected, structural_checks)
+- `eval/cabin_cases/golden_v1.json` — 8 golden cases: 4 question-driven (DRM, TCD, VOC, USC) + 4 graph-relief-driven (DRM, TCD, USC, MBR)
+- `eval/runCabinEvalStub.js` — deterministic stub runner: loads world, verifies structural observability, prints pass/fail report (8/8 pass without LLM)
+
 ### Track B Demo/Test World
 - `worlds/tension-test-world/` — intentional world (14 nodes, 14 edges) materializing all 5 Tension Set v1 classes as graph relief
 - Tension edge types: `drift_against` (DRM), `contradicts` (TCD); structural absence: no `same_as` (VOC), no `proved_by` (USC), isolated node (MBR)

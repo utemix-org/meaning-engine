@@ -1,0 +1,198 @@
+[
+  {
+    "case_id": "CE-QD-001",
+    "mode": "question_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "question_id": "Q-DRM-001"
+    },
+    "expected": {
+      "issue_type": "doc_runtime_mismatch",
+      "severity": "P0",
+      "claim": "GraphModel.toJSON() historically dropped the type field on edges, diverging from the documented serialization contract.",
+      "evidence_refs": {
+        "doc_refs": ["docs/WORLD_INPUT_FORMAT.md"],
+        "code_refs": ["src/core/GraphModel.js"],
+        "graph_refs": ["spec:serialization-format", "code_artifact:toJSON"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "spec:serialization-format" } },
+        { "type": "node_exists", "params": { "node_id": "code_artifact:toJSON" } },
+        { "type": "edge_exists", "params": { "source": "spec:serialization-format", "target": "code_artifact:toJSON", "edge_type": "documents" } },
+        { "type": "edge_exists", "params": { "source": "code_artifact:toJSON", "target": "spec:serialization-format", "edge_type": "drift_against" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-QD-002",
+    "mode": "question_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "question_id": "Q-TCD-001"
+    },
+    "expected": {
+      "issue_type": "type_contract_drift",
+      "severity": "P0",
+      "claim": "TypeScript declaration for getNeighbors() declared NodeData[] return type while runtime returned Set<string>.",
+      "evidence_refs": {
+        "doc_refs": ["docs/API_SURFACE_POLICY.md"],
+        "code_refs": ["src/core/types/graph.d.ts", "src/core/GraphModel.js"],
+        "graph_refs": ["spec:type-declarations", "code_artifact:getNeighbors"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "spec:type-declarations" } },
+        { "type": "node_exists", "params": { "node_id": "code_artifact:getNeighbors" } },
+        { "type": "edge_exists", "params": { "source": "spec:type-declarations", "target": "code_artifact:getNeighbors", "edge_type": "declares" } },
+        { "type": "edge_exists", "params": { "source": "code_artifact:getNeighbors", "target": "spec:type-declarations", "edge_type": "contradicts" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-QD-003",
+    "mode": "question_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "question_id": "Q-VOC-001"
+    },
+    "expected": {
+      "issue_type": "vocabulary_ambiguity",
+      "severity": "P1",
+      "claim": "Two concept nodes (links, edges) refer to the same construct but have no same_as or alias_of edge.",
+      "evidence_refs": {
+        "doc_refs": ["docs/WORLD_INPUT_FORMAT.md", "ARCHITECTURE.md"],
+        "code_refs": ["src/core/GraphModel.js"],
+        "graph_refs": ["concept:links", "concept:edges", "code_artifact:toJSON"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "concept:links" } },
+        { "type": "node_exists", "params": { "node_id": "concept:edges" } },
+        { "type": "edge_exists", "params": { "source": "concept:links", "target": "code_artifact:toJSON", "edge_type": "used_by" } },
+        { "type": "edge_exists", "params": { "source": "concept:edges", "target": "code_artifact:toJSON", "edge_type": "used_by" } },
+        { "type": "edge_absent", "params": { "source": "concept:links", "target": "concept:edges", "edge_type": "same_as" } },
+        { "type": "edge_absent", "params": { "source": "concept:edges", "target": "concept:links", "edge_type": "same_as" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-QD-004",
+    "mode": "question_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "question_id": "Q-USC-001"
+    },
+    "expected": {
+      "issue_type": "unsupported_claim",
+      "severity": "P1",
+      "claim": "Projection formula decision has applies_to but no proved_by edge to evidence or invariant.",
+      "evidence_refs": {
+        "doc_refs": ["ARCHITECTURE.md"],
+        "code_refs": [],
+        "graph_refs": ["decision:projection-formula", "concept:projection"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "decision:projection-formula" } },
+        { "type": "edge_exists", "params": { "source": "decision:projection-formula", "target": "concept:projection", "edge_type": "applies_to" } },
+        { "type": "node_without_edge_type", "params": { "node_id": "decision:projection-formula", "edge_type": "proved_by", "direction": "outgoing" } }
+      ]
+    }
+  },
+
+  {
+    "case_id": "CE-GR-001",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "probe": {
+        "signal_type": "edge_present",
+        "params": { "edge_type": "drift_against", "layer": "tension" }
+      }
+    },
+    "expected": {
+      "issue_type": "doc_runtime_mismatch",
+      "severity": "P0",
+      "claim": "A drift_against edge in the tension layer signals doc/runtime divergence.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["code_artifact:toJSON", "spec:serialization-format"]
+      },
+      "structural_checks": [
+        { "type": "edge_exists", "params": { "source": "code_artifact:toJSON", "target": "spec:serialization-format", "edge_type": "drift_against" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-GR-002",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "probe": {
+        "signal_type": "edge_present",
+        "params": { "edge_type": "contradicts", "layer": "tension" }
+      }
+    },
+    "expected": {
+      "issue_type": "type_contract_drift",
+      "severity": "P0",
+      "claim": "A contradicts edge in the tension layer signals type/runtime divergence.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["code_artifact:getNeighbors", "spec:type-declarations"]
+      },
+      "structural_checks": [
+        { "type": "edge_exists", "params": { "source": "code_artifact:getNeighbors", "target": "spec:type-declarations", "edge_type": "contradicts" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-GR-003",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "probe": {
+        "signal_type": "node_without_edge_type",
+        "params": { "node_type": "decision", "missing_edge_type": "proved_by", "direction": "outgoing" }
+      }
+    },
+    "expected": {
+      "issue_type": "unsupported_claim",
+      "severity": "P1",
+      "claim": "A decision node without a proved_by edge signals an unsupported architectural claim.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["decision:projection-formula"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "decision:projection-formula" } },
+        { "type": "node_without_edge_type", "params": { "node_id": "decision:projection-formula", "edge_type": "proved_by", "direction": "outgoing" } }
+      ]
+    }
+  },
+  {
+    "case_id": "CE-GR-004",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "input": {
+      "probe": {
+        "signal_type": "node_isolated",
+        "params": {}
+      }
+    },
+    "expected": {
+      "issue_type": "missing_bridge",
+      "severity": "P2",
+      "claim": "An isolated node with zero edges signals a missing bridge in the knowledge graph.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["concept:epistemic-log"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "concept:epistemic-log" } },
+        { "type": "node_isolated", "params": { "node_id": "concept:epistemic-log" } }
+      ]
+    }
+  }
+]
