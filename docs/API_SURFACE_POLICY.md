@@ -100,7 +100,10 @@ The following are implementation details and should not be relied upon:
 
 ## Deprecated
 
-Nothing is formally deprecated yet. When deprecations occur, they will be listed here and noted in the CHANGELOG.
+| Symbol | Context | Replacement |
+|--------|---------|-------------|
+| `links` key in `GraphModel` constructor | `new GraphModel({ nodes, links })` | Use `edges` instead. `links` still accepted as input alias but will be removed in a future minor. |
+| `links` key in `toJSON()` output | Was `{ nodes, links }` | Now `{ nodes, edges }`. No backward-compatibility shim on output. |
 
 ## Policy for promoting experimental → public
 

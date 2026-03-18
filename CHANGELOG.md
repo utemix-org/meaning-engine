@@ -11,6 +11,12 @@
 - **Version alignment (Variant A):** single-version policy — `package.json` is the sole source of truth; `ENGINE_VERSION` now reads from `package.json` at runtime; `specification.json` version synced
 - **Specification paths:** all `engine/src/...` paths in `specification.json` corrected to `src/engine/...`; spec marked as `experimental`
 
+### Docs
+- **ARCHITECTURE.md truthfulness sweep:** formula marked as explanatory framing (not formally proven); `links` → `edges` terminology; outdated doc-world counts corrected (116/292); Graph Contract table added; spec marked experimental; overclaims softened
+- **README.md:** `nodes + links` → `nodes + edges`; removed hardcoded test count
+- **EPISTEMIC_LOG.md:** formula marked as explanatory framing
+- **API_SURFACE_POLICY.md:** `links` added to Deprecated section with migration guidance
+
 ### Added
 - `docs/VERSIONING.md` — single-version policy and bump procedure
 - `docs/API_SURFACE_POLICY.md` — public/experimental/internal classification

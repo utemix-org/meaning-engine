@@ -13,7 +13,7 @@ A deterministic engine for graph-based engineering knowledge, with reproducible 
 git clone https://github.com/utemix-org/meaning-engine.git
 cd meaning-engine
 npm install
-npm test    # 662 tests, all green
+npm test    # all tests, all green
 ```
 
 ## Canonical Demo
@@ -110,7 +110,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for the full breakdown.
 ```
 src/                     Engine core
 ├── core/
-│   ├── GraphModel       World-agnostic graph (nodes + links)
+│   ├── GraphModel       World-agnostic graph (nodes + edges)
 │   ├── projection/      Focus → visible subgraph → roles → ViewModel
 │   ├── navigation/      Formal state transitions with invariants
 │   ├── knowledge/       Epistemic substrate (propose → verify → canonicalize)

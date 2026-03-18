@@ -16,6 +16,8 @@ The Epistemic Log is the engine's mechanism for tracking how knowledge evolves o
 
 ## The Formula
 
+> **Explanatory framing** — the formula below describes the design intent of the knowledge substrate. It is a shorthand for the implemented pipeline, not a formally proven property.
+
 ```
 Gₜ = BuildGraph(Canonical(Evaluate(Log₀..ₜ)))
 ```
