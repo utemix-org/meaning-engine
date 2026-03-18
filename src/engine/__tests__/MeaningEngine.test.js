@@ -12,6 +12,7 @@
 
 import { describe, it, expect } from "vitest";
 import { MeaningEngine, WorldAdapter, ENGINE_VERSION } from "../index.js";
+import { GraphModel } from "../../core/index.js";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // TEST DATA
@@ -183,13 +184,23 @@ describe("MeaningEngine", () => {
       expect(engine.getNodeById("unknown")).toBeNull();
     });
     
-    it("getNeighbors should return neighbors", () => {
+    it("getNeighbors should return neighbor IDs as Set", () => {
       const neighbors = engine.getNeighbors("root-1");
-      expect(neighbors).toHaveLength(2);
+      expect(neighbors).toBeInstanceOf(Set);
+      expect(neighbors.size).toBe(2);
     });
     
-    it("getNeighbors should return empty for unknown node", () => {
-      expect(engine.getNeighbors("unknown")).toHaveLength(0);
+    it("getNeighbors should return empty Set for unknown node", () => {
+      const neighbors = engine.getNeighbors("unknown");
+      expect(neighbors).toBeInstanceOf(Set);
+      expect(neighbors.size).toBe(0);
+    });
+    
+    it("getNeighborNodes should return node objects", () => {
+      const nodes = engine.getNeighborNodes("root-1");
+      expect(Array.isArray(nodes)).toBe(true);
+      expect(nodes).toHaveLength(2);
+      expect(nodes[0]).toHaveProperty("id");
     });
   });
   
@@ -331,7 +342,8 @@ describe("MeaningEngine", () => {
       expect(root.label).toBe("Root Node");
       
       const neighbors = engine.getNeighbors("root-1");
-      expect(neighbors).toHaveLength(2);
+      expect(neighbors).toBeInstanceOf(Set);
+      expect(neighbors.size).toBe(2);
     });
   });
   
@@ -493,6 +505,76 @@ describe("MeaningEngine", () => {
         expect(stats.catalogs.catalogCount).toBe(1);
         expect(stats.catalogs.totalEntries).toBe(3);
       });
+    });
+  });
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // GRAPH MODEL SERIALIZATION ROUND-TRIP
+  // ═══════════════════════════════════════════════════════════════════════════
+  
+  describe("GraphModel serialization round-trip", () => {
+    const inputData = {
+      nodes: [
+        { id: "a", type: "concept", label: "A" },
+        { id: "b", type: "spec", label: "B" },
+      ],
+      edges: [
+        { id: "e1", source: "a", target: "b", type: "defines", layer: "concept" },
+        { source: "b", target: "a", type: "constrains" },
+      ],
+    };
+    
+    it("toJSON outputs canonical 'edges' key with type preserved", () => {
+      const g = new GraphModel(inputData);
+      const json = g.toJSON();
+      expect(json).toHaveProperty("edges");
+      expect(json).not.toHaveProperty("links");
+      expect(json.edges).toHaveLength(2);
+      expect(json.edges[0].type).toBe("defines");
+      expect(json.edges[1].type).toBe("constrains");
+    });
+    
+    it("toJSON preserves layer when present", () => {
+      const g = new GraphModel(inputData);
+      const json = g.toJSON();
+      expect(json.edges[0].layer).toBe("concept");
+      expect(json.edges[1].layer).toBeUndefined();
+    });
+    
+    it("round-trip: load → toJSON → reload preserves type and layer", () => {
+      const g1 = new GraphModel(inputData);
+      const serialized = g1.toJSON();
+      const g2 = GraphModel.fromJSON(serialized);
+      
+      expect(g2.getNodes()).toHaveLength(2);
+      expect(g2.getEdges()).toHaveLength(2);
+      
+      const e0 = g2.getEdges()[0];
+      expect(e0.type).toBe("defines");
+      expect(e0.layer).toBe("concept");
+      
+      const e1 = g2.getEdges()[1];
+      expect(e1.type).toBe("constrains");
+    });
+    
+    it("constructor accepts legacy 'links' key for backward compat", () => {
+      const legacyData = {
+        nodes: [{ id: "x", type: "t" }],
+        links: [{ source: "x", target: "x", type: "self" }],
+      };
+      const g = new GraphModel(legacyData);
+      expect(g.getEdges()).toHaveLength(1);
+      expect(g.getEdges()[0].type).toBe("self");
+    });
+    
+    it("constructor prefers 'edges' over 'links' when both present", () => {
+      const bothData = {
+        nodes: [{ id: "x", type: "t" }],
+        edges: [{ source: "x", target: "x", type: "from-edges" }],
+        links: [{ source: "x", target: "x", type: "from-links" }],
+      };
+      const g = new GraphModel(bothData);
+      expect(g.getEdges()[0].type).toBe("from-edges");
     });
   });
 });

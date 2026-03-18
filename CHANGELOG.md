@@ -3,8 +3,12 @@
 ## Unreleased
 
 ### Changed
+- **Canonical edge key: `edges`** — `GraphModel` constructor now accepts `edges` as the canonical key; `links` remains as a deprecated legacy alias at the constructor boundary only
+- **`toJSON()` output shape:** now returns `{ nodes, edges }` (was `{ nodes, links }`) and **preserves `type` and `layer`** on edges (previously dropped)
+- **`getNeighbors` unified:** returns `Set<string>` (node IDs) consistently across `GraphModel`, `WorldAdapter`, and `MeaningEngine`; previously `WorldAdapter` returned `NodeData[]`
+- **Added `getNeighborNodes(nodeId)`:** convenience method returning `NodeData[]` on `GraphModel`, `WorldAdapter` graph, and `MeaningEngine`
+- **Directedness policy:** edges stored directed (source → target); neighbor index is undirected; operators choose traversal mode
 - **Version alignment (Variant A):** single-version policy — `package.json` is the sole source of truth; `ENGINE_VERSION` now reads from `package.json` at runtime; `specification.json` version synced
-- **Truthful `.d.ts`:** `graph.d.ts` rewritten to match actual `GraphModel` runtime — `getNeighbors` returns `Set<string>`, `toJSON` returns `{nodes, links}`, constructor accepts `{nodes, links}`, `computeScope` returns `Set<string>`
 - **Specification paths:** all `engine/src/...` paths in `specification.json` corrected to `src/engine/...`; spec marked as `experimental`
 
 ### Added
@@ -15,9 +19,10 @@
 - Public promise and stability table in README
 
 ### Fixed
+- `toJSON()` round-trip no longer loses edge `type` and `layer`
 - `ENGINE_VERSION` was `0.7.0` while `package.json` was `0.1.2`
 - `specification.json` version was `0.5.0` and all paths pointed to non-existent `engine/src/...`
-- `.d.ts` types were lying about `getNeighbors` (claimed `NodeData[]`, actual `Set<string>`), `toJSON` shape, `computeScope` return type, and `GraphData` key name (`edges` vs `links`)
+- `.d.ts` types aligned with runtime for `getNeighbors`, `toJSON`, `computeScope`, constructor input, and edge shape
 
 ## v0.1.2 (2026-03-17)
 

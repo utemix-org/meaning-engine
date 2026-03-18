@@ -247,12 +247,25 @@ export class MeaningEngine {
   }
   
   /**
-   * Получить соседей узла.
+   * Получить ID соседей узла (undirected).
+   * @param {string} nodeId
+   * @returns {Set<string>}
+   */
+  getNeighbors(nodeId) {
+    return this._graph?.getNeighbors(nodeId) ?? new Set();
+  }
+  
+  /**
+   * Получить объекты соседних узлов.
    * @param {string} nodeId
    * @returns {object[]}
    */
-  getNeighbors(nodeId) {
-    return this._graph?.getNeighbors(nodeId) ?? [];
+  getNeighborNodes(nodeId) {
+    if (typeof this._graph?.getNeighborNodes === "function") {
+      return this._graph.getNeighborNodes(nodeId);
+    }
+    const ids = this.getNeighbors(nodeId);
+    return [...ids].map(id => this._graph?.getNodeById(id)).filter(Boolean);
   }
   
   // ═══════════════════════════════════════════════════════════════════════════

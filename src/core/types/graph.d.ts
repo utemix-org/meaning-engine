@@ -3,6 +3,9 @@
  *
  * These types describe the ACTUAL runtime behavior of GraphModel.
  * See docs/API_SURFACE_POLICY.md for public/experimental classification.
+ *
+ * Canonical key for edges: `edges` (not `links`).
+ * The constructor accepts both for backward compatibility.
  */
 
 import type { IdentityMeta } from "./identity";
@@ -30,7 +33,7 @@ export interface NodeData {
 
 /**
  * Edge data as stored internally by GraphModel.
- * Note: constructor generates `id` from `${source}-${target}` if not provided.
+ * Constructor generates `id` from `${source}-${target}` if not provided.
  */
 export interface EdgeData {
   /** Edge identifier (auto-generated if not provided) */
@@ -39,42 +42,59 @@ export interface EdgeData {
   source: string;
   /** Target node ID */
   target: string;
-  /** Relationship type (preserved internally, but dropped by toJSON) */
+  /** Relationship type */
   type: string | null;
+  /** Grouping hint (e.g. "concept", "provenance", "code") */
+  layer?: string;
 }
 
 /**
  * Input data accepted by the GraphModel constructor.
- * Uses `links` key (not `edges`) for historical reasons.
+ * Canonical key: `edges`. Legacy alias `links` accepted for backward compatibility.
  */
 export interface GraphInputData {
   nodes?: NodeData[];
+  /** Canonical edge array */
+  edges?: Array<{
+    id?: string;
+    source: string;
+    target: string;
+    type?: string;
+    layer?: string;
+    [key: string]: unknown;
+  }>;
+  /** @deprecated Legacy alias for `edges`. Use `edges` instead. */
   links?: Array<{
     id?: string;
     source: string;
     target: string;
     type?: string;
+    layer?: string;
     [key: string]: unknown;
   }>;
 }
 
 /**
  * Shape returned by GraphModel.toJSON().
- * WARNING: currently drops `type` from edges (see P0.4 in audit plan).
+ * Uses canonical `edges` key. Preserves `type` and `layer`.
  */
 export interface GraphSerializedData {
   nodes: NodeData[];
-  links: Array<{ id: string; source: string; target: string }>;
+  edges: Array<{ id: string; source: string; target: string; type: string | null; layer?: string }>;
 }
 
 /**
  * GraphModel public API — matches actual runtime behavior.
+ *
+ * Neighbor methods return undirected results (both directions).
+ * Edges are stored directed (source → target).
+ * Operators choose traversal mode (directed/undirected) independently.
  */
 export interface IGraphModel {
   /** All nodes */
   getNodes(): NodeData[];
 
-  /** All edges (internal representation, includes type) */
+  /** All edges (directed, includes type and layer) */
   getEdges(): EdgeData[];
 
   /** Node by ID */
@@ -82,9 +102,15 @@ export interface IGraphModel {
 
   /**
    * Neighbor IDs for a node (undirected).
-   * Returns Set<string> of node IDs, NOT node objects.
+   * Returns Set<string> of node IDs.
    */
   getNeighbors(nodeId: string): Set<string>;
+
+  /**
+   * Neighbor node objects (undirected).
+   * Convenience method that resolves IDs to NodeData.
+   */
+  getNeighborNodes(nodeId: string): NodeData[];
 
   /** Nodes filtered by type */
   getNodesByType(type: string): NodeData[];
@@ -106,7 +132,7 @@ export interface IGraphModel {
 
   /**
    * Serialize to JSON.
-   * WARNING: currently uses `links` (not `edges`) and drops edge `type`.
+   * Uses canonical `edges` key. Preserves type and layer.
    */
   toJSON(): GraphSerializedData;
 }

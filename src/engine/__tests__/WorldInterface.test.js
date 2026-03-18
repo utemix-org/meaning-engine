@@ -46,10 +46,11 @@ const validGraph = {
   getNodeById: (id) => validGraph.getNodes().find(n => n.id === id) || null,
   getNeighbors: (nodeId) => {
     const edges = validGraph.getEdges();
-    const neighborIds = edges
-      .filter(e => e.source === nodeId || e.target === nodeId)
-      .map(e => e.source === nodeId ? e.target : e.source);
-    return validGraph.getNodes().filter(n => neighborIds.includes(n.id));
+    return new Set(
+      edges
+        .filter(e => e.source === nodeId || e.target === nodeId)
+        .map(e => e.source === nodeId ? e.target : e.source)
+    );
   },
 };
 

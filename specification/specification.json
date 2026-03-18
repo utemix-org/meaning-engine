@@ -155,9 +155,9 @@
             "implementation": "src/engine/index.js:MeaningEngine.getNodeById"
           },
           "getNeighbors": {
-            "description": "Получить соседей узла",
+            "description": "Получить ID соседей узла (undirected)",
             "inputs": ["nodeId"],
-            "outputs": ["node[]"],
+            "outputs": ["Set<string>"],
             "implementation": "src/engine/index.js:MeaningEngine.getNeighbors"
           },
           "getStats": {

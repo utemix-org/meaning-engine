@@ -181,8 +181,11 @@ export class WorldAdapter extends WorldInterface {
       getEdges: () => [...edges],
       getNodeById: (id) => nodesById.get(id) || null,
       getNeighbors: (nodeId) => {
-        const neighborIds = neighborsIndex.get(nodeId) || new Set();
-        return [...neighborIds].map(id => nodesById.get(id)).filter(Boolean);
+        return neighborsIndex.get(nodeId) || new Set();
+      },
+      getNeighborNodes: (nodeId) => {
+        const ids = neighborsIndex.get(nodeId) || new Set();
+        return [...ids].map(id => nodesById.get(id)).filter(Boolean);
       },
     };
   }

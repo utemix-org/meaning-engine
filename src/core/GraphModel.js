@@ -36,19 +36,24 @@ import { computeHighlight, createContextFromState, createEmptyContext, INTENSITY
  * @property {string} id
  * @property {string} source
  * @property {string} target
+ * @property {string|null} type
+ * @property {string} [layer]
  */
 
 /**
  * Абстрактная модель графа.
  * Ничего не знает о рендеринге.
+ *
+ * Canonical input key: `edges`. Legacy alias `links` accepted for backward compatibility.
  */
 export class GraphModel {
   /**
-   * @param {Object} data - Данные графа из universe.json
+   * @param {Object} data
    * @param {Array<NodeData>} data.nodes
-   * @param {Array<EdgeData>} data.links
+   * @param {Array<EdgeData>} data.edges - Canonical edge array
+   * @param {Array<EdgeData>} [data.links] - Legacy alias for edges
    */
-  constructor(data = { nodes: [], links: [] }) {
+  constructor(data = { nodes: [], edges: [] }) {
     /** @type {Map<string, NodeData>} */
     this.nodesById = new Map();
     
@@ -94,14 +99,16 @@ export class GraphModel {
       }
     }
     
-    // Загрузить рёбра
-    for (const link of data.links || []) {
+    // Загрузить рёбра (canonical: data.edges; legacy alias: data.links)
+    const rawEdges = data.edges || data.links || [];
+    for (const link of rawEdges) {
       const edge = {
         id: link.id || `${link.source}-${link.target}`,
         source: link.source,
         target: link.target,
         type: link.type || null,
       };
+      if (link.layer != null) edge.layer = link.layer;
       this.edges.push(edge);
       
       // Обновить соседей
@@ -163,6 +170,17 @@ export class GraphModel {
    */
   getNeighbors(nodeId) {
     return this.neighborsById.get(nodeId) || new Set();
+  }
+  
+  /**
+   * Получить объекты соседних узлов.
+   * @param {string} nodeId
+   * @returns {Array<NodeData>}
+   */
+  getNeighborNodes(nodeId) {
+    const ids = this.neighborsById.get(nodeId);
+    if (!ids) return [];
+    return [...ids].map(id => this.nodesById.get(id)).filter(Boolean);
   }
   
   /**
@@ -249,16 +267,17 @@ export class GraphModel {
   
   /**
    * Экспортировать в JSON.
-   * @returns {Object}
+   * Canonical output key: `edges` (preserves type, layer, and other fields).
+   * @returns {{ nodes: NodeData[], edges: EdgeData[] }}
    */
   toJSON() {
     return {
       nodes: this.getNodes(),
-      links: this.edges.map(e => ({
-        id: e.id,
-        source: e.source,
-        target: e.target
-      }))
+      edges: this.edges.map(e => {
+        const out = { id: e.id, source: e.source, target: e.target, type: e.type };
+        if (e.layer != null) out.layer = e.layer;
+        return out;
+      })
     };
   }
   

@@ -161,20 +161,29 @@ describe("WorldAdapter", () => {
       expect(graph.getNodeById("unknown")).toBeNull();
     });
     
-    it("getNeighbors should return neighbors", () => {
+    it("getNeighbors should return neighbor IDs as Set", () => {
       const neighbors = graph.getNeighbors("root-1");
-      expect(neighbors).toHaveLength(2);
-      expect(neighbors.map(n => n.id)).toContain("item-1");
-      expect(neighbors.map(n => n.id)).toContain("item-2");
+      expect(neighbors).toBeInstanceOf(Set);
+      expect(neighbors.size).toBe(2);
+      expect(neighbors.has("item-1")).toBe(true);
+      expect(neighbors.has("item-2")).toBe(true);
     });
     
     it("getNeighbors should work bidirectionally", () => {
       const neighbors = graph.getNeighbors("item-1");
-      expect(neighbors).toHaveLength(1);
-      expect(neighbors[0].id).toBe("root-1");
+      expect(neighbors).toBeInstanceOf(Set);
+      expect(neighbors.size).toBe(1);
+      expect(neighbors.has("root-1")).toBe(true);
     });
     
-    it("getNeighbors should return empty for isolated node", () => {
+    it("getNeighborNodes should return node objects", () => {
+      const nodes = graph.getNeighborNodes("root-1");
+      expect(Array.isArray(nodes)).toBe(true);
+      expect(nodes).toHaveLength(2);
+      expect(nodes.map(n => n.id)).toContain("item-1");
+    });
+    
+    it("getNeighbors should return empty Set for isolated node", () => {
       const isolatedSeed = {
         nodes: [{ id: "isolated", type: "item", label: "Isolated" }],
         edges: [],
@@ -183,7 +192,9 @@ describe("WorldAdapter", () => {
         schemaData: testSchemaData, 
         seedData: isolatedSeed 
       });
-      expect(isolatedAdapter.getGraph().getNeighbors("isolated")).toHaveLength(0);
+      const n = isolatedAdapter.getGraph().getNeighbors("isolated");
+      expect(n).toBeInstanceOf(Set);
+      expect(n.size).toBe(0);
     });
   });
   
@@ -221,7 +232,7 @@ describe("WorldAdapter", () => {
         getNodes: () => [{ id: "custom", type: "item" }],
         getEdges: () => [],
         getNodeById: () => null,
-        getNeighbors: () => [],
+        getNeighbors: () => new Set(),
       };
       newAdapter.setGraph(customGraph);
       expect(newAdapter.getGraph().getNodes()).toHaveLength(1);

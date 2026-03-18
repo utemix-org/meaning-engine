@@ -34,7 +34,7 @@ export function loadAuthoredMiniWorld() {
     ...n,
   }));
 
-  const links = edgesRaw.map((e, i) => ({
+  const edges = edgesRaw.map((e, i) => ({
     id: e.id ?? `authored-edge-${i}`,
     source: e.source,
     target: e.target,
@@ -42,16 +42,16 @@ export function loadAuthoredMiniWorld() {
     layer: e.layer,
   }));
 
-  const graph = new GraphModel({ nodes, links });
+  const graph = new GraphModel({ nodes, edges });
 
   const nodeTypes = [...new Set(nodes.map((n) => n.type))];
-  const edgeTypes = [...new Set(links.map((e) => e.type))];
+  const edgeTypes = [...new Set(edges.map((e) => e.type))];
 
   return {
     graph,
     meta: {
       nodeCount: nodes.length,
-      edgeCount: links.length,
+      edgeCount: edges.length,
       nodeTypes,
       edgeTypes,
     },

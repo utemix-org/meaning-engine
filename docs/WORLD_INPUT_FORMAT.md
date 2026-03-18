@@ -79,9 +79,22 @@ To load a world programmatically:
 
 ```javascript
 import { readFileSync } from 'fs';
-import { GraphModel } from 'meaning-engine';
+import { GraphModel } from 'meaning-engine/core';
 
 const nodes = JSON.parse(readFileSync('my-world/seed.nodes.json', 'utf-8'));
 const edges = JSON.parse(readFileSync('my-world/seed.edges.json', 'utf-8'));
-const graph = { nodes, edges };
+const graph = new GraphModel({ nodes, edges });
 ```
+
+### Serialization round-trip
+
+`graph.toJSON()` returns `{ nodes, edges }` with all semantic fields preserved (`type`, `layer`). The output can be loaded back: `GraphModel.fromJSON(graph.toJSON())`.
+
+### Graph API
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `getNeighbors(nodeId)` | `Set<string>` | Neighbor node IDs (undirected) |
+| `getNeighborNodes(nodeId)` | `NodeData[]` | Neighbor node objects (undirected) |
+| `getEdges()` | `EdgeData[]` | All edges (directed) |
+| `toJSON()` | `{ nodes, edges }` | Serializable snapshot (preserves type/layer) |
