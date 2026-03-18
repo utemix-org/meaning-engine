@@ -23,6 +23,14 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Cabin Module v1
+- `src/cabin/index.js` — cabin module with `cabinDiagnose()`: deterministic rule-based diagnostic pass (question-driven + graph-relief-driven modes), no LLM
+- `src/cabin/matcher.js` — `matchDiagnosis()`: structured comparison of cabin output vs eval case expected shape (issue_type, severity, claim, evidence_refs)
+- `src/cabin/types.d.ts` — TypeScript types: `CabinInput`, `CabinDiagnosis`, `EvidenceRef`, `MatchResult`
+- `docs/CABIN_INTERFACE.md` — cabin interface spec: inputs, outputs, determinism contract, matching rules, LLM adapter boundary
+- `eval/runCabinEvalDiagnosticPass.js` — diagnostic pass runner: cabin produces diagnosis objects, matcher validates against golden cases (8/8 pass)
+- `docs/API_SURFACE_POLICY.md` — cabin listed as experimental module
+
 ### Track B Cabin Eval Harness v1
 - `docs/CABIN_EVAL.md` — eval framework spec: two modes (question-driven, graph-relief-driven), two levels (structural pass, diagnostic pass), scoring dimensions, pass/fail criteria
 - `eval/cabin_cases/README.md` — case schema (case_id, mode, world_ref, input, expected, structural_checks)
