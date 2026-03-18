@@ -81,13 +81,41 @@ interface EvidenceRef {
 # Structural pass only (eval harness v1):
 node eval/runCabinEvalStub.js
 
-# Diagnostic pass — cabin produces diagnosis + matching:
+# Diagnostic pass — deterministic baseline:
 node eval/runCabinEvalDiagnosticPass.js
+
+# Diagnostic pass — model-backed (stub, no credentials):
+node eval/runCabinEvalDiagnosticPass.js --model stub
+
+# Diagnostic pass — model-backed (OpenAI, requires CABIN_OPENAI_API_KEY):
+CABIN_OPENAI_API_KEY=sk-... node eval/runCabinEvalDiagnosticPass.js --model openai
+
+# With trace logging:
+node eval/runCabinEvalDiagnosticPass.js --model openai --trace
 ```
 
-## Future: LLM adapter boundary
+## Model adapter boundary (P1.B8)
 
-v1 is fully deterministic (rule-based). When an LLM is connected (P1.B8), the adapter will:
-1. Replace `cabinDiagnose()` internals with model inference
-2. Keep the same `CabinInput` → `CabinDiagnosis[]` contract
-3. Use the same matcher for evaluation
+The model-backed path uses a 3-phase pipeline:
+
+1. **Context assembly** (`buildCabinContext`) — deterministic, size-limited
+2. **Model invocation** (`adapter.invoke`) — provider-agnostic boundary
+3. **Output normalization** (`normalizeCabinOutput`) — strict envelope parsing
+
+The contract `CabinInput → CabinDiagnosis[]` is preserved for both deterministic and model-backed modes. The matcher works identically on both.
+
+See [MODEL_ADAPTER_BOUNDARY.md](./MODEL_ADAPTER_BOUNDARY.md) for full pipeline diagram, adapter interface, secrets policy, and instructions for adding new providers.
+
+## Module files
+
+| File | Role |
+|------|------|
+| `src/cabin/index.js` | `cabinDiagnose()` + `cabinDiagnoseModelBacked()` |
+| `src/cabin/matcher.js` | `matchDiagnosis()` |
+| `src/cabin/context.js` | `buildCabinContext()` |
+| `src/cabin/normalize.js` | `normalizeCabinOutput()` |
+| `src/cabin/types.d.ts` | TypeScript types |
+| `src/cabin/adapters/stub.js` | Stub adapter (no credentials) |
+| `src/cabin/adapters/openai.js` | OpenAI adapter |
+| `src/cabin/adapters/index.js` | Adapter registry |
+| `src/cabin/adapters/types.d.ts` | Adapter types |

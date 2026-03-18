@@ -2,24 +2,30 @@
 /**
  * Cabin Eval — Diagnostic Pass Runner (v1)
  *
- * For each golden case: runs cabinDiagnose(), then matches the
- * resulting CabinDiagnosis against the expected shape from the case.
- * Prints a per-case and per-field pass/fail report.
+ * Modes:
+ *   node eval/runCabinEvalDiagnosticPass.js              → deterministic (default)
+ *   node eval/runCabinEvalDiagnosticPass.js --model stub  → model-backed (stub)
+ *   node eval/runCabinEvalDiagnosticPass.js --model openai → model-backed (OpenAI)
+ *   --trace  flag enables context/response logging
  *
- * Deterministic, no LLM.
- *
- * Usage: node eval/runCabinEvalDiagnosticPass.js
  * Exit code 0 = all pass, 1 = at least one fail.
  */
 
 import { readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { cabinDiagnose } from '../src/cabin/index.js';
+import { cabinDiagnose, cabinDiagnoseModelBacked } from '../src/cabin/index.js';
 import { matchDiagnosis } from '../src/cabin/matcher.js';
+import { resolveAdapter } from '../src/cabin/adapters/index.js';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dir, '..');
+
+const args = process.argv.slice(2);
+const modelFlag = args.includes('--model')
+  ? args[args.indexOf('--model') + 1]
+  : null;
+const traceFlag = args.includes('--trace');
 
 const cases = JSON.parse(
   readFileSync(resolve(__dir, 'cabin_cases', 'golden_v1.json'), 'utf-8'),
@@ -36,57 +42,77 @@ function loadWorld(worldRef) {
   return { nodes, edges };
 }
 
-console.log('# Cabin Eval — Diagnostic Pass Report (v1)');
+const modeLabel = modelFlag ? `model-backed (${modelFlag})` : 'deterministic';
+console.log(`# Cabin Eval — Diagnostic Pass Report (v1)`);
+console.log(`Mode: ${modeLabel}`);
 console.log(`Cases: ${cases.length}`);
 console.log('');
+
+let adapter = null;
+if (modelFlag) {
+  try {
+    adapter = resolveAdapter(modelFlag);
+  } catch (err) {
+    console.error(`Error resolving adapter "${modelFlag}": ${err.message}`);
+    process.exit(1);
+  }
+}
 
 let totalPass = 0;
 let totalFail = 0;
 
-for (const c of cases) {
-  const world = loadWorld(c.world_ref);
+async function runAll() {
+  for (const c of cases) {
+    const world = loadWorld(c.world_ref);
 
-  const input = {
-    world_ref: c.world_ref,
-    mode: c.mode,
-  };
+    const input = {
+      world_ref: c.world_ref,
+      mode: c.mode,
+    };
 
-  if (c.mode === 'question_driven') {
-    input.question_id = c.input.question_id;
-  } else {
-    input.probe = c.input.probe;
+    if (c.mode === 'question_driven') {
+      input.question_id = c.input.question_id;
+    } else {
+      input.probe = c.input.probe;
+    }
+
+    let diagnoses;
+    try {
+      if (adapter) {
+        diagnoses = await cabinDiagnoseModelBacked(
+          input, world, questions, adapter, { trace: traceFlag },
+        );
+      } else {
+        diagnoses = cabinDiagnose(input, world, questions);
+      }
+    } catch (err) {
+      console.log(`✗ [${c.case_id}] ${c.mode} — error: ${err.message}`);
+      totalFail++;
+      continue;
+    }
+
+    if (diagnoses.length === 0) {
+      console.log(`✗ [${c.case_id}] ${c.mode} — returned 0 diagnoses`);
+      totalFail++;
+      continue;
+    }
+
+    const bestMatch = findBestMatch(diagnoses, c.expected, c.case_id);
+    const icon = bestMatch.pass ? '✓' : '✗';
+    console.log(`${icon} [${c.case_id}] ${c.mode} — ${c.expected.issue_type}`);
+    for (const f of bestMatch.fields) {
+      console.log(`    ${f.pass ? '✓' : '✗'} ${f.field}: expected=${fmt(f.expected)} actual=${fmt(f.actual)}`);
+    }
+
+    if (bestMatch.pass) totalPass++;
+    else totalFail++;
   }
 
-  let diagnoses;
-  try {
-    diagnoses = cabinDiagnose(input, world, questions);
-  } catch (err) {
-    console.log(`✗ [${c.case_id}] ${c.mode} — cabin error: ${err.message}`);
-    totalFail++;
-    continue;
-  }
+  console.log('');
+  console.log(`## Summary: ${totalPass}/${cases.length} pass, ${totalFail} fail`);
 
-  if (diagnoses.length === 0) {
-    console.log(`✗ [${c.case_id}] ${c.mode} — cabin returned 0 diagnoses`);
-    totalFail++;
-    continue;
-  }
-
-  const bestMatch = findBestMatch(diagnoses, c.expected, c.case_id);
-  const icon = bestMatch.pass ? '✓' : '✗';
-  console.log(`${icon} [${c.case_id}] ${c.mode} — ${c.expected.issue_type}`);
-  for (const f of bestMatch.fields) {
-    console.log(`    ${f.pass ? '✓' : '✗'} ${f.field}: expected=${fmt(f.expected)} actual=${fmt(f.actual)}`);
-  }
-
-  if (bestMatch.pass) totalPass++;
-  else totalFail++;
+  if (totalFail > 0) process.exit(1);
 }
-
-console.log('');
-console.log(`## Summary: ${totalPass}/${cases.length} pass, ${totalFail} fail`);
-
-if (totalFail > 0) process.exit(1);
 
 function findBestMatch(diagnoses, expected, caseId) {
   let best = null;
@@ -105,3 +131,5 @@ function fmt(v) {
   if (typeof v === 'string' && v.length > 60) return `"${v.slice(0, 57)}..."`;
   return JSON.stringify(v);
 }
+
+runAll();

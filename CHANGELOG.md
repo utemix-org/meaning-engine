@@ -23,6 +23,17 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Model Adapter Boundary (P1.B8)
+- `src/cabin/adapters/` — provider-agnostic adapter interface: `ModelAdapter`, `ModelRequest`, `ModelResponse`, `DiagnosisEnvelope`
+- `src/cabin/adapters/stub.js` — stub adapter for pipeline testing without credentials
+- `src/cabin/adapters/openai.js` — OpenAI adapter (gpt-4o-mini, json_object response format, temperature=0)
+- `src/cabin/context.js` — `buildCabinContext()`: deterministic, size-limited context assembly (system prompt + world summary + question/probe)
+- `src/cabin/normalize.js` — `normalizeCabinOutput()`: strict envelope parser with explicit `_parse_error` diagnostics on failure
+- `src/cabin/index.js` — `cabinDiagnoseModelBacked()`: 3-phase pipeline (context → invoke → normalize), same `CabinDiagnosis[]` contract
+- `eval/runCabinEvalDiagnosticPass.js` — updated with `--model <name>` and `--trace` flags; runs deterministic baseline or model-backed mode through same matcher
+- `docs/MODEL_ADAPTER_BOUNDARY.md` — pipeline diagram, adapter interface, secrets policy, running instructions
+- Secrets via ENV only (`CABIN_OPENAI_API_KEY`); safe default: no key = mode unavailable, `npm test` unaffected
+
 ### Track B Cabin Module v1
 - `src/cabin/index.js` — cabin module with `cabinDiagnose()`: deterministic rule-based diagnostic pass (question-driven + graph-relief-driven modes), no LLM
 - `src/cabin/matcher.js` — `matchDiagnosis()`: structured comparison of cabin output vs eval case expected shape (issue_type, severity, claim, evidence_refs)

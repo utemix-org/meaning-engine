@@ -59,6 +59,14 @@ export declare function cabinDiagnose(
   questions: Array<Record<string, unknown>>,
 ): CabinDiagnosis[];
 
+export declare function cabinDiagnoseModelBacked(
+  input: CabinInput,
+  world: WorldSnapshot,
+  questions: Array<Record<string, unknown>>,
+  adapter: import('./adapters/types').ModelAdapter,
+  options?: { trace?: boolean; maxNodes?: number; maxEdges?: number },
+): Promise<CabinDiagnosis[]>;
+
 export declare function matchDiagnosis(
   diagnosis: CabinDiagnosis,
   expected: Record<string, unknown>,

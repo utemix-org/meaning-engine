@@ -85,8 +85,12 @@ The following are present in the repository and may be exported, but are **not**
 | `PerformanceAuditor` | `src/core/PerformanceAudit.js` | Utility, not core contract |
 | `CanonicalGraphSchema` | `src/core/CanonicalGraphSchema.js` | Empty type sets, design TBD |
 | `DevProjection` | `src/core/DevProjection.js` | Internal development tool |
-| `cabinDiagnose(input, world, questions)` | `src/cabin/index.js` | Deterministic diagnostic pass v1; no LLM |
+| `cabinDiagnose(input, world, questions)` | `src/cabin/index.js` | Deterministic diagnostic pass v1 |
+| `cabinDiagnoseModelBacked(input, world, questions, adapter, options?)` | `src/cabin/index.js` | Model-backed diagnostic pass (behind flag) |
 | `matchDiagnosis(diagnosis, expected, caseId)` | `src/cabin/matcher.js` | Eval case matching layer |
+| `buildCabinContext(input, world, questions, options?)` | `src/cabin/context.js` | Context assembly for model pipeline |
+| `normalizeCabinOutput(response, mode)` | `src/cabin/normalize.js` | Strict envelope parser |
+| `resolveAdapter(name, options?)` | `src/cabin/adapters/index.js` | Provider-agnostic adapter registry |
 | Workbench/character/domain projection modes | `src/core/projection/computeVisibleSubgraph.js` | Undocumented, untested as public API |
 
 ## Internal

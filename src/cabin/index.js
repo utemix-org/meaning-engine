@@ -1,5 +1,5 @@
 /**
- * Cabin module v1 — deterministic diagnostic pass (no LLM).
+ * Cabin module v1 — diagnostic pass (deterministic + model-backed).
  *
  * Produces structured CabinDiagnosis objects by inspecting a world's
  * structural tension patterns. All inputs are explicit; no hidden
@@ -8,6 +8,9 @@
  * @module cabin
  * @experimental
  */
+
+import { buildCabinContext } from './context.js';
+import { normalizeCabinOutput } from './normalize.js';
 
 /**
  * Tension-signal detection rules for graph-relief-driven mode.
@@ -211,3 +214,46 @@ function diagnoseGraphReliefDriven(input, world) {
 
   return results;
 }
+
+/**
+ * Model-backed diagnostic pass. Uses the 3-phase pipeline:
+ * context assembly → model invocation → output normalization.
+ *
+ * Same contract as cabinDiagnose: CabinInput → CabinDiagnosis[].
+ *
+ * @param {import('./types').CabinInput} input
+ * @param {import('./types').WorldSnapshot} world
+ * @param {Array<Record<string, unknown>>} questions
+ * @param {import('./adapters/types').ModelAdapter} adapter
+ * @param {{ trace?: boolean; maxNodes?: number; maxEdges?: number }} [options]
+ * @returns {Promise<import('./types').CabinDiagnosis[]>}
+ */
+export async function cabinDiagnoseModelBacked(input, world, questions, adapter, options = {}) {
+  const context = buildCabinContext(input, world, questions, {
+    maxNodes: options.maxNodes,
+    maxEdges: options.maxEdges,
+  });
+
+  if (options.trace) {
+    console.log(`[cabin:trace] adapter=${adapter.name} mode=${context.mode}`);
+    console.log(`[cabin:trace] context size: ${JSON.stringify(context).length} chars`);
+  }
+
+  const request = {
+    context,
+    model_config: { temperature: 0, max_tokens: 2048 },
+  };
+
+  const response = await adapter.invoke(request);
+
+  if (options.trace) {
+    console.log(`[cabin:trace] response raw length: ${response.raw?.length ?? 0}`);
+    if (response.error) console.log(`[cabin:trace] error: ${response.error}`);
+    if (response.usage) console.log(`[cabin:trace] usage: ${JSON.stringify(response.usage)}`);
+  }
+
+  return normalizeCabinOutput(response, input.mode);
+}
+
+export { buildCabinContext } from './context.js';
+export { normalizeCabinOutput } from './normalize.js';
