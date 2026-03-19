@@ -23,6 +23,12 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Graph-Relief Calibration v1.1 (Context + Prompt + Semantic Legend)
+- `src/cabin/context.js` — GR-specific prompt supplement with semantic legend (edge type → issue type mapping, absence-as-signal rules); `resolveProbeMatches()` pre-computes matching graph elements for each probe
+- `eval/cabin_grades/openrouter-v1.1.json` — post-improvement grades: **8/8 pass** (was 5/8 in v1.0); all 3 GR failures fixed
+- `docs/CABIN_CLAIM_POLICY.md` — upgraded to v4 with measured before/after delta; 4 former conditional claims promoted to allowed
+- Key improvement: GR mode 1/4 → **4/4** pass on same provider path, same cases, same matcher
+
 ### Track B Provider Calibration v1 (DeepSeek via OpenRouter)
 - `src/cabin/adapters/deepseek.js` — DeepSeek direct adapter (OpenAI-compatible API)
 - `src/cabin/adapters/openrouter.js` — OpenRouter adapter (provider-agnostic routing, DeepSeek default)

@@ -1,13 +1,14 @@
-# Cabin Claim Policy (v3)
+# Cabin Claim Policy (v4)
 
 What can and cannot be claimed about the cabin, based on measured calibration results.
 
 ## Measurement basis
 
-All claims below are grounded in calibration v3 over:
+All claims below are grounded in calibration v1.1 over:
 - **Case set:** `eval/cabin_cases/golden_v1.json` (8 cases: 4 question-driven, 4 graph-relief)
 - **Proof world:** `worlds/tension-test-world/` (14 nodes, 14 edges)
 - **Adapters tested:** deterministic, stub, openrouter (deepseek-chat via OpenRouter)
+- **Context version:** v1.1 — semantic legend + pre-resolved probe matches (for GR mode)
 - **DeepSeek direct:** not calibrated (402 Insufficient Balance — adapter works, account has no credits)
 - **OpenAI adapter:** not yet calibrated (requires API key)
 
@@ -17,8 +18,18 @@ All claims below are grounded in calibration v3 over:
 |---------|---------|---------|-------|---------|
 | deterministic | 4/4 | 4/4 | **8/8** | All pass |
 | stub | 4/4 | 0/4 | **4/8** | 4 weak_pass, 4 structured_wrong |
-| openrouter (deepseek-chat) | 4/4 | 1/4 | **5/8** | 5 pass, 1 weak_pass, 2 structured_wrong |
+| openrouter v1.0 (no legend) | 4/4 | 1/4 | **5/8** | 5 pass, 1 weak_pass, 2 structured_wrong |
+| openrouter v1.1 (with legend) | 4/4 | 4/4 | **8/8** | All pass |
 | deepseek (direct) | 0/4 | 0/4 | **0/8** | 8 parse_fail (API error, not model quality) |
+
+### GR before/after delta (v1.0 → v1.1)
+
+| Case | v1.0 | v1.1 | Fixed patterns | Root cause of improvement |
+|------|------|------|----------------|--------------------------|
+| CE-GR-001 | structured_wrong (spec_path_drift/P1) | **pass** (doc_runtime_mismatch/P0) | wrong_issue_type, wrong_severity, missing_evidence | Semantic legend: `drift_against` → `doc_runtime_mismatch/P0` |
+| CE-GR-002 | weak_pass (correct type, P1 instead of P0) | **pass** (type_contract_drift/P0) | wrong_severity | Semantic legend: `contradicts` → `type_contract_drift/P0` |
+| CE-GR-003 | pass | **pass** (unchanged) | — | Already correct in v1.0 |
+| CE-GR-004 | structured_wrong (type_contract_drift/P1) | **pass** (missing_bridge/P2) | wrong_issue_type, wrong_severity, missing_evidence | Probe resolution pre-computed isolated node; legend: isolation → `missing_bridge/P2` |
 
 ## Allowed claims
 
@@ -26,48 +37,40 @@ All claims below are grounded in calibration v3 over:
 |-------|----------|
 | Cabin has a stable, tested interface (`CabinInput → CabinDiagnosis[]`) | Same contract for deterministic and model-backed modes |
 | Deterministic mode correctly identifies all 5 tension classes in the proof world | 8/8 match pass, all dimensions pass |
-| The eval harness can distinguish adapter quality | deterministic 8/8 vs stub 4/8 vs openrouter 5/8 — clear separation |
+| The eval harness can distinguish adapter quality | deterministic 8/8 vs stub 4/8 — clear separation |
 | Model-backed path does not affect deterministic baseline | Deterministic path unchanged, no shared state |
 | Structural pass and diagnostic pass are independent checks | Separate runners, orthogonal criteria |
 | Stub adapter correctly echoes question metadata in QD mode | 4/4 QD match pass (by construction) |
 | Stub adapter cannot diagnose graph-relief tensions | 0/4 GR match — expected and documented |
 | Model-backed cabin (deepseek-chat) achieves 100% on question-driven cases | 4/4 QD pass — all issue types, severities, evidence refs correct |
-| Model-backed cabin adds value over stub for graph-relief | openrouter GR 1/4 pass > stub GR 0/4 pass |
-| Model generates grounded evidence refs in QD mode | All 4 QD cases: graph_refs, doc_refs, code_refs match expected |
-| Model avoids hallucination in QD mode | D5 (boundedness) = pass on all 4 QD cases |
+| Model-backed cabin achieves 100% on graph-relief cases (with semantic legend) | 4/4 GR pass in v1.1 — all issue types, severities, evidence refs correct |
+| Model-backed cabin matches deterministic quality on proof material | 8/8 match pass (v1.1) = deterministic 8/8 |
+| Model generates grounded evidence refs in both QD and GR modes | All 8 cases: graph_refs match expected |
+| Model avoids hallucination in both modes | D5 (boundedness) = pass on all 8 cases |
+| Semantic legend improves GR quality measurably | v1.0: 1/4 GR → v1.1: 4/4 GR (same provider, same cases, same matcher) |
 | Pipeline correctly converts API errors to structured diagnostics | DeepSeek 402 → `_parse_error` diagnoses, no crashes |
 
 ## Prohibited claims
 
 | Claim | Why prohibited |
 |-------|---------------|
-| "Cabin understands knowledge systems" | No evidence of understanding — model follows structured prompts |
+| "Cabin understands knowledge systems" | No evidence of understanding — model follows structured prompts with semantic legend |
 | "Cabin can diagnose arbitrary tensions" | Only tested on 5 predefined tension classes in one proof world |
-| "Model-backed cabin is production-ready" | Only 1 provider tested; GR mode still has 3/4 failures |
-| "Cabin quality is 100%" | Question-driven: 100%; graph-relief: 25% — significant gap |
+| "Model-backed cabin is production-ready" | Only 1 provider tested; only 1 proof world; legend may not generalize |
 | "Cabin generalizes to other worlds" | Only tested on tension-test-world with intentionally embedded patterns |
 | "Cabin replaces human review" | No evidence of autonomous discovery or judgment quality |
-| "Graph-relief mode is reliable" | 1/4 pass — model struggles with structural pattern detection |
+| "GR works without semantic legend" | v1.0 measured at 1/4; improvement depends on legend |
 
 ## Conditional claims (pending further calibration)
 
-These claims become allowed **only after** additional adapter calibration:
+These claims become allowed **only after** additional evidence:
 
 | Claim | Condition |
 |-------|-----------|
-| "Model-backed cabin reliably diagnoses graph-relief tensions" | GR pass ≥ 3/4 on any adapter |
-| "Model correctly assigns severity in GR mode" | GR severity_correctness = pass on ≥ 3/4 cases |
-| "Model detects missing_bridge (isolated nodes)" | CE-GR-004 pass on any adapter (currently fails) |
-| "Model matches deterministic quality" | Any model adapter achieves 8/8 match pass |
-| "Multiple providers are calibrated" | ≥ 2 real model adapters with grade files |
-
-## Observed failure patterns (openrouter/deepseek-chat)
-
-| Case | Failure | Analysis |
-|------|---------|----------|
-| CE-GR-001 | wrong_issue_type (spec_path_drift instead of doc_runtime_mismatch) | Model confused drift_against edge type with spec path issues |
-| CE-GR-002 | wrong_severity only (P1 instead of P0) | Near-miss — model found the right tension but underrated severity |
-| CE-GR-004 | wrong_issue_type (type_contract_drift instead of missing_bridge) | Model cannot detect isolated nodes — focused on contradicts edges instead |
+| "Semantic legend generalizes to new tension types" | New tension class added to proof world, model passes without legend update |
+| "Model-backed cabin works on real-world graphs" | Calibration on a non-proof world (e.g., documentation-world) |
+| "Multiple providers produce similar quality" | ≥ 2 real model adapters with ≥ 6/8 pass |
+| "Cabin is useful for ongoing development" | At least one tension discovered by model that was not pre-embedded |
 
 ## How to update this policy
 
