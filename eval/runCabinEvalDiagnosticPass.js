@@ -5,7 +5,8 @@
  * Modes:
  *   node eval/runCabinEvalDiagnosticPass.js              → deterministic (default)
  *   node eval/runCabinEvalDiagnosticPass.js --model stub  → model-backed (stub)
- *   node eval/runCabinEvalDiagnosticPass.js --model openai → model-backed (OpenAI)
+ *   node eval/runCabinEvalDiagnosticPass.js --model openai    → model-backed (OpenAI)
+ *   node eval/runCabinEvalDiagnosticPass.js --model deepseek  → model-backed (DeepSeek)
  *   --trace  flag enables context/response logging
  *
  * Exit code 0 = all pass, 1 = at least one fail.

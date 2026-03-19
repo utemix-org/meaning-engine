@@ -1,0 +1,210 @@
+[
+  {
+    "case_id": "CE-QD-001",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Model correctly identified doc_runtime_mismatch, cited exact graph_refs and file paths with line numbers. Claim is substantive.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1374, "completion_tokens": 164 }
+    }
+  },
+  {
+    "case_id": "CE-QD-002",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Model correctly identified type_contract_drift with proper graph_refs and code file:line citations.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1390, "completion_tokens": 197 }
+    }
+  },
+  {
+    "case_id": "CE-QD-003",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Model correctly identified vocabulary_ambiguity between links/edges terms with complete evidence.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1401, "completion_tokens": 201 }
+    }
+  },
+  {
+    "case_id": "CE-QD-004",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Model correctly identified unsupported_claim for projection formula decision.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1368, "completion_tokens": 167 }
+    }
+  },
+  {
+    "case_id": "CE-GR-001",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "weak_pass",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "wrong_severity", "missing_evidence"],
+    "notes": "Model returned spec_path_drift/P1 instead of doc_runtime_mismatch/P0. Found the drift_against edge but misclassified the tension class. Cited only one of two expected graph_refs.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1259, "completion_tokens": 285 }
+    }
+  },
+  {
+    "case_id": "CE-GR-002",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "weak_pass",
+    "failure_patterns": ["wrong_severity"],
+    "notes": "Model correctly identified type_contract_drift and cited correct graph_refs. Only failure: severity P1 instead of expected P0. Very close to full pass.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1259, "completion_tokens": 160 }
+    }
+  },
+  {
+    "case_id": "CE-GR-003",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Model correctly identified unsupported_claim for decision node lacking proved_by edge. Full pass on GR mode.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1266, "completion_tokens": 122 }
+    }
+  },
+  {
+    "case_id": "CE-GR-004",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "match_pass": false,
+    "dimensions": {
+      "issue_type_correctness": "fail",
+      "severity_correctness": "fail",
+      "evidence_adequacy": "fail",
+      "grounding_quality": "fail",
+      "boundedness": "pass",
+      "specificity": "weak_pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "structured_wrong",
+    "failure_patterns": ["wrong_issue_type", "wrong_severity", "missing_evidence"],
+    "notes": "Model failed to detect the isolated node (concept:epistemic-log). Instead returned type_contract_drift diagnosis for a different tension. The probe asked for node_isolated but model diagnosed a different pattern entirely.",
+    "meta": {
+      "timestamp": "2026-03-19T06:16:24Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "context_limits": { "maxNodes": 200, "maxEdges": 500 },
+      "case_set": "eval/cabin_cases/golden_v1.json",
+      "usage": { "prompt_tokens": 1248, "completion_tokens": 323 }
+    }
+  }
+]

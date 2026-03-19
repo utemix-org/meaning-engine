@@ -141,6 +141,28 @@ async function main() {
     }
   }
 
+  let deepseekAvailable = false;
+  if (process.env.CABIN_DEEPSEEK_API_KEY) {
+    try {
+      const { createDeepSeekAdapter } = await import('../src/cabin/adapters/deepseek.js');
+      adaptersToRun.push({ name: 'deepseek', adapter: createDeepSeekAdapter(), async: true });
+      deepseekAvailable = true;
+    } catch (err) {
+      console.log(`[warn] DeepSeek adapter failed to load: ${err.message}\n`);
+    }
+  }
+
+  let openrouterAvailable = false;
+  if (process.env.CABIN_OPENROUTER_API_KEY) {
+    try {
+      const { createOpenRouterAdapter } = await import('../src/cabin/adapters/openrouter.js');
+      adaptersToRun.push({ name: 'openrouter', adapter: createOpenRouterAdapter(), async: true });
+      openrouterAvailable = true;
+    } catch (err) {
+      console.log(`[warn] OpenRouter adapter failed to load: ${err.message}\n`);
+    }
+  }
+
   for (const { name, adapter, async: isAsync } of adaptersToRun) {
     console.log(`## Adapter: ${name}`);
     const results = await runAdapter(name, adapter, isAsync);
@@ -190,9 +212,12 @@ async function main() {
     console.log('');
   }
 
-  if (!openaiAvailable) {
-    console.log('Note: OpenAI adapter not tested (CABIN_OPENAI_API_KEY not set).');
-    console.log('Set the env var and re-run to include model-backed calibration.\n');
+  const missing = [];
+  if (!openaiAvailable) missing.push('OpenAI (CABIN_OPENAI_API_KEY)');
+  if (!deepseekAvailable) missing.push('DeepSeek (CABIN_DEEPSEEK_API_KEY)');
+  if (!openrouterAvailable) missing.push('OpenRouter (CABIN_OPENROUTER_API_KEY)');
+  if (missing.length > 0) {
+    console.log(`Note: Not tested: ${missing.join(', ')}. Set env vars and re-run.\n`);
   }
 
   console.log('## Comparison matrix');

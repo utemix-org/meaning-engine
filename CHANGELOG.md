@@ -23,10 +23,19 @@
 - `docs/TENSION_EMBEDDING_POLICY.md` — questions-as-metadata vs tensions-embedded-in-graph-relief; 6 tension patterns; embedding rules; Tension Set v1 (5 classes with materialization examples)
 - `questions/tension-set-v1.json` — 5 sample question instances covering doc_runtime_mismatch, type_contract_drift, vocabulary_ambiguity, unsupported_claim, missing_bridge
 
+### Track B Provider Calibration v1 (DeepSeek via OpenRouter)
+- `src/cabin/adapters/deepseek.js` — DeepSeek direct adapter (OpenAI-compatible API)
+- `src/cabin/adapters/openrouter.js` — OpenRouter adapter (provider-agnostic routing, DeepSeek default)
+- `eval/cabin_grades/openrouter.json` — first real model calibration: QD 4/4 pass, GR 1/4 pass (5/8 total)
+- `eval/cabin_grades/deepseek.json` — DeepSeek direct: 0/8 (402 Insufficient Balance — adapter functional, account empty)
+- `docs/CABIN_CLAIM_POLICY.md` — upgraded to v3 with measured model claims, failure pattern analysis, observed GR weaknesses
+- `docs/MODEL_ADAPTER_BOUNDARY.md` — adapter table updated with deepseek and openrouter entries
+- Key finding: question-driven mode is model-ready (100%); graph-relief mode needs prompt/context improvement (25%)
+
 ### Track B Cabin Scoring / Calibration v2
 - `docs/CABIN_SCORING_RUBRIC.md` — 7 quality dimensions (D1–D7), grading scale (pass/weak_pass/fail/structured_wrong/parse_fail), failure pattern catalog
 - `docs/CABIN_CLAIM_POLICY.md` — measured claim policy: allowed/prohibited/conditional claims based on calibration evidence
-- `eval/cabin_grades/` — per-adapter grade files: deterministic (8/8 pass), stub (4/8, 4 structured_wrong on GR)
+- `eval/cabin_grades/` — per-adapter grade files: deterministic (8/8 pass), stub (4/8, 4 structured_wrong on GR), openrouter (5/8, 2 structured_wrong on GR)
 - `eval/runCabinCalibrationReport.js` — multi-adapter calibration runner with comparison matrix, grade summaries, failure pattern counts; `--save` writes JSON report
 - `reports/cabin-calibration-v2.json` — serialized calibration snapshot
 
@@ -34,6 +43,8 @@
 - `src/cabin/adapters/` — provider-agnostic adapter interface: `ModelAdapter`, `ModelRequest`, `ModelResponse`, `DiagnosisEnvelope`
 - `src/cabin/adapters/stub.js` — stub adapter for pipeline testing without credentials
 - `src/cabin/adapters/openai.js` — OpenAI adapter (gpt-4o-mini, json_object response format, temperature=0)
+- `src/cabin/adapters/deepseek.js` — DeepSeek adapter (deepseek-chat, direct API)
+- `src/cabin/adapters/openrouter.js` — OpenRouter adapter (provider-agnostic routing via OpenAI-compatible API)
 - `src/cabin/context.js` — `buildCabinContext()`: deterministic, size-limited context assembly (system prompt + world summary + question/probe)
 - `src/cabin/normalize.js` — `normalizeCabinOutput()`: strict envelope parser with explicit `_parse_error` diagnostics on failure
 - `src/cabin/index.js` — `cabinDiagnoseModelBacked()`: 3-phase pipeline (context → invoke → normalize), same `CabinDiagnosis[]` contract

@@ -51,6 +51,8 @@ Adapters are provider-agnostic. The adapter receives a `ModelRequest` (containin
 |---------|--------|----------|
 | `stub` | `src/cabin/adapters/stub.js` | Nothing (returns echo-based envelope) |
 | `openai` | `src/cabin/adapters/openai.js` | `CABIN_OPENAI_API_KEY` env var |
+| `deepseek` | `src/cabin/adapters/deepseek.js` | `CABIN_DEEPSEEK_API_KEY` env var |
+| `openrouter` | `src/cabin/adapters/openrouter.js` | `CABIN_OPENROUTER_API_KEY` env var |
 
 ### Adding a new adapter
 

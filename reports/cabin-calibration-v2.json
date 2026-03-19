@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-18T19:05:43.411Z",
+  "timestamp": "2026-03-19T06:17:54.242Z",
   "case_count": 8,
   "adapters": {
     "deterministic": {
@@ -31,6 +31,36 @@
         }
       },
       "grades_available": true
+    },
+    "deepseek": {
+      "match_pass": 0,
+      "match_fail": 8,
+      "by_mode": {
+        "question_driven": {
+          "pass": 0,
+          "fail": 4
+        },
+        "graph_relief_driven": {
+          "pass": 0,
+          "fail": 4
+        }
+      },
+      "grades_available": false
+    },
+    "openrouter": {
+      "match_pass": 5,
+      "match_fail": 3,
+      "by_mode": {
+        "question_driven": {
+          "pass": 4,
+          "fail": 0
+        },
+        "graph_relief_driven": {
+          "pass": 1,
+          "fail": 3
+        }
+      },
+      "grades_available": false
     }
   }
 }
