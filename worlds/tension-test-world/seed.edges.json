@@ -101,5 +101,38 @@
     "target": "code_artifact:getNeighbors",
     "type": "implements",
     "layer": "provenance"
+  },
+
+  {
+    "source": "concept:navigation",
+    "target": "invariant:idempotency",
+    "type": "constrains",
+    "layer": "concept",
+    "tension_class": "unsupported_claim",
+    "tension_note": "USC-RB: invariant is constrained but has no proved_by to evidence"
+  },
+  {
+    "source": "spec:api-contract",
+    "target": "code_artifact:computeScope",
+    "type": "documents",
+    "layer": "provenance",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM-RB: spec documents scope computation contract"
+  },
+  {
+    "source": "code_artifact:computeScope",
+    "target": "spec:api-contract",
+    "type": "drift_against",
+    "layer": "tension",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM-RB: scope computation drifted from API contract"
+  },
+  {
+    "source": "code_artifact:computeScope",
+    "target": "spec:serialization-format",
+    "type": "contradicts",
+    "layer": "tension",
+    "tension_class": "type_contract_drift",
+    "tension_note": "TCD-RB: scope output contradicts serialization format"
   }
 ]

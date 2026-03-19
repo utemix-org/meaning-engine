@@ -1,0 +1,142 @@
+[
+  {
+    "case_id": "RB-GR-001",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "case_set": "robustness_v1",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Legend generalized from decision→invariant for proved_by absence. Model correctly identified invariant:idempotency.",
+    "variation_type": "node_type_generalization (invariant instead of decision)",
+    "meta": {
+      "timestamp": "2026-03-19T18:27:00Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "case_set": "eval/cabin_cases/robustness_v1.json",
+      "context_version": "v1.1 (commit 222b59c)",
+      "usage": { "prompt_tokens": 1861, "completion_tokens": 135 }
+    }
+  },
+  {
+    "case_id": "RB-GR-002",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "case_set": "robustness_v1",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Multi-match: 2 isolated nodes exist. Model correctly identified concept:knowledge-substrate (not just the original concept:epistemic-log).",
+    "variation_type": "multi_match (2 isolated nodes)",
+    "meta": {
+      "timestamp": "2026-03-19T18:27:00Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "case_set": "eval/cabin_cases/robustness_v1.json",
+      "context_version": "v1.1 (commit 222b59c)",
+      "usage": { "prompt_tokens": 1860, "completion_tokens": 193 }
+    }
+  },
+  {
+    "case_id": "RB-GR-003",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "case_set": "robustness_v1",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Multi-match: 2 drift_against edges exist. Model correctly found the NEW drift (computeScope→api-contract), not just the original.",
+    "variation_type": "multi_match (2 drift_against edges)",
+    "meta": {
+      "timestamp": "2026-03-19T18:27:00Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "case_set": "eval/cabin_cases/robustness_v1.json",
+      "context_version": "v1.1 (commit 222b59c)",
+      "usage": { "prompt_tokens": 1896, "completion_tokens": 173 }
+    }
+  },
+  {
+    "case_id": "RB-GR-004",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "case_set": "robustness_v1",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "Multi-match: 2 contradicts edges exist. Model correctly found the NEW contradiction (computeScope→serialization-format).",
+    "variation_type": "multi_match (2 contradicts edges)",
+    "meta": {
+      "timestamp": "2026-03-19T18:27:00Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "case_set": "eval/cabin_cases/robustness_v1.json",
+      "context_version": "v1.1 (commit 222b59c)",
+      "usage": { "prompt_tokens": 1898, "completion_tokens": 178 }
+    }
+  },
+  {
+    "case_id": "RB-GR-005",
+    "adapter": "openrouter/deepseek/deepseek-chat",
+    "case_set": "robustness_v1",
+    "match_pass": true,
+    "dimensions": {
+      "issue_type_correctness": "pass",
+      "severity_correctness": "pass",
+      "evidence_adequacy": "pass",
+      "grounding_quality": "pass",
+      "boundedness": "pass",
+      "specificity": "pass",
+      "actionability": "weak_pass"
+    },
+    "overall": "pass",
+    "failure_patterns": [],
+    "notes": "NOVEL PATTERN: decision without 'constrains' (NOT in legend — legend only covers proved_by). Model correctly classified as unsupported_claim/P1 following resolveProbeMatches description. Demonstrates generalization beyond explicit legend entries.",
+    "variation_type": "novel_absence_pattern (constrains instead of proved_by)",
+    "meta": {
+      "timestamp": "2026-03-19T18:27:00Z",
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-chat",
+      "temperature": 0,
+      "case_set": "eval/cabin_cases/robustness_v1.json",
+      "context_version": "v1.1 (commit 222b59c)",
+      "usage": { "prompt_tokens": 1863, "completion_tokens": 93 }
+    }
+  }
+]

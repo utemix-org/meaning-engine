@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+### Track B Generalization / Robustness Check v1
+- `worlds/tension-test-world/seed.nodes.json` — 3 new nodes: `invariant:idempotency`, `concept:knowledge-substrate`, `code_artifact:computeScope` (17 total)
+- `worlds/tension-test-world/seed.edges.json` — 4 new edges: constrains, documents, drift_against, contradicts (18 total)
+- `eval/cabin_cases/robustness_v1.json` — 5 new GR cases testing: node-type generalization, multi-match probes, novel absence patterns
+- `eval/runCabinEvalDiagnosticPass.js` — added `--cases` flag to select case set file
+- `eval/cabin_grades/openrouter-robustness-v1.json` — 5/5 pass grades with detailed variation analysis
+- `docs/CABIN_CLAIM_POLICY.md` — upgraded to v5: robustness analysis section, 5 new allowed claims, 1 conditional claim promoted
+- **Key result:** control 8/8 pass + robustness 5/5 pass → **robustness holds** (predeclared threshold: ≥ 4/5)
+
 ### Changed
 - **Canonical edge key: `edges`** — `GraphModel` constructor now accepts `edges` as the canonical key; `links` remains as a deprecated legacy alias at the constructor boundary only
 - **`toJSON()` output shape:** now returns `{ nodes, edges }` (was `{ nodes, links }`) and **preserves `type` and `layer`** on edges (previously dropped)

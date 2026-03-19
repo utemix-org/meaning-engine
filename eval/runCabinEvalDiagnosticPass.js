@@ -27,10 +27,12 @@ const modelFlag = args.includes('--model')
   ? args[args.indexOf('--model') + 1]
   : null;
 const traceFlag = args.includes('--trace');
+const casesFlag = args.includes('--cases')
+  ? args[args.indexOf('--cases') + 1]
+  : 'golden_v1';
 
-const cases = JSON.parse(
-  readFileSync(resolve(__dir, 'cabin_cases', 'golden_v1.json'), 'utf-8'),
-);
+const casesFile = resolve(__dir, 'cabin_cases', `${casesFlag}.json`);
+const cases = JSON.parse(readFileSync(casesFile, 'utf-8'));
 
 const questions = JSON.parse(
   readFileSync(resolve(root, 'questions', 'tension-set-v1.json'), 'utf-8'),
@@ -46,6 +48,7 @@ function loadWorld(worldRef) {
 const modeLabel = modelFlag ? `model-backed (${modelFlag})` : 'deterministic';
 console.log(`# Cabin Eval — Diagnostic Pass Report (v1)`);
 console.log(`Mode: ${modeLabel}`);
+console.log(`Case set: ${casesFlag}`);
 console.log(`Cases: ${cases.length}`);
 console.log('');
 

@@ -99,5 +99,30 @@
     "status": "active",
     "tension_class": "missing_bridge",
     "tension_note": "MBR: intentionally isolated from main cluster — no edges to any other node"
+  },
+
+  {
+    "id": "invariant:idempotency",
+    "type": "invariant",
+    "title": "Projection Idempotency",
+    "status": "active",
+    "tension_class": "unsupported_claim",
+    "tension_note": "USC-RB: constrained by navigation but has no proved_by edge to evidence"
+  },
+  {
+    "id": "concept:knowledge-substrate",
+    "type": "concept",
+    "title": "Knowledge Substrate",
+    "status": "active",
+    "tension_class": "missing_bridge",
+    "tension_note": "MBR-RB: isolated concept — no edges to any other node"
+  },
+  {
+    "id": "code_artifact:computeScope",
+    "type": "code_artifact",
+    "title": "computeVisibleSubgraph()",
+    "status": "active",
+    "tension_class": "doc_runtime_mismatch",
+    "tension_note": "DRM-RB: drifts from spec:api-contract — scope computation diverged from documented API"
   }
 ]

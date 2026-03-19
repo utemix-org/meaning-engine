@@ -1,0 +1,135 @@
+[
+  {
+    "case_id": "RB-GR-001",
+    "case_set": "robustness_v1",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "description": "Variation of CE-GR-003: invariant (not decision) without proved_by. Tests if legend generalizes from decision→invariant.",
+    "input": {
+      "probe": {
+        "signal_type": "node_without_edge_type",
+        "params": { "node_type": "invariant", "missing_edge_type": "proved_by", "direction": "outgoing" }
+      }
+    },
+    "expected": {
+      "issue_type": "unsupported_claim",
+      "severity": "P1",
+      "claim": "An invariant node without a proved_by edge signals an unsupported claim.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["invariant:idempotency"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "invariant:idempotency" } },
+        { "type": "node_without_edge_type", "params": { "node_id": "invariant:idempotency", "edge_type": "proved_by", "direction": "outgoing" } }
+      ]
+    }
+  },
+  {
+    "case_id": "RB-GR-002",
+    "case_set": "robustness_v1",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "description": "Variation of CE-GR-004: second isolated node (now 2 in graph). Tests multi-match for node_isolated.",
+    "input": {
+      "probe": {
+        "signal_type": "node_isolated",
+        "params": {}
+      }
+    },
+    "expected": {
+      "issue_type": "missing_bridge",
+      "severity": "P2",
+      "claim": "An isolated node with zero edges signals a missing bridge.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["concept:knowledge-substrate"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "concept:knowledge-substrate" } },
+        { "type": "node_isolated", "params": { "node_id": "concept:knowledge-substrate" } }
+      ]
+    }
+  },
+  {
+    "case_id": "RB-GR-003",
+    "case_set": "robustness_v1",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "description": "Variation of CE-GR-001: second drift_against edge added. Tests multi-match for edge_present(drift_against). Model should report NEW drift instance.",
+    "input": {
+      "probe": {
+        "signal_type": "edge_present",
+        "params": { "edge_type": "drift_against", "layer": "tension" }
+      }
+    },
+    "expected": {
+      "issue_type": "doc_runtime_mismatch",
+      "severity": "P0",
+      "claim": "A drift_against edge in the tension layer signals doc/runtime divergence.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["code_artifact:computeScope", "spec:api-contract"]
+      },
+      "structural_checks": [
+        { "type": "edge_exists", "params": { "source": "code_artifact:computeScope", "target": "spec:api-contract", "edge_type": "drift_against" } }
+      ]
+    }
+  },
+  {
+    "case_id": "RB-GR-004",
+    "case_set": "robustness_v1",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "description": "Variation of CE-GR-002: second contradicts edge added. Tests multi-match for edge_present(contradicts). Model should report NEW contradiction.",
+    "input": {
+      "probe": {
+        "signal_type": "edge_present",
+        "params": { "edge_type": "contradicts", "layer": "tension" }
+      }
+    },
+    "expected": {
+      "issue_type": "type_contract_drift",
+      "severity": "P0",
+      "claim": "A contradicts edge in the tension layer signals type/runtime divergence.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["code_artifact:computeScope", "spec:serialization-format"]
+      },
+      "structural_checks": [
+        { "type": "edge_exists", "params": { "source": "code_artifact:computeScope", "target": "spec:serialization-format", "edge_type": "contradicts" } }
+      ]
+    }
+  },
+  {
+    "case_id": "RB-GR-005",
+    "case_set": "robustness_v1",
+    "mode": "graph_relief_driven",
+    "world_ref": "worlds/tension-test-world",
+    "description": "Novel absence pattern NOT in legend: decision without 'constrains' edge (legend only covers proved_by). Tests if model generalizes absence-as-signal beyond known mappings.",
+    "input": {
+      "probe": {
+        "signal_type": "node_without_edge_type",
+        "params": { "node_type": "decision", "missing_edge_type": "constrains", "direction": "outgoing" }
+      }
+    },
+    "expected": {
+      "issue_type": "unsupported_claim",
+      "severity": "P1",
+      "claim": "A decision node without required structural edges signals a weak or unsupported claim.",
+      "evidence_refs": {
+        "doc_refs": [],
+        "code_refs": [],
+        "graph_refs": ["decision:projection-formula"]
+      },
+      "structural_checks": [
+        { "type": "node_exists", "params": { "node_id": "decision:projection-formula" } },
+        { "type": "node_without_edge_type", "params": { "node_id": "decision:projection-formula", "edge_type": "constrains", "direction": "outgoing" } }
+      ]
+    }
+  }
+]
