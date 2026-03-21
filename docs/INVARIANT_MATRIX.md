@@ -23,11 +23,11 @@ Defined in: [README.md](../README.md), [EPISTEMIC_LOG.md](../EPISTEMIC_LOG.md), 
 | KE2 | Reject never mutates the graph | Test suite | `knowledgeInvariants.test.js` — "KE2: reject does not affect the graph"; `verificationWorkflow.test.js` — VW4; `reviewWorkflow.test.js` — RW4, RW5; `endToEnd.test.js` | **evidenced** |
 | KE3 | Every graph change traces to an epistemic event | Test suite + architecture | `knowledgeInvariants.test.js` — "KE3: approve deterministically adds to the graph"; `reviewWorkflow.test.js` — RW3, RW6; `verificationWorkflow.test.js` — VW3; `endToEnd.test.js` — "incremental log"; pipeline enforced by `evaluate()` → `getCanonicalStatements()` → `buildGraphFromStatements()` | **evidenced** |
 | KE4 | Evaluate is idempotent | Test suite | `knowledgeInvariants.test.js` — "KE4: repeated evaluate(log) is stable"; `evaluate.test.js` — "approve on already canonical → idempotent", "determinism: same log evaluated twice → identical result" | **evidenced** |
-| KE5 | Graph rebuild preserves ViewModel stability | Test suite (partial) | `knowledgeInvariants.test.js` — "KE5: projection remains total after any valid event sequence", edge case test; `verificationWorkflow.test.js` — VW11; `reviewWorkflow.test.js` — RW7; `buildGraph.test.js` — "graph from statements passes projectGraph"; `endToEnd.test.js` — full cycle | **partially evidenced** |
+| KE5 | Graph rebuild preserves ViewModel stability | Test suite | `knowledgeInvariants.test.js` — "KE5: projection remains total after any valid event sequence", "KE5 (edge case): empty canonical set → projection on empty graph returns ok:false"; `verificationWorkflow.test.js` — VW11; `reviewWorkflow.test.js` — RW7; `buildGraph.test.js` — "graph from statements passes projectGraph"; `endToEnd.test.js` — full cycle | **evidenced** |
 
-### KE5 evidence gap
+### KE5 edge case — closed in B3
 
-The KE5 edge case test ("empty canonical set → projection on empty graph still total") asserts that `buildGraphFromStatements([])` yields an empty graph but does not call `projectGraph` on it. Meanwhile, `validateInputs.js` rejects empty graphs (`"graph has no nodes"`), so `projectGraph` on an empty graph returns `{ ok: false }`. The invariant holds for non-empty graphs; the edge case boundary is documented but not fully tested.
+The KE5 edge case test now calls `projectGraph` on an empty graph and asserts `{ ok: false, errors: ['graph has no nodes'] }`. This confirms that `validateInputs.js` rejects empty graphs as designed, and the totality property (INV-7) holds: the pipeline always returns either a valid ViewModel or a typed error. The boundary is now documented and tested.
 
 ---
 
@@ -55,13 +55,13 @@ Defined in: [README.md](../README.md), [ARCHITECTURE.md](../ARCHITECTURE.md), `p
 |----|-----------|---------------|-----------------|--------|
 | INV-3 | Projection determinism: same `(graph, focus, params)` → same ViewModel | Test suite | `projectGraph.test.js` — "INV-3: Projection Determinism" (no focus, alice, root/depth 2, 100 repeated calls); `domainProjection.test.js` — Theorem 7; `workbenchProjection.test.js` — Theorem 4; `characterContext.test.js` — Theorem 8 | **evidenced** |
 | INV-7 | Projection totality: always returns ViewModel or typed error | Test suite | `projectGraph.test.js` — "INV-7: Projection Totality" (ok for valid input; ok:false for null graph, nonexistent focus, negative depth) | **evidenced** |
-| INV-1 | Schema conformance | Metadata only | `buildViewModel.js` — listed in `satisfiedInvariants`; no dedicated test | **intended** |
-| INV-2 | Identity stability | Metadata only | `buildViewModel.js` — listed in `satisfiedInvariants`; no dedicated test | **intended** |
-| INV-4 | Graph immutability (projection does not mutate input) | Architecture | `buildViewModel.js` — listed in `satisfiedInvariants`; enforced by pure-function design of all 5 pipeline steps; no dedicated mutation test | **intended** |
+| INV-1 | Schema conformance | Test suite | `projectionMetadata.test.js` — "INV-1: Schema Conformance" (15 tests): ViewModel top-level keys, VisualNode fields (id/label/type/role/opacity/metadata), VisualEdge fields (id/source/target/type/opacity/touchesFocus), panels structure, breadcrumbs, navigation, meta, system, satisfiedInvariants content, transitions | **evidenced** |
+| INV-2 | Identity stability | Test suite | `projectionMetadata.test.js` — "INV-2: Identity Stability" (9 tests): all source node IDs appear in ViewModel, IDs preserved exactly, edge source/target reference valid IDs, focused node ID matches input, identity stable across repeated projections, visible IDs subset of graph IDs, edge IDs preserved, breadcrumbs/path IDs match | **evidenced** |
+| INV-4 | Graph immutability (projection does not mutate input) | Test suite | `projectionMetadata.test.js` — "INV-4: Graph Immutability" (7 tests): node/edge count unchanged, node/edge properties unchanged (deep comparison), graph unchanged after multiple projections with different foci, graph unchanged on error path, getNodeById still works after projection | **evidenced** |
 
-### PROJ purity note
+### PROJ evidence note — updated in B3
 
-The projection pipeline (`validateInputs → resolveFocus → computeVisibleSubgraph → deriveSemanticRoles → buildViewModel`) is implemented as a chain of pure, synchronous functions with no external I/O or shared state. Each step documents "no side effects" in its JSDoc header. INV-3 (determinism) and INV-7 (totality) are the formalized, tested projections of the PROJ invariant. INV-1, INV-2, INV-4 are declared in metadata but lack standalone tests.
+All 5 PROJ invariants now have dedicated tests. The projection pipeline (`validateInputs → resolveFocus → computeVisibleSubgraph → deriveSemanticRoles → buildViewModel`) is a chain of pure, synchronous functions with no external I/O or shared state. INV-3 (determinism) and INV-7 (totality) were proven in the original test suite. INV-1, INV-2, and INV-4 are now proven by `projectionMetadata.test.js` (32 tests).
 
 ---
 
@@ -173,11 +173,11 @@ Four bugs were discovered in `ProposalValidator` during test development:
 
 | Family | Count | Evidenced | Partially evidenced | Intended |
 |--------|-------|-----------|---------------------|----------|
-| KE | 5 | 4 | 1 (KE5) | 0 |
+| KE | 5 | 5 | 0 | 0 |
 | NAV | 5 | 5 | 0 | 0 |
-| PROJ | 5 | 2 (INV-3, INV-7) | 0 | 3 (INV-1, INV-2, INV-4) |
+| PROJ | 5 | 5 | 0 | 0 |
 | Structural | 16 | 16 | 0 | 0 |
 | OP | 3 | 3 | 0 | 0 |
 | ENG | 7 | 7 | 0 | 0 |
 | CP | 3 | 3 | 0 | 0 |
-| **Total** | **44** | **40** | **1** | **3** |
+| **Total** | **44** | **44** | **0** | **0** |
