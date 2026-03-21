@@ -48,11 +48,11 @@
     "status": "active"
   },
   {
-    "id": "code:file:src/core/GraphRAGProjection.js",
+    "id": "code:file:src/core/GraphIndexProjection.js",
     "type": "code_artifact",
-    "title": "GraphRAGProjection.js",
+    "title": "GraphIndexProjection.js",
     "source": "repo",
-    "path": "src/core/GraphRAGProjection.js",
+    "path": "src/core/GraphIndexProjection.js",
     "tags": [
       "module",
       "core"

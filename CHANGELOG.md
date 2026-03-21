@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Readiness: Block C (Graph index projection rename)
+- `GraphRAGProjection` → **`GraphIndexProjection`** (file `src/core/GraphIndexProjection.js`); `GraphRAGProjection` remains a deprecated re-export alias for one minor cycle (`docs/DECISIONS.md` ADR-014)
+- `README.md`, `docs/POSITIONING_MEMO.md`, `docs/API_SURFACE_POLICY.md` — canonical naming and deprecation note
+- `LLMReflectionEngine` / `ContextAssembler` — `graphIndex` option and instance property (replacing `graphRAG`)
+- Documentation-world seeds/analysis — mechanical path/title updates for the renamed file
+
 ### Readiness: Block A (Identity lock)
 - `docs/POSITIONING_MEMO.md` — canonical one-line definition, public promise, non-promise list, public/experimental boundary, "not GraphRAG" explanation
 - `docs/DECISIONS.md` — ADR-014 (GraphRAGProjection rename proposed), ADR-015 (canonical project identity)

@@ -28,7 +28,7 @@
  */
 
 import { ReflectiveProjection } from "./ReflectiveProjection.js";
-import { GraphRAGProjection } from "./GraphRAGProjection.js";
+import { GraphIndexProjection } from "./GraphIndexProjection.js";
 import { ChangeProtocol, MUTATION_TYPE, AUTHOR_TYPE } from "./ChangeProtocol.js";
 import { GraphSnapshot, diffSnapshots } from "./GraphSnapshot.js";
 import { SCHEMA_VERSION, NODE_TYPES, EDGE_TYPES } from "./CanonicalGraphSchema.js";
@@ -68,12 +68,12 @@ export class ContextAssembler {
   /**
    * @param {Object} options
    * @param {ReflectiveProjection} options.reflective
-   * @param {GraphRAGProjection} [options.graphRAG]
+   * @param {GraphIndexProjection} [options.graphIndex]
    * @param {ChangeProtocol} [options.protocol]
    */
   constructor(options = {}) {
     this.reflective = options.reflective;
-    this.graphRAG = options.graphRAG || null;
+    this.graphIndex = options.graphIndex || null;
     this.protocol = options.protocol || null;
   }
   
@@ -654,7 +654,7 @@ export class LLMReflectionEngine {
     
     // Создаём проекции (read-only доступ к Core)
     this.reflective = new ReflectiveProjection(graphModel);
-    this.graphRAG = new GraphRAGProjection(graphModel);
+    this.graphIndex = new GraphIndexProjection(graphModel);
     
     // Создаём ChangeProtocol (для simulate, НЕ для apply)
     this.protocol = new ChangeProtocol(graph);
@@ -662,7 +662,7 @@ export class LLMReflectionEngine {
     // Компоненты
     this.contextAssembler = new ContextAssembler({
       reflective: this.reflective,
-      graphRAG: this.graphRAG,
+      graphIndex: this.graphIndex,
       protocol: this.protocol,
     });
     this.promptBuilder = new PromptBuilder();
@@ -1012,7 +1012,7 @@ export class LLMReflectionEngine {
     if (this.reflective?.invalidateCache) {
       this.reflective.invalidateCache();
     }
-    // GraphRAGProjection doesn't have invalidateCache
+    // GraphIndexProjection doesn't have invalidateCache
   }
   
   /**
@@ -1020,7 +1020,7 @@ export class LLMReflectionEngine {
    */
   destroy() {
     this.reflective.destroy();
-    this.graphRAG.destroy();
+    this.graphIndex.destroy();
     this.llmClient = null;
   }
 }

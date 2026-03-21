@@ -79,7 +79,7 @@ The following are present in the repository and may be exported, but are **not**
 |--------|--------|--------|
 | `LLMReflectionEngine` | `src/core/LLMReflectionEngine.js` | No tests, no docs, no public demo |
 | `OWLProjection` | `src/core/OWLProjection.js` | No tests, no docs |
-| `GraphRAGProjection` | `src/core/GraphRAGProjection.js` | No tests, no docs |
+| `GraphIndexProjection` | `src/core/GraphIndexProjection.js` | Export-only tests; no feature docs |
 | `ReflectiveProjection` | `src/core/ReflectiveProjection.js` | No tests, no docs |
 | `OwnershipGraph` | `src/core/OwnershipGraph.js` | No tests, no docs |
 | `PerformanceAuditor` | `src/core/PerformanceAudit.js` | Utility, not core contract |
@@ -107,6 +107,7 @@ The following are implementation details and should not be relied upon:
 
 | Symbol | Context | Replacement |
 |--------|---------|-------------|
+| `GraphRAGProjection` (export alias) | Same class as `GraphIndexProjection` | Use `GraphIndexProjection`. Alias removed in next minor. |
 | `links` key in `GraphModel` constructor | `new GraphModel({ nodes, links })` | Use `edges` instead. `links` still accepted as input alias but will be removed in a future minor. |
 | `links` key in `toJSON()` output | Was `{ nodes, links }` | Now `{ nodes, edges }`. No backward-compatibility shim on output. |
 

@@ -10,7 +10,7 @@
  * ПРИНЦИП:
  * - Рефлексия = read-only
  * - Изменение = только через осознанное действие
- * - Читает Core, GraphRAGProjection, OWLProjection
+ * - Читает Core, GraphIndexProjection, OWLProjection
  * - Анализирует структуру
  * - Ничего не меняет
  * - Без LLM
@@ -287,7 +287,7 @@ export class ReflectiveProjection extends Projection {
         owlReady++;
       }
       
-      // GraphRAGProjection: нужен id, любые текстовые поля
+      // GraphIndexProjection: нужен id, любые текстовые поля
       if (node.id && (node.label || node.canonicalName || node.type)) {
         ragReady++;
       }
@@ -306,6 +306,7 @@ export class ReflectiveProjection extends Projection {
         readyNodes: owlReady,
         coverage: nodeCount > 0 ? Math.round((owlReady / nodeCount) * 100) : 0
       },
+      // legacy key name: coverage for GraphIndexProjection (not Microsoft GraphRAG)
       graphrag: {
         readyNodes: ragReady,
         coverage: nodeCount > 0 ? Math.round((ragReady / nodeCount) * 100) : 0

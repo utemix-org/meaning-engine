@@ -107,10 +107,10 @@ The engine is **world-agnostic**: you bring your own graph, the engine provides 
 | Knowledge substrate (`propose` → `evaluate` → `buildGraph`) | **stable** |
 | Engine facade (`MeaningEngine`, `WorldAdapter`, `Schema`) | **stable** |
 | CLI workflows (`runReasoningReport`, `runWorldSmokeWorkflow`) | **stable** |
-| LLMReflectionEngine, OWLProjection, GraphRAGProjection¹ | **experimental** |
+| LLMReflectionEngine, OWLProjection, GraphIndexProjection¹ | **experimental** |
 | Internal observer / cabin workflows | **experimental** |
 
-¹ `GraphRAGProjection` is a deterministic text indexer — not related to Microsoft GraphRAG. Rename to `GraphIndexProjection` proposed ([DECISIONS.md](./docs/DECISIONS.md#adr-014)).
+¹ `GraphIndexProjection` is a deterministic text indexer (BFS + inverted token index). It is **not** Microsoft GraphRAG. The old name `GraphRAGProjection` remains exported as a deprecated alias for one minor cycle ([DECISIONS.md](./docs/DECISIONS.md#adr-014)).
 
 See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the full breakdown of what is covered by SemVer.
 
