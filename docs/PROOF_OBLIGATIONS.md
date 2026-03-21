@@ -91,25 +91,13 @@ Evidence basis: `src/core/projection/__tests__/projectGraph.test.js` plus domain
 
 ## 3. What is documented but not fully proven
 
-### 3.1 Structural invariants (16 checkers, 0 dedicated tests)
+### ~~3.1 Structural invariants~~ — CLOSED in B2
 
-`StructuralInvariants.js` implements 16 invariant checkers across 5 categories (Graph, Identity, Edge, Connectivity, Hierarchy). These are well-implemented pure functions, but:
+All 16 checkers now have dedicated tests (48 tests in `StructuralInvariants.test.js`). Status upgraded from intended/partially evidenced to **evidenced**.
 
-- **No dedicated test file** for `StructuralInvariants.js`
-- 5 checkers (G1–G3, I1–I2) are exercised indirectly via `ChangeProtocol.ProposalValidator` at `STRICTNESS.MINIMAL`
-- 11 checkers (G4, I3–I4, E1–E3, C1–C3, H1–H2) have no known execution path in tests
+### ~~3.2 Change Protocol~~ — CLOSED in B2
 
-**Risk:** A regression in any of these checkers would not be caught by CI.
-
-### 3.2 Change Protocol (proposal → validate → apply)
-
-`ChangeProtocol.js` implements managed graph mutation with history tracking. It composes `StructuralInvariants` and `GraphSnapshot`. However:
-
-- **No dedicated test file** for `ChangeProtocol.js` or `ProposalValidator`
-- The full proposal → validate → apply → history pipeline is not integration-tested
-- `GraphSnapshot.js` immutability (`Object.freeze`) is not tested
-
-**Risk:** The mutation control mechanism — arguably the most safety-critical component — has no direct test coverage.
+Full pipeline tested (36 tests in `ChangeProtocol.test.js`): happy path, rejection, simulate, history, strictness. Four bugs discovered and fixed in `ProposalValidator` (see INVARIANT_MATRIX.md for details). Status upgraded to **evidenced**.
 
 ### 3.3 Projection metadata invariants (INV-1, INV-2, INV-4)
 
@@ -136,7 +124,7 @@ Per [POSITIONING_MEMO.md](./POSITIONING_MEMO.md) and the README:
 | "Engine understands knowledge" | No evidence of understanding — engine applies typed operations |
 | "Operators generalize to arbitrary graphs" | Only tested on 2 reference worlds |
 | "Projection handles all edge cases" | Empty graphs, disconnected components not fully tested |
-| "ChangeProtocol is production-ready" | No test coverage |
+| "ChangeProtocol is production-ready" | Tested but experimental; schema-dependent checkers use empty default types |
 | "Experimental modules are stable" | Explicitly marked experimental in API_SURFACE_POLICY.md |
 
 ---
@@ -145,28 +133,25 @@ Per [POSITIONING_MEMO.md](./POSITIONING_MEMO.md) and the README:
 
 Listed in priority order based on risk and coverage impact.
 
-### Critical (safety-relevant, no tests)
+### ~~Critical~~ — CLOSED in B2
+
+Gaps #1 (StructuralInvariants) and #2 (ChangeProtocol) are now closed with dedicated test suites. See B2 PR for details.
+
+### Important (remaining)
 
 | # | Gap | Suggested artifact | Impact |
 |---|-----|--------------------|--------|
-| 1 | StructuralInvariants has no dedicated tests | `src/core/__tests__/StructuralInvariants.test.js` — test each of the 16 checker functions with valid and violation cases | 16 invariants gain direct evidence |
-| 2 | ChangeProtocol has no tests | `src/core/__tests__/ChangeProtocol.test.js` — test proposal → validate → apply → history pipeline; test rejection on invariant violation; test simulate (dry-run) | Mutation safety gains direct evidence |
-| 3 | GraphSnapshot immutability not tested | Test that `Object.freeze` is applied and mutation attempts throw | Snapshot integrity |
-
-### Important (partially evidenced)
-
-| # | Gap | Suggested artifact | Impact |
-|---|-----|--------------------|--------|
-| 4 | KE5 edge case: empty graph projection | Add assertion in `knowledgeInvariants.test.js` KE5 edge case that actually calls `projectGraph` on empty graph and checks `ok: false` | KE5 fully locked |
-| 5 | INV-4 (graph immutability through projection) | Test that `projectGraph` input graph is unchanged after call | PROJ immutability proven |
-| 6 | INV-1/INV-2 (schema conformance, identity stability) | Define and test ViewModel schema contract | PROJ metadata invariants promoted from intended to evidenced |
+| 1 | GraphSnapshot immutability not tested | Test that `Object.freeze` is applied and mutation attempts throw | Snapshot integrity |
+| 2 | KE5 edge case: empty graph projection | Add assertion in `knowledgeInvariants.test.js` KE5 edge case that actually calls `projectGraph` on empty graph and checks `ok: false` | KE5 fully locked |
+| 3 | INV-4 (graph immutability through projection) | Test that `projectGraph` input graph is unchanged after call | PROJ immutability proven |
+| 4 | INV-1/INV-2 (schema conformance, identity stability) | Define and test ViewModel schema contract | PROJ metadata invariants promoted from intended to evidenced |
 
 ### Desirable (documentation gaps)
 
 | # | Gap | Suggested artifact | Impact |
 |---|-----|--------------------|--------|
-| 7 | Highlight model has no tests | `src/highlight/__tests__/highlightModel.test.js` | Public API coverage |
-| 8 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
+| 5 | Highlight model has no tests | `src/highlight/__tests__/highlightModel.test.js` | Public API coverage |
+| 6 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
 
 ---
 

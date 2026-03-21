@@ -132,7 +132,6 @@ function generateProposalId() {
  */
 export class ProposalValidator {
   constructor() {
-    this.schemaValidator = new SchemaValidator();
     this.invariantChecker = new InvariantChecker();
   }
   
@@ -185,12 +184,12 @@ export class ProposalValidator {
       STRICTNESS.MINIMAL
     );
     
-    if (!invariantResult.passed) {
-      for (const failure of invariantResult.failed) {
+    if (!invariantResult.valid) {
+      for (const failure of invariantResult.violations) {
         errors.push({
           code: "INVARIANT_VIOLATION",
           invariant: failure.name,
-          message: failure.error || `Invariant ${failure.name} failed`,
+          message: failure.message || `Invariant ${failure.name} failed`,
         });
       }
     }
@@ -378,16 +377,12 @@ export class ProposalValidator {
       case MUTATION_TYPE.UPDATE_NODE: {
         const node = simulatedGraph.nodes.find(n => n.id === proposal.payload.id);
         if (node) {
-          const result = this.schemaValidator.validateNode(node);
+          const result = SchemaValidator.validateNode(node);
           if (!result.valid) {
             errors.push(...result.errors.map(e => ({
               code: "SCHEMA_ERROR",
-              field: e.field,
-              message: e.message,
+              message: e,
             })));
-          }
-          if (result.warnings) {
-            warnings.push(...result.warnings);
           }
         }
         break;
@@ -398,12 +393,11 @@ export class ProposalValidator {
         const edgeId = proposal.payload.id || simulatedGraph.edges[simulatedGraph.edges.length - 1]?.id;
         const edge = simulatedGraph.edges.find(e => e.id === edgeId);
         if (edge) {
-          const result = this.schemaValidator.validateEdge(edge);
+          const result = SchemaValidator.validateEdge(edge);
           if (!result.valid) {
             errors.push(...result.errors.map(e => ({
               code: "SCHEMA_ERROR",
-              field: e.field,
-              message: e.message,
+              message: e,
             })));
           }
         }
