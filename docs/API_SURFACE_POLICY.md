@@ -108,6 +108,12 @@ The following are implementation details and should not be relied upon:
 | Symbol | Context | Replacement |
 |--------|---------|-------------|
 | `GraphRAGProjection` (export alias) | Same class as `GraphIndexProjection` | Use `GraphIndexProjection`. Alias removed in next minor. |
+
+### C2 follow-up audit (export surface, 2026-03)
+
+- **Entry points checked:** `src/index.js` (package root `meaning-engine`), `src/core/index.js` (`meaning-engine/core`), `package.json` `exports` map.
+- **Canonical export:** `GraphIndexProjection` is the only named implementation class; `GraphRAGProjection` is re-exported only as a deprecated alias (same identity).
+- **No silent legacy paths:** no duplicate class export under the old filename; no extra barrels beyond the documented alias.
 | `links` key in `GraphModel` constructor | `new GraphModel({ nodes, links })` | Use `edges` instead. `links` still accepted as input alias but will be removed in a future minor. |
 | `links` key in `toJSON()` output | Was `{ nodes, links }` | Now `{ nodes, edges }`. No backward-compatibility shim on output. |
 

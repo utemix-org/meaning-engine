@@ -3,6 +3,7 @@
 ## Unreleased
 
 ### Readiness: Block C (Graph index projection rename)
+- C2 follow-up: package root (`src/index.js`) re-exports `GraphRAGProjection` as a separate `@deprecated` export (same alias as `meaning-engine/core`); `docs/API_SURFACE_POLICY.md` — short C2 export-surface audit note
 - `GraphRAGProjection` → **`GraphIndexProjection`** (file `src/core/GraphIndexProjection.js`); `GraphRAGProjection` remains a deprecated re-export alias for one minor cycle (`docs/DECISIONS.md` ADR-014)
 - `README.md`, `docs/POSITIONING_MEMO.md`, `docs/API_SURFACE_POLICY.md` — canonical naming and deprecation note
 - `LLMReflectionEngine` / `ContextAssembler` — `graphIndex` option and instance property (replacing `graphRAG`)
