@@ -46,7 +46,7 @@ No cycles of length 3–6 detected in the directed graph.
 5. **RENDER_SURFACES_SPEC** (spec) ↔ **CanonicalGraphSchema.js** (code_artifact) — distance: 7
 6. **RENDER_SURFACES_SPEC** (spec) ↔ **ChangeProtocol.js** (code_artifact) — distance: 6
 7. **RENDER_SURFACES_SPEC** (spec) ↔ **DevProjection.js** (code_artifact) — distance: 6
-8. **RENDER_SURFACES_SPEC** (spec) ↔ **GraphRAGProjection.js** (code_artifact) — distance: 6
+8. **RENDER_SURFACES_SPEC** (spec) ↔ **GraphIndexProjection.js** (code_artifact) — distance: 6
 9. **RENDER_SURFACES_SPEC** (spec) ↔ **GraphSnapshot.js** (code_artifact) — distance: 6
 10. **RENDER_SURFACES_SPEC** (spec) ↔ **Identity.js** (code_artifact) — distance: 6
 

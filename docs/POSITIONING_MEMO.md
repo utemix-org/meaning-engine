@@ -33,16 +33,16 @@ Meaning Engine publicly guarantees:
 | Status | Scope | SemVer |
 |--------|-------|--------|
 | **Public (stable)** | GraphModel, Projection, Navigation, Knowledge Substrate, Operators (trace/compare/supports), CLI workflows, World input format | Covered: breaking changes require minor bump + CHANGELOG |
-| **Experimental** | LLMReflectionEngine, OWLProjection, GraphRAGProjection, ReflectiveProjection, Cabin (diagnostic observer), Workbench/character/domain projection modes | Not covered: may change or be removed without notice |
+| **Experimental** | LLMReflectionEngine, OWLProjection, GraphIndexProjection, ReflectiveProjection, Cabin (diagnostic observer), Workbench/character/domain projection modes | Not covered: may change or be removed without notice |
 | **Internal** | Test suites, operator baselines, world tools, specification directory | Implementation details — do not depend on them |
 
 Full classification: [API_SURFACE_POLICY.md](./API_SURFACE_POLICY.md).
 
 ## Not GraphRAG
 
-The repository contains an experimental class called `GraphRAGProjection`. Despite the name, it has **nothing in common with Microsoft GraphRAG** or the broader "GraphRAG" pattern:
+The experimental class **`GraphIndexProjection`** (canonical name; the former misleading name `GraphRAGProjection` is a deprecated export alias) has **nothing in common with Microsoft GraphRAG** or the broader "GraphRAG" pattern:
 
-| Property | Microsoft GraphRAG | Meaning Engine's `GraphRAGProjection` |
+| Property | Microsoft GraphRAG | Meaning Engine's `GraphIndexProjection` |
 |----------|-------------------|--------------------------------------|
 | Entity extraction | LLM-powered | None — nodes come from seed files |
 | Community summaries | LLM-generated | None |
@@ -50,7 +50,7 @@ The repository contains an experimental class called `GraphRAGProjection`. Despi
 | Context window assembly | LLM-optimized | Deterministic BFS expansion |
 | LLM dependency | Required | None — fully deterministic |
 
-The class is a deterministic text indexer with BFS context expansion over an existing graph. A rename to `GraphIndexProjection` is proposed (see [DECISIONS.md](./DECISIONS.md#adr-014)).
+The class is a deterministic text indexer with BFS context expansion over an existing graph. See [DECISIONS.md](./DECISIONS.md#adr-014) for the rename and deprecation policy.
 
 ## Versioning
 

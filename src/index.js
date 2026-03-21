@@ -62,6 +62,7 @@ export {
   DevProjection,
   OWLProjection,
   NAMESPACES,
+  GraphIndexProjection,
   GraphRAGProjection,
   ReflectiveProjection,
   

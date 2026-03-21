@@ -38,7 +38,7 @@
         "→Projection.js [depends_on]",
         "→DevProjection.js [depends_on]",
         "→OWLProjection.js [depends_on]",
-        "→GraphRAGProjection.js [depends_on]"
+        "→GraphIndexProjection.js [depends_on]"
       ]
     },
     {
@@ -443,9 +443,9 @@
         "title": "RENDER_SURFACES_SPEC"
       },
       "to": {
-        "id": "code:file:src/core/GraphRAGProjection.js",
+        "id": "code:file:src/core/GraphIndexProjection.js",
         "type": "code_artifact",
-        "title": "GraphRAGProjection.js"
+        "title": "GraphIndexProjection.js"
       },
       "distance": 6,
       "pair": "spec↔code_artifact"

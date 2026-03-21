@@ -6,7 +6,7 @@
     { "old": "packages/engine/src/core/ChangeProtocol.js", "new": "src/core/ChangeProtocol.js" },
     { "old": "packages/engine/src/core/DevProjection.js", "new": "src/core/DevProjection.js" },
     { "old": "packages/engine/src/core/GraphModel.js", "new": "src/core/GraphModel.js" },
-    { "old": "packages/engine/src/core/GraphRAGProjection.js", "new": "src/core/GraphRAGProjection.js" },
+    { "old": "packages/engine/src/core/GraphRAGProjection.js", "new": "src/core/GraphIndexProjection.js" },
     { "old": "packages/engine/src/core/GraphSnapshot.js", "new": "src/core/GraphSnapshot.js" },
     { "old": "packages/engine/src/core/Identity.js", "new": "src/core/Identity.js" },
     { "old": "packages/engine/src/core/LLMReflectionEngine.js", "new": "src/core/LLMReflectionEngine.js" },

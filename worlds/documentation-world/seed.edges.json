@@ -836,13 +836,13 @@
     "layer": "provenance"
   },
   {
-    "source": "code:file:src/core/GraphRAGProjection.js",
+    "source": "code:file:src/core/GraphIndexProjection.js",
     "target": "code:file:src/core/Projection.js",
     "type": "depends_on",
     "layer": "provenance"
   },
   {
-    "source": "code:file:src/core/GraphRAGProjection.js",
+    "source": "code:file:src/core/GraphIndexProjection.js",
     "target": "code:file:src/core/Identity.js",
     "type": "depends_on",
     "layer": "provenance"
@@ -879,7 +879,7 @@
   },
   {
     "source": "code:file:src/core/index.js",
-    "target": "code:file:src/core/GraphRAGProjection.js",
+    "target": "code:file:src/core/GraphIndexProjection.js",
     "type": "depends_on",
     "layer": "provenance"
   },
@@ -1125,7 +1125,7 @@
   },
   {
     "source": "code:file:src/core/LLMReflectionEngine.js",
-    "target": "code:file:src/core/GraphRAGProjection.js",
+    "target": "code:file:src/core/GraphIndexProjection.js",
     "type": "depends_on",
     "layer": "provenance"
   },

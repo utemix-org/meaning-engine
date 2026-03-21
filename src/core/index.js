@@ -31,7 +31,11 @@ export { GraphModel, createContextFromState, createEmptyContext, INTENSITY } fro
 export { Projection, ProjectionRegistry, projectionRegistry } from "./Projection.js";
 export { DevProjection } from "./DevProjection.js";
 export { OWLProjection, NAMESPACES } from "./OWLProjection.js";
-export { GraphRAGProjection } from "./GraphRAGProjection.js";
+export { GraphIndexProjection } from "./GraphIndexProjection.js";
+/**
+ * @deprecated Use {@link GraphIndexProjection} instead. Experimental alias; remove in next minor release.
+ */
+export { GraphIndexProjection as GraphRAGProjection } from "./GraphIndexProjection.js";
 export { ReflectiveProjection } from "./ReflectiveProjection.js";
 
 // Structural Invariants

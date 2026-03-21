@@ -1,14 +1,13 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * GRAPH RAG PROJECTION — Индексация и поиск по графу
+ * GRAPH INDEX PROJECTION — Индексация и поиск по графу
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * Phase 2: Core → Multi-Projection
- * P3.7: GraphRAG интеграция
  * См. repair-shop/ROADMAP.md
  * 
  * ПРИНЦИП:
- * - GraphRAG — это проекция, а не новый Core
+ * - Детерминированная текстовая индексация и BFS-расширение контекста (не GraphRAG-паттерн)
  * - Читает GraphModel, OwnershipGraph, Identity
  * - Полностью детерминированный
  * - Не использует LLM внутри
@@ -21,11 +20,11 @@
  * - Чистая индексация и поиск
  * 
  * ИСПОЛЬЗОВАНИЕ:
- * const ragProjection = new GraphRAGProjection(graphModel, ownershipGraph);
- * ragProjection.buildIndex();
- * const result = ragProjection.queryByNode("vova");
- * const context = ragProjection.expandContext(["vova"], 2);
- * const llmContext = ragProjection.toLLMContext();
+ * const indexProjection = new GraphIndexProjection(graphModel, ownershipGraph);
+ * indexProjection.buildIndex();
+ * const result = indexProjection.queryByNode("vova");
+ * const context = indexProjection.expandContext(["vova"], 2);
+ * const llmContext = indexProjection.toLLMContext();
  * 
  * ═══════════════════════════════════════════════════════════════════════════
  */
@@ -58,17 +57,18 @@ import { extractIdentityFromNode, getDisplayName } from "./Identity.js";
  */
 
 /**
- * GraphRAG-проекция для индексации и поиска по графу.
+ * Проекция графового индекса для индексации и поиска по графу.
+ * Детерминированный инвертированный индекс и BFS; без эмбеддингов и без LLM.
  * 
  * @pure Не использует LLM, не мутирует Core
  */
-export class GraphRAGProjection extends Projection {
+export class GraphIndexProjection extends Projection {
   /**
    * @param {import("./GraphModel.js").GraphModel} graphModel
    * @param {import("./OwnershipGraph.js").OwnershipGraph} [ownershipGraph]
    */
   constructor(graphModel, ownershipGraph = null) {
-    super("graphrag");
+    super("graphindex");
     
     /** @type {import("./GraphModel.js").GraphModel} */
     this.graphModel = graphModel;

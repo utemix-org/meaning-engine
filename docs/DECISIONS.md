@@ -7,16 +7,16 @@ This file records explicit naming, terminology, and architecture decisions for t
 ## ADR-014: Rename `GraphRAGProjection` → `GraphIndexProjection`
 
 **Date:** 2026-03-21
-**Status:** Proposed (decision recorded; code rename deferred)
-**Track:** ME_READINESS / Block A
+**Status:** Implemented
+**Track:** ME_READINESS / Block A (code: Block C follow-up)
 
 ### Context
 
-The repository contains an experimental class `GraphRAGProjection` (`src/core/GraphRAGProjection.js`). The name implies a relationship with Microsoft's [GraphRAG](https://github.com/microsoft/graphrag) pattern or the broader "GraphRAG" concept in the AI/ML community. This creates a misleading identity signal for external readers.
+The repository contained an experimental class whose former name implied a relationship with Microsoft's [GraphRAG](https://github.com/microsoft/graphrag) pattern or the broader "GraphRAG" concept in the AI/ML community. That created a misleading identity signal for external readers.
 
 ### Actual Behavior
 
-`GraphRAGProjection` is a **deterministic text indexer with BFS context expansion**:
+`GraphIndexProjection` is a **deterministic text indexer with BFS context expansion**:
 
 - Builds an inverted text index over graph nodes (tokenize label/id/aliases → token map)
 - Provides `queryByText()` for token-intersection search (no embeddings, no LLM)
@@ -29,21 +29,17 @@ None of these features correspond to the GraphRAG pattern.
 
 ### Decision
 
-**Rename to `GraphIndexProjection`** to accurately describe the class behavior: deterministic graph indexing and structural search.
+**Canonical name: `GraphIndexProjection`** (`src/core/GraphIndexProjection.js`) — deterministic graph indexing and structural search.
 
-### Implementation Plan
+### Deprecation policy
 
-1. Rename class and file: `GraphRAGProjection` → `GraphIndexProjection`, `GraphRAGProjection.js` → `GraphIndexProjection.js`
-2. Update all imports in `src/core/index.js`, `src/index.js`, `LLMReflectionEngine.js`, `ReflectiveProjection.js`
-3. Add a deprecated re-export alias for backward compatibility: `export { GraphIndexProjection as GraphRAGProjection }` (to be removed in next minor)
-4. Update `API_SURFACE_POLICY.md` and `README.md` references
-5. Update documentation-world seed nodes/edges (artifact IDs containing the old name)
-
-**Implementation is deferred** — this ADR records the decision. The rename will be executed in a separate task when approved.
+- **`GraphRAGProjection`** remains available only as a **deprecated export alias** of `GraphIndexProjection` (same class identity: `GraphRAGProjection === GraphIndexProjection`).
+- Marked in source via JSDoc on the re-export in `src/core/index.js` and in this ADR.
+- **Removal:** next minor release after the one that ships this alias (one minor courtesy cycle), unless the experimental surface is revised sooner.
 
 ### Compatibility Note
 
-The class is classified as **experimental** (no tests, no docs, no SemVer coverage). Renaming an experimental export does not require a minor version bump under current policy. A deprecated alias will be provided for one minor release cycle as a courtesy.
+The class is classified as **experimental** (SemVer does not cover it). The alias exists to avoid surprising early adopters of the old symbol name; new code should import `GraphIndexProjection`.
 
 ---
 
@@ -55,7 +51,7 @@ The class is classified as **experimental** (no tests, no docs, no SemVer covera
 
 ### Context
 
-The project's identity has been ambiguous to external readers. Different documents emphasized different aspects (graph engine, knowledge system, semantic projection engine), and the presence of `GraphRAGProjection` in exports could suggest an LLM-powered retrieval system.
+The project's identity has been ambiguous to external readers. Different documents emphasized different aspects (graph engine, knowledge system, semantic projection engine), and the former misleading export name for the graph index projection could suggest an LLM-powered retrieval system.
 
 ### Decision
 
