@@ -5,7 +5,27 @@
 [![license](https://img.shields.io/npm/l/meaning-engine.svg)](https://github.com/utemix-org/meaning-engine/blob/main/LICENSE)
 [![node](https://img.shields.io/node/v/meaning-engine.svg)](https://nodejs.org)
 
-A deterministic engine for graph-based engineering knowledge, with reproducible diagnostic operators and evidence-grounded report artifacts.
+A deterministic computational substrate for graph-structured knowledge: you bring a typed semantic graph, the engine provides projection, navigation, diagnostic operators, and evidence-grounded reports.
+
+## What It Is / What It Is Not
+
+**What it is:**
+- A deterministic engine that takes a typed semantic graph and computes projections, traces, rival explanations, and gap analysis
+- World-agnostic: you bring any graph as JSON seed files — the engine provides the computational layer
+- Reproducible: same inputs always produce the same output, no hidden state, no LLM inside the core
+
+**What it is not:**
+- Not GraphRAG (no LLM entity extraction, no embeddings, no community summaries)
+- Not an ontology database or RDF store (no SPARQL, no OWL reasoning)
+- Not a UI framework (no rendering — the engine produces data structures)
+- Not a world engine (no physics, no simulation)
+- Not an autonomous reasoning agent (operators are invoked explicitly)
+
+See [POSITIONING_MEMO.md](./docs/POSITIONING_MEMO.md) for the full identity statement.
+
+## Public vs Experimental Boundary
+
+Everything in the **Stability** table below marked **stable** is covered by [SemVer](./docs/API_SURFACE_POLICY.md). Everything marked **experimental** may change without notice and is not part of the public contract.
 
 ## Quick Start
 
@@ -87,8 +107,10 @@ The engine is **world-agnostic**: you bring your own graph, the engine provides 
 | Knowledge substrate (`propose` → `evaluate` → `buildGraph`) | **stable** |
 | Engine facade (`MeaningEngine`, `WorldAdapter`, `Schema`) | **stable** |
 | CLI workflows (`runReasoningReport`, `runWorldSmokeWorkflow`) | **stable** |
-| LLMReflectionEngine, OWLProjection, GraphRAGProjection | **experimental** |
+| LLMReflectionEngine, OWLProjection, GraphRAGProjection¹ | **experimental** |
 | Internal observer / cabin workflows | **experimental** |
+
+¹ `GraphRAGProjection` is a deterministic text indexer — not related to Microsoft GraphRAG. Rename to `GraphIndexProjection` proposed ([DECISIONS.md](./docs/DECISIONS.md#adr-014)).
 
 See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the full breakdown of what is covered by SemVer.
 

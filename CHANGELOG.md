@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+### Readiness: Block A (Identity lock)
+- `docs/POSITIONING_MEMO.md` — canonical one-line definition, public promise, non-promise list, public/experimental boundary, "not GraphRAG" explanation
+- `docs/DECISIONS.md` — ADR-014 (GraphRAGProjection rename proposed), ADR-015 (canonical project identity)
+- `README.md` — added "What It Is / What It Is Not" section, "Public vs Experimental Boundary" header, GraphRAGProjection disclaimer footnote
+- No engine behavior changes; docs-only identity lock
+
 ### Track B Generalization / Robustness Check v1
 - `worlds/tension-test-world/seed.nodes.json` — 3 new nodes: `invariant:idempotency`, `concept:knowledge-substrate`, `code_artifact:computeScope` (17 total)
 - `worlds/tension-test-world/seed.edges.json` — 4 new edges: constrains, documents, drift_against, contradicts (18 total)
