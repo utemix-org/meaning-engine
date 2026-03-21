@@ -107,9 +107,11 @@ All three projection metadata invariants now have dedicated tests (32 tests in `
 - **INV-2 (Identity stability):** 9 tests verify ID preservation: all source IDs appear in output, IDs not transformed, edge references valid, focused node matches input, stability across repeated projections, breadcrumb/path IDs match.
 - **INV-4 (Graph immutability):** 7 tests verify input graph is unchanged: node/edge counts, deep property comparison, immutability after multiple projections with different foci, immutability on error path.
 
-### 3.4 Highlight model
+### ~~3.4 Highlight model~~ — CLOSED in B4
 
-`src/highlight/highlightModel.js` documents itself as a pure function with no side effects, but has no test file. It is part of the public API (`meaning-engine/highlight` export path).
+`src/highlight/highlightModel.js` is part of the public API (`meaning-engine/highlight`). It is a pure computational model (no DOM/Three.js/React). 56 dedicated tests in `highlightModel.test.js` now cover: exports, output shape, mode priority, intensity rules per mode, pure-function guarantees (no mutation, determinism), and edge cases. No implementation bugs found.
+
+**Documented boundary:** `computeHighlight` does not validate that context IDs (selectedNodeId, scopeNodeIds, etc.) exist in the graph. Nonexistent IDs are added to the intensity map at the declared intensity. This is by design — the pure model maps IDs to intensities without graph membership checks.
 
 ---
 
@@ -144,12 +146,15 @@ Gaps #1–#4 are now closed:
 - **#3 INV-4 (graph immutability):** 7 tests in `projectionMetadata.test.js` verify input graph unchanged after projection.
 - **#4 INV-1/INV-2:** 24 tests in `projectionMetadata.test.js` verify ViewModel schema and identity preservation.
 
-### Desirable (documentation gaps)
+### ~~Desirable~~ — #1 CLOSED in B4
+
+- **#1 Highlight model:** 56 tests in `highlightModel.test.js` cover the public API (`computeHighlight`, `createEmptyContext`, `createContextFromState`, `INTENSITY`): output shape, mode priority (scope > hover > type > selected > none), intensity assignments per mode, pure-function behavior (no mutation, determinism, 100-call stability), edge cases (empty graph, nonexistent IDs, object-form endpoints).
+
+### Remaining (outside Block B stable core)
 
 | # | Gap | Suggested artifact | Impact |
 |---|-----|--------------------|--------|
-| 1 | Highlight model has no tests | `src/highlight/__tests__/highlightModel.test.js` | Public API coverage |
-| 2 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
+| 1 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
 
 ---
 
