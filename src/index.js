@@ -63,7 +63,6 @@ export {
   OWLProjection,
   NAMESPACES,
   GraphIndexProjection,
-  GraphRAGProjection,
   ReflectiveProjection,
   
   // Structural Invariants
@@ -163,6 +162,11 @@ export {
   getCanonicalStatements,
   buildGraphFromStatements,
 } from "./core/index.js";
+
+/**
+ * @deprecated Use {@link GraphIndexProjection} instead. Same class as {@link GraphIndexProjection}; kept for one minor cycle per ADR-014 (`docs/DECISIONS.md`).
+ */
+export { GraphRAGProjection } from "./core/index.js";
 
 // ═══════════════════════════════════════════════════════════════════════════
 // HIGHLIGHT — Модель подсветки
