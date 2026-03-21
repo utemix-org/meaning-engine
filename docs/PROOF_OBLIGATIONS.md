@@ -37,7 +37,7 @@ The epistemic pipeline (`propose → verify → approve/reject → evaluate → 
 | Reject safety (KE2) | 5 tests across 3 test files | High |
 | Event causality (KE3) | 5 tests across 3 test files | High |
 | Idempotent evaluation (KE4) | 3 tests across 2 test files | High |
-| ViewModel stability after rebuild (KE5) | 6 tests; edge case gap noted | Medium-high |
+| ViewModel stability after rebuild (KE5) | 7 tests; edge case closed in B3 | High |
 
 Evidence basis: `src/core/knowledge/__tests__/knowledgeInvariants.test.js` contains dedicated KE1–KE5 tests. Additional coverage in `evaluate.test.js`, `buildGraph.test.js`, `reviewWorkflow.test.js`, `verificationWorkflow.test.js`, `endToEnd.test.js`.
 
@@ -53,18 +53,18 @@ Evidence basis: `src/core/knowledge/__tests__/knowledgeInvariants.test.js` conta
 
 Evidence basis: `src/core/navigation/__tests__/applyTransition.test.js` — dedicated NAV-1 through NAV-5 describe blocks.
 
-### 2.3 Projection — strong evidence (core), partial (metadata invariants)
+### 2.3 Projection — strong evidence
 
 | Property | Tests | Confidence |
 |----------|-------|------------|
 | Determinism (INV-3) | 4+ tests across 4 test files (incl. 100-call loop) | High |
 | Totality (INV-7) | 4 test cases (valid + 3 error paths) | High |
 | 5-step pipeline correctness | Step-by-step tests in `projectGraph.test.js` | High |
-| Schema conformance (INV-1) | No dedicated test | Low |
-| Identity stability (INV-2) | No dedicated test | Low |
-| Graph immutability (INV-4) | Enforced by design (pure functions), not by test | Low |
+| Schema conformance (INV-1) | 15 tests in `projectionMetadata.test.js` | High |
+| Identity stability (INV-2) | 9 tests in `projectionMetadata.test.js` | High |
+| Graph immutability (INV-4) | 7 tests in `projectionMetadata.test.js` | High |
 
-Evidence basis: `src/core/projection/__tests__/projectGraph.test.js` plus domain/workbench/character context test files.
+Evidence basis: `src/core/projection/__tests__/projectGraph.test.js`, `projectionMetadata.test.js`, plus domain/workbench/character context test files.
 
 ### 2.4 Operators — strong evidence
 
@@ -99,15 +99,13 @@ All 16 checkers now have dedicated tests (48 tests in `StructuralInvariants.test
 
 Full pipeline tested (36 tests in `ChangeProtocol.test.js`): happy path, rejection, simulate, history, strictness. Four bugs discovered and fixed in `ProposalValidator` (see INVARIANT_MATRIX.md for details). Status upgraded to **evidenced**.
 
-### 3.3 Projection metadata invariants (INV-1, INV-2, INV-4)
+### ~~3.3 Projection metadata invariants (INV-1, INV-2, INV-4)~~ — CLOSED in B3
 
-`buildViewModel.js` declares these in its `satisfiedInvariants` metadata field, but they have no standalone tests:
+All three projection metadata invariants now have dedicated tests (32 tests in `projectionMetadata.test.js`):
 
-- **INV-1 (Schema conformance):** ViewModel output conforms to a declared schema — no schema test
-- **INV-2 (Identity stability):** Node identities are preserved through projection — no identity test
-- **INV-4 (Graph immutability):** Projection does not mutate its input graph — no mutation test
-
-These properties are enforced by design (pure functions, no mutation), but a defensive test would catch regressions.
+- **INV-1 (Schema conformance):** 15 tests verify ViewModel structure: top-level keys, VisualNode/VisualEdge fields and types, panels/navigation/meta/system structure, `satisfiedInvariants` content, and `transitions`.
+- **INV-2 (Identity stability):** 9 tests verify ID preservation: all source IDs appear in output, IDs not transformed, edge references valid, focused node matches input, stability across repeated projections, breadcrumb/path IDs match.
+- **INV-4 (Graph immutability):** 7 tests verify input graph is unchanged: node/edge counts, deep property comparison, immutability after multiple projections with different foci, immutability on error path.
 
 ### 3.4 Highlight model
 
@@ -137,21 +135,21 @@ Listed in priority order based on risk and coverage impact.
 
 Gaps #1 (StructuralInvariants) and #2 (ChangeProtocol) are now closed with dedicated test suites. See B2 PR for details.
 
-### Important (remaining)
+### ~~Important~~ — CLOSED in B3
 
-| # | Gap | Suggested artifact | Impact |
-|---|-----|--------------------|--------|
-| 1 | GraphSnapshot immutability not tested | Test that `Object.freeze` is applied and mutation attempts throw | Snapshot integrity |
-| 2 | KE5 edge case: empty graph projection | Add assertion in `knowledgeInvariants.test.js` KE5 edge case that actually calls `projectGraph` on empty graph and checks `ok: false` | KE5 fully locked |
-| 3 | INV-4 (graph immutability through projection) | Test that `projectGraph` input graph is unchanged after call | PROJ immutability proven |
-| 4 | INV-1/INV-2 (schema conformance, identity stability) | Define and test ViewModel schema contract | PROJ metadata invariants promoted from intended to evidenced |
+Gaps #1–#4 are now closed:
+
+- **#1 GraphSnapshot immutability:** 62 tests in `GraphSnapshot.test.js` cover creation, `Object.freeze` behavior (snapshot/nodes/edges/metadata all frozen, mutation attempts throw), accessors, statistics, serialization round-trip, `diffSnapshots`, and `SnapshotHistory`.
+- **#2 KE5 edge case:** Updated test now calls `projectGraph` on empty graph and asserts `{ ok: false, errors: ['graph has no nodes'] }`.
+- **#3 INV-4 (graph immutability):** 7 tests in `projectionMetadata.test.js` verify input graph unchanged after projection.
+- **#4 INV-1/INV-2:** 24 tests in `projectionMetadata.test.js` verify ViewModel schema and identity preservation.
 
 ### Desirable (documentation gaps)
 
 | # | Gap | Suggested artifact | Impact |
 |---|-----|--------------------|--------|
-| 5 | Highlight model has no tests | `src/highlight/__tests__/highlightModel.test.js` | Public API coverage |
-| 6 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
+| 1 | Highlight model has no tests | `src/highlight/__tests__/highlightModel.test.js` | Public API coverage |
+| 2 | Cabin diagnostic pipeline evidence | Currently tracked separately in CABIN_CLAIM_POLICY.md — no overlap with this document | Experimental module |
 
 ---
 

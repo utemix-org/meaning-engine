@@ -164,7 +164,7 @@ describe('Knowledge Evolution Invariants', () => {
     expect(result.viewModel.panels.focusNode.id).toBe('root');
   });
 
-  it('KE5 (edge case): empty canonical set → projection on empty graph still total', () => {
+  it('KE5 (edge case): empty canonical set → projection on empty graph returns ok:false', () => {
     const p1 = propose({ subject: 'a', predicate: 'type', object: literal('x') });
     const log = [p1, reject(p1.statement.id)];
 
@@ -173,5 +173,9 @@ describe('Knowledge Evolution Invariants', () => {
 
     const graph = buildGraphFromStatements(canonical);
     expect(graph.getNodes().length).toBe(0);
+
+    const result = projectGraph(graph, { nodeId: null, path: [] }, null, defaultParams());
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('graph has no nodes');
   });
 });
