@@ -164,6 +164,8 @@ worlds/                  Reference worlds
 | NAV | Navigation transitions are reversible and type-safe |
 | PROJ | Projection is a pure function of (graph, focus, params) |
 
+For the full invariant-by-invariant evidence mapping, see [INVARIANT_MATRIX.md](./docs/INVARIANT_MATRIX.md). For what is proven vs. what remains as proof obligations, see [PROOF_OBLIGATIONS.md](./docs/PROOF_OBLIGATIONS.md).
+
 ## Tests
 
 ```bash
