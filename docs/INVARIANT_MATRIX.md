@@ -74,46 +74,46 @@ Enforced via: `InvariantChecker.checkAll()`, consumed by `ChangeProtocol.Proposa
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| INV-G1 | All node IDs are unique | Implementation + integration | `StructuralInvariants.js` — `checkUniqueNodeIds()`; `ChangeProtocol` runs at `STRICTNESS.MINIMAL`; no dedicated unit test | **partially evidenced** |
-| INV-G2 | All edge IDs are unique | Implementation + integration | `StructuralInvariants.js` — `checkUniqueEdgeIds()`; `ChangeProtocol` runs at `STRICTNESS.MINIMAL` | **partially evidenced** |
-| INV-G3 | No dangling edges (source/target exist) | Implementation + integration | `StructuralInvariants.js` — `checkNoDanglingEdges()`; `ChangeProtocol` runs at `STRICTNESS.MINIMAL` | **partially evidenced** |
-| INV-G4 | No self-loops | Implementation | `StructuralInvariants.js` — `checkNoSelfLoops()`; checked at `STRICTNESS.STANDARD` | **intended** |
+| INV-G1 | All node IDs are unique | Test suite | `StructuralInvariants.test.js` — "INV-G1: holds on valid/empty graph, detects duplicate"; `ChangeProtocol.test.js` — validated at `STRICTNESS.MINIMAL` | **evidenced** |
+| INV-G2 | All edge IDs are unique | Test suite | `StructuralInvariants.test.js` — "INV-G2: holds on valid, detects duplicate/missing id" | **evidenced** |
+| INV-G3 | No dangling edges (source/target exist) | Test suite | `StructuralInvariants.test.js` — "INV-G3: holds on valid, detects dangling source/target" | **evidenced** |
+| INV-G4 | No self-loops | Test suite | `StructuralInvariants.test.js` — "INV-G4: holds on valid, detects self-loop" | **evidenced** |
 
 ### Identity invariants
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| INV-I1 | All nodes have id | Implementation + integration | `StructuralInvariants.js` — `checkAllNodesHaveId()`; `ChangeProtocol` at `STRICTNESS.MINIMAL` | **partially evidenced** |
-| INV-I2 | All nodes have type | Implementation + integration | `StructuralInvariants.js` — `checkAllNodesHaveType()`; `ChangeProtocol` at `STRICTNESS.MINIMAL` | **partially evidenced** |
-| INV-I3 | All node types are known to schema | Implementation | `StructuralInvariants.js` — `checkKnownNodeTypes()`; `STRICTNESS.STRICT` only | **intended** |
-| INV-I4 | All nodes have label | Implementation | `StructuralInvariants.js` — `checkAllNodesHaveLabel()`; `STRICTNESS.STRICT` only | **intended** |
+| INV-I1 | All nodes have id | Test suite | `StructuralInvariants.test.js` — "INV-I1: holds on valid, detects missing/empty id" | **evidenced** |
+| INV-I2 | All nodes have type | Test suite | `StructuralInvariants.test.js` — "INV-I2: holds on valid, detects missing type" | **evidenced** |
+| INV-I3 | All node types are known to schema | Test suite | `StructuralInvariants.test.js` — "INV-I3: flags all with empty NODE_TYPES, holds on empty graph". Note: `NODE_TYPES` is empty by design; checker is vacuously strict. | **evidenced** |
+| INV-I4 | All nodes have label | Test suite | `StructuralInvariants.test.js` — "INV-I4: holds on valid, detects missing/empty label" | **evidenced** |
 
 ### Edge invariants
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| INV-E1 | All edges have type | Implementation | `StructuralInvariants.js` — `checkAllEdgesHaveType()`; `STRICTNESS.STANDARD` | **intended** |
-| INV-E2 | All edge types are known to schema | Implementation | `StructuralInvariants.js` — `checkKnownEdgeTypes()`; `STRICTNESS.STRICT` only | **intended** |
-| INV-E3 | No duplicate edges (same source, target, type) | Implementation | `StructuralInvariants.js` — `checkNoDuplicateEdges()`; `STRICTNESS.STRICT` only | **intended** |
+| INV-E1 | All edges have type | Test suite | `StructuralInvariants.test.js` — "INV-E1: holds on valid, detects missing edge type" | **evidenced** |
+| INV-E2 | All edge types are known to schema | Test suite | `StructuralInvariants.test.js` — "INV-E2: flags all with empty EDGE_TYPES, holds on empty graph". Note: same design as INV-I3. | **evidenced** |
+| INV-E3 | No duplicate edges (same source, target, type) | Test suite | `StructuralInvariants.test.js` — "INV-E3: holds on valid, detects duplicate, allows different types" | **evidenced** |
 
 ### Connectivity invariants
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| INV-C1 | Graph is connected (one component) | Implementation | `StructuralInvariants.js` — `checkGraphConnected()`; `STRICTNESS.STRICT` only | **intended** |
-| INV-C2 | No isolated nodes | Implementation | `StructuralInvariants.js` — `checkNoIsolatedNodes()`; `STRICTNESS.STANDARD` | **intended** |
-| INV-C3 | Root node exists | Implementation | `StructuralInvariants.js` — `checkHasRootNode()`; `STRICTNESS.STRICT` only | **intended** |
+| INV-C1 | Graph is connected (one component) | Test suite | `StructuralInvariants.test.js` — "INV-C1: holds on connected/empty graph, detects disconnected" | **evidenced** |
+| INV-C2 | No isolated nodes | Test suite | `StructuralInvariants.test.js` — "INV-C2: holds on valid, detects isolated node" | **evidenced** |
+| INV-C3 | Root node exists | Test suite | `StructuralInvariants.test.js` — "INV-C3: always fails with empty NODE_TYPES; holds with matching type". Note: depends on world schema. | **evidenced** |
 
 ### Hierarchy invariants
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| INV-H1 | No cycles in `contains` hierarchy | Implementation | `StructuralInvariants.js` — `checkNoContainsCycles()`; `STRICTNESS.STRICT` only | **intended** |
-| INV-H2 | Single parent in `contains` | Implementation | `StructuralInvariants.js` — `checkSingleParent()`; `STRICTNESS.STRICT` only | **intended** |
+| INV-H1 | No cycles in `contains` hierarchy | Test suite | `StructuralInvariants.test.js` — "INV-H1: holds vacuously with typed edges, detects cycle, holds on acyclic" | **evidenced** |
+| INV-H2 | Single parent in `contains` | Test suite | `StructuralInvariants.test.js` — "INV-H2: holds vacuously, detects multiple parents" | **evidenced** |
 
-### Structural invariants evidence gap
+### Structural invariants note
 
-All 16 structural invariants are implemented as pure checker functions and integrated into `ChangeProtocol` (which runs `STRICTNESS.MINIMAL` — G1, G2, G3, I1, I2). However, there are no dedicated unit tests for `StructuralInvariants.js`. The functions are exercised indirectly when `ChangeProtocol` validates proposals.
+All 16 structural invariants now have dedicated unit tests in `StructuralInvariants.test.js` (48 tests). Schema-dependent checkers (INV-I3, INV-E2, INV-C3) behave vacuously with the default empty `NODE_TYPES`/`EDGE_TYPES` — this is by design, as worlds override types via `WorldAdapter`. Tests document this behavior explicitly.
 
 ---
 
@@ -154,13 +154,18 @@ Defined in: `ChangeProtocol.js` header comments
 
 | ID | Statement | Evidence type | Where evidenced | Status |
 |----|-----------|---------------|-----------------|--------|
-| CP-1 | Every mutation goes through proposal → validate → apply | Architecture | `ChangeProtocol.js` — `apply()` calls `validate()` unless `skipValidation`; `simulate()` validates without applying | **intended** |
-| CP-2 | Validation checks structural invariants at MINIMAL strictness | Implementation | `ProposalValidator.validate()` runs `InvariantChecker.checkAll(graph, STRICTNESS.MINIMAL)` | **intended** |
-| CP-3 | Change history is preserved | Implementation | `ChangeProtocol.history` records every applied proposal with diff and snapshot | **intended** |
+| CP-1 | Every mutation goes through proposal → validate → apply | Test suite | `ChangeProtocol.test.js` — happy path (add/remove/update node, add/remove edge, batch); rejection on invalid proposals; simulate path | **evidenced** |
+| CP-2 | Validation checks structural invariants at MINIMAL strictness | Test suite | `ChangeProtocol.test.js` — "validates at MINIMAL strictness (5 checks)"; schema validation via `SchemaValidator` static calls | **evidenced** |
+| CP-3 | Change history is preserved | Test suite | `ChangeProtocol.test.js` — "records each applied proposal in history"; "failed apply does not add to history"; "snapshots grow with each apply"; "history diff captures added node"; "exportHistory returns structured data" | **evidenced** |
 
-### CP evidence gap
+### CP bugs found and fixed in B2
 
-`ChangeProtocol` and `ProposalValidator` have no dedicated test file. Their correctness is assumed from the composition of tested components (`StructuralInvariants`, `GraphSnapshot`), but no integration test exercises the full proposal → validate → apply → history pipeline.
+Four bugs were discovered in `ProposalValidator` during test development:
+
+1. **Static method called on instance:** `this.schemaValidator.validateNode(node)` — `SchemaValidator.validateNode` is static, calling on instance throws TypeError. Fixed: call `SchemaValidator.validateNode(node)` directly.
+2. **Count checked as boolean:** `!invariantResult.passed` checks count (number), not validity (boolean). Fixed: `!invariantResult.valid`.
+3. **Number iterated as array:** `for (const failure of invariantResult.failed)` — `failed` is a count. Fixed: `invariantResult.violations`.
+4. **Wrong property name:** `failure.error` — InvariantResult has `message`, not `error`. Fixed: `failure.message`.
 
 ---
 
@@ -171,8 +176,8 @@ Defined in: `ChangeProtocol.js` header comments
 | KE | 5 | 4 | 1 (KE5) | 0 |
 | NAV | 5 | 5 | 0 | 0 |
 | PROJ | 5 | 2 (INV-3, INV-7) | 0 | 3 (INV-1, INV-2, INV-4) |
-| Structural | 16 | 0 | 5 (G1–G3, I1–I2 via ChangeProtocol) | 11 |
+| Structural | 16 | 16 | 0 | 0 |
 | OP | 3 | 3 | 0 | 0 |
 | ENG | 7 | 7 | 0 | 0 |
-| CP | 3 | 0 | 0 | 3 |
-| **Total** | **44** | **21** | **6** | **17** |
+| CP | 3 | 3 | 0 | 0 |
+| **Total** | **44** | **40** | **1** | **3** |
