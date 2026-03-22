@@ -64,7 +64,7 @@ Bridge candidates suggested:
   - concept:verification-method
 ```
 
-**What this proves**: The engine detects missing coverage. The password-reset feature has code but no tests — and the engine finds this gap and suggests what could bridge it. This is the "what's missing" capability.
+**What this proves**: The engine detects missing coverage. The password-reset feature has code but no tests — and the engine finds this gap and suggests what could bridge it (via type-pair heuristics, not structural analysis). This is the "what's missing" capability.
 
 #### Step 4: Rival paths (1 min)
 
@@ -153,3 +153,6 @@ Minimal fallback if nothing else works:
 | Don't show experimental modules | LLMReflectionEngine, Cabin, etc. are explicitly non-public |
 | Don't oversell the traceability world | 21 nodes is a proof-of-mechanism, not industrial scale — say so |
 | Don't hide the compare limitation | Path explosion on dense graphs is real — mention it proactively |
+| Don't say "substrate" without grounding it | Follow immediately with: "you give it a graph, you get projections, traces, and gap reports" |
+| Don't call bridge candidates "intelligent" | They are type-pair heuristic suggestions from a lookup table — say so |
+| Don't claim "any graph works" | Say "any graph conforming to the JSON input contract" |

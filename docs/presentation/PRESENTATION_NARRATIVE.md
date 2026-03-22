@@ -12,15 +12,15 @@ The underlying problem is not storage — it's computation over structure. You n
 
 ## 2. What Meaning Engine is
 
-Meaning Engine is a deterministic computational substrate for graph-structured knowledge.
+Meaning Engine is a deterministic computational substrate for graph-structured knowledge. Concretely: you give it a typed graph, and it gives you back projections, traces, rival-path clusters, and gap reports — all deterministically, all reproducible.
 
-You bring a typed semantic graph (nodes with types, edges with types, loaded from JSON seed files). The engine provides:
+You bring a typed semantic graph (nodes with `id` and `type`, edges with `source` and `target`, loaded from JSON seed files). The engine provides:
 
 - **Projection**: a 5-step deterministic pipeline that produces a render-ready ViewModel from any graph + focus point
 - **Navigation**: type-safe, reversible transitions (select, drill down, drill up, reset)
 - **Trace**: directed BFS to find a path between any two nodes
 - **Compare**: rival-path detection — finds all shortest paths and clusters them by structural signature
-- **Gap detection**: when no path exists, the engine suggests bridge concepts that could close the gap
+- **Gap detection**: when no path exists, the engine suggests bridge concepts based on node-type pair heuristics
 
 The engine is:
 
@@ -51,7 +51,17 @@ The engine makes a small number of public guarantees, each backed by evidence:
 | Structural invariants (16 rules checked on every mutation) | 48 tests in `StructuralInvariants.test.js` |
 | Change protocol (proposal → validate → apply) | 36 tests in `ChangeProtocol.test.js` |
 
-**44 invariants. 44 evidenced. 0 gaps.**
+To illustrate what "invariant" means concretely:
+
+| Family | Example invariant |
+|--------|-------------------|
+| PROJ | Projection output always conforms to the ViewModel schema (5 required keys) |
+| KE | Adding a valid statement never makes an existing valid statement unreachable |
+| NAV | Every `DRILL_DOWN` transition can be reversed by `DRILL_UP` |
+| Structural | Every edge's source and target must reference existing nodes |
+| CP | A rejected proposal must not alter graph state |
+
+**44 invariants across 7 families. 44 evidenced. 0 gaps.**
 
 The full mapping is in `docs/INVARIANT_MATRIX.md`. The evidence audit is in `docs/PROOF_OBLIGATIONS.md`.
 
