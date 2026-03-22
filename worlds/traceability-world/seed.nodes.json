@@ -1,0 +1,132 @@
+[
+  {
+    "id": "spec:auth-login",
+    "type": "spec",
+    "title": "User Authentication via Credentials",
+    "status": "active"
+  },
+  {
+    "id": "spec:session-expiry",
+    "type": "spec",
+    "title": "Session Expiry After Inactivity",
+    "status": "active"
+  },
+  {
+    "id": "spec:account-lockout",
+    "type": "spec",
+    "title": "Account Lockout After Failed Attempts",
+    "status": "active"
+  },
+  {
+    "id": "spec:password-reset",
+    "type": "spec",
+    "title": "Password Reset via Email Link",
+    "status": "active"
+  },
+
+  {
+    "id": "concept:credential-validation",
+    "type": "concept",
+    "title": "Credential Validation",
+    "status": "active"
+  },
+  {
+    "id": "concept:session-lifecycle",
+    "type": "concept",
+    "title": "Session Lifecycle",
+    "status": "active"
+  },
+  {
+    "id": "concept:security-boundary",
+    "type": "concept",
+    "title": "Security Boundary",
+    "status": "active"
+  },
+  {
+    "id": "concept:password-recovery",
+    "type": "concept",
+    "title": "Password Recovery Flow",
+    "status": "active"
+  },
+  {
+    "id": "concept:test-coverage",
+    "type": "concept",
+    "title": "Test Coverage",
+    "status": "active"
+  },
+  {
+    "id": "concept:code-spec-alignment",
+    "type": "concept",
+    "title": "Code-Spec Alignment",
+    "status": "active"
+  },
+
+  {
+    "id": "invariant:no-plaintext",
+    "type": "invariant",
+    "title": "No Plaintext Password Storage",
+    "status": "active"
+  },
+  {
+    "id": "invariant:audit-trail",
+    "type": "invariant",
+    "title": "Authentication Event Audit Trail",
+    "status": "active"
+  },
+
+  {
+    "id": "code_artifact:authService",
+    "type": "code_artifact",
+    "title": "authService.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:sessionManager",
+    "type": "code_artifact",
+    "title": "sessionManager.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:passwordHash",
+    "type": "code_artifact",
+    "title": "passwordHash.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:lockoutHandler",
+    "type": "code_artifact",
+    "title": "lockoutHandler.js",
+    "status": "active"
+  },
+  {
+    "id": "code_artifact:resetHandler",
+    "type": "code_artifact",
+    "title": "resetHandler.js",
+    "status": "active"
+  },
+
+  {
+    "id": "evidence:login-tests",
+    "type": "evidence",
+    "title": "login.test.js",
+    "status": "active"
+  },
+  {
+    "id": "evidence:session-tests",
+    "type": "evidence",
+    "title": "session.test.js",
+    "status": "active"
+  },
+  {
+    "id": "evidence:hash-tests",
+    "type": "evidence",
+    "title": "hash.test.js",
+    "status": "active"
+  },
+  {
+    "id": "evidence:lockout-tests",
+    "type": "evidence",
+    "title": "lockout.test.js",
+    "status": "active"
+  }
+]

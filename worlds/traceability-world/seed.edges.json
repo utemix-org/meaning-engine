@@ -1,0 +1,30 @@
+[
+  { "source": "spec:auth-login",       "target": "concept:credential-validation", "type": "defines",    "layer": "concept" },
+  { "source": "spec:auth-login",       "target": "concept:security-boundary",     "type": "defines",    "layer": "concept" },
+  { "source": "spec:session-expiry",   "target": "concept:session-lifecycle",     "type": "defines",    "layer": "concept" },
+  { "source": "spec:password-reset",   "target": "concept:password-recovery",     "type": "defines",    "layer": "concept" },
+
+  { "source": "concept:security-boundary",     "target": "invariant:no-plaintext",  "type": "constrains", "layer": "invariant" },
+  { "source": "concept:credential-validation", "target": "invariant:audit-trail",   "type": "constrains", "layer": "invariant" },
+  { "source": "concept:security-boundary",     "target": "concept:credential-validation", "type": "depends_on", "layer": "concept" },
+
+  { "source": "invariant:no-plaintext",  "target": "evidence:hash-tests",  "type": "proved_by", "layer": "provenance" },
+  { "source": "invariant:audit-trail",   "target": "evidence:login-tests", "type": "proved_by", "layer": "provenance" },
+
+  { "source": "code_artifact:authService",     "target": "spec:auth-login",       "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:sessionManager",  "target": "spec:session-expiry",   "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:lockoutHandler",  "target": "spec:account-lockout",  "type": "implements", "layer": "provenance" },
+  { "source": "code_artifact:resetHandler",    "target": "spec:password-reset",   "type": "implements", "layer": "provenance" },
+
+  { "source": "code_artifact:authService",     "target": "code_artifact:passwordHash",    "type": "depends_on", "layer": "code" },
+  { "source": "code_artifact:authService",     "target": "code_artifact:sessionManager",  "type": "depends_on", "layer": "code" },
+  { "source": "code_artifact:lockoutHandler",  "target": "code_artifact:authService",     "type": "depends_on", "layer": "code" },
+
+  { "source": "code_artifact:authService",     "target": "evidence:login-tests",    "type": "proved_by", "layer": "provenance" },
+  { "source": "code_artifact:sessionManager",  "target": "evidence:session-tests",  "type": "proved_by", "layer": "provenance" },
+  { "source": "code_artifact:lockoutHandler",  "target": "evidence:lockout-tests",  "type": "proved_by", "layer": "provenance" },
+  { "source": "code_artifact:passwordHash",    "target": "evidence:hash-tests",     "type": "proved_by", "layer": "provenance" },
+
+  { "source": "concept:credential-validation", "target": "evidence:login-tests",   "type": "proved_by", "layer": "provenance" },
+  { "source": "concept:session-lifecycle",     "target": "evidence:session-tests",  "type": "proved_by", "layer": "provenance" }
+]
