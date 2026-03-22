@@ -176,7 +176,15 @@ npm run test:coverage # with coverage report
 
 ## Contributing
 
-See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the public/experimental/internal classification.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to open issues, submit PRs, and repo conventions. See [API_SURFACE_POLICY.md](./docs/API_SURFACE_POLICY.md) for the public/experimental/internal classification.
+
+## Feedback
+
+We welcome structured feedback from engineers. See [docs/FEEDBACK.md](./docs/FEEDBACK.md) for what kinds of feedback are most useful and how to submit it. You can also [open a feedback issue directly](https://github.com/utemix-org/meaning-engine/issues/new?template=presentation_feedback.md).
+
+## Code of Conduct
+
+This project follows a [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## License
 
