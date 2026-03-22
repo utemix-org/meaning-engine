@@ -66,6 +66,43 @@ If you prefer not to open a GitHub issue, you can share observations in any form
 
 ---
 
+## Reviewer journey by time
+
+### If you have 7 minutes
+
+1. Read the [README](../README.md) — what the engine is and isn't (2 min)
+2. Skim the [pre-generated baseline report](./demo/REASONING_REPORT_BASELINE.md) — see outputs without installing anything (3 min)
+3. Read [Claims and Non-Claims](./presentation/CLAIMS_AND_NONCLAIMS.md) — strongest claims and explicit non-claims (2 min)
+
+**After**: you should be able to say whether the project makes sense and whether any claim feels overclaimed.
+
+### If you have 20 minutes
+
+1. Do the 7-minute path above (7 min)
+2. Read the [Presentation Narrative](./presentation/PRESENTATION_NARRATIVE.md) — full engineering story (5 min)
+3. Run the traceability demo locally (5 min):
+   ```bash
+   git clone https://github.com/utemix-org/meaning-engine.git
+   cd meaning-engine && npm ci
+   node --experimental-vm-modules worlds/traceability-world/demo.js
+   ```
+4. Read [Operational Limits](./OPERATIONAL_LIMITS.md) — where it's fast, where it's not (3 min)
+
+**After**: you should have a technical opinion on the mechanism, the evidence quality, and the sharpest limitations.
+
+### If you have 60 minutes
+
+1. Do the 20-minute path above (20 min)
+2. Run the full test suite: `npm test` — 930+ tests, all should pass (5 min)
+3. Read the [Invariant Matrix](./INVARIANT_MATRIX.md) — 44 invariants by family (10 min)
+4. Browse the traceability world source: `worlds/traceability-world/seed.nodes.json` and `seed.edges.json` (5 min)
+5. Read the [Proof Obligations](./PROOF_OBLIGATIONS.md) — what's proven, what remains (10 min)
+6. Try creating your own trace or modifying the graph (10 min)
+
+**After**: you should be able to identify specific strengths, weaknesses, and open questions worth raising.
+
+---
+
 ## Materials available for review
 
 | Material | Location | What it covers |
@@ -73,6 +110,7 @@ If you prefer not to open a GitHub issue, you can share observations in any form
 | Project overview | [README.md](../README.md) | What ME is, what it isn't, quick start |
 | Presentation narrative | [docs/presentation/PRESENTATION_NARRATIVE.md](./presentation/PRESENTATION_NARRATIVE.md) | Full engineering story |
 | Claims and non-claims | [docs/presentation/CLAIMS_AND_NONCLAIMS.md](./presentation/CLAIMS_AND_NONCLAIMS.md) | What we claim, what we don't |
+| Baseline report (no install) | [docs/demo/REASONING_REPORT_BASELINE.md](./demo/REASONING_REPORT_BASELINE.md) | Pre-generated output from two reference worlds |
 | Live demo | `node --experimental-vm-modules worlds/traceability-world/demo.js` | 5 scenarios on a 21-node graph |
 | Test suite | `npm test` | 930+ tests, 41 files |
 | Benchmark data | [docs/OPERATIONAL_LIMITS.md](./OPERATIONAL_LIMITS.md) | Measured performance + sharp edges |

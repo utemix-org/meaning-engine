@@ -4,8 +4,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * Phase 4: Cryptocosm / Рефлексия
- * P4.1: ReflectiveProjection
- * См. repair-shop/ROADMAP.md
+ * P4.1: ReflectiveProjection (experimental)
  * 
  * ПРИНЦИП:
  * - Рефлексия = read-only

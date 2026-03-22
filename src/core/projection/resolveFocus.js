@@ -24,7 +24,7 @@
  *   Engine Phase 2 — Projection Engine
  *
  * Related specs:
- *   - PROJECTION_SPEC (Step 2): https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
+ *   - PROJECTION_SPEC (Step 2): docs/specs/PROJECTION_SPEC.md
  */
 
 /**

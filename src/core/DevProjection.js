@@ -4,8 +4,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * Phase 2: Core → Multi-Projection
- * P3.5b: Boundary Freeze — Core не использует DOM
- * См. repair-shop/ROADMAP.md
+ * P3.5b: Boundary Freeze — core does not use DOM
  * 
  * ПРИНЦИП:
  * - Показывает ownership

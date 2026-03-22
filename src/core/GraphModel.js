@@ -1,23 +1,16 @@
 /**
  * ═══════════════════════════════════════════════════════════════════════════
- * GRAPH MODEL — Абстрактная модель графа
+ * GRAPH MODEL — Abstract graph data model
  * ═══════════════════════════════════════════════════════════════════════════
- * 
- * Phase 2: Core → Multi-Projection
- * См. repair-shop/ROADMAP.md
- * 
- * ПРИНЦИП:
- * - Хранит nodes, edges
- * - Знает типы сущностей
- * - Знает допустимые отношения
- * - Предоставляет API для вычислений
- * - Ничего не знает о DOM, Three.js, ReactFlow
- * 
- * ИСПОЛЬЗОВАНИЕ:
- * const model = new GraphModel(graphData);
- * const highlight = model.computeHighlight(context);
- * const scope = model.computeScope(hubId);
- * 
+ *
+ * World-agnostic graph: stores nodes and edges, provides typed accessors,
+ * and delegates highlight/scope computation. Knows nothing about rendering.
+ *
+ * Usage:
+ *   const model = new GraphModel(graphData);
+ *   const highlight = model.computeHighlight(context);
+ *   const scope = model.computeScope(hubId);
+ *
  * ═══════════════════════════════════════════════════════════════════════════
  */
 
@@ -41,9 +34,6 @@ import { computeHighlight, createContextFromState, createEmptyContext, INTENSITY
  */
 
 /**
- * Абстрактная модель графа.
- * Ничего не знает о рендеринге.
- *
  * Canonical input key: `edges`. Legacy alias `links` accepted for backward compatibility.
  */
 export class GraphModel {
@@ -72,24 +62,18 @@ export class GraphModel {
     this._loadData(data);
   }
   
-  /**
-   * Загрузить данные графа.
-   * @private
-   */
+  /** @private */
   _loadData(data) {
-    // Очистить
     this.nodesById.clear();
     this.neighborsById.clear();
     this.edges = [];
     this.nodeTypes.clear();
     this.nodesByType.clear();
     
-    // Загрузить узлы
     for (const node of data.nodes || []) {
       this.nodesById.set(node.id, node);
       this.neighborsById.set(node.id, new Set());
       
-      // Индекс по типам
       if (node.type) {
         this.nodeTypes.add(node.type);
         if (!this.nodesByType.has(node.type)) {
@@ -99,7 +83,6 @@ export class GraphModel {
       }
     }
     
-    // Загрузить рёбра (canonical: data.edges; legacy alias: data.links)
     const rawEdges = data.edges || data.links || [];
     for (const link of rawEdges) {
       const edge = {
@@ -111,7 +94,6 @@ export class GraphModel {
       if (link.layer != null) edge.layer = link.layer;
       this.edges.push(edge);
       
-      // Обновить соседей
       const sourceId = this._getNodeId(link.source);
       const targetId = this._getNodeId(link.target);
       
@@ -124,10 +106,7 @@ export class GraphModel {
     }
   }
   
-  /**
-   * Получить ID узла из endpoint (может быть объектом или строкой).
-   * @private
-   */
+  /** @private */
   _getNodeId(endpoint) {
     if (typeof endpoint === "string") return endpoint;
     if (endpoint && typeof endpoint === "object" && endpoint.id) return endpoint.id;
@@ -135,27 +114,20 @@ export class GraphModel {
   }
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // API: Доступ к данным
+  // API: Data access
   // ═══════════════════════════════════════════════════════════════════════════
   
-  /**
-   * Получить все узлы.
-   * @returns {Array<NodeData>}
-   */
+  /** @returns {Array<NodeData>} */
   getNodes() {
     return [...this.nodesById.values()];
   }
   
-  /**
-   * Получить все рёбра.
-   * @returns {Array<EdgeData>}
-   */
+  /** @returns {Array<EdgeData>} */
   getEdges() {
     return this.edges;
   }
   
   /**
-   * Получить узел по ID.
    * @param {string} nodeId
    * @returns {NodeData|undefined}
    */
@@ -164,7 +136,6 @@ export class GraphModel {
   }
   
   /**
-   * Получить соседей узла.
    * @param {string} nodeId
    * @returns {Set<string>}
    */
@@ -173,7 +144,6 @@ export class GraphModel {
   }
   
   /**
-   * Получить объекты соседних узлов.
    * @param {string} nodeId
    * @returns {Array<NodeData>}
    */
@@ -184,7 +154,6 @@ export class GraphModel {
   }
   
   /**
-   * Получить узлы по типу.
    * @param {string} type
    * @returns {Array<NodeData>}
    */
@@ -193,21 +162,17 @@ export class GraphModel {
     return [...ids].map(id => this.nodesById.get(id)).filter(Boolean);
   }
   
-  /**
-   * Получить все типы узлов.
-   * @returns {Array<string>}
-   */
+  /** @returns {Array<string>} */
   getNodeTypes() {
     return [...this.nodeTypes];
   }
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // API: Вычисления
+  // API: Computation
   // ═══════════════════════════════════════════════════════════════════════════
   
   /**
-   * Вычислить состояние подсветки.
-   * @param {Object} context - Контекст подсветки
+   * @param {Object} context
    * @returns {import("../highlight/highlightModel.js").HighlightState}
    */
   computeHighlight(context) {
@@ -220,19 +185,16 @@ export class GraphModel {
   }
   
   /**
-   * Вычислить scope для хаба.
-   * @param {string} hubId - ID хаба
-   * @returns {Set<string>} - ID узлов в scope
+   * @param {string} hubId
+   * @returns {Set<string>}
    */
   computeScope(hubId) {
     const scope = new Set();
     const hub = this.nodesById.get(hubId);
     if (!hub) return scope;
     
-    // Хаб в scope
     scope.add(hubId);
     
-    // Все соседи хаба в scope
     const neighbors = this.neighborsById.get(hubId) || new Set();
     for (const neighborId of neighbors) {
       scope.add(neighborId);
@@ -242,7 +204,6 @@ export class GraphModel {
   }
   
   /**
-   * Получить связанные узлы по типу.
    * @param {string} nodeId
    * @param {string} type
    * @returns {Array<string>}
@@ -262,11 +223,10 @@ export class GraphModel {
   }
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // API: Сериализация
+  // API: Serialization
   // ═══════════════════════════════════════════════════════════════════════════
   
   /**
-   * Экспортировать в JSON.
    * Canonical output key: `edges` (preserves type, layer, and other fields).
    * @returns {{ nodes: NodeData[], edges: EdgeData[] }}
    */
@@ -282,7 +242,6 @@ export class GraphModel {
   }
   
   /**
-   * Создать модель из JSON.
    * @param {Object} json
    * @returns {GraphModel}
    */
@@ -291,5 +250,5 @@ export class GraphModel {
   }
 }
 
-// Re-export для удобства
+// Re-exports
 export { createContextFromState, createEmptyContext, INTENSITY };

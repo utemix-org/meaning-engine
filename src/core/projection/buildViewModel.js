@@ -34,8 +34,8 @@
  *   Engine Phase 2 — Projection Engine
  *
  * Related specs:
- *   - PROJECTION_SPEC (Step 5): https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
- *   - RENDER_SURFACES_SPEC (out of scope for this repo): https://www.notion.so/1d47fe5f22ef4318b62dd8b129e9f791
+ *   - PROJECTION_SPEC (Step 5): docs/specs/PROJECTION_SPEC.md
+ *   - RENDER_SURFACES_SPEC (out of scope): docs/specs/RENDER_SURFACES_SPEC.md
  */
 
 import { SemanticRole } from './types.js';

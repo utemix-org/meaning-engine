@@ -3,8 +3,7 @@
  * LLM REFLECTION ENGINE — Внешний оркестратор архитектурного мышления
  * ═══════════════════════════════════════════════════════════════════════════
  * 
- * Phase 4.4: LLMReflectionEngine
- * См. repair-shop/ROADMAP.md
+ * Phase 4.4: LLMReflectionEngine (experimental)
  * 
  * НАЗНАЧЕНИЕ:
  * - Внешний слой, НЕ часть Core

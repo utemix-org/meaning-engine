@@ -33,7 +33,7 @@
  *   Engine Phase 2 — Projection Engine
  *
  * Related specs:
- *   - PROJECTION_SPEC (Step 4): https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
+ *   - PROJECTION_SPEC (Step 4): docs/specs/PROJECTION_SPEC.md
  */
 
 import { SemanticRole } from './types.js';

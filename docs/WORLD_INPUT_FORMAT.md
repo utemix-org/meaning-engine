@@ -10,10 +10,12 @@ A JSON array of node objects. Each node must have:
 |----------|--------|----------|-------------|
 | `id`     | string | yes      | Globally unique identifier |
 | `type`   | string | yes      | Node type (open vocabulary) |
-| `title`  | string | yes      | Human-readable label |
+| `title`  | string | yes      | Human-readable display name. Used as `label` in ViewModel output (the projection pipeline maps `title` → `label`). |
 | `status` | string | no       | `"active"` (default) or `"legacy"` |
 
 Additional fields are allowed and preserved (e.g. `source`, `tags`, `url`).
+
+**Note on `title` vs `label`**: The input contract uses `title` as the human-readable field. The projection pipeline maps this to `label` in the ViewModel output. If a node has both `title` and `label` properties, the ViewModel uses `label || title || id` as the display name.
 
 ```json
 [
