@@ -4,7 +4,6 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * P3.5a: Identity & Naming Formalization
- * См. repair-shop/ROADMAP.md
  * 
  * ПРИНЦИП:
  * - id — machine identity (неизменяемый)

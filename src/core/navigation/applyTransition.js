@@ -23,8 +23,8 @@
  *   Engine Phase 3 — Navigation Model
  *
  * Related specs:
- *   - NAVIGATION_SPEC: https://www.notion.so/b997b23c7bb94390be3351504e64d1fd
- *   - PROJECTION_SPEC: https://www.notion.so/435b2b96d0ec40b2a7262b1151a23380
+ *   - NAVIGATION_SPEC: docs/specs/NAVIGATION_SPEC.md
+ *   - PROJECTION_SPEC: docs/specs/PROJECTION_SPEC.md
  */
 
 import { TransitionType } from './types.js';

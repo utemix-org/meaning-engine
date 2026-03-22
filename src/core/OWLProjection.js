@@ -4,8 +4,7 @@
  * ═══════════════════════════════════════════════════════════════════════════
  * 
  * Phase 2: Core → Multi-Projection
- * P3.6: OWL-экспорт
- * См. repair-shop/ROADMAP.md
+ * P3.6: OWL Export (experimental)
  * 
  * ПРИНЦИП:
  * - Сериализация GraphModel → OWL-онтология
