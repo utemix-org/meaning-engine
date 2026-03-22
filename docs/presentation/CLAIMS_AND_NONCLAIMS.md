@@ -40,9 +40,9 @@ These are statements that can be made confidently in an engineering presentation
 | Claim | Evidence |
 |-------|----------|
 | The engine can trace from a requirement to its test evidence | Traceability world demo — S1 |
-| The engine detects missing coverage (traceability gaps) | Traceability world demo — S3 |
-| The engine finds multiple structural paths and clusters them | Traceability world demo — S2 |
-| The engine works on any typed semantic graph without modification | 3 reference worlds (test-world, documentation-world, traceability-world) + authored-mini-world |
+| The engine detects missing coverage (traceability gaps) and suggests bridge candidates via type-pair heuristics | Traceability world demo — S3 |
+| The engine finds multiple structural paths and clusters them by structural signature | Traceability world demo — S2 |
+| The engine works on any graph conforming to the JSON input contract (nodes with `id`/`type`, edges with `source`/`target`) without modification | 4 reference worlds with different topologies and type sets |
 
 ---
 
@@ -84,12 +84,15 @@ These are statements that should NOT be made. For each, the reason is given.
 
 | Instead of | Say |
 |------------|-----|
-| "Meaning Engine is a platform for..." | "Meaning Engine is a computational substrate that..." |
+| "Meaning Engine is a platform for..." | "Meaning Engine is a computational substrate that..." — then immediately give a concrete example |
+| "Works on any graph" | "Works on any graph that conforms to the JSON input contract" |
 | "It scales to enterprise workloads" | "It has been benchmarked up to 2,500 nodes with linear scaling for projection and trace" |
 | "It guarantees..." | "It provides, with evidence: ..." |
 | "Production-ready" | "The core operations are tested and benchmarked; integration and scale are next steps" |
 | "AI-powered" | Do not use. The core is deterministic. Experimental LLM modules are explicitly non-public. |
-| "Finds all gaps" | "Detects missing paths between node pairs and suggests bridge candidates" |
+| "Finds all gaps" | "Detects missing paths between node pairs and suggests bridge candidates based on type-pair heuristics" |
+| "Intelligent gap analysis" | "Heuristic bridge suggestions based on a type-pair lookup table" |
+| "Novel graph engine" | "A composition of standard graph algorithms under tested invariants" |
 
 ### Tone guidance
 
