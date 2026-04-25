@@ -1,0 +1,50 @@
+# INDEX
+
+---
+
+title: INDEX
+
+kind: index
+
+project: Meaning Engine
+
+status: active
+
+---
+
+Единая точка входа в документацию. Все документы живут внутри `Docs (скелет)`.
+
+## Читать по порядку
+
+1. [SYSTEM_OVERVIEW](../1%20Overview/SYSTEM_OVERVIEW.md) (overview)
+2. [ARCHITECTURE](../2%20Architecture/ARCHITECTURE.md) (architecture)
+3. [AXIOMS](../2%20Architecture/AXIOMS.md) (axioms)
+4. [NAVIGATION_STATE](NAVIGATION_STATE%2032f6574abd124490bce4f3d4b7132521.md) (interactive loop)
+5. [PROVEN](../2%20Architecture/PROVEN.md) (proven)
+6. [PLAN](../8%20Development/PLAN.md) (plan)
+7. [FORMAL_CORE](FORMAL_CORE%204aed885f3386419bb2c46172c92b17d8.md) (formal core)
+8. [INVARIANTS](../2%20Architecture/INVARIANTS.md) (invariants)
+
+## Спеки
+
+- [PROJECTION_SPEC](../3%20Specs/PROJECTION_SPEC.md)
+- [NAVIGATION_SPEC](../3%20Specs/NAVIGATION_SPEC.md)
+- [KNOWLEDGE_LOG_SPEC](KNOWLEDGE_LOG_SPEC%20d186fc3cca724175bcd404b5e04c6306.md)
+- [RENDER_SURFACES_SPEC](RENDER_SURFACES_SPEC%201d47fe5f22ef4318b62dd8b129e9f791.md)
+
+## Theory
+
+- [IDENTITY](../7%20Theory/IDENTITY.md)
+- [FOUNDATIONS_OF_THE_SYSTEM](FOUNDATIONS_OF_THE_SYSTEM%203cd3105514dc44cba34bcbfd83483c5f.md)
+- [HISTORY_OF_IDEAS](../7%20Theory/HISTORY_OF_IDEAS.md)
+- [KNOWLEDGE_IDE](../7%20Theory/KNOWLEDGE_IDE.md)
+- [ONTOLOGICAL_COMPILER](../7%20Theory/ONTOLOGICAL_COMPILER.md)
+- [KNOWLEDGE_SPACE](KNOWLEDGE_SPACE%20dda812e17f6a4012992404037c448b68.md)
+- [COMPARISON_WITH_OTHER_SYSTEMS](COMPARISON_WITH_OTHER_SYSTEMS%207e90036fb7ad446397658e90d423f742.md)
+- [HYPOTHESES](../7%20Theory/HYPOTHESES.md)
+
+## Development
+
+- [HISTORY](../8%20Development/HISTORY.md)
+- [WORLD_GROUNDING](../8%20Development/WORLD_GROUNDING.md)
+- [BRANCHING_STRATEGY](../8%20Development/BRANCHING_STRATEGY.md)
