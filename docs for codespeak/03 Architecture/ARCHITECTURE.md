@@ -18,10 +18,10 @@ maturity: canon
 
 ## Ссылки
 
-- См. [SYSTEM_OVERVIEW](../1%20Overview/SYSTEM_OVERVIEW.md) (overview)
+- См. [SYSTEM_OVERVIEW](../02%20Overview/SYSTEM_OVERVIEW.md) (overview)
 - См. [FORMAL_CORE](FORMAL_CORE%204aed885f3386419bb2c46172c92b17d8.md) (formal core)
 - См. [INVARIANTS](./INVARIANTS.md) (invariants)
-- См. [PROJECTION_SPEC](../3%20Specs/PROJECTION_SPEC.md) и [NAVIGATION_SPEC](../3%20Specs/NAVIGATION_SPEC.md) (specs)
+- См. [PROJECTION_SPEC](../04%20Specs/PROJECTION_SPEC.md) и [NAVIGATION_SPEC](../04%20Specs/NAVIGATION_SPEC.md) (specs)
 - См. [AXIOMS](./AXIOMS.md) (axioms)
 
 ## Формулы (трезво)

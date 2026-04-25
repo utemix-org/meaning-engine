@@ -62,7 +62,7 @@ Status: `defined-not-enforced`. См. DRIFT_LOG.
 
 `Node → Trace → (Path | GAP) → Compare → rival explanatory paths → BridgeCandidates → candidate structural bridges`
 
-All steps remain in exploration mode. No operator result modifies canonical knowledge (см. [INVARIANTS](../2%20Architecture/INVARIANTS.md): Exploration ≠ Acceptance).
+All steps remain in exploration mode. No operator result modifies canonical knowledge (см. [INVARIANTS](../03%20Architecture/INVARIANTS.md): Exploration ≠ Acceptance).
 
 Evidence: [OPUS_TASK__DOC_WORLD__REFERENCE_WORKFLOW__TRACE_COMPARE_BRIDGE__EXPLORATION_ONLY](OPUS_TASK__DOC_WORLD__REFERENCE_WORKFLOW__TRACE_CO%2016a5005d0c164b22b03c6fa5d29c2686.md).
 

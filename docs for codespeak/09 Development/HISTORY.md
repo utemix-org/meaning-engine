@@ -25,7 +25,7 @@ source: canonized
 - Контекст: переход в Phase 3 (practice discovery) после Grounding Phase 2c clean validation.[[1]](FRONTS_AND_PRIORITIES%208c95328e0f5f4210bcb26290b4148023.md)[[2]](WORK_MOMENT_PHASE2C_VERDICT_AND_PHASE3_PRACTICES%204660ff8376964ea9b7dcaa99c755a2cd.md)
 - Изменение: введена **явная practice identity** для grounded workbench как world-defined метаданные (`practiceId`) и протащена в render/store и `viewModel.meta.workbenchPracticeId` (read-only).
 - Верификация: добавлен новый тестовый файл `groundingPhase3a.test.js` и 8 тестов Phase 3A (declared practice distinction + projection distinction + focus invariants). Результат: 544 passed / 0 failed (24 suites).[[3]](OPUS_TASK__GROUNDING_PHASE3A__EXPLICIT_WORKBENCH_P%2042f4237e5457470a9cebb4c84dfa2ace.md)
-- Инварианты: engine pipeline не изменён: `Log → Evaluate → BuildGraph → Projection → ViewModel → Render`.[[4]](../1%20Overview/SYSTEM_OVERVIEW.md)
+- Инварианты: engine pipeline не изменён: `Log → Evaluate → BuildGraph → Projection → ViewModel → Render`.[[4]](../02%20Overview/SYSTEM_OVERVIEW.md)
 
 ### 2026-03-13 — Grounding Phase 3B: Workbench switch focus continuity (SUCCESS)
 
