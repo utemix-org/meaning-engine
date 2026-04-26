@@ -33,24 +33,24 @@ source: keeper
 
 - Получить **documentation graph** (не смешивать с system graph и knowledge graph).
 - Развести два типа связей:
-    - **Concept graph** (что с чем связано)
-    - **Provenance graph** (почему/откуда это)
+ - **Concept graph** (что с чем связано)
+ - **Provenance graph** (почему/откуда это)
 
 ---
 
 ## A) Inputs (прочитать)
 
-- [DOCUMENTATION_ARCHITECTURE](DOCUMENTATION_ARCHITECTURE%2062c1616d2e804a1d9ce3020315290c31.md)
+- DOCUMENTATION_ARCHITECTURE
 - [LLMS_CONTEXT](../05%20Guides/LLMS_CONTEXT.md)
 - [SYSTEM_OVERVIEW](../02%20Overview/SYSTEM_OVERVIEW.md)
 - [HISTORY](../08%20Theory/HISTORY.md)
-- [DRIFT_LOG](DRIFT_LOG%2089f61e0b356a4fb19eafb8c42810c5ce.md)
-- [RENDER_SURFACES_SPEC](RENDER_SURFACES_SPEC%201d47fe5f22ef4318b62dd8b129e9f791.md)
+- DRIFT_LOG
+- RENDER_SURFACES_SPEC
 - [NAVIGATION_SPEC](../04%20Specs/NAVIGATION_SPEC.md)
-- [KNOWLEDGE_LOG_SPEC](KNOWLEDGE_LOG_SPEC%20d186fc3cca724175bcd404b5e04c6306.md)
+- KNOWLEDGE_LOG_SPEC
 - [PROJECTION_SPEC](../04%20Specs/PROJECTION_SPEC.md)
-- [WORKBENCH_VS_PRACTICE](WORKBENCH_VS_PRACTICE%20f7603a2c56454f22a8346fbe5408e8e4.md)
-- [FOCUS_AS_ATOM_OF_ATTENTION](FOCUS_AS_ATOM_OF_ATTENTION%207f6dd6875a7b443db4c20eb8eb782619.md)
+- WORKBENCH_VS_PRACTICE
+- FOCUS_AS_ATOM_OF_ATTENTION
 
 ---
 
@@ -172,15 +172,15 @@ Edge fields:
 
 ## G) Acceptance
 
-- [ ]  В repo создана папка `world/documentation-world/`.
-- [ ]  `seed.nodes.json` содержит 30–50 nodes, валидный JSON.
-- [ ]  `seed.edges.json` содержит связный граф (минимум 40–120 edges), валидный JSON.
-- [ ]  Для всех nodes типа `page`: `id == url`.
-- [ ]  Есть [README.md](http://README.md) с правилами.
-- [ ]  В отчёте Opus перечислены:
-    - сколько nodes/edges
-    - какие страницы вошли
-    - 5–10 примеров связей
+- [ ] В repo создана папка `world/documentation-world/`.
+- [ ] `seed.nodes.json` содержит 30–50 nodes, валидный JSON.
+- [ ] `seed.edges.json` содержит связный граф (минимум 40–120 edges), валидный JSON.
+- [ ] Для всех nodes типа `page`: `id == url`.
+- [ ] Есть [README.md](http://README.md) с правилами.
+- [ ] В отчёте Opus перечислены:
+ - сколько nodes/edges
+ - какие страницы вошли
+ - 5–10 примеров связей
 
 ---
 
@@ -256,11 +256,11 @@ DOCUMENTATION_ARCHITECTURE, LLMS_CONTEXT, SYSTEM_OVERVIEW, HISTORY, DRIFT_LOG, P
 
 ### Acceptance
 
-- [x]  В repo создана папка `world/documentation-world/`.
-- [x]  `seed.nodes.json` содержит 51 node, валидный JSON.
-- [x]  `seed.edges.json` содержит 108 edges, связный граф.
-- [x]  Для всех page/spec nodes: `id == url`.
-- [x]  Есть [README.md](http://README.md) с правилами.
+- [x] В repo создана папка `world/documentation-world/`.
+- [x] `seed.nodes.json` содержит 51 node, валидный JSON.
+- [x] `seed.edges.json` содержит 108 edges, связный граф.
+- [x] Для всех page/spec nodes: `id == url`.
+- [x] Есть [README.md](http://README.md) с правилами.
 
 ### Open questions
 

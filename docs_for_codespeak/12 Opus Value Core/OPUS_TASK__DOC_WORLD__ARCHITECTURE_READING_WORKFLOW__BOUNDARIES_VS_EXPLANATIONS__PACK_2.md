@@ -122,8 +122,8 @@ Exploration ≠ Acceptance.
 - toId: `code:file:src/core/knowledge/evaluate.js`
 - operator(s): **Trace** + **Compare**
 - observed structure:
-    - Trace: **no_path** — нет направленного пути между navigation и knowledge слоями
-    - Compare: **3 rival paths** через 3 hops. Путь 1 — concept-heavy (через L0_ONE_SCREEN_CORE, KNOWLEDGE_LOG_SPEC). Путь 2 — code-heavy (через applyTransition.js)
+ - Trace: **no_path** — нет направленного пути между navigation и knowledge слоями
+ - Compare: **3 rival paths** через 3 hops. Путь 1 — concept-heavy (через L0_ONE_SCREEN_CORE, KNOWLEDGE_LOG_SPEC). Путь 2 — code-heavy (через applyTransition.js)
 - interpretation: Граница между navigation и knowledge — это constraint на направление зависимостей, не изоляция. Compare находит 3 обходных маршрута вокруг границы.
 
 **Case 2: True isolation (GAP) + bridge candidates**
@@ -133,8 +133,8 @@ Exploration ≠ Acceptance.
 - toId: `code:file:src/validate.js`
 - operator(s): **Trace** + **BridgeCandidates**
 - observed structure:
-    - Trace: **no_path** — нет ни направленной, ни ненаправленной связи
-    - supportsBridgeCandidates: **true**, 1 кандидат: `concept:code-spec-alignment` (type-pair-mapping, score=1)
+ - Trace: **no_path** — нет ни направленной, ни ненаправленной связи
+ - supportsBridgeCandidates: **true**, 1 кандидат: `concept:code-spec-alignment` (type-pair-mapping, score=1)
 - interpretation: validate.js — единственный по-настоящему изолированный узел в doc-world (нет никакой связности). Это реальный GAP, не архитектурная граница. BridgeCandidates предлагает concept:code-spec-alignment как мост.
 
 **Case 3: Boundary depends on direction**
@@ -159,15 +159,15 @@ Exploration ≠ Acceptance.
 - Pack #2 превратил architecture reading из набора примеров в воспроизводимый язык паттернов (пока без автоматической классификации).
 - Boundaries теперь читаются не только как отсутствие пути, а как типизированные архитектурные ситуации.
 - Три паттерна чтения границ теперь различимы через operator stack:
-    1. **Граница с объяснением**: Trace=no_path + Compare=rivals → layer constraint
-    2. **Истинная изоляция**: Trace=no_path + BridgeCandidates=true → real GAP
-    3. **Направленная асимметрия**: Trace(A→B)=no_path, Trace(B→A)=path → implements direction
+ 1. **Граница с объяснением**: Trace=no_path + Compare=rivals → layer constraint
+ 2. **Истинная изоляция**: Trace=no_path + BridgeCandidates=true → real GAP
+ 3. **Направленная асимметрия**: Trace(A→B)=no_path, Trace(B→A)=path → implements direction
 - Это подтверждает, что operator stack уже способен классифицировать типы границ без ручной аннотации.
 
 ### E) Result Type + Architectural Status (RU)
 
 - Result Type: **implementation done**
 - Architectural Status:
-    - Validated: 3 паттерна чтения границ воспроизводимы и детерминированы; exploration ≠ acceptance соблюдён
-    - Not validated: автоматическая классификация паттерна границы (сейчас — ручной выбор операторов)
-    - Contamination/notes: нет контаминации; seed/engine/ontology не тронуты
+ - Validated: 3 паттерна чтения границ воспроизводимы и детерминированы; exploration ≠ acceptance соблюдён
+ - Not validated: автоматическая классификация паттерна границы (сейчас — ручной выбор операторов)
+ - Contamination/notes: нет контаминации; seed/engine/ontology не тронуты

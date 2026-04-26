@@ -70,7 +70,7 @@ This task should be executed **issue-first** and produce a PR with reproducible 
 - GitHub: create 1 issue for this task; PR must link the issue and close it.
 - PR description must include: Goal / Non-goals / Acceptance checklist / Files changed.
 - Add a short `CHANGELOG.md` entry under `Unreleased`: "Readiness: Block A (Identity lock) — positioning memo + README identity".
-    - If repo policy discourages doc-only entries in CHANGELOG, record the same note in PR summary instead (explicitly).
+ - If repo policy discourages doc-only entries in CHANGELOG, record the same note in PR summary instead (explicitly).
 
 ## Deliverables (Repo, EN)
 
@@ -84,11 +84,11 @@ Must include:
 - public vs experimental boundary (explicit)
 - short “not GraphRAG” explanation in 3–5 lines (why)
 - minimum “what it is not” set must include:
-    - not GraphRAG
-    - not ontology database / RDF store
-    - not UI framework
-    - not world engine
-    - not autonomous reasoning agent
+ - not GraphRAG
+ - not ontology database / RDF store
+ - not UI framework
+ - not world engine
+ - not autonomous reasoning agent
 
 2) README update
 
@@ -115,18 +115,18 @@ Minimum acceptable output: recorded decision + README/memo wording.
 (plus observability requirements above)
 
 - `docs/POSITIONING_MEMO.md` exists and contains:
-    - one canonical one-line definition
-    - public promise
-    - non-promise list
-    - explicit public vs experimental boundary
-    - short “not GraphRAG” explanation
+ - one canonical one-line definition
+ - public promise
+ - non-promise list
+ - explicit public vs experimental boundary
+ - short “not GraphRAG” explanation
 - README contains:
-    - canonical one-line formula
-    - “what it is / what it is not” section
-    - explicit boundary statement with link to policy doc
+ - canonical one-line formula
+ - “what it is / what it is not” section
+ - explicit boundary statement with link to policy doc
 - `GraphRAGProjection` decision is recorded explicitly:
-    - keep + disclaimer, or
-    - propose rename + rationale + compatibility note
+ - keep + disclaimer, or
+ - propose rename + rationale + compatibility note
 - Wording is grounded in current repository behavior/docs/tests (no unmarked roadmap claims).
 - No runtime/API behavior changes are introduced.
 - Decisions log entry exists (explicit location).

@@ -35,7 +35,7 @@ source: keeper
 - в top cases observed rival shortest paths = 22–53
 - паттерн повторяется: concept-heavy vs code-heavy
 
-Источник: [EMERGENT_RIVAL_CASES__DOC_WORLD__CATALOG](EMERGENT_RIVAL_CASES__DOC_WORLD__CATALOG%2055297565730b430fa1a3e481d7c1aca6.md).
+Источник: EMERGENT_RIVAL_CASES__DOC_WORLD__CATALOG.
 
 ---
 
@@ -52,13 +52,13 @@ source: keeper
 ## B) Inputs
 
 - Compare(v0): `world/documentation-world/operators/compare.js`
-- Rival paths source: `findRivalTraces()` (supports.js)
+- Rival paths source: `findRivalTraces` (supports.js)
 - Graph semantics (for labels): node.type + edge.layer(concept/provenance)
 
 Reference pages:
 
 - [OPUS_TASK__DOC_WORLD_OPERATOR_03__COMPARE](OPUS_TASK__DOC_WORLD_OPERATOR_03__COMPARE.md)
-- [GRAPH_SEMANTICS_MAP__DOC_WORLD_ALIGNED](GRAPH_SEMANTICS_MAP__DOC_WORLD_ALIGNED%200ed110402c594ec0b79c7368c1f10fa7.md)
+- GRAPH_SEMANTICS_MAP__DOC_WORLD_ALIGNED
 
 ---
 
@@ -177,10 +177,10 @@ Fingerprint пути (использовать уже существующие P
 - **Branch:** main (ahead 13)
 - **Tests:** Engine 513 pass, Render 84 pass (0 failures)
 - **Files changed:**
-    - `world/documentation-world/operators/compare.js` — added `clusterRivalPaths()`, `fingerprintKey()`, `deriveLabels()`, extended `compare()` result with `clusters` + `clusterCount`
-    - `packages/render/src/__tests__/documentationWorldCompare.test.js` — added 8 new tests (9–16)
-    - `world/documentation-world/operators/runCompare.js` — updated output to show cluster info
-    - `world/documentation-world/operators/compare.examples.json` — re-generated with clusters
+ - `world/documentation-world/operators/compare.js` — added `clusterRivalPaths`, `fingerprintKey`, `deriveLabels`, extended `compare` result with `clusters` + `clusterCount`
+ - `packages/render/src/__tests__/documentationWorldCompare.test.js` — added 8 new tests (9–16)
+ - `world/documentation-world/operators/runCompare.js` — updated output to show cluster info
+ - `world/documentation-world/operators/compare.examples.json` — re-generated with clusters
 
 ### C1. Cluster function — implemented
 

@@ -30,8 +30,8 @@ operator-layer Meaning Engine требует симметричной модел
 
 Сейчас:
 
-- `supportsInspect()`
-- `supportsTrace()`
+- `supportsInspect`
+- `supportsTrace`
 
 реализованы и используются.
 
@@ -67,11 +67,11 @@ operator-layer Meaning Engine требует симметричной модел
 
 Compare поддерживается если:
 
-- `findRivalTraces() ≥ 2`
-    
-    или
-    
-- `rankBridgeCandidates() ≥ 2`
+- `findRivalTraces ≥ 2`
+ 
+ или
+ 
+- `rankBridgeCandidates ≥ 2`
 
 Иначе:
 
@@ -111,9 +111,9 @@ BridgeCandidates поддерживается если:
 
 - Оформить изменения через PR или (минимум) осмысленный commit+push.
 - В отчёте Opus вернуть:
-    - PR link
-    - merge commit SHA (или список commit SHA)
-    - результат тестов (например `npm ci && npm test`).
+ - PR link
+ - merge commit SHA (или список commit SHA)
+ - результат тестов (например `npm ci && npm test`).
 
 Язык:
 
@@ -123,15 +123,15 @@ BridgeCandidates поддерживается если:
 Реализация:
 
 - либо новые файлы:
-    - `operators/supportsCompare.js`
-    - `operators/supportsBridgeCandidates.js`
+ - `operators/supportsCompare.js`
+ - `operators/supportsBridgeCandidates.js`
 - либо расширение существующего `operators/supports.js` (предпочтительно, чтобы контракт был собран в одном месте)
 
 Тесты:
 
 - либо новые тестовые файлы:
-    - `operators/__tests__/supportsCompare.test.js`
-    - `operators/__tests__/supportsBridgeCandidates.test.js`
+ - `operators/__tests__/supportsCompare.test.js`
+ - `operators/__tests__/supportsBridgeCandidates.test.js`
 - либо расширение существующих operator supports тестов
 
 Минимум: 8 тестов.
@@ -146,8 +146,8 @@ BridgeCandidates поддерживается если:
 
 ## 5) Acceptance criteria
 
-- supportsCompare() реализован
-- supportsBridgeCandidates() реализован
+- supportsCompare реализован
+- supportsBridgeCandidates реализован
 - tests green
 - engine unchanged
 - existing operators behaviour unchanged
@@ -158,7 +158,7 @@ BridgeCandidates поддерживается если:
 
 После неё базовый reasoning stack имеет единую форму:
 
-`supports() → compute()`
+`supports → compute`
 
 для:
 
@@ -181,7 +181,7 @@ BridgeCandidates поддерживается если:
 
 ### 2) Changes (что добавлено / изменено)
 
-- `operators/supports.js`: добавлены `supportsCompare()` и `supportsBridgeCandidates()`, обновлён header-комментарий
+- `operators/supports.js`: добавлены `supportsCompare` и `supportsBridgeCandidates`, обновлён header-комментарий
 - `operators/__tests__/documentationWorldOperatorSupports.test.js`: 11 новых тестов (##9–19), добавлены импорты `supportsCompare`, `supportsBridgeCandidates`
 
 Новые функции/экспорты:

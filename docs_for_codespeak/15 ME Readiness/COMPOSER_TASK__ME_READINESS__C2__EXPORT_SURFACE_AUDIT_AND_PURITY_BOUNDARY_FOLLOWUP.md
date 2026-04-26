@@ -152,15 +152,15 @@ Minimum:
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Audit findings
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Audit findings
 
 ## Closeout (Notion)
 
@@ -204,16 +204,16 @@ After C2, the `GraphRAGProjection` naming/export trust-surface issue is closed.
 - **Проверенные поверхности:** `package.json` → `exports` (`.`, `./core`); `src/index.js` (корень пакета `meaning-engine`); `src/core/index.js` (`meaning-engine/core`). Других barrel-файлов с этим классом нет.
 - **«Тихих» legacy-экспортов:** не обнаружено — единственный путь для старого имени: явный alias `GraphRAGProjection` из того же класса, что и `GraphIndexProjection`.
 - **Классификация оставшихся вхождений `GraphRAGProjection` в репозитории:**
-    
-    
-    | Место | Классификация | Действие |
-    | --- | --- | --- |
-    | `src/core/index.js` | Намеренный deprecated alias | без изменений |
-    | `src/index.js` | Реэкспорт пакета; раньше без отдельного `@deprecated` на корне | **исправлено:** отдельный экспорт с JSDoc `@deprecated` |
-    | `src/core/__tests__/GraphIndexProjection.exports.test.js` | тесты identity | без изменений |
-    | `docs/DECISIONS.md` (ADR-014) | нормативная ссылка | без изменений |
-    | `README.md`, `POSITIONING_MEMO.md`, `API_SURFACE_POLICY`, `CHANGELOG` | пояснения / политика / changelog | без изменений (в policy добавлена краткая C2-заметка) |
-    | `worlds/.../rename-map.json` | исторический mapping путей миграции | **отложено** (намеренно не переписывать историю) |
+ 
+ 
+ | Место | Классификация | Действие |
+ | --- | --- | --- |
+ | `src/core/index.js` | Намеренный deprecated alias | без изменений |
+ | `src/index.js` | Реэкспорт пакета; раньше без отдельного `@deprecated` на корне | **исправлено:** отдельный экспорт с JSDoc `@deprecated` |
+ | `src/core/__tests__/GraphIndexProjection.exports.test.js` | тесты identity | без изменений |
+ | `docs/DECISIONS.md` (ADR-014) | нормативная ссылка | без изменений |
+ | `README.md`, `POSITIONING_MEMO.md`, `API_SURFACE_POLICY`, `CHANGELOG` | пояснения / политика / changelog | без изменений (в policy добавлена краткая C2-заметка) |
+ | `worlds/.../rename-map.json` | исторический mapping путей миграции | **отложено** (намеренно не переписывать историю) |
 - **Сделано сейчас vs отложено:** исправлена только рамка deprecation на корневом entrypoint и задокументирован аудит; поведение рантайма не менялось.
 
 ### What changed (RU)

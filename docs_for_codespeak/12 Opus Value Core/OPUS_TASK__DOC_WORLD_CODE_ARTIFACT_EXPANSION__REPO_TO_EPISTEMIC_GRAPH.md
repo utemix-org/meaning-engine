@@ -32,15 +32,15 @@ source: keeper
 ### Inputs
 
 - Текущий doc-world:
-    - `world/documentation-world/seed.nodes.json`
-    - `world/documentation-world/seed.edges.json`
-    - `world/documentation-world/loader.js`
-    - operators: trace + supports + rival checks
+ - `world/documentation-world/seed.nodes.json`
+ - `world/documentation-world/seed.edges.json`
+ - `world/documentation-world/loader.js`
+ - operators: trace + supports + rival checks
 - Repo (источник code artifacts): packages/*, tests, stores, engine types
 - Anchors:
-    - [OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL](OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL%20bb73275edc5b450aa26dda862c1d8940.md)
-    - [OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK](OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK.md)
-    - [OPUS_TASK__DOC_WORLD_CONTROLLED_AMBIGUITY_EXPERIMENT__RIVAL_BRIDGES](OPUS_TASK__DOC_WORLD_CONTROLLED_AMBIGUITY_EXPERIMENT__RIVAL_BRIDGES.md)
+ - OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL
+ - [OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK](OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK.md)
+ - [OPUS_TASK__DOC_WORLD_CONTROLLED_AMBIGUITY_EXPERIMENT__RIVAL_BRIDGES](OPUS_TASK__DOC_WORLD_CONTROLLED_AMBIGUITY_EXPERIMENT__RIVAL_BRIDGES.md)
 
 ---
 
@@ -59,16 +59,16 @@ source: keeper
 
 - добавить новые nodes типа `code_artifact` (и при необходимости `concept` для мостов)
 - добавить новые edges:
-    - `implements` (code_artifact → spec/invariant)
-    - `proved_by` / `reported_by` (evidence → code_artifact, если применимо)
-    - `depends_on` (code_artifact → code_artifact)
+ - `implements` (code_artifact → spec/invariant)
+ - `proved_by` / `reported_by` (evidence → code_artifact, если применимо)
+ - `depends_on` (code_artifact → code_artifact)
 
 2) Generator script:
 
 - `world/documentation-world/tools/extractCodeArtifacts.js`
-    - читает repo (paths)
-    - извлекает граф зависимостей на уровне файлов (import/export) и/или модулей
-    - выдаёт JSON фрагмент nodes/edges
+ - читает repo (paths)
+ - извлекает граф зависимостей на уровне файлов (import/export) и/или модулей
+ - выдаёт JSON фрагмент nodes/edges
 
 3) Updated analysis artifacts:
 
@@ -102,7 +102,7 @@ source: keeper
 
 Для каждого файла `*.ts/*.js` в выбранных папках:
 
-- parse `import ... from '...'`
+- parse `import... from '...'`
 - связывать только локальные импорты внутри repo
 - создать `depends_on` edge: `fileA → fileB`
 
@@ -119,8 +119,8 @@ source: keeper
 Минимальный способ без NLP:
 
 - создать ручной mapping JSON `world/documentation-world/tools/specToCodeMap.json`
-    - ключ: spec id (page/spec node id)
-    - значение: список `code:file:*`
+ - ключ: spec id (page/spec node id)
+ - значение: список `code:file:*`
 
 и генерировать edges `implements(code → spec)`.
 
@@ -142,12 +142,12 @@ source: keeper
 
 ## F) Acceptance
 
-- [x]  Добавлен extractor script + mergeSeed + specToCodeMap
-- [x]  Seed расширен: 141 nodes, 307 edges (file-level code artifacts)
-- [x]  87 code_artifact nodes, 165 depends_on edges
-- [x]  26 implements edges от code к spec/invariant
-- [x]  Все тесты зелёные (599 passed, 15 pre-existing legacy)
-- [x]  Engine unchanged
+- [x] Добавлен extractor script + mergeSeed + specToCodeMap
+- [x] Seed расширен: 141 nodes, 307 edges (file-level code artifacts)
+- [x] 87 code_artifact nodes, 165 depends_on edges
+- [x] 26 implements edges от code к spec/invariant
+- [x] Все тесты зелёные (599 passed, 15 pre-existing legacy)
+- [x] Engine unchanged
 
 ---
 
@@ -178,9 +178,9 @@ source: keeper
 
 **2) evidence → code_artifact (3 hops, unique path):**
 
-- evidence:grounding-phase-3a-tests → ... → code_artifact:protocol-ts (3 hops, 1 path)
+- evidence:grounding-phase-3a-tests →... → code_artifact:protocol-ts (3 hops, 1 path)
 
-**3) spec → ... → code (3 hops, 2 rival paths — естественные!):**
+**3) spec →... → code (3 hops, 2 rival paths — естественные!):**
 
 - PROJECTION_SPEC → **ViewModel** → RENDER_SURFACES_SPEC → viewModelStore.ts
 - PROJECTION_SPEC → **resolveFocus.js** → Focus Preservation Rule → viewModelStore.ts

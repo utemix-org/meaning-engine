@@ -172,6 +172,6 @@ These archetypes are stable observations, not yet formal operator categories.
 
 - Result Type: observation + fixtures
 - Architectural Status:
-    - Validated: три архетипа rival explanations (A, B, C) стабильно воспроизводятся, покрыты 12 тестами
-    - Not validated: пригодность архетипов для автоматического ранжирования путей (потенциал, но не реализовано)
-    - Contamination/notes: никаких изменений в Compare, seed, онтологии или governance. exploration ≠ acceptance соблюдено.
+ - Validated: три архетипа rival explanations (A, B, C) стабильно воспроизводятся, покрыты 12 тестами
+ - Not validated: пригодность архетипов для автоматического ранжирования путей (потенциал, но не реализовано)
+ - Contamination/notes: никаких изменений в Compare, seed, онтологии или governance. exploration ≠ acceptance соблюдено.

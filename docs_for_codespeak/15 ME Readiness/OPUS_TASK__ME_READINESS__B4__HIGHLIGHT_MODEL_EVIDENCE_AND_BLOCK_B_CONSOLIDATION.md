@@ -64,9 +64,9 @@ Your job is to:
 - avoid reopening already-settled work
 - keep claims narrow and grounded
 - distinguish between:
-    - proving current behavior,
-    - discovering a real bug,
-    - making a minimal docs consolidation after recent evidence growth
+ - proving current behavior,
+ - discovering a real bug,
+ - making a minimal docs consolidation after recent evidence growth
 
 ## Scope
 
@@ -131,16 +131,16 @@ This is not a broad documentation rewrite.
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Whether any bugs were found
-    - Whether any Block B doc consolidation was needed
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Whether any bugs were found
+ - Whether any Block B doc consolidation was needed
 
 ## Deliverables (report back here, RU)
 
@@ -234,18 +234,18 @@ Next: move to Block D (operational envelope) before Block E.
 **Новый файл:**
 
 - `src/highlight/__tests__/highlightModel.test.js` — 56 тестов
-    - INTENSITY константы: 1 тест
-    - createEmptyContext: 2 теста (структура, изоляция)
-    - createContextFromState: 3 теста (маппинг legacy-полей, дефолты, копирование Set)
-    - Режим "none": 6 тестов (все DIM, структура выхода)
-    - Режим "selected": 6 тестов (FULL/HALF/DIM интенсивности)
-    - Режим "hover": 5 тестов (node+widget hover, соседи FULL, selected сохраняется)
-    - Режим "scope": 6 тестов (scope-узлы + соседи FULL, несвязанные DIM)
-    - Режим "type": 5 тестов (type-узлы FULL, rёбра selected HALF)
-    - Приоритет режимов: 5 тестов (scope > hover > type > selected > none)
-    - Чистота функции: 5 тестов (нет мутации, детерминизм, 100x)
-    - Edge cases: 6 тестов (пустой граф, несуществующие ID, объектные endpoints)
-    - Контракт выхода: 3 теста (HighlightState shape, mode enum, intensity values)
+ - INTENSITY константы: 1 тест
+ - createEmptyContext: 2 теста (структура, изоляция)
+ - createContextFromState: 3 теста (маппинг legacy-полей, дефолты, копирование Set)
+ - Режим "none": 6 тестов (все DIM, структура выхода)
+ - Режим "selected": 6 тестов (FULL/HALF/DIM интенсивности)
+ - Режим "hover": 5 тестов (node+widget hover, соседи FULL, selected сохраняется)
+ - Режим "scope": 6 тестов (scope-узлы + соседи FULL, несвязанные DIM)
+ - Режим "type": 5 тестов (type-узлы FULL, rёбра selected HALF)
+ - Приоритет режимов: 5 тестов (scope > hover > type > selected > none)
+ - Чистота функции: 5 тестов (нет мутации, детерминизм, 100x)
+ - Edge cases: 6 тестов (пустой граф, несуществующие ID, объектные endpoints)
+ - Контракт выхода: 3 теста (HighlightState shape, mode enum, intensity values)
 
 **Изменённые файлы:**
 

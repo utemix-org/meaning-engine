@@ -56,8 +56,8 @@ A) Repo-level изменения (в `vovaipetrova`):
 2. Workspace-зависимость вида `"@vip/engine": "*"` заменена на зависимость от `meaning-engine` (npm/git).
 3. `packages/render/` успешно собирается и запускается (dev server).
 4. Тесты:
-    - AW/render-специфичные тесты остаются в `vovaipetrova`
-    - engine-специфичные тесты не дублируются в `vovaipetrova` (либо перенесены/заменены ссылкой на upstream)
+ - AW/render-специфичные тесты остаются в `vovaipetrova`
+ - engine-специфичные тесты не дублируются в `vovaipetrova` (либо перенесены/заменены ссылкой на upstream)
 
 B) Валидация (обязательно):
 

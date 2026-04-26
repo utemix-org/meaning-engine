@@ -51,18 +51,18 @@ Compare оправдан, когда:
 ## B) Inputs
 
 - doc-world seed/loader + expanded code artifacts:
-    - `world/documentation-world/seed.nodes.json`
-    - `world/documentation-world/seed.edges.json`
-    - `world/documentation-world/loader.js`
+ - `world/documentation-world/seed.nodes.json`
+ - `world/documentation-world/seed.edges.json`
+ - `world/documentation-world/loader.js`
 - existing operators:
-    - `trace()`
-    - `supports.js` (`findRivalTraces`, `rankBridgeCandidates`)
+ - `trace`
+ - `supports.js` (`findRivalTraces`, `rankBridgeCandidates`)
 
 Anchor docs:
 
-- [CARD__OPERATOR_VS_EPISTEMIC_ACTION](CARD__OPERATOR_VS_EPISTEMIC_ACTION%2011a243b3e50d40418b69208a318a3b5b.md)
-- [OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL](OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL%20bb73275edc5b450aa26dda862c1d8940.md)
-- [REASONING_PRESSURE_MAP__OPERATORS_AS_RESPONSE_TO_TENSION](REASONING_PRESSURE_MAP__OPERATORS_AS_RESPONSE_TO_T%20d17ccab252f44b4f80131bf9b79e8819.md)
+- CARD__OPERATOR_VS_EPISTEMIC_ACTION
+- OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL
+- REASONING_PRESSURE_MAP__OPERATORS_AS_RESPONSE_TO_TENSION
 
 ---
 
@@ -81,7 +81,7 @@ Anchor docs:
 
 Если нет rival paths/candidates:
 
-- `ok: false`, `reason: 'no_rivals'`, `paths: []`, `note: ...`
+- `ok: false`, `reason: 'no_rivals'`, `paths: []`, `note:...`
 
 ### C2. Что сравниваем (v0 — diff, не adjudication)
 
@@ -179,7 +179,7 @@ Bridge compare — отдельным расширением v0.1.
 
 | **File** | **Action** |
 | --- | --- |
-| `world/documentation-world/operators/compare.js` | **Created** — compare(), PathSummary, DiffSummary, humanNotes |
+| `world/documentation-world/operators/compare.js` | **Created** — compare, PathSummary, DiffSummary, humanNotes |
 | `world/documentation-world/operators/runCompare.js` | **Created** — CLI runner, 3 scenarios |
 | `world/documentation-world/operators/compare.examples.json` | **Generated** — 3 compare results |
 | `packages/render/src/__tests__/documentationWorldCompare.test.js` | **Created** — 8 tests |
@@ -187,7 +187,7 @@ Bridge compare — отдельным расширением v0.1.
 ### Compare output: synthetic case
 
 ```
-A(spec) → B1(concept) → C(evidence)  vs  A(spec) → B2(code_artifact) → C(evidence)
+A(spec) → B1(concept) → C(evidence) vs A(spec) → B2(code_artifact) → C(evidence)
 ```
 
 - 2 rival paths, 2 hops
@@ -215,10 +215,10 @@ A(spec) → B1(concept) → C(evidence)  vs  A(spec) → B2(code_artifact) → C
 - Path 1 unique: concept:view-model, RENDER_SURFACES_SPEC
 - Path 2 unique: resolveFocus.js, invariant:focus-preservation
 - humanNotes:
-    1. 2 rival paths with 2 shared nodes.
-    2. Path 2 is code-heavy (2 code artifacts).
-    3. Path 1 is concept-heavy (2 concept edges).
-    4. Only path(s) 2 pass through an invariant node.
+ 1. 2 rival paths with 2 shared nodes.
+ 2. Path 2 is code-heavy (2 code artifacts).
+ 3. Path 1 is concept-heavy (2 concept edges).
+ 4. Only path(s) 2 pass through an invariant node.
 
 ### Вывод
 

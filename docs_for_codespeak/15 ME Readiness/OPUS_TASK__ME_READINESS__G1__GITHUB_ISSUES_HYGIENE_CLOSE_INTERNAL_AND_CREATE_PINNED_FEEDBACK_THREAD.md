@@ -47,33 +47,33 @@ We need one explicit, pinned GitHub issue that serves as the public entrypoint f
 1) Close issue #21
 
 - Comment before closing:
-    - confirm it is completed
-    - point to the key artifact(s): `docs/presentation/DELIVERY_RISK_NOTE.md` and the presentation pack docs
-    - mention “no runtime/API changes”
+ - confirm it is completed
+ - point to the key artifact(s): `docs/presentation/DELIVERY_RISK_NOTE.md` and the presentation pack docs
+ - mention “no runtime/API changes”
 - Close as completed.
 
 2) Create a new feedback entrypoint issue
 
 - Title:
-    
-    `Request for technical feedback: Meaning Engine (deterministic computation over typed engineering knowledge graphs)`
-    
+ 
+ `Request for technical feedback: Meaning Engine (deterministic computation over typed engineering knowledge graphs)`
+ 
 - Body must include:
-    - a 3–5 line definition of ME (deterministic compute layer; not GraphRAG/agent/UI)
-    - what feedback is wanted (clarity, claims vs non-claims, limits, demo usefulness)
-    - links to:
-        - README
-        - `docs/FEEDBACK.md`
-        - `docs/presentation/CLAIMS_AND_NONCLAIMS.md`
-        - `docs/presentation/PRESENTATION_NARRATIVE.md`
-        - `docs/OPERATIONAL_LIMITS.md`
-        - `docs/PROOF_OBLIGATIONS.md`
-        - `docs/demo/REASONING_REPORT_BASELINE.md`
-    - explicit instruction: open a new issue using the template:
-        
-        `https://github.com/utemix-org/meaning-engine/issues/new?template=presentation_feedback.md`
-        
-    - explicit note: no SLAs; concrete observations preferred.
+ - a 3–5 line definition of ME (deterministic compute layer; not GraphRAG/agent/UI)
+ - what feedback is wanted (clarity, claims vs non-claims, limits, demo usefulness)
+ - links to:
+ - README
+ - `docs/FEEDBACK.md`
+ - `docs/presentation/CLAIMS_AND_NONCLAIMS.md`
+ - `docs/presentation/PRESENTATION_NARRATIVE.md`
+ - `docs/OPERATIONAL_LIMITS.md`
+ - `docs/PROOF_OBLIGATIONS.md`
+ - `docs/demo/REASONING_REPORT_BASELINE.md`
+ - explicit instruction: open a new issue using the template:
+ 
+ `https://github.com/utemix-org/meaning-engine/issues/new?template=presentation_feedback.md`
+ 
+ - explicit note: no SLAs; concrete observations preferred.
 
 3) Pin the new issue
 
@@ -110,24 +110,24 @@ We need one explicit, pinned GitHub issue that serves as the public entrypoint f
 - **Статус**: Closed (completed)
 - **Комментарий**: [https://github.com/utemix-org/meaning-engine/issues/21#issuecomment-4106646753](https://github.com/utemix-org/meaning-engine/issues/21#issuecomment-4106646753)
 - **Текст комментария**:
-    
-    > Completed. All acceptance criteria met:
-    > 
-    
-    > - Objections inventory: 10 objections across 3 priority tiers (docs/presentation/DELIVERY_RISK_[NOTE.md](http://NOTE.md))
-    > 
-    
-    > - Weak-point analysis: 7 items identified with targeted fixes
-    > 
-    
-    > - P1 refinements: narrow wording improvements
-    > 
-    
-    > - Delivery-risk note: docs/presentation/DELIVERY_RISK_[NOTE.md](http://NOTE.md)
-    > 
-    
-    > No runtime/API changes. All 930 tests pass.
-    > 
+ 
+ > Completed. All acceptance criteria met:
+ > 
+ 
+ > - Objections inventory: 10 objections across 3 priority tiers (`docs/presentation/DELIVERY_RISK_NOTE.md`)
+ > 
+ 
+ > - Weak-point analysis: 7 items identified with targeted fixes
+ > 
+ 
+ > - P1 refinements: narrow wording improvements
+ > 
+ 
+ > - Delivery-risk note: `docs/presentation/DELIVERY_RISK_NOTE.md`
+ > 
+ 
+ > No runtime/API changes. All 930 tests pass.
+ > 
 
 ### 2. Новый pinned feedback issue
 

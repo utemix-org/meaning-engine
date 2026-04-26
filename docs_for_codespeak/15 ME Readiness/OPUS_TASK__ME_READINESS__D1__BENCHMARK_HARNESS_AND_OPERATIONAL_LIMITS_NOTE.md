@@ -154,16 +154,16 @@ Add one short pointer from an appropriate public-facing doc if this can be done 
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - What was measured
-    - What remains unknown
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - What was measured
+ - What remains unknown
 
 ## Deliverables (report back here, RU)
 

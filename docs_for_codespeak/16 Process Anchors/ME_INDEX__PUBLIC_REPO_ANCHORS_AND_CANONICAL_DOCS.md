@@ -28,7 +28,7 @@ This page answers:
 - which ME artifacts are public and repo-anchored (source-of-truth)
 - which Notion pages are canonical governance/process (but not public specs)
 
-Routing root: [DOCS_SPLIT__ME_VS_AW__INDEX_AND_ROUTING](DOCS_SPLIT__ME_VS_AW__INDEX_AND_ROUTING%20f6255991950e45288e68cf6602790ee6.md).
+Routing root: *DOCS_SPLIT__ME_VS_AW__INDEX_AND_ROUTING* (страница Notion в этот набор не экспортирована).
 
 ## ME: public, repo-anchored documentation (source-of-truth)
 

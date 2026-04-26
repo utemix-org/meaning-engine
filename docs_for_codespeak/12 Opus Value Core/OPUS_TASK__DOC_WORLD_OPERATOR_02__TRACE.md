@@ -34,10 +34,10 @@ Operator #2 = Trace.
 ### Inputs
 
 - Doc-world seed + runtime:
-    - `world/documentation-world/seed.nodes.json`
-    - `world/documentation-world/seed.edges.json`
-    - `world/documentation-world/loader.js`
-    - `world/documentation-world/analysis/analysis.json` (missing candidates)
+ - `world/documentation-world/seed.nodes.json`
+ - `world/documentation-world/seed.edges.json`
+ - `world/documentation-world/loader.js`
+ - `world/documentation-world/analysis/analysis.json` (missing candidates)
 - Текущие результаты анализа: [OPUS_TASK__DOC_WORLD_ANALYSIS_OPERATORS__CENTRALITY_BRIDGES_CYCLES_DISTANCE](OPUS_TASK__DOC_WORLD_ANALYSIS_OPERATORS__CENTRALITY_BRIDGES_CYCLES_DISTANCE.md)
 
 ---
@@ -163,7 +163,7 @@ Operator #2 = Trace.
 
 | File | Action |
 | --- | --- |
-| `world/documentation-world/operators/trace.js` | **created** — trace() pure function |
+| `world/documentation-world/operators/trace.js` | **created** — trace pure function |
 | `world/documentation-world/operators/runTrace.js` | **created** — CLI runner |
 | `world/documentation-world/operators/trace.examples.json` | **generated** — 3 scenario outputs |
 | `packages/render/src/__tests__/documentationWorldTrace.test.js` | **created** — 6 tests |

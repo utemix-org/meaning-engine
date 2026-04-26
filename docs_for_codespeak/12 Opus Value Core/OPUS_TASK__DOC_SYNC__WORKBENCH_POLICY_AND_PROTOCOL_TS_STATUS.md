@@ -54,36 +54,36 @@ source: chatgpt-architect-package
 
 - Добавить секцию `WorkbenchPolicy`.
 - Формулировка (обязательная):
-    - `WorkbenchPolicy is defined by world configuration and applied in render layer (post-ViewModel).`
+ - `WorkbenchPolicy is defined by world configuration and applied in render layer (post-ViewModel).`
 - Описать жизненный цикл на 3–5 строк:
-    - `Projection → ViewModel → applyWorkbenchPolicy(viewModel, worldPolicy) → Render`
+ - `Projection → ViewModel → applyWorkbenchPolicy(viewModel, worldPolicy) → Render`
 - Явно указать, что применение policy:
-    - не мутирует граф
-    - не меняет engine projection
-    - является experience-layer ограничением/адаптацией.
+ - не мутирует граф
+ - не меняет engine projection
+ - является experience-layer ограничением/адаптацией.
 
 2) **Update: SYSTEM_OVERVIEW**
 
 - Добавить короткую секцию `Protocol types (defined-not-enforced)`:
-    - `packages/engine/src/core/types/protocol.ts` — vocabulary, runtime не валидирует.
-    - Атрибуты протокола могут присутствовать в world data и игнорироваться runtime.
+ - `packages/engine/src/core/types/protocol.ts` — vocabulary, runtime не валидирует.
+ - Атрибуты протокола могут присутствовать в world data и игнорироваться runtime.
 - Добавить 1 строку в описание pipeline/границ слоёв:
-    - Render может применять world-defined policies, не влияя на вычисление графа.
+ - Render может применять world-defined policies, не влияя на вычисление графа.
 
 3) **Update: DRIFT_LOG**
 
 - Добавить новые записи (date = 2026-03-13):
-    - `protocol.ts defined but not runtime-consumed`
-    - `FocusTarget unused`
-    - `AttachmentDescriptor/Mode/SourceType without instances`
-    - `WorkbenchPolicy exists in render, missing in Notion canon`
+ - `protocol.ts defined but not runtime-consumed`
+ - `FocusTarget unused`
+ - `AttachmentDescriptor/Mode/SourceType without instances`
+ - `WorkbenchPolicy exists in render, missing in Notion canon`
 
 4) **Update: ENGINE_DEVELOPER_GUIDE**
 
 - Добавить краткую секцию (5–10 строк):
-    - “Protocol types status: defined-not-enforced”
-    - “Do not assume runtime enforcement.”
-    - Ссылка на DRIFT_LOG запись.
+ - “Protocol types status: defined-not-enforced”
+ - “Do not assume runtime enforcement.”
+ - Ссылка на DRIFT_LOG запись.
 
 ---
 
@@ -95,7 +95,7 @@ source: chatgpt-architect-package
 
 Добавлена секция `WorkbenchPolicy (experience-layer adaptation)` перед "Критерии стабильности":
 
-- Жизненный цикл: `Projection → ViewModel → applyWorkbenchPolicy() → Render`
+- Жизненный цикл: `Projection → ViewModel → applyWorkbenchPolicy → Render`
 - Свойства (visible_types, edge_policy, depth)
 - Принципы (не мутирует граф, experience-layer, Focus Preservation)
 - Причинность: world → policy → render application
@@ -131,7 +131,7 @@ source: chatgpt-architect-package
 
 ## D) Verification checklist
 
-- [x]  Во всех местах используется причинность: **world-defined → applied in render** (не наоборот).
-- [x]  В SYSTEM_OVERVIEW явно указан статус `protocol.ts = defined-not-enforced`.
-- [x]  В DRIFT_LOG добавлены 4 записи от 2026-03-13 (#6, #7, #8, #9).
-- [x]  Изменения не вводят новых обязательств для engine/INVARIANTS.
+- [x] Во всех местах используется причинность: **world-defined → applied in render** (не наоборот).
+- [x] В SYSTEM_OVERVIEW явно указан статус `protocol.ts = defined-not-enforced`.
+- [x] В DRIFT_LOG добавлены 4 записи от 2026-03-13 (#6, #7, #8, #9).
+- [x] Изменения не вводят новых обязательств для engine/INVARIANTS.

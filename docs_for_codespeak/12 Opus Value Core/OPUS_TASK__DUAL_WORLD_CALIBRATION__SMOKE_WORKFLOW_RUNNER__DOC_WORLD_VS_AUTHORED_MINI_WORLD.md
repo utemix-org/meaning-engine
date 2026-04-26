@@ -70,9 +70,9 @@ source: keeper
 Поведение:
 
 - for world in `[documentation-world, authored-mini-world]`:
-    - load world
-    - run scenario set (4 шт.)
-    - print (или сохранить) summary
+ - load world
+ - run scenario set (4 шт.)
+ - print (или сохранить) summary
 
 ### D2. Scenario set (одинаковый логический набор для обоих миров)
 
@@ -92,11 +92,11 @@ source: keeper
 
 - сохранить baseline summary в JSON (например `operators/dualWorldSmoke.baseline.json`)
 - baseline должен включать:
-    - world name
-    - scenario name
-    - ok/path|gap
-    - rivalCount (для Compare)
-    - candidateCount (для bridge)
+ - world name
+ - scenario name
+ - ok/path|gap
+ - rivalCount (для Compare)
+ - candidateCount (для bridge)
 
 ### D4. Tests
 
@@ -138,7 +138,7 @@ Exploration ≠ Acceptance.
 
 - Path: `operators/runDualWorldSmokeWorkflow.js`
 - How to run: `node operators/runDualWorldSmokeWorkflow.js`
-- Также экспортирует `runDualWorldSmoke()` для программного использования в тестах
+- Также экспортирует `runDualWorldSmoke` для программного использования в тестах
 
 ### C) Scenario mapping (RU)
 
@@ -173,8 +173,8 @@ Exploration ≠ Acceptance.
 
 - Result Type: runner + baseline fixture + 8 тестов
 - Architectural Status:
-    - Validated: **калибровка переносимости** — один и тот же набор сценариев стабильно воспроизводится на обоих мирах без изменений алгоритмов. Baseline зафиксирован.
-    - Validated: **детерминизм** — повторные запуски дают идентичный результат.
-    - Validated: **сценарная симметрия** — оба мира показывают одинаковые 4 сценария с ok=true, несмотря на разные масштабы (116/292 vs 25/27).
-    - Not validated: масштабируемость на миры с 1000+ узлов.
-    - Contamination/notes: exploration ≠ acceptance соблюдено. Никаких мутаций графа, никакой канонизации.
+ - Validated: **калибровка переносимости** — один и тот же набор сценариев стабильно воспроизводится на обоих мирах без изменений алгоритмов. Baseline зафиксирован.
+ - Validated: **детерминизм** — повторные запуски дают идентичный результат.
+ - Validated: **сценарная симметрия** — оба мира показывают одинаковые 4 сценария с ok=true, несмотря на разные масштабы (116/292 vs 25/27).
+ - Not validated: масштабируемость на миры с 1000+ узлов.
+ - Contamination/notes: exploration ≠ acceptance соблюдено. Никаких мутаций графа, никакой канонизации.

@@ -88,9 +88,9 @@ At minimum, PR checks should run:
 4) Document merge gate expectations
 
 - Add a short doc note (e.g. `docs/PROCESS_CI_AND_MERGE_GATES.md` or a section in an existing process doc) stating:
-    - what checks are required
-    - what is not required
-    - what “green” means
+ - what checks are required
+ - what is not required
+ - what “green” means
 
 5) Verify checks are visible
 
@@ -239,17 +239,17 @@ All 4 required checks are visible on PR #27 and completed with `success`. Branch
 ### Изменения
 
 1. **Branch protection на `main`** (через GitHub API):
-    - Required status checks: `test (18.x)`, `test (20.x)`, `test (22.x)`, `package-check`
-    - Strict mode: ветка должна быть актуальной относительно main
-    - Force pushes: заблокированы
-    - Deletions: заблокированы
-    - Admin override: разрешён (на случай недоступности Actions)
+ - Required status checks: `test (18.x)`, `test (20.x)`, `test (22.x)`, `package-check`
+ - Strict mode: ветка должна быть актуальной относительно main
+ - Force pushes: заблокированы
+ - Deletions: заблокированы
+ - Admin override: разрешён (на случай недоступности Actions)
 2. **`docs/PROCESS_CI_AND_MERGE_GATES.md`** (новый файл):
-    - Какие checks требуются для merge
-    - Что НЕ проверяется в CI
-    - Что значит «зелёный»
-    - Процедура оверрайда при недоступности Actions
-    - Как добавить новый required check
+ - Какие checks требуются для merge
+ - Что НЕ проверяется в CI
+ - Что значит «зелёный»
+ - Процедура оверрайда при недоступности Actions
+ - Как добавить новый required check
 
 ### Видимые checks на PR
 

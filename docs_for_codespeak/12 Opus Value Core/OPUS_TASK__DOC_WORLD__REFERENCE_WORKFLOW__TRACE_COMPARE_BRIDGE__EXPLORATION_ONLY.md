@@ -96,9 +96,9 @@ source: architect-task-package
 ### D3. Tests
 
 - Минимум 4 теста, которые подтверждают:
-    - сценарии воспроизводимы
-    - supportsCompare/supportsBridgeCandidates корректно согласованы со сценариями (ok/false где ожидается)
-    - deterministic outputs
+ - сценарии воспроизводимы
+ - supportsCompare/supportsBridgeCandidates корректно согласованы со сценариями (ok/false где ожидается)
+ - deterministic outputs
 
 ## 5) Acceptance criteria
 
@@ -171,13 +171,13 @@ Exploration ≠ Acceptance.
 ### E) Observations
 
 - **19 изолированных узлов**: в doc-world есть 19 code_artifact узлов engine-слоя (`src/engine/*`), которые не имеют рёбер в основной компонент. Это естественно: `specToCodeMap.json` не содержит mapping’ов для engine-adapter файлов. В будущем можно либо добавить implements-связи, либо убрать эти узлы из seed.
-- **Directed vs undirected GAP**: `trace()` использует направленный BFS, `supportsBridgeCandidates()` — ненаправленный. Поэтому пара concept:context→SYSTEM_OVERVIEW — это GAP для trace (нет направленного пути), но НЕ GAP для bridgeCandidates (ненаправленный путь существует). Для S4 использован настоящий изолированный узел.
+- **Directed vs undirected GAP**: `trace` использует направленный BFS, `supportsBridgeCandidates` — ненаправленный. Поэтому пара concept:context→SYSTEM_OVERVIEW — это GAP для trace (нет направленного пути), но НЕ GAP для bridgeCandidates (ненаправленный путь существует). Для S4 использован настоящий изолированный узел.
 - **Exploration ≠ Acceptance**: ни один результат не содержит полей `canonicalized`, `accepted`, `status`. Это проверено тестом S6.
 
 ### F) Result Type + Architectural Status
 
 - Result Type: **implementation done**
 - Architectural Status:
-    - Validated: 4 canonical exploration scenarios воспроизводимы и детерминированы; инвариант exploration≠acceptance соблюдён; симметрия supports()→compute() подтверждена
-    - Not validated: governance модель (не в scope)
-    - Contamination/notes: нет
+ - Validated: 4 canonical exploration scenarios воспроизводимы и детерминированы; инвариант exploration≠acceptance соблюдён; симметрия supports→compute подтверждена
+ - Not validated: governance модель (не в scope)
+ - Contamination/notes: нет

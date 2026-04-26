@@ -146,17 +146,17 @@ The world should be deliberately small and clean enough to explain.
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Which scenarios were added
-    - What the case demonstrates
-    - What the case does not demonstrate
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Which scenarios were added
+ - What the case demonstrates
+ - What the case does not demonstrate
 
 ## Deliverables (report back here, RU)
 

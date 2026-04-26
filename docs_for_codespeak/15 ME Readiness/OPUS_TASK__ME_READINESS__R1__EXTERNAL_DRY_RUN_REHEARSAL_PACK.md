@@ -47,11 +47,11 @@ References:
 - Track page: [ME_TRACK__ENGINEERING_PRESENTATION_READINESS__DRAFT](ME_TRACK__ENGINEERING_PRESENTATION_READINESS__DRAFT.md)
 - Accepted tasks: [OPUS_TASK__ME_READINESS__A1__POSITIONING_MEMO_AND_README_DELTA](OPUS_TASK__ME_READINESS__A1__POSITIONING_MEMO_AND_README_DELTA.md), [COMPOSER_TASK__ME_READINESS__C1__GRAPHRAG_PROJECTION_RENAME_AND_PURITY_BOUNDARY_CLEANUP](COMPOSER_TASK__ME_READINESS__C1__GRAPHRAG_PROJECTION_RENAME_AND_PURITY_BOUNDARY_CLEANUP.md), [COMPOSER_TASK__ME_READINESS__C2__EXPORT_SURFACE_AUDIT_AND_PURITY_BOUNDARY_FOLLOWUP](COMPOSER_TASK__ME_READINESS__C2__EXPORT_SURFACE_AUDIT_AND_PURITY_BOUNDARY_FOLLOWUP.md), [OPUS_TASK__ME_READINESS__B1__INVARIANT_MATRIX_AND_PROOF_OBLIGATIONS](OPUS_TASK__ME_READINESS__B1__INVARIANT_MATRIX_AND_PROOF_OBLIGATIONS.md), [OPUS_TASK__ME_READINESS__B2__STRUCTURAL_INVARIANTS_AND_CHANGE_PROTOCOL_TESTS](OPUS_TASK__ME_READINESS__B2__STRUCTURAL_INVARIANTS_AND_CHANGE_PROTOCOL_TESTS.md), [OPUS_TASK__ME_READINESS__B3__PROJECTION_METADATA_AND_GRAPHSNAPSHOT_EVIDENCE](OPUS_TASK__ME_READINESS__B3__PROJECTION_METADATA_AND_GRAPHSNAPSHOT_EVIDENCE.md), [OPUS_TASK__ME_READINESS__B4__HIGHLIGHT_MODEL_EVIDENCE_AND_BLOCK_B_CONSOLIDATION](OPUS_TASK__ME_READINESS__B4__HIGHLIGHT_MODEL_EVIDENCE_AND_BLOCK_B_CONSOLIDATION.md), [OPUS_TASK__ME_READINESS__D1__BENCHMARK_HARNESS_AND_OPERATIONAL_LIMITS_NOTE](OPUS_TASK__ME_READINESS__D1__BENCHMARK_HARNESS_AND_OPERATIONAL_LIMITS_NOTE.md), [OPUS_TASK__ME_READINESS__E1__SPEC_CODE_TEST_TRACEABILITY_WORLD_AND_DEMO_PACK](OPUS_TASK__ME_READINESS__E1__SPEC_CODE_TEST_TRACEABILITY_WORLD_AND_DEMO_PACK.md), [OPUS_TASK__ME_READINESS__P1__ENGINEERING_PRESENTATION_PACK_V1](OPUS_TASK__ME_READINESS__P1__ENGINEERING_PRESENTATION_PACK_V1.md), [OPUS_TASK__ME_READINESS__P2__PRESENTATION_OBJECTIONS_AND_REFINEMENT_PASS](OPUS_TASK__ME_READINESS__P2__PRESENTATION_OBJECTIONS_AND_REFINEMENT_PASS.md)
 - Presentation pack (repo):
-    - `docs/presentation/PRESENTATION_NARRATIVE.md`
-    - `docs/presentation/TALK_OUTLINE.md`
-    - `docs/presentation/DEMO_FLOW.md`
-    - `docs/presentation/CLAIMS_AND_NONCLAIMS.md`
-    - `docs/presentation/DELIVERY_RISK_NOTE.md`
+ - `docs/presentation/PRESENTATION_NARRATIVE.md`
+ - `docs/presentation/TALK_OUTLINE.md`
+ - `docs/presentation/DEMO_FLOW.md`
+ - `docs/presentation/CLAIMS_AND_NONCLAIMS.md`
+ - `docs/presentation/DELIVERY_RISK_NOTE.md`
 
 ## Goal
 
@@ -163,16 +163,16 @@ What to do if:
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Which parts of delivery were made safer
-    - Which risks remain
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Which parts of delivery were made safer
+ - Which risks remain
 
 ## Deliverables (report back here, RU)
 
@@ -293,10 +293,10 @@ After real observations exist, open R2 (post-dry-run feedback & adjustments).
 ### Failure handling checklist
 
 - **15 сценариев сбоев** с detection → response → recovery:
-    - F1–F3: сбои демо (команда не работает, шумный вывод, неожиданные результаты)
-    - F4–F6: давление времени (сокращение, опоздание, прерывание)
-    - F7–F12: давление аудитории (новизна, масштаб, GraphRAG, пользователи, применение, неизвестный вопрос)
-    - F13–F15: сбои окружения (проектор, ноутбук, Node.js)
+ - F1–F3: сбои демо (команда не работает, шумный вывод, неожиданные результаты)
+ - F4–F6: давление времени (сокращение, опоздание, прерывание)
+ - F7–F12: давление аудитории (новизна, масштаб, GraphRAG, пользователи, применение, неизвестный вопрос)
+ - F13–F15: сбои окружения (проектор, ноутбук, Node.js)
 - Эскалационные лестницы (уровень 1→2→3) для F7 и F8
 - Quick reference таблица: failure → first action → fallback
 

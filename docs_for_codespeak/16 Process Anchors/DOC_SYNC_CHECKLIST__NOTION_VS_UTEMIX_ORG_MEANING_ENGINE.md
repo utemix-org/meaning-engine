@@ -35,8 +35,8 @@ maturity: working
 
 - Code artifact id policy: если id = `code:file:<path>`, нужна явная политика на переезд путей (alias/redirect/legacy-tag). См. ADR-013-CODE_ARTIFACT_IDENTITY_AND_REDIRECTS.
 - Extractor (worlds/documentation-world/tools/*):
-    - SCAN_DIRS должны указывать на `src/`, `operators/`, `worlds/`.
-    - Классификация тегов engine/render должна быть актуализирована под текущий repo (или render-tag убрать как out-of-scope).
+ - SCAN_DIRS должны указывать на `src/`, `operators/`, `worlds/`.
+ - Классификация тегов engine/render должна быть актуализирована под текущий repo (или render-tag убрать как out-of-scope).
 - specToCodeMap.json: обновить под реальные пути.
 
 ## P1: code links в Notion
@@ -55,12 +55,12 @@ maturity: working
 ## Что сделано (Opus — repo)
 
 - ✅ ADR-013 policy реализован в tooling:
-    - `worlds/documentation-world/tools/rename-map.json` — маппинг `packages/engine/src/*` → `src/*` (49 записей + render out-of-scope)
-    - `extractCodeArtifacts.js` — при отсутствии файла на диске ставит `status: legacy`, `missing: true`
-    - `mergeSeed.js` — не удаляет legacy-узлы, читает rename-map, создаёт `redirect_to` + edge `redirects_to`
-    - `operators/normalizeGraphByRedirects.js` — pre-pass: схлопывает redirect-цепочки, удаляет legacy-узлы, дедуплицирует рёбра
-    - Нормализация подключена в `trace.js` (loadSeed), `runCompare.js`, и все тестовые beforeAll
-    - 4 новых теста на normalizer (no-op, collapse, multi-hop chain, dedup)
+ - `worlds/documentation-world/tools/rename-map.json` — маппинг `packages/engine/src/*` → `src/*` (49 записей + render out-of-scope)
+ - `extractCodeArtifacts.js` — при отсутствии файла на диске ставит `status: legacy`, `missing: true`
+ - `mergeSeed.js` — не удаляет legacy-узлы, читает rename-map, создаёт `redirect_to` + edge `redirects_to`
+ - `operators/normalizeGraphByRedirects.js` — pre-pass: схлопывает redirect-цепочки, удаляет legacy-узлы, дедуплицирует рёбра
+ - Нормализация подключена в `trace.js` (loadSeed), `runCompare.js`, и все тестовые beforeAll
+ - 4 новых теста на normalizer (no-op, collapse, multi-hop chain, dedup)
 - ✅ Commit: `feat(adr-013): implement code artifact identity redirects and graph normalization`
 - ✅ 559 тестов зелёные
 

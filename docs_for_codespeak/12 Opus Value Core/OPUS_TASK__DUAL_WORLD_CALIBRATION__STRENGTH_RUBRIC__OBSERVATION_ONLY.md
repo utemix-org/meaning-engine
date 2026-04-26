@@ -180,6 +180,6 @@ stable observation, not formal ranking logic
 
 - Result Type: observation-only (только Notion)
 - Architectural Status:
-    - Validated: **6-уровневая strength rubric** стабильно применяется ко всем 8 baseline сценариям на двух мирах. Invariant-passing всегда сильнее, code-dependency всегда слабее. Паттерн воспроизводим.
-    - Not validated: пригодность рубрики для автоматического скоринга (не достаточно данных для калибровки весов)
-    - Contamination/notes: exploration ≠ acceptance. Рубрика — интерпретация человеком, не часть kernel.
+ - Validated: **6-уровневая strength rubric** стабильно применяется ко всем 8 baseline сценариям на двух мирах. Invariant-passing всегда сильнее, code-dependency всегда слабее. Паттерн воспроизводим.
+ - Not validated: пригодность рубрики для автоматического скоринга (не достаточно данных для калибровки весов)
+ - Contamination/notes: exploration ≠ acceptance. Рубрика — интерпретация человеком, не часть kernel.

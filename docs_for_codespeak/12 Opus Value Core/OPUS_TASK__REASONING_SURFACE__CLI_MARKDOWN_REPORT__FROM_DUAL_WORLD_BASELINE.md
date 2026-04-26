@@ -95,7 +95,7 @@ source: keeper
 
 ## 4) Acceptance criteria
 
-- `node operators/runReasoningReport.js ...` работает
+- `node operators/runReasoningReport.js...` работает
 - markdown отчёт читаем и стабилен
 - tests green
 - никаких изменений engine/operators algorithms/ontology
@@ -178,6 +178,6 @@ node operators/runReasoningReport.js
 ### E) Notes
 
 - Отчёт работает в двух режимах: `--baseline` (из зафиксированного JSON) и live (вычисляет на лету). Baseline-режим гарантирует стабильность вывода.
-- Экспортирует `generateReport()` для программного использования в тестах.
+- Экспортирует `generateReport` для программного использования в тестах.
 - Strength rubric встроена как текстовые константы, не как scoring алгоритм.
 - Это engineering surface для reasoning, не продуктовый UI. В духе `git log` / `kubectl describe`.

@@ -54,11 +54,11 @@ Code / repo changes
 
 Exit criteria checklist
 
-- [ ]  Positioning memo exists.
-- [ ]  README contains canonical one-line description.
-- [ ]  README contains “what it is / what it is not” list (explicitly: not GraphRAG, not ontology DB, not UI framework, not world engine).
-- [ ]  README states public vs experimental boundary.
-- [ ]  GraphRAGProjection naming decision is recorded (rename vs disclaimer).
+- [ ] Positioning memo exists.
+- [ ] README contains canonical one-line description.
+- [ ] README contains “what it is / what it is not” list (explicitly: not GraphRAG, not ontology DB, not UI framework, not world engine).
+- [ ] README states public vs experimental boundary.
+- [ ] GraphRAGProjection naming decision is recorded (rename vs disclaimer).
 
 ### Block B — Kernel evidence lock
 
@@ -82,10 +82,10 @@ Note
 
 Exit criteria checklist
 
-- [ ]  Invariant matrix exists and points to concrete tests.
-- [ ]  Proof obligations doc exists (what is proven / not proven).
-- [ ]  Exploratory snapshots exist (documented locally; define what will be snapshot-tested).
-- [ ]  Negative behavior examples exist (invalid transitions + formal errors + gap/unsupported examples).
+- [ ] Invariant matrix exists and points to concrete tests.
+- [ ] Proof obligations doc exists (what is proven / not proven).
+- [ ] Exploratory snapshots exist (documented locally; define what will be snapshot-tested).
+- [ ] Negative behavior examples exist (invalid transitions + formal errors + gap/unsupported examples).
 
 ### Block C — Trust surface cleanup (public boundary + purity)
 
@@ -102,18 +102,18 @@ Artifacts (docs)
 Code / repo changes
 
 - move file-level caches / default seed loading into CLI wrappers
-- keep library API pure (`trace(graph, ...)` etc.)
+- keep library API pure (`trace(graph,...)` etc.)
 - neutralize AW-colored public vocabulary in presentation-facing surfaces (rename or map to neutral terms)
 - GraphRAGProjection rename OR explicit disclaimer
 
 Exit criteria checklist
 
-- [ ]  Library APIs are pure (no hidden file-based defaults in library entry points).
-- [ ]  CLI wrappers own file IO / caching.
-- [ ]  Public boundary is documented (what’s stable vs experimental).
-- [ ]  AW-colored public terms are neutralized or clearly positioned as optional UI lensing.
-- [ ]  GraphRAGProjection semantic trap resolved (rename or hard disclaimer).
-- [ ]  Final protected snapshot baselines are added and enforced in CI (ViewModel and/or report artifacts).
+- [ ] Library APIs are pure (no hidden file-based defaults in library entry points).
+- [ ] CLI wrappers own file IO / caching.
+- [ ] Public boundary is documented (what’s stable vs experimental).
+- [ ] AW-colored public terms are neutralized or clearly positioned as optional UI lensing.
+- [ ] GraphRAGProjection semantic trap resolved (rename or hard disclaimer).
+- [ ] Final protected snapshot baselines are added and enforced in CI (ViewModel and/or report artifacts).
 
 ### Block D — Operational envelope
 
@@ -132,10 +132,10 @@ Code / repo changes
 
 Exit criteria checklist
 
-- [ ]  Target demo graph scale stated (nodes/edges order of magnitude).
-- [ ]  Laptop-grade benchmark results documented.
-- [ ]  Recommended caps documented (`maxHops`, path caps / sampling strategy).
-- [ ]  `compare` explosion risk documented with mitigation knobs.
+- [ ] Target demo graph scale stated (nodes/edges order of magnitude).
+- [ ] Laptop-grade benchmark results documented.
+- [ ] Recommended caps documented (`maxHops`, path caps / sampling strategy).
+- [ ] `compare` explosion risk documented with mitigation knobs.
 
 ### Block E — External proof via use-case
 
@@ -161,10 +161,10 @@ Code / repo changes
 
 Exit criteria checklist
 
-- [ ]  Industrial world exists in repo.
-- [ ]  3–5 scenarios exist and are runnable.
-- [ ]  Report pack is reproducible (documented commands + artifacts).
-- [ ]  Case memo explains “why this case” and maps it to operators/invariants.
+- [ ] Industrial world exists in repo.
+- [ ] 3–5 scenarios exist and are runnable.
+- [ ] Report pack is reproducible (documented commands + artifacts).
+- [ ] Case memo explains “why this case” and maps it to operators/invariants.
 
 ## Issue families (for issue-first execution)
 

@@ -38,7 +38,7 @@ Root cause: engine `computeDomainMembership` hardcoded to `edge.type == 'relates
 
 Разрешено:
 
-- изменить `computeDomainMembership()` в engine
+- изменить `computeDomainMembership` в engine
 - ориентировочный файл: `src/core/projection/computeVisibleSubgraph.js`
 - заменить hardcoded условие `edge.type === 'relates'` на allowlist membership edges.
 

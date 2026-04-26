@@ -95,10 +95,10 @@ source: keeper
 
 ## C) Acceptance
 
-- [x]  loader добавлен и работает локально
-- [x]  smoke tests зелёные (7/7)
-- [x]  Documentation world загружается без ручных правок seed файлов
-- [x]  Engine pipeline не менялся
+- [x] loader добавлен и работает локально
+- [x] smoke tests зелёные (7/7)
+- [x] Documentation world загружается без ручных правок seed файлов
+- [x] Engine pipeline не менялся
 
 ---
 
@@ -138,7 +138,7 @@ Resulting graph: **51 nodes, 108 edges**, 6 node types, 9 edge types.
 
 ### Navigation smoke
 
-Full cycle: `select(SYSTEM_OVERVIEW)` → `drillDown(concept:projection)` → `drillUp()` → `reset()` — all transitions OK, projections valid at each step.
+Full cycle: `select(SYSTEM_OVERVIEW)` → `drillDown(concept:projection)` → `drillUp` → `reset` — all transitions OK, projections valid at each step.
 
 ### Verdict
 

@@ -21,9 +21,9 @@ maturity: canon
 ## System (верхний запрет)
 
 - Exploration ≠ Acceptance: Meaning Engine must never confuse exploration with acceptance.
-    - Коротко: Explore freely. Accept explicitly.
-    - Следствие: ни operator, ни retrieval/ingestion, ни LLM не могут "тихо" продвинуть candidate структуру в accepted knowledge.
-    - Acceptance происходит только через governance + эпистемический лог (explicit epistemic action).
+ - Коротко: Explore freely. Accept explicitly.
+ - Следствие: ни operator, ни retrieval/ingestion, ни LLM не могут "тихо" продвинуть candidate структуру в accepted knowledge.
+ - Acceptance происходит только через governance + эпистемический лог (explicit epistemic action).
 
 ## Группы
 

@@ -99,9 +99,9 @@ owner: opus
 1. **SYSTEM_OVERVIEW** — добавить секцию "Protocol Types" с пометкой status=`defined-not-enforced`. Указать, что `protocol.ts` описывает vocabulary, но engine его не валидирует на runtime.
 2. **INVARIANTS** — НЕ добавлять инвариант на protocol enforcement (пока нет runtime проверки).
 3. **DRIFT_LOG** (Notion) — зафиксировать code-ahead:
-    - `FocusTarget` — тип без использования
-    - `AttachmentDescriptor/Mode/SourceType` — интерфейсы без экземпляров
-    - `protocol.ts` экспортируется из `@vip/engine`, но engine не потребляет
+ - `FocusTarget` — тип без использования
+ - `AttachmentDescriptor/Mode/SourceType` — интерфейсы без экземпляров
+ - `protocol.ts` экспортируется из `@vip/engine`, но engine не потребляет
 4. **FOCUS_NODE_PROTOCOL** (docs repo) — уже синхронизирован, описывает те же 14 правил и атрибуты.
 
 ---
@@ -122,13 +122,13 @@ owner: opus
 
 - Те же параметры
 - Результат Phase 2a: **P(G, F, vstablishment) ≠ P(G, F, music-general)**
-    - music-general: 20 nodes, types=[character, collab, domain, hub, workbench]
-    - vstablishment: 15 nodes, types=[character, collab, domain, hub, **vst-layer**, workbench]
-    - 7 unique to vstablishment: vst-layer-1 through vst-layer-7
+ - music-general: 20 nodes, types=[character, collab, domain, hub, workbench]
+ - vstablishment: 15 nodes, types=[character, collab, domain, hub, **vst-layer**, workbench]
+ - 7 unique to vstablishment: vst-layer-1 through vst-layer-7
 
 ### C2. Причина (Phase 1 overlap)
 
-**Формула:** `Workbench.domains = deriveWorkbenchConfigs() → owner character → character.domains`
+**Формула:** `Workbench.domains = deriveWorkbenchConfigs → owner character → character.domains`
 
 Все три workbench Вовы наследовали домены от Character Vova: `[domain-ai, domain-music]`. Поскольку engine фильтрует по domain membership, а domain membership одинакова для всех workbench одного персонажа — проекции были идентичны.
 
@@ -159,8 +159,8 @@ owner: opus
 **Комбинация (1) + (2) + (3):**
 
 1. **Данные мира** (Phase 2a): добавлен `policy` к workbench-узлам в `universe.json` — `visible_types`, `edge_policy`, `depth`
-2. **Derive-логика** (Phase 2a): `deriveWorkbenchConfigs()` в `graphStore.ts` читает `policy` из node data
-3. **Engine semantic filter** (Phase 2c): `computeDomainMembership()` расширена с hardcoded `'relates'` до `MEMBERSHIP_EDGE_TYPES` allowlist
+2. **Derive-логика** (Phase 2a): `deriveWorkbenchConfigs` в `graphStore.ts` читает `policy` из node data
+3. **Engine semantic filter** (Phase 2c): `computeDomainMembership` расширена с hardcoded `'relates'` до `MEMBERSHIP_EDGE_TYPES` allowlist
 
 **Обоснование:** вариант (1) + (2) работает как пост-фильтр в render layer без изменения engine алгоритмов. Вариант (3) — минимальный engine fix (~5 строк), устраняющий root cause bridge-зависимости. Все три изменения уже выполнены и верифицированы.
 
@@ -186,7 +186,7 @@ owner: opus
 | Файл | Изменение | Phase |
 | --- | --- | --- |
 | `world/graph/universe.json` | Добавлен `policy` к 5 workbench-узлам; удалены 23 bridge `relates` edges (149→126) | 2a + 2c |
-| `packages/render/src/stores/viewModelStore.ts` | `WorkbenchPolicy` тип, `applyWorkbenchPolicy()` пост-фильтр, policy-aware depth | 2a |
+| `packages/render/src/stores/viewModelStore.ts` | `WorkbenchPolicy` тип, `applyWorkbenchPolicy` пост-фильтр, policy-aware depth | 2a |
 | `packages/render/src/stores/graphStore.ts` | `deriveWorkbenchConfigs` читает `policy` из node data | 2a |
 | `packages/engine/src/core/projection/computeVisibleSubgraph.js` | `MEMBERSHIP_EDGE_TYPES` allowlist вместо hardcoded `'relates'` | 2c |
 | `packages/render/src/__tests__/groundingPhase2.test.js` | 7 тестов Phase 2a: overlap, differentiation, focus preservation | 2a |

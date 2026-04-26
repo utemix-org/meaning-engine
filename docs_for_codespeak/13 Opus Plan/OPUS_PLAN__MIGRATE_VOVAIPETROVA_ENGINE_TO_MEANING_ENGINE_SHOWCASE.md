@@ -85,23 +85,23 @@ Proposed tree:
 - [ARCHITECTURE.md](http://ARCHITECTURE.md)
 - EPISTEMIC_[LOG.md](http://LOG.md)
 - engine/
-    - kernel/
-    - projection/
-    - navigation/
-    - types/
-    - speculative/ (optional)
+ - kernel/
+ - projection/
+ - navigation/
+ - types/
+ - speculative/ (optional)
 - operators/
-    - inspect/
-    - trace/
-    - compare/
+ - inspect/
+ - trace/
+ - compare/
 - worlds/
-    - documentation-world/
-    - code-artifact-world/
+ - documentation-world/
+ - code-artifact-world/
 - examples/
-    - doc-world-demo/
-    - traceability-demo/
+ - doc-world-demo/
+ - traceability-demo/
 - papers/
-    - [meaning-engine-paper.md](http://meaning-engine-paper.md)
+ - [meaning-engine-paper.md](http://meaning-engine-paper.md)
 - scripts/ (only if referenced)
 - tests/
 
@@ -196,9 +196,9 @@ Use a small number of large, explicit commits:
 
 ## Definition of Done
 
-- [ ]  MIT LICENSE exists
-- [ ]  Repo tree reflects architecture (engine/operators/worlds/examples)
-- [ ]  Tests are green
-- [ ]  Demo runnable in ≤ 2 commands
-- [ ]  No vovaipetrova dependency or narrative leakage
-- [ ]  NPM is not treated as primary channel
+- [ ] MIT LICENSE exists
+- [ ] Repo tree reflects architecture (engine/operators/worlds/examples)
+- [ ] Tests are green
+- [ ] Demo runnable in ≤ 2 commands
+- [ ] No vovaipetrova dependency or narrative leakage
+- [ ] NPM is not treated as primary channel

@@ -69,8 +69,8 @@ You are Composer 2 (implementation agent). Your job is to:
 
 - Keep a deprecated alias export: `GraphRAGProjection` should still resolve.
 - Deprecation marking must exist in:
-    - code (comment/JSDoc on the alias export, where practical), and
-    - docs/ADR (ADR-014 must mention the deprecation + timeline).
+ - code (comment/JSDoc on the alias export, where practical), and
+ - docs/ADR (ADR-014 must mention the deprecation + timeline).
 - The alias must be implemented as a re-export of `GraphIndexProjection` (not duplicated code).
 
 4) Update documentation to remove the trap:
@@ -83,9 +83,9 @@ You are Composer 2 (implementation agent). Your job is to:
 5) Add/adjust tests (minimum)
 
 - Add tests that ensure:
-    - `GraphIndexProjection` is exported from the intended entrypoints
-    - `GraphRAGProjection` alias still exists (for now) and points to the same class/function identity
-    - no behavior change is introduced (basic sanity: existing tests remain green)
+ - `GraphIndexProjection` is exported from the intended entrypoints
+ - `GraphRAGProjection` alias still exists (for now) and points to the same class/function identity
+ - no behavior change is introduced (basic sanity: existing tests remain green)
 
 ### Should do (only if small and clearly in-scope)
 
@@ -110,8 +110,8 @@ You are Composer 2 (implementation agent). Your job is to:
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task (Block C / naming cleanup), unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task (Block C / naming cleanup), unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 
 ## Closeout (Notion)

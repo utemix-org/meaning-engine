@@ -145,8 +145,8 @@ Exploration ≠ Acceptance.
 - fromId: `spec:type-theory-overview`
 - toId: `code_artifact:inference-engine`
 - Compare rival count: **2 rival paths** (3 hops каждый)
-    - Concept-mediated: TTO → Polymorphism → Hindley-Milner → inferenceEngine.js
-    - Code-dependency: TTO → typeChecker.js → typeChecker.test.js → inferenceEngine.js
+ - Concept-mediated: TTO → Polymorphism → Hindley-Milner → inferenceEngine.js
+ - Code-dependency: TTO → typeChecker.js → typeChecker.test.js → inferenceEngine.js
 - archetype note: повторяется **Archetype A** из Pack 3 (concept-mediated vs code-dependency route). На authored мире паттерн идентичен: одно и то же соединение объясняется и через концептуальное наследие, и через import-граф.
 
 **4) GAP + bridge candidates:**
@@ -168,7 +168,7 @@ Exploration ≠ Acceptance.
 
 - Result Type: новый reference world + loader + 19 тестов
 - Architectural Status:
-    - Validated: **переносимость operator stack на authored мир** — Trace/Compare/BridgeCandidates работают без изменений алгоритмов на мире, созданном вручную. Все 4 контрольные ситуации воспроизводятся стабильно.
-    - Validated: **Archetype A (concept-mediated vs code-dependency)** из Pack 3 воспроизводится и на authored мире — это устойчивый паттерн, не зависящий от конкретного графа.
-    - Not validated: масштабируемость на большие authored миры (100+ узлов). Текущий тест — только minimum viable.
-    - Contamination/notes: exploration ≠ acceptance соблюдено. Граф не мутируется. Никаких governance решений.
+ - Validated: **переносимость operator stack на authored мир** — Trace/Compare/BridgeCandidates работают без изменений алгоритмов на мире, созданном вручную. Все 4 контрольные ситуации воспроизводятся стабильно.
+ - Validated: **Archetype A (concept-mediated vs code-dependency)** из Pack 3 воспроизводится и на authored мире — это устойчивый паттерн, не зависящий от конкретного графа.
+ - Not validated: масштабируемость на большие authored миры (100+ узлов). Текущий тест — только minimum viable.
+ - Contamination/notes: exploration ≠ acceptance соблюдено. Граф не мутируется. Никаких governance решений.

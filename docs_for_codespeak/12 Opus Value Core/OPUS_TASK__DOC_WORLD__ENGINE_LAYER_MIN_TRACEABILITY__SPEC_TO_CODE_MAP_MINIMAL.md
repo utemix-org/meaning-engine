@@ -153,6 +153,6 @@ As spec→code traceability improved, doc-world began to reveal architectural zo
 
 - Result Type: **implementation done**
 - Architectural Status:
-    - Validated: engine-layer source files полностью трассируемы через implements → spec/concept/page
-    - Not validated: мультилайн-import парсинг в экстракторе; трассируемость 3 оставшихся изолированных утилит
-    - Contamination/notes: нет контаминации; все связи — чистый `implements` на существующих типах
+ - Validated: engine-layer source files полностью трассируемы через implements → spec/concept/page
+ - Not validated: мультилайн-import парсинг в экстракторе; трассируемость 3 оставшихся изолированных утилит
+ - Contamination/notes: нет контаминации; все связи — чистый `implements` на существующих типах

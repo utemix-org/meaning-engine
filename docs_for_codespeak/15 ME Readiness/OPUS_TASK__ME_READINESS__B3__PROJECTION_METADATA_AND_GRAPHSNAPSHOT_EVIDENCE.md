@@ -62,9 +62,9 @@ Your job is to:
 - close the next most important evidence gaps after B2
 - keep claims narrow and grounded
 - distinguish between:
-    - proving current intended behavior,
-    - documenting a boundary condition,
-    - discovering a real bug that needs a minimal fix
+ - proving current intended behavior,
+ - documenting a boundary condition,
+ - discovering a real bug that needs a minimal fix
 - avoid broad refactors or speculative contract expansion
 
 ## Scope
@@ -154,16 +154,16 @@ If and only if new tests materially change evidence status:
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Which remaining B1/B2 evidence gaps were addressed
-    - Whether any bugs were found
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Which remaining B1/B2 evidence gaps were addressed
+ - Whether any bugs were found
 
 ## Deliverables (report back here, RU)
 
@@ -250,17 +250,17 @@ Block B stable core is nearly closed. Remaining stable-surface gap: `highlightMo
 **Новые файлы:**
 
 - `src/core/projection/__tests__/projectionMetadata.test.js` — 32 теста
-    - INV-1 (схемное соответствие): 15 тестов — структура ViewModel, VisualNode/VisualEdge поля и типы, panels/navigation/meta/system, satisfiedInvariants, transitions
-    - INV-2 (стабильность идентификаторов): 9 тестов — все ID узлов сохраняются, edge source/target ссылаются на валидные ID, breadcrumbs/path совпадают
-    - INV-4 (иммутабельность графа): 7 тестов — кол-во/свойства узлов/рёбер не меняются, в т.ч. после множественных проекций и на пути ошибки
+ - INV-1 (схемное соответствие): 15 тестов — структура ViewModel, VisualNode/VisualEdge поля и типы, panels/navigation/meta/system, satisfiedInvariants, transitions
+ - INV-2 (стабильность идентификаторов): 9 тестов — все ID узлов сохраняются, edge source/target ссылаются на валидные ID, breadcrumbs/path совпадают
+ - INV-4 (иммутабельность графа): 7 тестов — кол-во/свойства узлов/рёбер не меняются, в т.ч. после множественных проекций и на пути ошибки
 - `src/core/__tests__/GraphSnapshot.test.js` — 62 теста
-    - Создание: 12 тестов (nodes/edges, id, timestamp, metadata, пустой граф)
-    - Иммутабельность: 13 тестов (Object.freeze на snapshot/nodes/edges/metadata, попытки мутации бросают исключения)
-    - Аксессоры: 8 тестов (getNodeById, getEdgeById, getNodeIds, getEdgeIds, hasNode, hasEdge)
-    - Статистика: 4 теста
-    - Сериализация: 4 теста (toJSON/fromJSON round-trip)
-    - diffSnapshots: 6 тестов (added/removed/modified nodes/edges)
-    - SnapshotHistory: 15 тестов (add, getById, duplicate rejection, diff, diffRange, evolution, stats, clear, serialization)
+ - Создание: 12 тестов (nodes/edges, id, timestamp, metadata, пустой граф)
+ - Иммутабельность: 13 тестов (Object.freeze на snapshot/nodes/edges/metadata, попытки мутации бросают исключения)
+ - Аксессоры: 8 тестов (getNodeById, getEdgeById, getNodeIds, getEdgeIds, hasNode, hasEdge)
+ - Статистика: 4 теста
+ - Сериализация: 4 теста (toJSON/fromJSON round-trip)
+ - diffSnapshots: 6 тестов (added/removed/modified nodes/edges)
+ - SnapshotHistory: 15 тестов (add, getById, duplicate rejection, diff, diffRange, evolution, stats, clear, serialization)
 
 **Изменённые файлы:**
 
@@ -292,5 +292,5 @@ Block B stable core is nearly closed. Remaining stable-surface gap: `highlightMo
 
 ### Открытые вопросы
 
-- `getEdges()` в GraphModel возвращает внутренний массив напрямую (не копию), в отличие от `getNodes()` который делает `[...this.nodesById.values()]`. Это не баг (pipeline не мутирует), но асимметрия заслуживает внимания.
+- `getEdges` в GraphModel возвращает внутренний массив напрямую (не копию), в отличие от `getNodes` который делает `[...this.nodesById.values]`. Это не баг (pipeline не мутирует), но асимметрия заслуживает внимания.
 - INV-1 тестирует структуру ViewModel на основе текущего поведения buildViewModel. Формальной JSON Schema нет — тест является de facto схемой.

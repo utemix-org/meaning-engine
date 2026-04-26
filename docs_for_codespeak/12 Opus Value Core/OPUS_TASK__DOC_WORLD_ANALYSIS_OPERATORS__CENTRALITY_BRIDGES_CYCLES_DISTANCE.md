@@ -92,8 +92,8 @@ Notion anchors:
 ### D2. Weak bridges / острова
 
 - Поскольку граф связный, ищем **слабые мосты**:
-    - edge betweenness (если есть)
-    - или эвристика: edges, соединяющие два кластера типов (например spec↔code_artifact) с редкой связностью.
+ - edge betweenness (если есть)
+ - или эвристика: edges, соединяющие два кластера типов (например spec↔code_artifact) с редкой связностью.
 - Output: top-10 bridge edges + какие подграфы они соединяют.
 
 ### D3. Cycles
@@ -104,9 +104,9 @@ Notion anchors:
 ### D4. Distance anomalies / missing concept candidates
 
 - Посчитать shortest paths между:
-    - `spec` ↔ `code_artifact`
-    - `invariant` ↔ `evidence`
-    - `decision` ↔ `spec`
+ - `spec` ↔ `code_artifact`
+ - `invariant` ↔ `evidence`
+ - `decision` ↔ `spec`
 - Если путь длиннее порога (например > 4), записать anomaly.
 - Missing concept candidate: если есть много путей между двумя кластерами через разные "случайные" nodes, предложить candidate bridge concept (как *suggestion*, не канон).
 - Output: 10 anomalies + 3–5 missing concept candidates.
@@ -133,10 +133,10 @@ Notion anchors:
 
 ## F) Acceptance
 
-- [x]  В repo есть `world/documentation-world/analysis/analysis.json` и `analysis.md`
-- [x]  Скрипт: `node world/documentation-world/analysis/runAnalysis.js`
-- [x]  Тесты анализа зелёные (4/4)
-- [x]  Никаких изменений engine
+- [x] В repo есть `world/documentation-world/analysis/analysis.json` и `analysis.md`
+- [x] Скрипт: `node world/documentation-world/analysis/runAnalysis.js`
+- [x] Тесты анализа зелёные (4/4)
+- [x] Никаких изменений engine
 
 ---
 

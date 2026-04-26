@@ -47,7 +47,7 @@ v0.1 должен показывать не только "our demo", но и "yo
 
 Команда:
 
-- `node operators/runWorldSmokeWorkflow.js ./path/to/world`
+- `node operators/runWorldSmokeWorkflow.js./path/to/world`
 
 Вход:
 
@@ -84,7 +84,7 @@ v0.1 должен показывать не только "our demo", но и "yo
 - мир загружается
 - runner работает на tiny-world
 - runner не мутирует граф
-- supports() деградация честная (если compare/bridge не поддержаны)
+- supports деградация честная (если compare/bridge не поддержаны)
 
 ## 5) Acceptance criteria
 
@@ -134,5 +134,5 @@ node operators/runWorldSmokeWorkflow.js worlds/authored-mini-world --from spec:t
 
 ### E) Notes
 
-- supportsTrace показывает «imited» для tiny-world (нет code_artifact), но trace() всё равно выполняется — это честная деградация, а не блокировка
+- supportsTrace показывает «imited» для tiny-world (нет code_artifact), но trace всё равно выполняется — это честная деградация, а не блокировка
 - Runner валидирует seed при загрузке: проверяет required fields (id/type/title у узлов, source/target/type у рёбер) и referential integrity

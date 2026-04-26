@@ -97,9 +97,9 @@ All results remain compute artifacts. No result is promoted to accepted knowledg
 ### D3. Tests
 
 - Минимум 3 теста:
-    - сценарии воспроизводимы/детерминированы
-    - outputs совпадают со снапшотом/fixtures
-    - Exploration ≠ Acceptance (нет канонизации)
+ - сценарии воспроизводимы/детерминированы
+ - outputs совпадают со снапшотом/fixtures
+ - Exploration ≠ Acceptance (нет канонизации)
 
 ## 5) Acceptance criteria
 
@@ -142,8 +142,8 @@ Exploration ≠ Acceptance.
 - toId: `code:file:src/core/GraphModel.js`
 - operator(s): **Trace** + **Compare**
 - observed structure:
-    - Trace: **no_path** — нет направленного пути от engine adapter к core model
-    - Compare: **2 rival paths** через 4 hops (разветвление через index.js vs highlightModel.js)
+ - Trace: **no_path** — нет направленного пути от engine adapter к core model
+ - Compare: **2 rival paths** через 4 hops (разветвление через index.js vs highlightModel.js)
 - interpretation: Engine adapter не имеет прямой зависимости от core model — чистая архитектурная граница. Связь идёт через barrel/re-export модули. Compare подтверждает: два альтернативных пути опосредованы разными посредниками.
 
 **3) Q3: Есть ли rival explanatory paths между слоями?**
@@ -152,9 +152,9 @@ Exploration ≠ Acceptance.
 - toId: `code:file:src/core/knowledge/evaluate.js`
 - operator(s): **Compare**
 - observed structure: **13 rival paths**, 3 hops. Разнообразие:
-    - concept-mediated пути (через GraphModel, L0_ONE_SCREEN_CORE)
-    - code-dependency пути (через test-файлы)
-    - invariant-passing путь (через Canonical-Only Graph Build)
+ - concept-mediated пути (через GraphModel, L0_ONE_SCREEN_CORE)
+ - code-dependency пути (через test-файлы)
+ - invariant-passing путь (через Canonical-Only Graph Build)
 - interpretation: 13 конкурирующих путей соединяют projection spec с knowledge code. Это ожидаемое cross-layer coupling: спецификация проекции полагается на knowledge substrate через множество маршрутов. Один путь проходит через инвариант — формально сильнее остальных.
 
 *All results remain compute artifacts. No result is promoted to accepted knowledge.*
@@ -178,6 +178,6 @@ Exploration ≠ Acceptance.
 
 - Result Type: **implementation done**
 - Architectural Status:
-    - Validated: 3 сценария чтения архитектуры воспроизводимы и детерминированы; exploration ≠ acceptance инвариант соблюдён
-    - Not validated: масштабируемость подхода на графы большего размера; автоматическая генерация вопросов
-    - Contamination/notes: нет контаминации; seed/engine/ontology не тронуты
+ - Validated: 3 сценария чтения архитектуры воспроизводимы и детерминированы; exploration ≠ acceptance инвариант соблюдён
+ - Not validated: масштабируемость подхода на графы большего размера; автоматическая генерация вопросов
+ - Contamination/notes: нет контаминации; seed/engine/ontology не тронуты

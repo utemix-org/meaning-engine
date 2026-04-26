@@ -73,9 +73,9 @@ ME — runtime, который понимает:
 
 - Не `AI that thinks`, а `tools that help humans think around AI`.
 - Формула разделения ролей:
-    - AI produces content
-    - Meaning Engine produces structure
-    - Human produces understanding
+ - AI produces content
+ - Meaning Engine produces structure
+ - Human produces understanding
 
 Граница со смежными слоями:
 

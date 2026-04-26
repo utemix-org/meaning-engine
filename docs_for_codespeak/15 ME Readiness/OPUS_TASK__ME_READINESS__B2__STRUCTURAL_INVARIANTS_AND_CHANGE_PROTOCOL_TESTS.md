@@ -65,9 +65,9 @@ Your job is to:
 - close the most critical evidence gaps identified in B1
 - prefer narrow, reviewable tests over broad refactors
 - distinguish clearly between:
-    - adding tests for intended behavior
-    - discovering a real bug
-    - changing implementation only if necessary and minimal
+ - adding tests for intended behavior
+ - discovering a real bug
+ - changing implementation only if necessary and minimal
 - keep claim discipline: do not over-upgrade statuses beyond what tests actually prove
 
 ## Scope
@@ -142,16 +142,16 @@ If and only if new tests materially change evidence status:
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Which evidence gaps from B1 were addressed
-    - Whether any bugs were found
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Which evidence gaps from B1 were addressed
+ - Whether any bugs were found
 
 ## Deliverables (report back here, RU)
 
@@ -268,7 +268,7 @@ Next step: close the next remaining Block B evidence cluster (GraphSnapshot immu
 
 ### Найденные баги (4)
 
-1. **Static method on instance**: `this.schemaValidator.validateNode()` — TypeError. Исправлено: `SchemaValidator.validateNode()`
+1. **Static method on instance**: `this.schemaValidator.validateNode` — TypeError. Исправлено: `SchemaValidator.validateNode`
 2. **Count vs boolean**: `!invariantResult.passed` проверял число, не boolean. Исправлено: `!invariantResult.valid`
 3. **Number iterated as array**: `for (of invariantResult.failed)` — failed это число. Исправлено: `.violations`
 4. **Wrong property**: `failure.error` → `failure.message`

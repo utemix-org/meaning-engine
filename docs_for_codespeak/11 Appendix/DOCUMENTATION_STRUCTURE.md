@@ -34,40 +34,40 @@
 docs/
 │
 ├─ overview/
-│   └─ SYSTEM_OVERVIEW.md
+│ └─ SYSTEM_OVERVIEW.md
 │
 ├─ architecture/
-│   ├─ ARCHITECTURE.md
-│   ├─ FORMAL_CORE.md
-│   └─ INVARIANTS.md
+│ ├─ ARCHITECTURE.md
+│ ├─ FORMAL_CORE.md
+│ └─ INVARIANTS.md
 │
 ├─ specs/
-│   ├─ PROJECTION_SPEC.md
-│   ├─ NAVIGATION_SPEC.md
-│   ├─ KNOWLEDGE_LOG_SPEC.md
-│   └─ REVIEW_WORKFLOW_SPEC.md
+│ ├─ PROJECTION_SPEC.md
+│ ├─ NAVIGATION_SPEC.md
+│ ├─ KNOWLEDGE_LOG_SPEC.md
+│ └─ REVIEW_WORKFLOW_SPEC.md
 │
 ├─ guides/
-│   ├─ CONCEPTS.md
-│   ├─ HOW_IT_WORKS.md
-│   └─ ENGINE_DEVELOPER_GUIDE.md
+│ ├─ CONCEPTS.md
+│ ├─ HOW_IT_WORKS.md
+│ └─ ENGINE_DEVELOPER_GUIDE.md
 │
 ├─ theory/
-│   ├─ FOUNDATIONS_OF_THE_SYSTEM.md
-│   ├─ HISTORY_OF_IDEAS.md
-│   ├─ KNOWLEDGE_IDE.md
-│   ├─ ONTOLOGICAL_COMPILER.md
-│   ├─ KNOWLEDGE_SPACE.md
-│   └─ COMPARISON_WITH_OTHER_SYSTEMS.md
+│ ├─ FOUNDATIONS_OF_THE_SYSTEM.md
+│ ├─ HISTORY_OF_IDEAS.md
+│ ├─ KNOWLEDGE_IDE.md
+│ ├─ ONTOLOGICAL_COMPILER.md
+│ ├─ KNOWLEDGE_SPACE.md
+│ └─ COMPARISON_WITH_OTHER_SYSTEMS.md
 │
 ├─ reference/
-│   ├─ REFERENCE_WORLD.md
-│   └─ TEST_WORLD.md
+│ ├─ REFERENCE_WORLD.md
+│ └─ TEST_WORLD.md
 │
 └─ development/
-    ├─ HISTORY.md
-    ├─ PHASES.md
-    └─ DECISIONS.md
+ ├─ HISTORY.md
+ ├─ PHASES.md
+ └─ DECISIONS.md
 ```
 
 ---
@@ -221,25 +221,25 @@ propose
 ## Слои системы
 
 1. **Knowledge Layer**
-    
-    Утверждения и эпистемический журнал
-    
+ 
+ Утверждения и эпистемический журнал
+ 
 2. **Graph Layer**
-    
-    GraphModel, построенный из канонических утверждений
-    
+ 
+ GraphModel, построенный из канонических утверждений
+ 
 3. **Engine Layer**
-    
-    Проекция и навигация
-    
+ 
+ Проекция и навигация
+ 
 4. **World Layer**
-    
-    Домены, рабочие пространства и персонажи
-    
+ 
+ Домены, рабочие пространства и персонажи
+ 
 5. **Renderer Layer**
-    
-    Интерфейс пользователя
-    
+ 
+ Интерфейс пользователя
+ 
 
 ---
 

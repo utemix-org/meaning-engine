@@ -32,15 +32,15 @@ source: keeper
 ### Inputs
 
 - Текущий doc-world:
-    - `world/documentation-world/seed.nodes.json`
-    - `world/documentation-world/seed.edges.json`
-    - loader + tests + operators + analysis
+ - `world/documentation-world/seed.nodes.json`
+ - `world/documentation-world/seed.edges.json`
+ - loader + tests + operators + analysis
 - Operators:
-    - `trace()`
-    - `supports.js` (supportsTrace/findRivalTraces/rankBridgeCandidates)
+ - `trace`
+ - `supports.js` (supportsTrace/findRivalTraces/rankBridgeCandidates)
 - Anchors:
-    - [OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK](OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK.md)
-    - [EPISTEMIC_TYPED_GRAPH_DEFINITION](EPISTEMIC_TYPED_GRAPH_DEFINITION%20276627a0c4154862be34b1041eb4b155.md)
+ - [OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK](OPUS_TASK__OPERATOR_SUPPORTS_AND_RIVAL_PATHS_CHECK.md)
+ - EPISTEMIC_TYPED_GRAPH_DEFINITION
 
 ---
 
@@ -89,7 +89,7 @@ source: keeper
 
 ## D) Update ranking heuristics (если нужно)
 
-Если текущий `rankBridgeCandidates()` жёстко маппит type-pair → single concept, обновить mapping так, чтобы он мог возвращать 2–3 кандидата для `spec↔evidence`.
+Если текущий `rankBridgeCandidates` жёстко маппит type-pair → single concept, обновить mapping так, чтобы он мог возвращать 2–3 кандидата для `spec↔evidence`.
 
 Порог успеха: для GAP `spec→evidence` вернуть `CandidateBridge[]` длиной >= 2.
 
@@ -106,7 +106,7 @@ source: keeper
 2) Зафиксировать результаты:
 
 - `rankBridgeCandidates(spec→evidence)` возвращает >=2 кандидата
-- (опционально) `findRivalTraces()` показывает 2+ shortest paths *или* остаётся 1 (это ок; основной таргет — rival bridges)
+- (опционально) `findRivalTraces` показывает 2+ shortest paths *или* остаётся 1 (это ок; основной таргет — rival bridges)
 
 ---
 
@@ -115,17 +115,17 @@ source: keeper
 Обновить/добавить тесты:
 
 - в `documentationWorldOperatorSupports.test.js` добавить кейс:
-    - для GAP `spec→evidence` теперь кандидатов >=2
+ - для GAP `spec→evidence` теперь кандидатов >=2
 
 ---
 
 ## G) Acceptance
 
-- [x]  Seed изменён минимально: +3 concept nodes, +8 edges.
-- [x]  Все тесты зелёные (599 passed, 15 pre-existing legacy failures).
-- [x]  `rankBridgeCandidates(spec→evidence)` возвращает 3 кандидата.
-- [x]  Изменения документированы (see Report below).
-- [x]  Engine unchanged.
+- [x] Seed изменён минимально: +3 concept nodes, +8 edges.
+- [x] Все тесты зелёные (599 passed, 15 pre-existing legacy failures).
+- [x] `rankBridgeCandidates(spec→evidence)` возвращает 3 кандидата.
+- [x] Изменения документированы (see Report below).
+- [x] Engine unchanged.
 
 ---
 
@@ -180,11 +180,11 @@ source: keeper
 
 Контролируемое усложнение показало:
 
-1. **Сигнал неоднозначности измерим.** `findRivalTraces()` детектирует 3 rival paths на одном gap-паттерне.
-2. **Кандидаты ранжируемы.** `rankBridgeCandidates()` возвращает 3 кандидата с равным score — именно это точка, где Compare может помочь пользователю выбрать.
+1. **Сигнал неоднозначности измерим.** `findRivalTraces` детектирует 3 rival paths на одном gap-паттерне.
+2. **Кандидаты ранжируемы.** `rankBridgeCandidates` возвращает 3 кандидата с равным score — именно это точка, где Compare может помочь пользователю выбрать.
 3. **Неоднозначность возникает естественно** при минимальном росте графа (+3 узла, +8 рёбер). Это подтверждает, что в реальных графах Compare будет оправдан.
 
-> **Compare становится оправданным, когда `rankBridgeCandidates()` возвращает ≥ 2 кандидата с равным score, или `findRivalTraces()` детектирует ≥ 2 shortest paths.** Это точный критерий входа в Compare.
+> **Compare становится оправданным, когда `rankBridgeCandidates` возвращает ≥ 2 кандидата с равным score, или `findRivalTraces` детектирует ≥ 2 shortest paths.** Это точный критерий входа в Compare.
 > 
 
 ### Files changed

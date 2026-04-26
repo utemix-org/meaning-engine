@@ -75,12 +75,12 @@ Create or update (prefer standard OSS conventions):
 
 - `CODE_OF_CONDUCT.md` (use a standard template; keep it short)
 - `CONTRIBUTING.md` with:
-    - how to open an issue
-    - how to open a PR
-    - required checks before merge (point to `docs/PROCESS_CI_AND_MERGE_GATES.md`)
-    - repo conventions (tests, docs language EN)
-    - prefer small/narrow PRs with explicit goal/non-goals
-    - what not to do (no scope creep)
+ - how to open an issue
+ - how to open a PR
+ - required checks before merge (point to `docs/PROCESS_CI_AND_MERGE_GATES.md`)
+ - repo conventions (tests, docs language EN)
+ - prefer small/narrow PRs with explicit goal/non-goals
+ - what not to do (no scope creep)
 
 2) Add issue/PR templates (lightweight)
 
@@ -88,20 +88,20 @@ Create or update (prefer standard OSS conventions):
 - `.github/ISSUE_TEMPLATE/feature_request.md` (or “proposal”) with strong non-claim wording
 - `.github/ISSUE_TEMPLATE/presentation_feedback.md` (or `dry_run_feedback.md`) for structured presentation/dry-run feedback
 - `.github/pull_request_template.md` that asks for:
-    - goal / non-goals
-    - tests run
-    - claim impact (does this change public promise?)
-    - link to issue
+ - goal / non-goals
+ - tests run
+ - claim impact (does this change public promise?)
+ - link to issue
 
 3) Create a structured feedback channel for “external dry run”
 
 Create a single entrypoint that you can share publicly, e.g.:
 
 - `docs/FEEDBACK.md` with:
-    - what kind of feedback we want (confusion points, objections, gaps)
-    - how to submit it (GitHub issue labels + a template)
-    - a short questionnaire (5–10 prompts)
-    - explicit note: we prefer concrete observations over opinions
+ - what kind of feedback we want (confusion points, objections, gaps)
+ - how to submit it (GitHub issue labels + a template)
+ - a short questionnaire (5–10 prompts)
+ - explicit note: we prefer concrete observations over opinions
 
 4) Add minimal README pointer
 

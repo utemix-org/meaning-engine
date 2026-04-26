@@ -36,18 +36,18 @@ source: architect-gated
 ### Inputs
 
 - Documentation World runtime:
-    - `world/documentation-world/loader.js`
-    - `world/documentation-world/seed.*.json`
-    - operators:
-        - Inspect (implicit via projection)
-        - Trace (`world/documentation-world/operators/trace.js`)
+ - `world/documentation-world/loader.js`
+ - `world/documentation-world/seed.*.json`
+ - operators:
+ - Inspect (implicit via projection)
+ - Trace (`world/documentation-world/operators/trace.js`)
 - Analysis artifacts:
-    - `world/documentation-world/analysis/analysis.json`
+ - `world/documentation-world/analysis/analysis.json`
 - Anchors:
-    - [CARD__OPERATOR_VS_EPISTEMIC_ACTION](CARD__OPERATOR_VS_EPISTEMIC_ACTION%2011a243b3e50d40418b69208a318a3b5b.md)
-    - [EPISTEMIC_TYPED_GRAPH_DEFINITION](EPISTEMIC_TYPED_GRAPH_DEFINITION%20276627a0c4154862be34b1041eb4b155.md)
-    - [OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL](OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL%20bb73275edc5b450aa26dda862c1d8940.md)
-    - [OPUS_TASK__DOC_WORLD_OPERATOR_02__TRACE](OPUS_TASK__DOC_WORLD_OPERATOR_02__TRACE.md)
+ - CARD__OPERATOR_VS_EPISTEMIC_ACTION
+ - EPISTEMIC_TYPED_GRAPH_DEFINITION
+ - OPERATORS_CONTRACTS_AND_CORE_MENTAL_MODEL
+ - [OPUS_TASK__DOC_WORLD_OPERATOR_02__TRACE](OPUS_TASK__DOC_WORLD_OPERATOR_02__TRACE.md)
 
 ---
 
@@ -62,7 +62,7 @@ source: architect-gated
 
 ## B) Deliverables
 
-### B1. supports() contracts
+### B1. supports contracts
 
 Добавить модуль, например:
 
@@ -130,12 +130,12 @@ source: architect-gated
 
 ## D) Acceptance
 
-- [x]  Есть supports() для Inspect/Trace
-- [x]  Есть rival-traces checker + tests
-- [x]  Есть rival-bridge-candidates checker + tests
-- [x]  На doc-world: supportsTrace = ok, rival paths отсутствуют (unique shortest paths)
-- [x]  Engine unchanged
-- [x]  Tests green (598 passed, 8 new)
+- [x] Есть supports для Inspect/Trace
+- [x] Есть rival-traces checker + tests
+- [x] Есть rival-bridge-candidates checker + tests
+- [x] На doc-world: supportsTrace = ok, rival paths отсутствуют (unique shortest paths)
+- [x] Engine unchanged
+- [x] Tests green (598 passed, 8 new)
 
 ---
 
@@ -154,7 +154,7 @@ source: architect-gated
 | `world/documentation-world/operators/supports.js` | **Created** — supportsInspect, supportsTrace, findRivalTraces, rankBridgeCandidates |
 | `packages/render/src/__tests__/documentationWorldOperatorSupports.test.js` | **Created** — 8 tests |
 
-### supports() results
+### supports results
 
 **Documentation World (51 nodes, 108 edges):**
 
@@ -164,18 +164,18 @@ source: architect-gated
 **Synthetic non-epistemic graph (3 nodes: note, note, tag):**
 
 - `supportsTrace(toyGraph)` → `{ ok: false }`, missing:
-    - `nodeCategory 'epistemic-source': need one of [spec, claim, invariant], found none`
-    - `nodeCategory 'evidence': need one of [evidence], found none`
-    - `nodeCategory 'artifact': need one of [artifact, code_artifact], found none`
-    - `edgeTypes: need at least one of [proved_by, implements, constrains, depends_on], found [links_to, tagged]`
+ - `nodeCategory 'epistemic-source': need one of [spec, claim, invariant], found none`
+ - `nodeCategory 'evidence': need one of [evidence], found none`
+ - `nodeCategory 'artifact': need one of [artifact, code_artifact], found none`
+ - `edgeTypes: need at least one of [proved_by, implements, constrains, depends_on], found [links_to, tagged]`
 
 ### Rival paths examples
 
 **Synthetic graph (start → mid-a/mid-b → end):**
 
 - `findRivalTraces(synth, 'start', 'end', { directed: true })` → **2 paths, isRival=true**
-    - Path 1: Start → Mid A → End (via `defines`, `refines`)
-    - Path 2: Start → Mid B → End (via `defines`, `refines`)
+ - Path 1: Start → Mid A → End (via `defines`, `refines`)
+ - Path 2: Start → Mid B → End (via `defines`, `refines`)
 
 **Documentation World:**
 
@@ -203,7 +203,7 @@ source: architect-gated
 
 1. **Rival paths = 0** на doc-world. Все shortest paths уникальны. Нет альтернативных интерпретаций, которые Compare мог бы сопоставить.
 2. **Rival bridge candidates = 0** для каждого GAP-типа. Mapping v0 однозначен: один candidate на один gap pattern.
-3. **supports() подтверждает**, что Inspect и Trace полностью применимы к doc-world, но их результаты пока не содержат ambiguity, которую Compare разрешал бы.
+3. **supports подтверждает**, что Inspect и Trace полностью применимы к doc-world, но их результаты пока не содержат ambiguity, которую Compare разрешал бы.
 
 **Когда Compare станет оправданным:**
 

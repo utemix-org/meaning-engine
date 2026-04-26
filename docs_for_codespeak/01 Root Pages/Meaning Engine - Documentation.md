@@ -9,21 +9,21 @@
 
 ## Разделы
 
-[overview](overview%20eabe7dfaf19944d98ec512ac6f4d1ed4.md)
+overview
 
 [architecture](./architecture.md)
 
-[specs](specs%204e6f9c420cb848eeaee3bcc49c34bb51.md)
+specs
 
-[guides](guides%20fa2f7a9e097646aa8cb3edcc6420143b.md)
+guides
 
-[theory](theory%20cb82eaa7ada14b03a083521007fe06e1.md)
+theory
 
-[reference](reference%20d2a763b8098f46ee8fea2efe811dc02d.md)
+reference
 
 [development](./development.md)
 
-[adr](adr%2080a35e685f784ced920b55b1ce051a11.md)
+adr
 
 [definitions](./definitions.md)
 
@@ -31,7 +31,7 @@
 
 [atomic](./atomic.md)
 
-[appendix](appendix%209f7e5621ba6f4f2d942d0f281ccd597c.md)
+appendix
 
 ---
 
@@ -47,9 +47,9 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 source: <origin>
 links:
-  - <url-or-id>
+ - <url-or-id>
 tags:
-  - <tag>
+ - <tag>
 ```
 
 ## Именование
@@ -105,6 +105,6 @@ updated: YYYY-MM-DD
 ## Последствия
 ```
 
-[inbox](inbox%20b87fb09deb5e4857bd1ff61f37d62507.md)
+inbox
 
 [INDEX](./INDEX.md)

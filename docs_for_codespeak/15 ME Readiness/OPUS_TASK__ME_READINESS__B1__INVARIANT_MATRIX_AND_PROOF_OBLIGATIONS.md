@@ -69,9 +69,9 @@ Your job is to:
 - extract guarantees already supported by the current repository
 - make claims only when grounded in code/tests/docs
 - distinguish clearly between:
-    - proven by tests
-    - documented contract
-    - intended but not yet fully evidenced
+ - proven by tests
+ - documented contract
+ - intended but not yet fully evidenced
 - avoid inflated formalism: this is engineering evidence, not fake theorem proving
 
 ## Scope
@@ -88,9 +88,9 @@ Minimum structure per invariant:
 - evidence type
 - where evidenced (tests/docs/code pointers)
 - status:
-    - evidenced
-    - partially evidenced
-    - intended / not yet evidenced
+ - evidenced
+ - partially evidenced
+ - intended / not yet evidenced
 
 Minimum coverage expected (only if grounded):
 
@@ -160,15 +160,15 @@ Evidence gaps (expected output):
 ## Observability / process
 
 - Issue-first:
-    - Create a GitHub issue for this task unless one already exists.
-    - Open a PR that links the issue and closes it.
+ - Create a GitHub issue for this task unless one already exists.
+ - Open a PR that links the issue and closes it.
 - Commit messages: EN.
 - PR description must include:
-    - Goal
-    - Non-goals
-    - Acceptance checklist
-    - Files changed
-    - Evidence basis used
+ - Goal
+ - Non-goals
+ - Acceptance checklist
+ - Files changed
+ - Evidence basis used
 
 ## Deliverables (report back here, RU)
 
